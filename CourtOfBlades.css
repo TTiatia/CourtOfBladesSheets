@@ -1,9 +1,35 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&display=swap');
+﻿/*@import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,700;1,500;1,700&display=swap');
 
 .charsheet {
-    font-family: 'Bona Nova';
+    font-family: 'EB Garamond', serif;
     font-size: 16px;
+    font-weight: 500;
     color: black;
+    background: white;
+    z-index: -13;
+}
+
+.charsheet input[type=text] {
+    border-color: none;
+    border-style: none;
+    border-width: 0;
+    border-bottom: solid 1px black;
+    padding-top: 8px;
+    background-color: none;
+    border-image: none;
+    display: block;
+    width: 95%;
+    text-align: left;
+    vertical-align: bottom;
+    min-height: 2em;
+    font-size: 20px;
+    font-family: 'EB Garamond', serif;
+}
+
+.min-1 {
+    min-height: 1.5em;
+    min-width: 1.5em;
 }
 
 .charsheet ul {
@@ -12,6 +38,22 @@
 
 .charsheet p {
     margin: 2px;
+}
+
+.bg-light {
+    background-color: lightgray;
+    z-index: 2;
+}
+
+.bg-med {
+    background-color: #999999;
+    z-index: 0;
+}
+
+.bg-black {
+    background-color: black;
+    color: white;
+    z-index: 1;
 }
 
 .charsheet textarea {
@@ -23,6 +65,19 @@
 .charsheet span.label {
     vertical-align: middle;
     padding-left: 2px;
+}
+
+.logo {
+    padding-top: 2em;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 72px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.minw-1 {
+    min-width: 1em;
 }
 
 .panel {
@@ -37,14 +92,14 @@
     color: lightgray;
     height: 1.5em;
     margin: 3px 0;
-    font-weight: bold;
+    font-weight: 700;
     vertical-align: middle;
     padding: 2px;
 }
 
 .heading {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .gcheckboxlist {
@@ -55,40 +110,29 @@
 
 .titlebox-title {
     font-size: 48px;
-    font-weight: bold;
+    font-weight: 700;
     font-style: italic;
     text-align: center;
     padding: 8px 2px
 }
 
-.titlebox-subtitle {
+.emphasis {
     font-weight: bold;
+    font-size: 20px;
+}
+
+.titlebox-subtitle {
+    font-weight: 700;
     font-style: italic;
     text-align: center;
 }
 
-.text-left {
-    text-align: left;
+.b {
+    font-weight: 700;
 }
 
-.text-center {
-    text-align: center;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.vert-top {
-    vertical-align: top;
-}
-
-.vert-middle {
-    vertical-align: middle;
-}
-
-.vert-bottom {
-    vertical-align: bottom;
+.i {
+    font-style: italic;
 }
 
 .maxh-1 {
@@ -105,6 +149,10 @@
 
 .maxh-4 {
     height: 5em;
+}
+
+.maxh-5 {
+    height: 6.5em;
 }
 
 .border-left {
@@ -134,10 +182,6 @@
 .stat-grid {
     grid-column-gap: 1px;
     grid-row-gap:4px;
-}
-
-.marg-right {
-    margin-right:1em;
 }
 
 /* For debugging */
