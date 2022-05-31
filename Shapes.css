@@ -1,0 +1,156 @@
+input[type=checkbox],
+input[type=radio] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+input.shape-dot-red:before {
+    content: "";
+    border-radius: 50%;
+    display: inline-block;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    vertical-align: middle;
+    width: 6px;
+    height: 6px;
+    left: -8px;
+    top: -8px;
+    position: relative;
+    z-index: -1;
+}
+
+input.shape-dot-red {
+    border-radius: 50%;
+    display: inline-block;
+    border-style: solid;
+    border-color: lightgray;
+    border-width: 6px;
+    vertical-align: middle;
+    width: 11px;
+    height: 11px;
+}
+
+input.shape-dot-red:checked {
+    border-color: red;
+}
+
+input.shape-dot-black {
+    border-radius: 50%;
+    display: inline-block;
+    border-style: solid;
+    border-color: lightgray;
+    border-width: 6px;
+    vertical-align: middle;
+    width: 11px;
+    height: 11px;
+}
+
+input.shape-dot-black:before {
+    content: "";
+    border-radius: 50%;
+    display: inline-block;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    vertical-align: middle;
+    width: 6px;
+    height: 6px;
+    left: -8px;
+    top: -8px;
+    position: relative;
+    z-index: -1;
+}
+
+input.shape-dot-black:checked {
+    border-color: black;
+}
+
+input.shape-downarrow-red {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 16px solid lightgray;
+}
+
+input.shape-downarrow-red:checked {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 16px solid red;
+}
+
+input.shape-uparrow-red {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 16px solid lightgray;
+}
+
+input.shape-uparrow-red:checked {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 16px solid red;
+}
+
+input.shape-square-red:before {
+    content: "";
+    display: inline-block;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    vertical-align: middle;
+    width: 6px;
+    height: 6px;
+    left: -8px;
+    top: -8px;
+    position: relative;
+    z-index: -1;
+}
+
+input.shape-square-red {
+    display: inline-block;
+    border-style: solid;
+    border-color: lightgray;
+    border-width: 6px;
+    vertical-align: middle;
+    width: 11px;
+    height: 11px;
+}
+
+input.shape-square-red:checked {
+    border-color: red;
+}
+
+input.shape-diamond-red:before {
+    content: "";
+    display: inline-block;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    vertical-align: middle;
+    width: 9px;
+    height: 9px;
+    left: -6px;
+    top: -7px;
+    position: relative;
+    z-index: -1;
+}
+
+input.shape-diamond-red {
+    display: inline-block;
+    border-style: solid;
+    border-color: lightgray;
+    border-width: 6px;
+    vertical-align: middle;
+    width: 12px;
+    height: 12px;
+    transform: rotate(45deg);
+}
+
+input.shape-diamond-red:checked {
+    border-color: red;
+}

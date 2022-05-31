@@ -1,0 +1,193 @@
+.grid {
+    display: grid;
+    grid-auto-flow: row;
+    width: auto;
+    place-self: stretch stretch;
+    grid-auto-rows: minmax(0px, auto);
+    align-self: start;
+}
+
+.gth-1 {
+    grid-template-rows: minmax(0px, auto);
+}
+
+.gth-2 {
+    grid-template-rows: repeat(2, minmax(0px, auto));
+}
+
+.gth-3 {
+    grid-template-rows: repeat(3, minmax(0px, auto));
+}
+
+.gth-4 {
+    grid-template-rows: repeat(4, minmax(0px, auto));
+}
+
+.gth-5 {
+    grid-template-rows: repeat(5, minmax(0px, auto));
+}
+
+.gth-6 {
+    grid-template-rows: repeat(6, minmax(0px, auto));
+}
+
+.gtw-1 {
+    grid-template-columns: minmax(0px, 1fr);
+}
+
+.gtw-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gtw-3 {
+    grid-template-columns: repeat(3, minmax(0px, 1fr));
+}
+
+.gtw-4 {
+    grid-template-columns: repeat(4, minmax(0px, 1fr));
+}
+
+.gtw-5 {
+    grid-template-columns: repeat(5, minmax(0px, 1fr));
+}
+
+.gtw-6 {
+    grid-template-columns: repeat(6, minmax(0px, 1fr));
+}
+
+.gtw-6 {
+    grid-template-columns: repeat(6, minmax(0px, 1fr));
+}
+
+.gtw-9 {
+    grid-template-columns: repeat(9, minmax(0px, 1fr));
+}
+
+.gtw-10 {
+    grid-template-columns: repeat(10, minmax(0px, 1fr));
+}
+
+.gtw-11 {
+    grid-template-columns: repeat(11, minmax(0px, 1fr));
+}
+
+.gtw-12 {
+    grid-template-columns: repeat(12, minmax(0px, 1fr));
+}
+
+.gtw-18 {
+    grid-template-columns: repeat(18, minmax(0px, 1fr));
+}
+
+.gw-1 {
+    grid-column: span 1;
+}
+
+.gw-2 {
+    grid-column: span 2;
+}
+
+.gw-3 {
+    grid-column: span 3;
+}
+
+.gw-4 {
+    grid-column: span 4;
+}
+
+.gw-5 {
+    grid-column: span 5;
+}
+
+.gw-6 {
+    grid-column: span 6;
+}
+
+.gw-7 {
+    grid-column: span 7;
+}
+
+.gw-8 {
+    grid-column: span 8;
+}
+
+.gw-9 {
+    grid-column: span 9;
+}
+
+.gw-10 {
+    grid-column: span 10;
+}
+
+.gw-11 {
+    grid-column: span 11;
+}
+
+.gw-12 {
+    grid-column: span 12;
+}
+
+.gw-end {
+    grid-row-end: -1;
+}
+
+.gh-1 {
+    grid-row: span 1;
+}
+
+.gh-2 {
+    grid-row: span 2;
+}
+
+.gh-3 {
+    grid-row: span 3;
+}
+
+.gh-4 {
+    grid-row: span 4;
+}
+
+.gh-5 {
+    grid-row: span 5;
+}
+
+.gh-6 {
+    grid-row: span 6;
+}
+
+.gh-7 {
+    grid-row: span 7;
+}
+
+.gh-8 {
+    grid-row: span 8;
+}
+
+.gh-9 {
+    grid-row: span 9;
+}
+
+
+.gapr-2 {
+    grid-row-gap: 2px
+}
+
+.gapr-4 {
+    grid-row-gap: 4px
+}
+
+.gapr-6 {
+    grid-row-gap: 6px
+}
+
+.gapc-2 {
+    grid-column-gap: 2px
+}
+
+.gapc-4 {
+    grid-column-gap: 4px
+}
+
+.gapc-6 {
+    grid-column-gap: 6px
+}
