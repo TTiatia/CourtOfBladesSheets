@@ -1,0 +1,104 @@
+﻿.clock-container {
+    position: relative;
+    padding: 2px;
+    margin: 0 0 5px;
+    z-index: 1;
+    height: 44px;
+    width: 44px;
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+.clock {
+    border: 2px solid black;
+    border-radius: 50%;
+    background: white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+
+/*
+.charsheet .sheet-size[value="4"] ~ .sheet-clock-container .sheet-input-progress[value="1"]:checked ~ .sheet-clock
+.charsheet .sheet-size[value="4"] ~ .sheet-clock-container .sheet-input-progress[value="2"]:checked ~ .sheet-clock
+.charsheet .sheet-size[value="4"] ~ .sheet-clock-container .sheet-input-progress[value="3"]:checked ~ .sheet-clock
+.charsheet .sheet-size[value="4"] ~ .sheet-clock-container .sheet-input-progress[value="4"]:checked ~ .sheet-clock
+*/
+
+.clock-25 {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(180deg, red 50%, white 50%);
+}
+
+.clock-50 {
+    background-image: linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-75 {
+    background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-100 {
+    background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+div[class^="spoke"] {
+    height: 44px;
+    width: 2px;
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    background: black;
+}
+
+.spoke-0 {
+    transform: translateX(21px);
+}
+
+.spoke-30 {
+    transform: translateX(21px) rotate(30deg);
+}
+
+.spoke-36 {
+    transform: translateX(21px) rotate(36deg);
+}
+
+.spoke-45 {
+    transform: translateX(21px) rotate(45deg);
+}
+
+.spoke-60 {
+    transform: translateX(21px) rotate(60deg);
+}
+
+.spoke-72 {
+    transform: translateX(21px) rotate(72deg);
+}
+
+.spoke-90 {
+    transform: translateX(21px) rotate(90deg);
+}
+
+.spoke-108 {
+    transform: translateX(21px) rotate(108deg);
+}
+
+.spoke-120 {
+    transform: translateX(21px) rotate(120deg);
+}
+
+.spoke-135 {
+    transform: translateX(21px) rotate(135deg);
+}
+
+.spoke-144 {
+    transform: translateX(21px) rotate(144deg);
+}
+
+.spoke-150 {
+    transform: translateX(21px) rotate(150deg);
+}

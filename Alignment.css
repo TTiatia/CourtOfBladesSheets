@@ -70,6 +70,10 @@
     align-self: baseline;
 }
 
+.align-stretch {
+    align-self: stretch;
+}
+
 .justify-center {
     justify-self: center;
 }
@@ -80,4 +84,8 @@
 
 .justify-right {
     justify-self: right;
+}
+
+.justify-stretch {
+    justify-self: stretch;
 }

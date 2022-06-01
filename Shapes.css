@@ -7,65 +7,20 @@ input[type=text] {
     appearance: none;
 }
 
-input.shape-dot-red:before {
-    content: "";
+input.shape-dot-black {
     border-radius: 50%;
     display: inline-block;
     border-style: solid;
     border-color: black;
     border-width: 2px;
-    vertical-align: middle;
-    width: 10px;
-    height: 10px;
-    left: -7px;
-    top: -7px;
-    position: relative;
+    width: 16px;
+    height: 16px;
+    background-color: white;
 }
 
-input.shape-dot-red {
-    border-radius: 50%;
-    display: inline-block;
-    border-style: solid;
-    border-color: lightgray;
-    border-width: 7px;
-    vertical-align: middle;
-    width: 14px;
-    height: 14px;
-}
-
-input.shape-dot-red:checked {
-    border-color: red;
-}
-
-input.shape-dot-black {
-    border-radius: 50%;
-    display: inline-block;
-    border-style: solid;
-    border-color: lightgray;
-    border-width: 6px;
-    vertical-align: middle;
-    width: 11px;
-    height: 11px;
-}
-
-input.shape-dot-black:before {
-    content: "";
-    border-radius: 50%;
-    display: inline-block;
-    border-style: solid;
-    border-color: black;
-    border-width: 5px;
-    vertical-align: middle;
-    width: 6px;
-    height: 6px;
-    left: -8px;
-    top: -8px;
-    position: relative;
-    z-index: -1;
-}
 
 input.shape-dot-black:checked {
-    border-color: black;
+    background-color: black;
 }
 
 input.shape-downarrow-red {
@@ -96,102 +51,96 @@ input.shape-uparrow-red:checked {
     border-bottom: 16px solid red;
 }
 
-input.shape-square-red:before {
-    content: "";
+input[class*="shape-square-"] {
     display: inline-block;
     border-style: solid;
     border-color: black;
     border-width: 2px;
-    vertical-align: middle;
-    width: 10px;
-    height: 10px;
-    left: -7px;
-    top: -7px;
-    position: relative;
+    background-color: white;
+    width: 16px;
+    height: 16px;
 }
 
-input.shape-square-red {
-    display: inline-block;
-    border-style: solid;
-    border-color: white;
-    border-width: 6px;
-    vertical-align: middle;
-    width: 9px;
-    height: 9px;
-    position: relative;
-    left: 0px;
-    top: 3px;
+input.shape-square-black:checked {
+    background-color: black;
 }
 
 input.shape-square-red:checked {
-    border-color: red;
-}
-
-input.shape-diamond-red:before {
-    content: "";
-    display: inline-block;
-    border-style: solid;
-    border-color: black;
-    border-width: 2px;
-    vertical-align: middle;
-    width: 10px;
-    height: 10px;
-    left: -7px;
-    top: -7px;
-    position: relative;
-    z-index: -1;
+    background-color: red;
 }
 
 input.shape-diamond-red {
     display: inline-block;
     border-style: solid;
-    border-color: lightgray;
-    border-width: 6px;
-    vertical-align: middle;
-    width: 12px;
-    height: 12px;
-    top: 3px;
-    position: relative;
-    transform: rotate(45deg);
-}
-
-input.shape-whitebg {
-    border-color: white;
-}
-
-input.shape-whitebg:checked,
-input.shape-diamond-red:checked {
-    border-color: red;
-}
-
-input.shape-smalldiamond-red:before {
-    content: "";
-    display: inline-block;
-    border-style: solid;
     border-color: black;
     border-width: 2px;
     vertical-align: middle;
-    width: 4px;
-    height: 4px;
-    left: -3px;
-    top: -4px;
-    position: relative;
-    z-index: -1;
+    width: 14px;
+    height: 14px;
+    transform: rotate(45deg);
+    background-color: white;
 }
 
-input.shape-smalldiamond-red {
+input.shape-diamond-red:checked {
+    background-color: red;
+}
+
+.shape-smalldiamond-red {
     display: inline-block;
-    border-style: solid;
-    border-color: lightgray;
-    border-width: 3px;
-    vertical-align: middle;
-    width: 6px;
-    height: 6px;
-    transform: rotate(45deg);
-    top: -3px;
     position: relative;
+    top: -2px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    vertical-align: middle;
+    width: 3px;
+    height: 3px;
+    transform: rotate(45deg);
+    background-color: white;
 }
 
 input.shape-smalldiamond-red:checked {
     border-color: red;
+}
+
+
+.shape-heart {
+    background-color: gray;
+    display: inline-block;
+    height: 18px;
+    margin: 0 10px;
+    position: relative;
+    top: 0;
+    transform: rotate(-45deg);
+    width: 18px;
+}
+
+.shape-heart:before,
+.shape-heart:after {
+    content: "";
+    background-color: gray;
+    border-radius: 50%;
+    height: 18px;
+    position: absolute;
+    width: 18px;
+}
+
+.shape-heart:before {
+    top: -9px;
+    left: 0;
+}
+
+.shape-heart:after {
+    left: 9px;
+    top: 0;
+}
+
+.shape-heart:checked {
+    background-color: red;
+}
+
+.shape-heart:checked:before,
+.shape-heart:checked:after {
+    content: "";
+    background-color: red;
 }

@@ -10,21 +10,50 @@
     z-index: -13;
 }
 
+.charsheet ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+textarea,
 .charsheet input[type=text] {
     border-color: none;
     border-style: none;
     border-width: 0;
-    border-bottom: solid 1px black;
-    padding-top: 8px;
     background-color: none;
     border-image: none;
     display: block;
-    width: 95%;
+    width: 100%;
     text-align: left;
+    font-size: 16px;
+    font-family: 'EB Garamond', serif;
+    min-height: 1.75em;
+}
+
+input[type=text].pcdetail {
     vertical-align: bottom;
     min-height: 2em;
     font-size: 20px;
-    font-family: 'EB Garamond', serif;
+    width: 95%;
+    padding-top: 8px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    border-bottom-width: 1px;
+}
+
+.paramourname {
+    font-size: 25px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#pcpanel-harmbox input[type=text] {
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+#pcpanel-harmbox {
+    border-collapse: collapse;
 }
 
 .min-1 {
@@ -38,6 +67,11 @@
 
 .charsheet p {
     margin: 2px;
+}
+
+.bordered {
+    border: 1px solid black;
+    border-collapse: collapse;
 }
 
 .bg-light {
@@ -58,8 +92,10 @@
 
 .charsheet textarea {
     width: 100%;
+    height: 100%;
     border: none;
     resize: vertical;
+    color: black;
 }
 
 .charsheet span.label {
@@ -173,6 +209,7 @@
     border-top-width: 1px;
 }
 
+.charsheet input[type=text].border-bottom,
 .border-bottom {
     border-bottom-style: solid;
     border-bottom-color: black;
@@ -202,3 +239,4 @@
 .debug .debug .debug .debug {
     border-color: #AAAAAA;
 }
+/**/
