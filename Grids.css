@@ -3,80 +3,105 @@
     grid-auto-flow: row;
     width: auto;
     place-self: stretch stretch;
-    grid-auto-rows: minmax(0px, auto);
+    grid-auto-rows: minmax(1em, auto);
     align-self: start;
 }
 
+
 .gth-1 {
-    grid-template-rows: minmax(0px, auto);
+    grid-template-rows: minmax(1em, auto);
 }
 
 .gth-2 {
-    grid-template-rows: repeat(2, minmax(0px, auto));
+    grid-template-rows: repeat(2, minmax(1em, auto));
 }
 
 .gth-3 {
-    grid-template-rows: repeat(3, minmax(0px, auto));
+    grid-template-rows: repeat(3, minmax(1em, auto));
 }
 
 .gth-4 {
-    grid-template-rows: repeat(4, minmax(0px, auto));
+    grid-template-rows: repeat(4, minmax(1em, auto));
 }
 
 .gth-5 {
-    grid-template-rows: repeat(5, minmax(0px, auto));
+    grid-template-rows: repeat(5, minmax(1em, auto));
 }
 
 .gth-6 {
-    grid-template-rows: repeat(6, minmax(0px, auto));
+    grid-template-rows: repeat(6, minmax(1em, auto));
+}
+
+.gth-7 {
+    grid-template-rows: repeat(7, minmax(1em, auto));
+}
+
+.gth-8 {
+    grid-template-rows: repeat(8, minmax(1em, auto));
 }
 
 .gtw-1 {
-    grid-template-columns: minmax(0px, 1fr);
+    grid-template-columns: minmax(1em, 1fr);
 }
 
 .gtw-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(1em, 1fr));
 }
 
 .gtw-3 {
-    grid-template-columns: repeat(3, minmax(0px, 1fr));
+    grid-template-columns: repeat(3, minmax(1em, 1fr));
 }
 
 .gtw-4 {
-    grid-template-columns: repeat(4, minmax(0px, 1fr));
+    grid-template-columns: repeat(4, minmax(1em, 1fr));
 }
 
 .gtw-5 {
-    grid-template-columns: repeat(5, minmax(0px, 1fr));
+    grid-template-columns: repeat(5, minmax(1em, 1fr));
 }
 
 .gtw-6 {
-    grid-template-columns: repeat(6, minmax(0px, 1fr));
+    grid-template-columns: repeat(6, minmax(1em, 1fr));
 }
 
-.gtw-6 {
-    grid-template-columns: repeat(6, minmax(0px, 1fr));
+.gtw-7 {
+    grid-template-columns: repeat(7, minmax(1em, 1fr));
 }
 
 .gtw-9 {
-    grid-template-columns: repeat(9, minmax(0px, 1fr));
+    grid-template-columns: repeat(9, minmax(1em, 1fr));
 }
 
 .gtw-10 {
-    grid-template-columns: repeat(10, minmax(0px, 1fr));
+    grid-template-columns: repeat(10, minmax(1em, 1fr));
 }
 
 .gtw-11 {
-    grid-template-columns: repeat(11, minmax(0px, 1fr));
+    grid-template-columns: repeat(11, minmax(1em, 1fr));
 }
 
 .gtw-12 {
-    grid-template-columns: repeat(12, minmax(0px, 1fr));
+    grid-template-columns: repeat(12, minmax(1em, 1fr));
+}
+
+.gtw-13 {
+    grid-template-columns: repeat(13, minmax(1em, 1fr));
+}
+
+.gtw-14 {
+    grid-template-columns: repeat(14, minmax(1em, 1fr));
+}
+
+.gtw-15 {
+    grid-template-columns: repeat(15, minmax(1em, 1fr));
+}
+
+.gtw-16 {
+    grid-template-columns: repeat(16, minmax(1em, 1fr));
 }
 
 .gtw-18 {
-    grid-template-columns: repeat(18, minmax(0px, 1fr));
+    grid-template-columns: repeat(18, minmax(1em, 1fr));
 }
 
 .gw-1 {
@@ -127,8 +152,20 @@
     grid-column: span 12;
 }
 
-.gw-end {
-    grid-row-end: -1;
+.gw-13 {
+    grid-column: span 13;
+}
+
+.gw-14 {
+    grid-column: span 14;
+}
+
+.gw-15 {
+    grid-column: span 15;
+}
+
+.gw-16 {
+    grid-column: span 16;
 }
 
 .gh-1 {
@@ -166,7 +203,6 @@
 .gh-9 {
     grid-row: span 9;
 }
-
 
 .gapr-2 {
     grid-row-gap: 2px
