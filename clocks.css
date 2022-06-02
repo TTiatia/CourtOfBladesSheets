@@ -1,4 +1,44 @@
-﻿.clock-container {
+﻿.charsheet .size[value="4"] ~ .clock-container .clock-4,
+.charsheet .size[value="6"] ~ .clock-container .clock-6,
+.charsheet .size[value="8"] ~ .clock-container .clock-8,
+.charsheet .size[value="10"] ~ .clock-container .clock-10,
+.charsheet .size[value="12"] ~ .clock-container .clock-12 {
+    display: block;
+}
+
+
+/* CLOCKS */
+.clocks .repcontainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 2px;
+    grid-gap: 4px;
+}
+
+.clocks .repitem {
+    display: flex;
+    padding: 4px 2px;
+    background: #d8d8d8;
+    align-items: start;
+}
+
+.clocks .itemcontrol {
+    top: 0;
+    left: 0;
+}
+
+.clocks .auto-expand {
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 2px 3px;
+    line-height: 12px;
+    flex: auto;
+    min-width: 0;
+    margin-right: 2px;
+    min-height: 28px;
+}
+
+.clock-container {
     position: relative;
     padding: 2px;
     margin: 0 0 5px;
@@ -9,40 +49,34 @@
     flex: 0 0 auto;
 }
 
+.clock-container input {
+    position: absolute;
+    display: none;
+}
+
+.clock-container .zero {
+    z-index: 3;
+}
+
+.clock-container .zero, .clock-container .zero + span {
+    position: absolute;
+    top: 37px;
+    left: -5px;
+}
+
+.clock-container .all, .clock-container .zero {
+    display: block;
+}
+
 .clock {
     border: 2px solid black;
     border-radius: 50%;
-    background: white;
     width: 100%;
     height: 100%;
     position: absolute;
     left: 0;
     top: 0;
     z-index: -1;
-}
-
-
-/*
-.charsheet .sheet-size[value="4"] ~ .sheet-clock-container .sheet-input-progress[value="1"]:checked ~ .sheet-clock
-.charsheet .sheet-size[value="4"] ~ .sheet-clock-container .sheet-input-progress[value="2"]:checked ~ .sheet-clock
-.charsheet .sheet-size[value="4"] ~ .sheet-clock-container .sheet-input-progress[value="3"]:checked ~ .sheet-clock
-.charsheet .sheet-size[value="4"] ~ .sheet-clock-container .sheet-input-progress[value="4"]:checked ~ .sheet-clock
-*/
-
-.clock-25 {
-    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(180deg, red 50%, white 50%);
-}
-
-.clock-50 {
-    background-image: linear-gradient(90deg, white 50%, red 50%);
-}
-
-.clock-75 {
-    background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
-}
-
-.clock-100 {
-    background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
 }
 
 div[class^="spoke"] {
@@ -101,4 +135,510 @@ div[class^="spoke"] {
 
 .spoke-150 {
     transform: translateX(21px) rotate(150deg);
+}
+
+.size-choice {
+    display: flex;
+    flex: 0 0 auto;
+    height: 45px;
+    margin: 2px 0;
+    width: 44px;
+    line-height: 12px;
+    font-size: 13px;
+    font-family: "Times New Roman", Times, serif;
+    align-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+/* Faction clocks */
+.clocks-only[value="0"] ~ .container .type-faction .clocks .repcontainer {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.clocks-only[value="1"] ~ .container .type-faction .clocks .repcontainer {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.clocks-only[value="1"] ~ .container .type-faction {
+    grid: auto / auto;
+}
+
+.clocks-only[value="1"] ~ .container .type-faction .factiontitle, .clocks-only[value="1"] ~ .container .type-faction .factions, .clocks-only[value="1"] ~ .container .type-faction .notes {
+    display: none;
+}
+
+.size[value="4"] ~ .clock-container input:not(.zero) {
+    height: 20px;
+    width: 20px;
+}
+
+.size[value="4"] ~ .clock-container input[value="1"] {
+    margin-left: 20px;
+}
+
+.size[value="4"] ~ .clock-container input[value="2"] {
+    margin: 20px 0 0 20px;
+}
+
+.size[value="4"] ~ .clock-container input[value="3"] {
+    margin-top: 20px;
+}
+
+.size[value="6"] ~ .clock-container input:not(.zero) {
+    height: 17px;
+    width: 12px;
+}
+
+.size[value="6"] ~ .clock-container input[value="1"] {
+    margin-left: 21px;
+    transform: rotate(30deg);
+}
+
+.size[value="6"] ~ .clock-container input[value="2"] {
+    margin: 12px 0 0 25px;
+    transform: rotate(90deg);
+}
+
+.size[value="6"] ~ .clock-container input[value="3"] {
+    margin: 22px 0 0 21px;
+    transform: rotate(150deg);
+}
+
+.size[value="6"] ~ .clock-container input[value="4"] {
+    margin: 22px 0 0 8px;
+    transform: rotate(210deg);
+}
+
+.size[value="6"] ~ .clock-container input[value="5"] {
+    margin: 12px 0 0 1px;
+    transform: rotate(270deg);
+}
+
+.size[value="6"] ~ .clock-container input[value="6"] {
+    margin-left: 8px;
+    transform: rotate(330deg);
+}
+
+.size[value="8"] ~ .clock-container input:not(.zero) {
+    height: 14px;
+    width: 10px;
+}
+
+.size[value="8"] ~ .clock-container input[value="1"] {
+    margin-left: 20px;
+    transform: rotate(22.5deg);
+}
+
+.size[value="8"] ~ .clock-container input[value="2"] {
+    margin: 8px 0 0 26px;
+    transform: rotate(67.5deg);
+}
+
+.size[value="8"] ~ .clock-container input[value="3"] {
+    margin: 18px 0 0 26px;
+    transform: rotate(112.5deg);
+}
+
+.size[value="8"] ~ .clock-container input[value="4"] {
+    margin: 25px 0 0 20px;
+    transform: rotate(157.5deg);
+}
+
+.size[value="8"] ~ .clock-container input[value="5"] {
+    margin: 25px 0 0 9px;
+    transform: rotate(202.5deg);
+}
+
+.size[value="8"] ~ .clock-container input[value="6"] {
+    margin: 18px 0 0 2px;
+    transform: rotate(247.5deg);
+}
+
+.size[value="8"] ~ .clock-container input[value="7"] {
+    margin: 8px 0 0 2px;
+    transform: rotate(292.5deg);
+}
+
+.size[value="8"] ~ .clock-container input[value="8"] {
+    margin-left: 9px;
+    transform: rotate(337.5deg);
+}
+
+.size[value="10"] ~ .clock-container input:not(.zero) {
+    height: 14px;
+    width: 9px;
+}
+
+.size[value="10"] ~ .clock-container input[value="1"] {
+    transform: rotate(18deg);
+    margin-left: 20px;
+}
+
+.size[value="10"] ~ .clock-container input[value="2"] {
+    transform: rotate(54deg);
+    margin: 5px 0 0 27px;
+}
+
+.size[value="10"] ~ .clock-container input[value="3"] {
+    transform: rotate(90deg);
+    margin: 13px 0 0 30px;
+}
+
+.size[value="10"] ~ .clock-container input[value="4"] {
+    transform: rotate(126deg);
+    margin: 21px 0 0 27px;
+}
+
+.size[value="10"] ~ .clock-container input[value="5"] {
+    transform: rotate(162deg);
+    margin: 26px 0 0 20px;
+}
+
+.size[value="10"] ~ .clock-container input[value="6"] {
+    transform: rotate(198deg);
+    margin: 26px 0 0 12px;
+}
+
+.size[value="10"] ~ .clock-container input[value="7"] {
+    transform: rotate(234deg);
+    margin: 21px 0 0 5px;
+}
+
+.size[value="10"] ~ .clock-container input[value="8"] {
+    transform: rotate(270deg);
+    margin: 13px 0 0 1px;
+}
+
+.size[value="10"] ~ .clock-container input[value="9"] {
+    transform: rotate(306deg);
+    margin: 5px 0 0 5px;
+}
+
+.size[value="10"] ~ .clock-container input[value="10"] {
+    transform: rotate(342deg);
+    margin-left: 12px;
+}
+
+.size[value="12"] ~ .clock-container input:not(.zero) {
+    height: 12px;
+    width: 8px;
+}
+
+.size[value="12"] ~ .clock-container input[value="1"] {
+    margin-left: 20px;
+    transform: rotate(15deg);
+}
+
+.size[value="12"] ~ .clock-container input[value="2"] {
+    margin: 4px 0 0 26px;
+    transform: rotate(45deg);
+}
+
+.size[value="12"] ~ .clock-container input[value="3"] {
+    margin: 10px 0 0 29px;
+    transform: rotate(75deg);
+}
+
+.size[value="12"] ~ .clock-container input[value="4"] {
+    margin: 18px 0 0 29px;
+    transform: rotate(105deg);
+}
+
+.size[value="12"] ~ .clock-container input[value="5"] {
+    margin: 24px 0 0 26px;
+    transform: rotate(135deg);
+}
+
+.size[value="12"] ~ .clock-container input[value="6"] {
+    margin: 28px 0 0 20px;
+    transform: rotate(165deg);
+}
+
+.size[value="12"] ~ .clock-container input[value="7"] {
+    margin: 28px 0 0 12px;
+    transform: rotate(195deg);
+}
+
+.size[value="12"] ~ .clock-container input[value="8"] {
+    margin: 24px 0 0 6px;
+    transform: rotate(225deg);
+}
+
+.size[value="12"] ~ .clock-container input[value="9"] {
+    margin: 18px 0 0 3px;
+    transform: rotate(255deg);
+}
+
+.size[value="12"] ~ .clock-container input[value="10"] {
+    margin: 10px 0 0 3px;
+    transform: rotate(295deg);
+}
+
+.size[value="12"] ~ .clock-container input[value="11"] {
+    margin: 4px 0 0 6px;
+    transform: rotate(315deg);
+}
+
+.size[value="12"] ~ .clock-container input[value="12"] {
+    margin-left: 12px;
+    transform: rotate(345deg);
+}
+
+/* End positioning */
+.size[value="4"] ~ .clock-container .4clock,
+.size[value="6"] ~ .clock-container .6clock,
+.size[value="8"] ~ .clock-container .8clock,
+.size[value="10"] ~ .clock-container .10clock,
+.size[value="12"] ~ .clock-container .12clock {
+    display: block;
+}
+
+.size:not([value=""]) ~ .size-choice,
+.clocks .size[value=""] ~ .broadcast-button,
+.size[value=""] ~ .clock-container {
+    display: none;
+}
+
+.clock-container .input-progress[value="0"]:checked ~ .clock {
+    background: white;
+}
+
+.size[value="4"] ~ .clock-container .input-progress[value="1"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(180deg, red 50%, white 50%);
+}
+
+.size[value="4"] ~ .clock-container .input-progress[value="2"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="4"] ~ .clock-container .input-progress[value="3"]:checked ~ .clock {
+    background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="4"] ~ .clock-container .input-progress[value="4"]:checked ~ .clock {
+    background: red;
+}
+
+.size[value="6"] ~ .clock-container .input-progress[value="1"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(150deg, red 50%, white 50%);
+}
+
+.size[value="6"] ~ .clock-container .input-progress[value="2"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(210deg, red 50%, white 50%);
+}
+
+.size[value="6"] ~ .clock-container .input-progress[value="3"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="6"] ~ .clock-container .input-progress[value="4"]:checked ~ .clock {
+    background-image: linear-gradient(150deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="6"] ~ .clock-container .input-progress[value="5"]:checked ~ .clock {
+    background-image: linear-gradient(210deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="6"] ~ .clock-container .input-progress[value="6"]:checked ~ .clock {
+    background: red;
+}
+
+.size[value="8"] ~ .clock-container .input-progress[value="1"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(135deg, red 50%, white 50%);
+}
+
+.size[value="8"] ~ .clock-container .input-progress[value="2"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(180deg, red 50%, white 50%);
+}
+
+.size[value="8"] ~ .clock-container .input-progress[value="3"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(225deg, red 50%, white 50%);
+}
+
+.size[value="8"] ~ .clock-container .input-progress[value="4"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="8"] ~ .clock-container .input-progress[value="5"]:checked ~ .clock {
+    background-image: linear-gradient(135deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="8"] ~ .clock-container .input-progress[value="6"]:checked ~ .clock {
+    background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="8"] ~ .clock-container .input-progress[value="7"]:checked ~ .clock {
+    background-image: linear-gradient(225deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="8"] ~ .clock-container .input-progress[value="8"]:checked ~ .clock {
+    background: red;
+}
+
+.size[value="10"] ~ .clock-container .input-progress[value="1"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(126deg, red 50%, white 50%);
+}
+
+.size[value="10"] ~ .clock-container .input-progress[value="2"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(162deg, red 50%, white 50%);
+}
+
+.size[value="10"] ~ .clock-container .input-progress[value="3"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(198deg, red 50%, white 50%);
+}
+
+.size[value="10"] ~ .clock-container .input-progress[value="4"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(234deg, red 50%, white 50%);
+}
+
+.size[value="10"] ~ .clock-container .input-progress[value="5"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="10"] ~ .clock-container .input-progress[value="6"]:checked ~ .clock {
+    background-image: linear-gradient(126deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="10"] ~ .clock-container .input-progress[value="7"]:checked ~ .clock {
+    background-image: linear-gradient(162deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="10"] ~ .clock-container .input-progress[value="8"]:checked ~ .clock {
+    background-image: linear-gradient(198deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="10"] ~ .clock-container .input-progress[value="9"]:checked ~ .clock {
+    background-image: linear-gradient(234deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="10"] ~ .clock-container .input-progress[value="10"]:checked ~ .clock {
+    background: red;
+}
+
+.size[value="12"] ~ .clock-container .input-progress[value="1"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(120deg, red 50%, white 50%);
+}
+
+.size[value="12"] ~ .clock-container .input-progress[value="2"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(150deg, red 50%, white 50%);
+}
+
+.size[value="12"] ~ .clock-container .input-progress[value="3"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(180deg, red 50%, white 50%);
+}
+
+.size[value="12"] ~ .clock-container .input-progress[value="4"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(210deg, red 50%, white 50%);
+}
+
+.size[value="12"] ~ .clock-container .input-progress[value="5"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(240deg, red 50%, white 50%);
+}
+
+.size[value="12"] ~ .clock-container .input-progress[value="6"]:checked ~ .clock {
+    background-image: linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="12"] ~ .clock-container .input-progress[value="7"]:checked ~ .clock {
+    background-image: linear-gradient(120deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="12"] ~ .clock-container .input-progress[value="8"]:checked ~ .clock {
+    background-image: linear-gradient(150deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="12"] ~ .clock-container .input-progress[value="9"]:checked ~ .clock {
+    background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="12"] ~ .clock-container .input-progress[value="10"]:checked ~ .clock {
+    background-image: linear-gradient(210deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="12"] ~ .clock-container .input-progress[value="11"]:checked ~ .clock {
+    background-image: linear-gradient(240deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.size[value="12"] ~ .clock-container .input-progress[value="12"]:checked ~ .clock {
+    background: red;
+}
+
+
+/* REPEATING SECTION CONTROLS */
+.repcontrol {
+    display: flex;
+}
+
+.repcontrol .repcontrol_edit {
+    margin-left: auto;
+    order: 1;
+}
+
+.repcontrol button {
+    background: transparent;
+    color: #777;
+    border-radius: 0;
+    border-color: #b4b4b4;
+    transition: all 0.2s;
+    font-family: pictos;
+    font-size: 0;
+    font-weight: bold;
+    padding: 5px 3px 2px;
+    line-height: 8px;
+}
+
+.repcontrol button:hover {
+    color: black;
+    border-color: black;
+    background: #c7c7c7;
+}
+
+.repcontrol button.repcontrol_edit::after {
+    content: "(";
+}
+
+.repcontrol button.repcontrol_add::after {
+    content: "&";
+}
+
+.repcontrol button.repcontrol_edit::after, .repcontrol button.repcontrol_add::after {
+    font-size: 12px;
+}
+
+.repcontainer.editmode + .repcontrol button.repcontrol_edit::after {
+    content: ")";
+}
+
+.free-repcontrol .repcontrol {
+    margin-top: 3px;
+}
+
+.itemcontrol {
+    z-index: 20;
+}
+
+.itemholder .itemcontrol .btn {
+    padding: 0px 7px;
+    line-height: 16px;
+}
+
+.factions .itemcontrol .btn {
+    padding: 1px 7px;
+}
+
+/* TEXT INPUTS FOR TRAUMA AND CLOCKS */
+.text-button {
+    font-weight: bold;
+}
+
+.text-button input:checked + span {
+    color: red;
+}
+
+.size-choice > .text-button {
+    height: 17px;
+    padding: 3px;
+    flex: 0 0 40%;
+    margin: auto;
+    justify-content: center;
 }

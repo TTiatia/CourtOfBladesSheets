@@ -10,12 +10,22 @@
     z-index: -13;
 }
 
+.charsheet div
+{
+    box-sizing: border-box;
+}
+
 .charsheet ul {
     padding: 0;
     list-style-type: none;
 }
 
-textarea,
+.charsheet input[type=radio],
+.charsheet input[type=checkbox] {
+    cursor: pointer;
+}
+
+.charsheet textarea,
 .charsheet input[type=text] {
     border-color: none;
     border-style: none;
