@@ -1,4 +1,21 @@
-﻿.text-left {
+﻿div {
+    box-sizing: border-box;
+}
+
+.abso {
+    position: absolute;
+}
+
+.rela {
+    position: relative;
+}
+
+div.content {
+    height: max-content;
+    width: max-content;
+}
+
+.text-left {
     text-align: left;
 }
 
@@ -88,4 +105,16 @@
 
 .justify-stretch {
     justify-self: stretch;
+}
+
+.maxh-25 {
+    min-height: 25px;
+}
+
+.minw-content {
+    min-width: max-content;
+}
+
+.minh-content {
+    min-height: max-content;
 }

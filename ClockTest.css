@@ -1,8 +1,16 @@
-﻿.charsheet .clock-subcontainer .clock-label {
+div {
+    box-sizing: border-box;
+}
+
+.abso {
+    position: absolute;
+}
+
+.clock-label {
     width: 100%;
     height: 100%;
     font-size: 14px;
-    text-align: center;
+    text-align: left;
     vertical-align: bottom;
     border: none;
     overflow-y: auto;
@@ -10,20 +18,19 @@
     resize: none;
 }
 
-.flex-clocks {
+.container {
     border: 2px solid black;
     width: auto;
     display: flex;
     flex-flow: row wrap;
 }
 
-.charsheet .clock-subcontainer {
+.subcontainer {
     border: 1px dashed black;
+    display: block;
     padding: 4px;
     width: fit-content;
     height: fit-content;
-    display: grid;
-    grid-template-columns: 55px 95px;
 }
 
 .clock-container {
@@ -33,7 +40,6 @@
     min-width: 50px;
     box-sizing: border-box;
     position: relative;
-    justify-self: center;
 }
 
 .clock-container input[type=radio] {
@@ -201,17 +207,17 @@
     display: none;
 }
 
-.clock-container .clock-size[value="2"] ~ input:not(.clock-zero) {
+.clock-container .clock-size[value="2"]~ input:not(.clock-zero) {
     height: 20px;
     width: 20px;
     margin-top: 12px;
 }
 
-.clock-container .clock-size[value="2"] ~ input[value="1"] {
+.clock-container .clock-size[value="2"]~ input[value="1"] {
     margin-left: 22px;
 }
 
-.clock-container .clock-size[value="2"] ~ input[value="2"] {
+.clock-container .clock-size[value="2"]~ input[value="2"] {
     left: -1px;
 }
 
@@ -222,15 +228,15 @@
     top: 4px;
 }
 
-.clock-container .clock-size[value="4"] ~ input[value="1"] {
+.clock-container .clock-size[value="4"]~ input[value="1"] {
     margin-left: 20px;
 }
 
-.clock-container .clock-size[value="4"] ~ input[value="2"] {
+.clock-container .clock-size[value="4"]~ input[value="2"] {
     margin: 20px 0 0 20px;
 }
 
-.clock-container .clock-size[value="4"] ~ input[value="3"] {
+.clock-container .clock-size[value="4"]~ input[value="3"] {
     margin-top: 20px;
 }
 
@@ -241,32 +247,32 @@
     top: 3px;
 }
 
-.clock-container .clock-size[value="6"] ~ input[value="1"] {
+.clock-container .clock-size[value="6"]~ input[value="1"] {
     margin-left: 21px;
     transform: rotate(30deg);
 }
 
-.clock-container .clock-size[value="6"] ~ input[value="2"] {
+.clock-container .clock-size[value="6"]~ input[value="2"] {
     margin: 12px 0 0 25px;
     transform: rotate(90deg);
 }
 
-.clock-container .clock-size[value="6"] ~ input[value="3"] {
+.clock-container .clock-size[value="6"]~ input[value="3"] {
     margin: 22px 0 0 21px;
     transform: rotate(150deg);
 }
 
-.clock-container .clock-size[value="6"] ~ input[value="4"] {
+.clock-container .clock-size[value="6"]~ input[value="4"] {
     margin: 22px 0 0 8px;
     transform: rotate(210deg);
 }
 
-.clock-container .clock-size[value="6"] ~ input[value="5"] {
+.clock-container .clock-size[value="6"]~ input[value="5"] {
     margin: 12px 0 0 1px;
     transform: rotate(270deg);
 }
 
-.clock-container .clock-size[value="6"] ~ input[value="6"] {
+.clock-container .clock-size[value="6"]~  input[value="6"] {
     margin-left: 8px;
     transform: rotate(330deg);
 }
@@ -278,42 +284,42 @@
     left: 4px;
 }
 
-.clock-container .clock-size[value="8"] ~ input[value="1"] {
+.clock-container .clock-size[value="8"]~ input[value="1"] {
     margin-left: 20px;
     transform: rotate(22.5deg);
 }
 
-.clock-container .clock-size[value="8"] ~ input[value="2"] {
+.clock-container .clock-size[value="8"]~ input[value="2"] {
     margin: 8px 0 0 26px;
     transform: rotate(67.5deg);
 }
 
-.clock-container .clock-size[value="8"] ~ input[value="3"] {
+.clock-container .clock-size[value="8"]~ input[value="3"] {
     margin: 18px 0 0 26px;
     transform: rotate(112.5deg);
 }
 
-.clock-container .clock-size[value="8"] ~ input[value="4"] {
+.clock-container .clock-size[value="8"]~ input[value="4"] {
     margin: 25px 0 0 20px;
     transform: rotate(157.5deg);
 }
 
-.clock-container .clock-size[value="8"] ~ input[value="5"] {
+.clock-container .clock-size[value="8"]~ input[value="5"] {
     margin: 25px 0 0 9px;
     transform: rotate(202.5deg);
 }
 
-.clock-container .clock-size[value="8"] ~ input[value="6"] {
+.clock-container .clock-size[value="8"]~ input[value="6"] {
     margin: 18px 0 0 2px;
     transform: rotate(247.5deg);
 }
 
-.clock-container .clock-size[value="8"] ~ input[value="7"] {
+.clock-container .clock-size[value="8"]~ input[value="7"] {
     margin: 8px 0 0 2px;
     transform: rotate(292.5deg);
 }
 
-.clock-container .clock-size[value="8"] ~ input[value="8"] {
+.clock-container .clock-size[value="8"]~ input[value="8"] {
     margin-left: 9px;
     transform: rotate(337.5deg);
 }
@@ -325,52 +331,52 @@
     top: 3px;
 }
 
-.clock-container .clock-size[value="10"] ~ input[value="1"] {
+.clock-container .clock-size[value="10"]~ input[value="1"] {
     transform: rotate(18deg);
     margin-left: 20px;
 }
 
-.clock-container .clock-size[value="10"] ~ input[value="2"] {
+.clock-container .clock-size[value="10"]~ input[value="2"] {
     transform: rotate(54deg);
     margin: 5px 0 0 27px;
 }
 
-.clock-container .clock-size[value="10"] ~ input[value="3"] {
+.clock-container .clock-size[value="10"]~ input[value="3"] {
     transform: rotate(90deg);
     margin: 13px 0 0 30px;
 }
 
-.clock-container .clock-size[value="10"] ~ input[value="4"] {
+.clock-container .clock-size[value="10"]~ input[value="4"] {
     transform: rotate(126deg);
     margin: 21px 0 0 27px;
 }
 
-.clock-container .clock-size[value="10"] ~ input[value="5"] {
+.clock-container .clock-size[value="10"]~ input[value="5"] {
     transform: rotate(162deg);
     margin: 26px 0 0 20px;
 }
 
-.clock-container .clock-size[value="10"] ~ input[value="6"] {
+.clock-container .clock-size[value="10"]~ input[value="6"] {
     transform: rotate(198deg);
     margin: 26px 0 0 12px;
 }
 
-.clock-container .clock-size[value="10"] ~ input[value="7"] {
+.clock-container .clock-size[value="10"]~ input[value="7"] {
     transform: rotate(234deg);
     margin: 21px 0 0 5px;
 }
 
-.clock-container .clock-size[value="10"] ~ input[value="8"] {
+.clock-container .clock-size[value="10"]~ input[value="8"] {
     transform: rotate(270deg);
     margin: 13px 0 0 1px;
 }
 
-.clock-container .clock-size[value="10"] ~ input[value="9"] {
+.clock-container .clock-size[value="10"]~ input[value="9"] {
     transform: rotate(306deg);
     margin: 5px 0 0 5px;
 }
 
-.clock-container .clock-size[value="10"] ~ input[value="10"] {
+.clock-container .clock-size[value="10"]~ input[value="10"] {
     transform: rotate(342deg);
     margin-left: 12px;
 }
@@ -382,62 +388,62 @@
     left: 4px;
 }
 
-.clock-container .clock-size[value="12"] ~ input[value="1"] {
+.clock-container .clock-size[value="12"]~ input[value="1"] {
     margin-left: 20px;
     transform: rotate(15deg);
 }
 
-.clock-container .clock-size[value="12"] ~ input[value="2"] {
+.clock-container .clock-size[value="12"]~ input[value="2"] {
     margin: 4px 0 0 26px;
     transform: rotate(45deg);
 }
 
-.clock-container .clock-size[value="12"] ~ input[value="3"] {
+.clock-container .clock-size[value="12"]~ input[value="3"] {
     margin: 10px 0 0 29px;
     transform: rotate(75deg);
 }
 
-.clock-container .clock-size[value="12"] ~ input[value="4"] {
+.clock-container .clock-size[value="12"]~ input[value="4"] {
     margin: 18px 0 0 29px;
     transform: rotate(105deg);
 }
 
-.clock-container .clock-size[value="12"] ~ input[value="5"] {
+.clock-container .clock-size[value="12"]~ input[value="5"] {
     margin: 24px 0 0 26px;
     transform: rotate(135deg);
 }
 
-.clock-container .clock-size[value="12"] ~ input[value="6"] {
+.clock-container .clock-size[value="12"]~ input[value="6"] {
     margin: 28px 0 0 20px;
     transform: rotate(165deg);
 }
 
-.clock-container .clock-size[value="12"] ~ input[value="7"] {
+.clock-container .clock-size[value="12"]~ input[value="7"] {
     margin: 28px 0 0 12px;
     transform: rotate(195deg);
 }
 
-.clock-container .clock-size[value="12"] ~ input[value="8"] {
+.clock-container .clock-size[value="12"]~ input[value="8"] {
     margin: 24px 0 0 6px;
     transform: rotate(225deg);
 }
 
-.clock-container .clock-size[value="12"] ~ input[value="9"] {
+.clock-container .clock-size[value="12"]~ input[value="9"] {
     margin: 18px 0 0 3px;
     transform: rotate(255deg);
 }
 
-.clock-container .clock-size[value="12"] ~ input[value="10"] {
+.clock-container .clock-size[value="12"]~ input[value="10"] {
     margin: 10px 0 0 3px;
     transform: rotate(295deg);
 }
 
-.clock-container .clock-size[value="12"] ~ input[value="11"] {
+.clock-container .clock-size[value="12"]~ input[value="11"] {
     margin: 4px 0 0 6px;
     transform: rotate(315deg);
 }
 
-.clock-container .clock-size[value="12"] ~ input[value="12"] {
+.clock-container .clock-size[value="12"]~ input[value="12"] {
     margin-left: 12px;
     transform: rotate(345deg);
 }

@@ -3,11 +3,16 @@
 
 .charsheet {
     font-family: 'EB Garamond', serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     color: black;
-    background: white;
+    
     z-index: -13;
+}
+
+.charsheet div
+{
+    box-sizing: border-box;
 }
 
 .charsheet ul {
@@ -15,7 +20,7 @@
     list-style-type: none;
 }
 
-textarea,
+.charsheet textarea,
 .charsheet input[type=text] {
     border-color: none;
     border-style: none;
@@ -32,28 +37,21 @@ textarea,
 
 input[type=text].pcdetail {
     vertical-align: bottom;
+    background: none;
     min-height: 2em;
     font-size: 20px;
-    width: 95%;
+    width: 100%;
     padding-top: 8px;
     border-bottom-style: solid;
     border-bottom-color: black;
     border-bottom-width: 1px;
 }
 
+
 .paramourname {
     font-size: 25px;
     font-style: italic;
     font-weight: bold;
-}
-
-#pcpanel-harmbox input[type=text] {
-    font-size: 20px;
-    padding-left: 10px;
-}
-
-#pcpanel-harmbox {
-    border-collapse: collapse;
 }
 
 .min-1 {
@@ -88,6 +86,7 @@ input[type=text].pcdetail {
     background-color: black;
     color: white;
     z-index: 1;
+    padding-left: 4px;
 }
 
 .charsheet textarea {
@@ -126,7 +125,7 @@ input[type=text].pcdetail {
 .skillname {
     background: #333333;
     color: lightgray;
-    height: 1.5em;
+    min-height: 25px;
     margin: 3px 0;
     font-weight: 700;
     vertical-align: middle;
@@ -171,26 +170,6 @@ input[type=text].pcdetail {
     font-style: italic;
 }
 
-.maxh-1 {
-    height: 1.25em;
-}
-
-.maxh-2 {
-    height: 2.5em;
-}
-
-.maxh-3 {
-    height: 3.75em;
-}
-
-.maxh-4 {
-    height: 5em;
-}
-
-.maxh-5 {
-    height: 6.5em;
-}
-
 .border-left {
     border-left-style: solid;
     border-left-color: black;
@@ -220,6 +199,10 @@ input[type=text].pcdetail {
     grid-column-gap: 1px;
     grid-row-gap:4px;
 }
+
+
+
+
 
 /* For debugging */
 

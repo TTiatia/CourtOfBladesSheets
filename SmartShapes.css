@@ -1,0 +1,396 @@
+﻿/*
+    Clolour reference:
+        light:  #EEEEEE
+        dark:   #333333
+        red:    red
+*/
+
+.container {
+    border: 2px dashed maroon;
+    margin: 1px;
+    padding: 2px;
+    position: relative;
+    vertical-align: middle;
+}
+
+/* || Shapes */
+
+[class^="shape"], [class*=" shape"] {
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    margin: 1px;
+    padding: 1px;
+}
+
+input[class^="shape"], input[class*=" shape"] {
+    cursor: pointer;
+}
+
+[class*="shape-"].shape-hidden {
+    opacity: 0;
+    cursor: default;
+}
+
+[class*="shape-square"],
+[class*="shape-diamond"] {
+    border: 2px solid black;
+}
+
+[class^="shape-dot"],
+[class*=" shape-dot"] {
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+}
+
+[class*="shape-diamond"] {
+    transform: rotate(45deg);
+}
+
+.shape-square-small,
+.shape-diamond-small {
+    width: 2px;
+    height: 2px;
+}
+
+.shape-square-med {
+    width: 14px;
+    height: 14px
+}
+
+.shape-diamond-med {
+    width: 11px;
+    height: 11px;
+}
+
+.shape-diamond-big {
+    width: 22px;
+    height: 22px;
+}
+
+.shape-divider {
+    width: 0px;
+    height: 15px;
+}
+
+.shape-divider:after {
+    content: "";
+    width: 1px;
+    height: 27px;
+    background: none;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.shape-cross {
+    width: 9px;
+    height: 9px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.shape-cross:before,
+.shape-cross:after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 9px;
+    top: 3px;
+    left: -1px;
+    background-color: black;
+}
+
+.shape-cross:before {
+    transform: rotate(45deg);
+}
+
+.shape-cross:after {
+    transform: rotate(-45deg);
+}
+
+[class^="shape-link"]:before, [class*=" shape-link"]:before {
+    content: "";
+    display: none;
+    position: absolute;
+    z-index: -1;
+    width: 20px;
+    height: 5px;
+    background-color: black;
+}
+
+.shape-link-left::before {
+    display: inline-block;
+    left: -20px;
+    top: 2px;
+}
+
+[class^="shape-arrow"], [class*= " shape-arrow"] {
+    width: 10px;
+    height: 10px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    background: none;
+    padding: 0;
+    margin: 2px;
+}
+
+[class^="shape-arrow"]:after, [class*= " shape-arrow"]:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left:8px solid transparent;
+    border-right: 8px solid transparent;
+    position: absolute;
+    z-index: -1;
+}
+
+.shape-arrowdown:after {
+    border-top: 14px solid black;
+    top: -11.5px;
+    left: -8px;
+}
+
+.shape-arrowup:after {
+    border-bottom: 15px solid black;
+    top: -3.5px;
+    left: -8px;
+}
+
+
+.shape-arrowdown {
+    border-top: 10px solid black;
+}
+
+.shape-arrowup {
+    border-bottom: 10px solid black;
+}
+
+.shape-heart {
+    background-color: gray;
+    display: inline-block;
+    height: 10px;
+    margin: 0 5px;
+    position: relative;
+    top: 0;
+    transform: rotate(-45deg);
+    width: 10px;
+}
+
+.shape-heart:before,
+.shape-heart:after {
+    content: "";
+    position: absolute;
+    background-color: gray;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+}
+
+.shape-heart:before {
+    top: -5px;
+    left: 0;
+}
+
+.shape-heart:after {
+    left: 5px;
+    top: 0;
+}
+
+
+
+
+/* || Checked/Unchecked */
+.unchecked-dark:not([class*="shape-arrow"]) {
+    background: #333333;
+}
+
+.unchecked-light:not([class*="shape-arrow"]) {
+    background: #EEEEEE;
+}
+
+[class*="shape-arrow"].unchecked-dark {
+    border-top-color: #333333;
+    border-bottom-color: #333333;
+}
+
+[class*="shape-arrow"].unchecked-light {
+    border-top-color: #EEEEEE;
+    border-bottom-color: #EEEEEE;
+}
+
+.checked-red:checked:not([class*="shape-arrow"]) {
+    background: red;
+}
+
+.checked-dark:not([class*="shape-arrow"]) {
+    background: #EEEEEE;
+}
+
+.checked-dark:checked:not([class*="shape-arrow"]) {
+    background: #333333;
+}
+
+.checked-light:not([class*="shape-arrow"]) {
+    background: #333333;
+}
+
+.checked-light:checked:not([class*="shape-arrow"]) {
+    background: #EEEEEE;
+}
+
+.checked-red.shape-heart:checked:before,
+.checked-red.shape-heart:checked:after {
+    background: red;
+}
+
+.checked-dark.shape-heart:checked:before,
+.checked-dark.shape-heart:checked:after {
+    background: #333333;
+}
+
+.checked-light.shape-heart:checked:before,
+.checked-light.shape-heart:checked:after {
+    background: #EEEEEE;
+}
+
+.checked-dark.shape-heart:before,
+.checked-dark.shape-heart:after {
+    background: #EEEEEE;
+}
+
+.checked-light.shape-heart:before,
+.checked-light.shape-heart:after {
+    background: #333333;
+}
+
+.unchecked-dark.shape-heart:before,
+.unchecked-dark.shape-heart:after {
+    background: #333333;
+}
+
+.unchecked-light.shape-heart:before,
+.unchecked-light.shape-heart:after {
+    background: #EEEEEE;
+}
+
+.checked-dark[class*="shape-arrow"] {
+    border-top-color: #EEEEEE;
+    border-bottom-color: #EEEEEE;
+    background: none;
+}
+
+.checked-dark[class*="shape-arrow"]:checked {
+    border-top-color: #333333;
+    border-bottom-color: #333333;
+    background: none;
+}
+
+.checked-light[class*="shape-arrow"] {
+    border-top-color: #333333;
+    border-bottom-color: #333333;
+    background: none;
+}
+
+.checked-light[class*="shape-arrow"]:checked {
+    border-top-color: #EEEEEE;
+    border-bottom-color: #EEEEEE;
+    background: none;
+}
+
+.checked-red[class*="shape-arrow"]:checked {
+    border-top-color: red;
+    border-bottom-color: red;
+    background: none;
+}
+
+.checked-hidden:checked {
+    opacity: 0;
+}
+
+
+
+
+/* || Trackers */
+.tracker {
+    z-index: 3;
+    vertical-align: middle;
+    min-height: 28px;
+    position: relative;
+}
+
+.tracker input {
+    vertical-align: middle;
+    margin: 2px;
+}
+
+.tracker input[class*="-big"] {
+    margin: 4px;
+}
+
+
+.tracker input.shape-heart {
+    margin: 4px;
+}
+
+.tracker.tracked-dark input:not(.track-zero) {
+    background: #333333;
+    border-color: black;
+}
+
+.tracker.tracked-dark input:not(.track-zero):before,
+.tracker.tracked-dark input:not(.track-zero):after {
+    background: #333333;
+}
+
+.tracker.tracked-dark input[type=radio]:checked ~ input[type=radio]:not(.track-zero) {
+    background: #EEEEEE;
+}
+
+.tracker.tracked-dark input[type=radio]:checked ~ input[type=radio]:not(.track-zero):after,
+.tracker.tracked-dark input[type=radio]:checked ~ input[type=radio]:not(.track-zero):before {
+    background: #EEEEEE;
+}
+
+
+.tracker.tracked-light input[type=radio]:checked ~ input[type=radio]:not(.track-zero):after,
+.tracker.tracked-light input[type=radio]:checked ~ input[type=radio]:not(.track-zero):before {
+    background: #333333;
+}
+
+.tracker.tracked-light input:not(.track-zero) {
+    background: #EEEEEE;
+}
+
+.tracker.tracked-light input:not(.track-zero):before,
+.tracker.tracked-light input:not(.track-zero):after {
+    background: #EEEEEE;
+}
+
+.tracker.tracked-light input[type=radio]:checked ~ input[type=radio]:not(.track-zero) {
+    background: #333333;
+}
+
+
+.tracker.tracked-red input[type=radio]:checked ~ input[type=radio]:not(.track-zero):after,
+.tracker.tracked-red input[type=radio]:checked ~ input[type=radio]:not(.track-zero):before {
+    background: #EEEEEE;
+}
+
+.tracker.tracked-red input:not(.track-zero) {
+    background: red;
+}
+
+.tracker.tracked-red input:not(.track-zero):before,
+.tracker.tracked-red input:not(.track-zero):after {
+    background: red;
+}
+
+.tracker.tracked-red input[type=radio]:checked ~ input[type=radio]:not(.track-zero) {
+    background: #EEEEEE;
+}

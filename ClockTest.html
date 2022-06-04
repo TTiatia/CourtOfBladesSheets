@@ -1,0 +1,291 @@
+<html>
+<head>
+    <link rel="stylesheet" href="ClockTest.css" />
+    <link rel="stylesheet" href="Grids.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        function cyclesize() {
+            var val = parseInt($("#test-size").val());
+            $("#test-size").val((val + 2) % 14);
+        }
+    </script>
+</head>
+<body>
+    <div class="clock-selector"><button onclick="cyclesize()">Cycle size</button></div>
+    <div class="container">
+        <div class="subcontainer grid gtw-5 gth-1">
+            <div class="clock-container gw-1 gh-1">
+                <input type="hidden" class="clock-size" id="test-size" value="0" />
+
+                <div class="spoke-0 clock-2 clock-4 clock-6 clock-8 clock-10 clock-12"></div>
+                <div class="spoke-30 clock-12"></div>
+                <div class="spoke-45 clock-8"></div>
+                <div class="spoke-36 clock-10"></div>
+                <div class="spoke-60 clock-6 clock-12"></div>
+                <div class="spoke-72 clock-10"></div>
+                <div class="spoke-90 clock-4 clock-8 clock-12"></div>
+                <div class="spoke-108 clock-10"></div>
+                <div class="spoke-120 clock-6 clock-12"></div>
+                <div class="spoke-135 clock-8"></div>
+                <div class="spoke-144 clock-10"></div>
+                <div class="spoke-150 clock-12"></div>
+
+                <input class="clock-zero clock-progress" type="radio" name="clock-progress" value="0" checked="checked">
+                <span class="clock-zero-button"></span>
+
+                <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="1" name="clock-progress">
+                <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="2" name="clock-progress">
+                <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="3" name="clock-progress">
+                <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="4" name="clock-progress">
+                <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="5" name="clock-progress">
+                <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="6" name="clock-progress">
+                <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="7" name="clock-progress">
+                <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="8" name="clock-progress">
+                <input class="clock-progress clock-10 clock-12" type="radio" value="9" name="clock-progress">
+                <input class="clock-progress clock-10 clock-12" type="radio" value="10" name="clock-progress">
+                <input class="clock-progress clock-12" type="radio" value="11" name="clock-progress">
+                <input class="clock-progress clock-12" type="radio" value="12" name="clock-progress">
+
+                <div class="clock-image"></div>
+            </div>
+            <div class="gw-4 gh-1">
+                <textarea rows="3" class="clock-label"></textarea>
+            </div>
+        </div>
+        <div class="subcontainer grid gtw-5 gth-1">
+            <div class="clock-container gw-1 gh-1">
+                <input type="hidden" class="clock-size" value="2" />
+
+                <div class="spoke-0 clock-2 clock-4 clock-6 clock-8 clock-10 clock-12"></div>
+                <div class="spoke-30 clock-12"></div>
+                <div class="spoke-45 clock-8"></div>
+                <div class="spoke-36 clock-10"></div>
+                <div class="spoke-60 clock-6 clock-12"></div>
+                <div class="spoke-72 clock-10"></div>
+                <div class="spoke-90 clock-4 clock-8 clock-12"></div>
+                <div class="spoke-108 clock-10"></div>
+                <div class="spoke-120 clock-6 clock-12"></div>
+                <div class="spoke-135 clock-8"></div>
+                <div class="spoke-144 clock-10"></div>
+                <div class="spoke-150 clock-12"></div>
+
+                <input class="clock-zero clock-progress" type="radio" name="clock-progress-1" value="0" checked="checked">
+                <span class="clock-zero-button"></span>
+
+                <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="1" name="clock-progress-1">
+                <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="2" name="clock-progress-1">
+                <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="3" name="clock-progress-1">
+                <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="4" name="clock-progress-1">
+                <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="5" name="clock-progress-1">
+                <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="6" name="clock-progress-1">
+                <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="7" name="clock-progress-1">
+                <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="8" name="clock-progress-1">
+                <input class="clock-progress clock-10 clock-12" type="radio" value="9" name="clock-progress-1">
+                <input class="clock-progress clock-10 clock-12" type="radio" value="10" name="clock-progress-1">
+                <input class="clock-progress clock-12" type="radio" value="11" name="clock-progress-1">
+                <input class="clock-progress clock-12" type="radio" value="12" name="clock-progress-1">
+
+                <div class="clock-image"></div>
+            </div>
+            <div class="gw-4 gh-1">
+                <textarea rows="3" class="clock-label"></textarea>
+            </div>
+        </div>
+        <div class="subcontainer grid gtw-5 gth-1">
+            <div class="clock-container gw-1 gh-1">
+                <input type="hidden" class="clock-size" value="4" />
+
+                <div class="spoke-0 clock-2 clock-4 clock-6 clock-8 clock-10 clock-12"></div>
+                <div class="spoke-30 clock-12"></div>
+                <div class="spoke-45 clock-8"></div>
+                <div class="spoke-36 clock-10"></div>
+                <div class="spoke-60 clock-6 clock-12"></div>
+                <div class="spoke-72 clock-10"></div>
+                <div class="spoke-90 clock-4 clock-8 clock-12"></div>
+                <div class="spoke-108 clock-10"></div>
+                <div class="spoke-120 clock-6 clock-12"></div>
+                <div class="spoke-135 clock-8"></div>
+                <div class="spoke-144 clock-10"></div>
+                <div class="spoke-150 clock-12"></div>
+
+                <input class="clock-zero clock-progress" type="radio" name="clock-progress-2" value="0" checked="checked">
+                <span class="clock-zero-button"></span>
+
+                <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="1" name="clock-progress-2">
+                <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="2" name="clock-progress-2">
+                <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="3" name="clock-progress-2">
+                <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="4" name="clock-progress-2">
+                <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="5" name="clock-progress-2">
+                <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="6" name="clock-progress-2">
+                <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="7" name="clock-progress-2">
+                <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="8" name="clock-progress-2">
+                <input class="clock-progress clock-10 clock-12" type="radio" value="9" name="clock-progress-2">
+                <input class="clock-progress clock-10 clock-12" type="radio" value="10" name="clock-progress-2">
+                <input class="clock-progress clock-12" type="radio" value="11" name="clock-progress-2">
+                <input class="clock-progress clock-12" type="radio" value="12" name="clock-progress-2">
+
+                <div class="clock-image"></div>
+            </div>
+            <div class="gw-4 gh-1">
+                <textarea rows="3" class="clock-label"></textarea>
+            </div>
+        </div>
+        <div class="subcontainer grid gtw-5 gth-1">
+            <div class="clock-container gw-1 gh-1">
+                <input type="hidden" class="clock-size" value="6" />
+
+                <div class="spoke-0 clock-2 clock-4 clock-6 clock-8 clock-10 clock-12"></div>
+                <div class="spoke-30 clock-12"></div>
+                <div class="spoke-45 clock-8"></div>
+                <div class="spoke-36 clock-10"></div>
+                <div class="spoke-60 clock-6 clock-12"></div>
+                <div class="spoke-72 clock-10"></div>
+                <div class="spoke-90 clock-4 clock-8 clock-12"></div>
+                <div class="spoke-108 clock-10"></div>
+                <div class="spoke-120 clock-6 clock-12"></div>
+                <div class="spoke-135 clock-8"></div>
+                <div class="spoke-144 clock-10"></div>
+                <div class="spoke-150 clock-12"></div>
+
+                <input class="clock-zero clock-progress" type="radio" name="clock-progress-3" value="0" checked="checked">
+                <span class="clock-zero-button"></span>
+
+                <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="1" name="clock-progress-3">
+                <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="2" name="clock-progress-3">
+                <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="3" name="clock-progress-3">
+                <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="4" name="clock-progress-3">
+                <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="5" name="clock-progress-3">
+                <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="6" name="clock-progress-3">
+                <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="7" name="clock-progress-3">
+                <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="8" name="clock-progress-3">
+                <input class="clock-progress clock-10 clock-12" type="radio" value="9" name="clock-progress-3">
+                <input class="clock-progress clock-10 clock-12" type="radio" value="10" name="clock-progress-3">
+                <input class="clock-progress clock-12" type="radio" value="11" name="clock-progress-3">
+                <input class="clock-progress clock-12" type="radio" value="12" name="clock-progress-3">
+
+                <div class="clock-image"></div>
+            </div>
+            <div class="gw-4 gh-1">
+                <textarea rows="3" class="clock-label"></textarea>
+            </div>
+        </div>
+        <div class="subcontainer grid gtw-5 gth-1">
+            <div class="clock-container gw-1 gh-1">
+                <input type="hidden" class="clock-size" value="8" />
+
+                <div class="spoke-0 clock-2 clock-4 clock-6 clock-8 clock-10 clock-12"></div>
+                <div class="spoke-30 clock-12"></div>
+                <div class="spoke-45 clock-8"></div>
+                <div class="spoke-36 clock-10"></div>
+                <div class="spoke-60 clock-6 clock-12"></div>
+                <div class="spoke-72 clock-10"></div>
+                <div class="spoke-90 clock-4 clock-8 clock-12"></div>
+                <div class="spoke-108 clock-10"></div>
+                <div class="spoke-120 clock-6 clock-12"></div>
+                <div class="spoke-135 clock-8"></div>
+                <div class="spoke-144 clock-10"></div>
+                <div class="spoke-150 clock-12"></div>
+
+                <input class="clock-zero clock-progress" type="radio" name="clock-progress-4" value="0" checked="checked">
+                <span class="clock-zero-button"></span>
+
+                <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="1" name="clock-progress-4">
+                <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="2" name="clock-progress-4">
+                <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="3" name="clock-progress-4">
+                <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="4" name="clock-progress-4">
+                <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="5" name="clock-progress-4">
+                <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="6" name="clock-progress-4">
+                <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="7" name="clock-progress-4">
+                <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="8" name="clock-progress-4">
+                <input class="clock-progress clock-10 clock-12" type="radio" value="9" name="clock-progress-4">
+                <input class="clock-progress clock-10 clock-12" type="radio" value="10" name="clock-progress-4">
+                <input class="clock-progress clock-12" type="radio" value="11" name="clock-progress-4">
+                <input class="clock-progress clock-12" type="radio" value="12" name="clock-progress-4">
+
+                <div class="clock-image"></div>
+            </div>
+            <div class="gw-4 gh-1">
+                <textarea rows="3" class="clock-label"></textarea>
+            </div>
+        </div>
+        <div class="subcontainer grid gtw-5 gth-1">
+            <div class="clock-container gw-1 gh-1">
+                <input type="hidden" class="clock-size" value="10" />
+
+                <div class="spoke-0 clock-2 clock-4 clock-6 clock-8 clock-10 clock-12"></div>
+                <div class="spoke-30 clock-12"></div>
+                <div class="spoke-45 clock-8"></div>
+                <div class="spoke-36 clock-10"></div>
+                <div class="spoke-60 clock-6 clock-12"></div>
+                <div class="spoke-72 clock-10"></div>
+                <div class="spoke-90 clock-4 clock-8 clock-12"></div>
+                <div class="spoke-108 clock-10"></div>
+                <div class="spoke-120 clock-6 clock-12"></div>
+                <div class="spoke-135 clock-8"></div>
+                <div class="spoke-144 clock-10"></div>
+                <div class="spoke-150 clock-12"></div>
+
+                <input class="clock-zero clock-progress" type="radio" name="clock-progress-5" value="0" checked="checked">
+                <span class="clock-zero-button"></span>
+
+                <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="1" name="clock-progress-5">
+                <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="2" name="clock-progress-5">
+                <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="3" name="clock-progress-5">
+                <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="4" name="clock-progress-5">
+                <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="5" name="clock-progress-5">
+                <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="6" name="clock-progress-5">
+                <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="7" name="clock-progress-5">
+                <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="8" name="clock-progress-5">
+                <input class="clock-progress clock-10 clock-12" type="radio" value="9" name="clock-progress-5">
+                <input class="clock-progress clock-10 clock-12" type="radio" value="10" name="clock-progress-5">
+                <input class="clock-progress clock-12" type="radio" value="11" name="clock-progress-5">
+                <input class="clock-progress clock-12" type="radio" value="12" name="clock-progress-5">
+
+                <div class="clock-image"></div>
+            </div>
+            <div class="gw-4 gh-1">
+                <textarea rows="3" class="clock-label"></textarea>
+            </div>
+        </div>
+        <div class="subcontainer grid gtw-5 gth-1">
+            <div class="clock-container gw-1 gh-1">
+                <input type="hidden" class="clock-size" value="12" />
+
+                <div class="spoke-0 clock-2 clock-4 clock-6 clock-8 clock-10 clock-12"></div>
+                <div class="spoke-30 clock-12"></div>
+                <div class="spoke-45 clock-8"></div>
+                <div class="spoke-36 clock-10"></div>
+                <div class="spoke-60 clock-6 clock-12"></div>
+                <div class="spoke-72 clock-10"></div>
+                <div class="spoke-90 clock-4 clock-8 clock-12"></div>
+                <div class="spoke-108 clock-10"></div>
+                <div class="spoke-120 clock-6 clock-12"></div>
+                <div class="spoke-135 clock-8"></div>
+                <div class="spoke-144 clock-10"></div>
+                <div class="spoke-150 clock-12"></div>
+
+                <input class="clock-zero clock-progress" type="radio" name="clock-progress-6" value="0" checked="checked">
+                <span class="clock-zero-button"></span>
+
+                <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="1" name="clock-progress-6">
+                <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="2" name="clock-progress-6">
+                <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="3" name="clock-progress-6">
+                <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="4" name="clock-progress-6">
+                <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="5" name="clock-progress-6">
+                <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="6" name="clock-progress-6">
+                <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="7" name="clock-progress-6">
+                <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="8" name="clock-progress-6">
+                <input class="clock-progress clock-10 clock-12" type="radio" value="9" name="clock-progress-6">
+                <input class="clock-progress clock-10 clock-12" type="radio" value="10" name="clock-progress-6">
+                <input class="clock-progress clock-12" type="radio" value="11" name="clock-progress-6">
+                <input class="clock-progress clock-12" type="radio" value="12" name="clock-progress-6">
+
+                <div class="clock-image"></div>
+            </div>
+            <div class="gw-4 gh-1">
+                <textarea rows="3" class="clock-label"></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
