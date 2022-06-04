@@ -4,555 +4,639 @@
     <link rel="stylesheet" href="Shapes.css"/>
     <link rel="stylesheet" href="Charsheet.css"/>
     <link rel="stylesheet" href="Grids.css"/>
-    <link rel="stylesheet" href="Alignment.css"/>
+    <link rel="stylesheet" href="Layout.css"/>
     <link rel="stylesheet" href="Clocks.css"/>
+    <link rel="stylesheet" href="smartshapes.css"/>
 </head>
-<body><div class="charsheet">
-          <div class="debug clocktest">
-              <div class="repitem" data-reprowid="-N3YnomxzmRfcWAvMvNh">
-                  
-                  <!-- div class="itemcontrol"><button class="btn btn-danger pictos repcontrol_del">#</button><a class="btn repcontrol_move">≡</a></!--div -->
-                  <input class="size" type="text" name="attr_size" value="">
-                  <!--
-                  <div class="auto-expand smallcaps">
-                      <span name="attr_name"></span>
-                      <textarea spellcheck="false" name="attr_name" data-i18n-placeholder="clock_name" placeholder="Clock Name"></textarea>
-                  </div>
-                  -->
-                  <div class="size-choice">
-                      <label class="text-button">
-                          <input type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_size" value="4" data-attrname="size"><span>4</span>
-                      </label>
-                      <label class="text-button">
-                          <input type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_size" value="6" data-attrname="size"><span>6</span>
-                      </label>
-                      <label class="text-button">
-                          <input type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_size" value="8" data-attrname="size"><span>8</span>
-                      </label>
-                      <label class="text-button">
-                          <input type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_size" value="10" data-attrname="size"><span>10</span>
-                      </label>
-                      <label class="text-button">
-                          <input type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_size" value="12" data-attrname="size"><span>12</span>
-                      </label>
-                  </div>
-                  <div class="clock-container">
-                      <div class="spoke-0 clock-2 clock-4 clock-6 clock-8 clock-10 clock-12"></div>
-                      <div class="spoke-30 clock-12"></div>
-                      <div class="spoke-45 clock-8"></div>
-                      <div class="spoke-36 clock-10"></div>
-                      <div class="spoke-60 clock-6 clock-12"></div>
-                      <div class="spoke-72 clock-10"></div>
-                      <div class="spoke-90 clock-4 clock-8 clock-12"></div>
-                      <div class="spoke-108 clock-10"></div>
-                      <div class="spoke-120 clock-6 clock-12"></div>
-                      <div class="spoke-135 clock-8"></div>
-                      <div class="spoke-144 clock-10"></div>
-                      <div class="spoke-150 clock-12"></div>
-                      <input class="zero input-progress" type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_progress" value="0" checked="checked" data-attrname="progress"><span></span>
-                      <input class="input-progress all" type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_progress" value="1" data-attrname="progress">
-                      <input class="input-progress all" type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_progress" value="2" data-attrname="progress">
-                      <input class="input-progress all" type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_progress" value="3" data-attrname="progress">
-                      <input class="input-progress all" type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_progress" value="4" data-attrname="progress">
-                      <input class="input-progress clock-6 clock-8 clock-10 clock-12" type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_progress" value="5" data-attrname="progress">
-                      <input class="input-progress clock-6 clock-8 clock-10 clock-12" type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_progress" value="6" data-attrname="progress">
-                      <input class="input-progress clock-8 clock-10 clock-12" type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_progress" value="7" data-attrname="progress">
-                      <input class="input-progress clock-8 clock-10 clock-12" type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_progress" value="8" data-attrname="progress">
-                      <input class="input-progress clock-10 clock-12" type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_progress" value="9" data-attrname="progress">
-                      <input class="input-progress clock-10 clock-12" type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_progress" value="10" data-attrname="progress">
-                      <input class="input-progress clock-12" type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_progress" value="11" data-attrname="progress">
-                      <input class="input-progress clock-12" type="radio" name="attr_-N3YnomxzmRfcWAvMvNh_repeating_clock_progress" value="12" data-attrname="progress">
-                      <div class="clock"></div>
-                  </div>
-              </div>
-          </div>
+<body>
+    <div class="charsheet">
+        <div id="page-pc" class="page">
+            <div class="debug grid gtw-18 gapc-2">
+                <div id="pcpanel" class="grid gw-9 gtw-9 panel">
+                    <div id="pcpanel-titlebox" class="debug grid gh-3 gw-9 grid gtw-1">
+                        <div class="debug gw-1 gh-3 gapc-2 text-center"><span class="logo">Court of Blades</span></div>
+                    </div>
+                    <div id="pcpanel-detailbox" class="debug gw-9 gh-3 grid gtw-2 gth-3">
+                        <input type="text" name="attr_pcname" class="border-bottom pcdetail" />
+                        <input type="text" name="attr_pchouse" class="border-bottom pcdetail" />
+                        <span class="b">NAME &amp; ALIAS</span>
+                        <span class="b">HOUSE</span>
 
-    <div id="page-pc" class="page">
-        <div class="debug grid gtw-18 gapc-2">
-            <div id="pcpanel" class="grid gw-9 gtw-9 panel">
-                <div id="pcpanel-titlebox" class="debug grid gh-3 gw-9 grid gtw-1">
-                    <div class="debug gw-1 gh-3 gapc-2 text-center"><span class="logo">Court of Blades</span></div>
-                </div>
-                <div id="pcpanel-detailbox" class="debug gw-9 gh-3 grid gtw-2 gth-3">
-                    <input type="text" name="attr_pcname" class="border-bottom pcdetail" />
-                    <input type="text" name="attr_pchouse" class="border-bottom pcdetail" />
-                    <span class="b">NAME &amp; ALIAS</span>
-                    <span class="b">HOUSE</span>
+                        <input type="text" name="attr_pclook" class="border-bottom pcdetail" />
+                        <input type="text" name="attr_pcindulgence" class="border-bottom pcdetail" />
+                        <span class="b">LOOK</span>
+                        <span class="b">INDULGENCE &amp; SOURCE</span>
 
-                    <input type="text" name="attr_pclook" class="border-bottom pcdetail" />
-                    <input type="text" name="attr_pcindulgence" class="border-bottom pcdetail" />
-                    <span class="b">LOOK</span>
-                    <span class="b">INDULGENCE &amp; SOURCE</span>
+                        <input type="text" name="attr_pcbackground" class="border-bottom pcdetail" />
+                        <input type="text" name="attr_pcheritage" class="border-bottom pcdetail" />
+                        <span class="b">BACKGROUND</span>
+                        <span class="b">HERITAGE</span>
+                    </div>
+                    <div id="pcpanel-scandalstatus" class="debug gw-9 grid gtw-2">
+                        <div class="grid gtw-1 align-center">
+                            <input type="text" name="attr_pcscandals" class="pcdetail" />
+                            <span class="b">SCANDALS</span>
+                            <span class="i">Sentimental, Wicked, Grasping, False, Gauche, Jealous, Faithless, Fragile</span>
+                        </div>
+                        <div id="pcpanel-statusbox" class="debug grid gth-5 gtw-11 justify-right content">
+                            <div class="gw-11 b text-center">STATUS</div>
+                            <div class="gw-11 gh-4 rela">
+                                <input type="radio" value="0" name="attr_pcstatustrack" class="clear-track clear-track-up" checked="checked" />
+                                <span></span>
+                                <input type="radio" value="1" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="2" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="3" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="4" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="5" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="6" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="7" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="8" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="9" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="10" name="attr_pcstatustrack" class="shape-diamond-red justify-center" />
+                                <br />
+                                <input type="radio" value="11" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="12" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="13" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="14" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="15" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="16" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="17" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="18" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="19" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="20" name="attr_pcstatustrack" class="shape-diamond-red justify-center" />
+                                <br />
+                                <input type="radio" value="21" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="22" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="23" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="24" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="25" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="26" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="27" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="28" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="29" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="30" name="attr_pcstatustrack" class="shape-diamond-red justify-center" />
+                                <br />
+                                <input type="radio" value="31" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="32" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="33" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="34" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="35" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="36" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="37" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="38" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="39" name="attr_pcstatustrack" class="shape-square-black" />
+                                <input type="radio" value="40" name="attr_pcstatustrack" class="shape-diamond-red justify-center" />
+                            </div>
+                        </div>
+                    </div>
+                    <div id="pcpanel-stressinfluence" class="debug gw-9 grid gth-2 gtw-3 text-center padding-top padding-bottom maxh-3">
+                        <span class="b gw-2 align-bottom">STRESS</span>
+                        <span class="b gw-1 align-bottom">INFLUENCE</span>
+                        <div class="gw-2">
+                            <div id="pcpanel-stressbox" class="rela">
+                                <input type="radio" name="attr_pcstress" value="1" class="shape-diamond-red" />
+                                <input type="radio" name="attr_pcstress" value="2" class="shape-diamond-red" />
+                                <input type="radio" name="attr_pcstress" value="3" class="shape-diamond-red" />
+                                <input type="radio" name="attr_pcstress" value="4" class="shape-diamond-red" />
+                                <input type="radio" name="attr_pcstress" value="5" class="shape-diamond-red" />
+                                <input type="radio" name="attr_pcstress" value="6" class="shape-diamond-red" />
+                                <input type="radio" name="attr_pcstress" value="7" class="shape-diamond-red" />
+                                <input type="radio" name="attr_pcstress" value="8" class="shape-diamond-red" />
+                                <input type="radio" name="attr_pcstress" value="9" class="shape-diamond-red" />
+                            </div>
+                        </div>
+                        <div id="pcpanel-influencebox" class="gw-1 rela">
+                            <input type="radio" name="attr_pcinfluence" value="1" class="shape-diamond-red" />
+                            <input type="radio" name="attr_pcinfluence" value="2" class="shape-diamond-red" />
+                            <input type="radio" name="attr_pcinfluence" value="3" class="shape-diamond-red" />
+                            <input type="radio" name="attr_pcinfluence" value="4" class="shape-diamond-red" />
+                        </div>
+                    </div>
+                    <div id="pcpanel-harmhealing" class="debug gw-9 grid gtw-5">
+                        <div id="pcpanel-harmbox" class="debug gw-4 gh-4 grid gtw-1 bordered">
+                            <div class="b bg-black">HARM</div>
+                            <div class="grid gtw-13 bordered">
+                                <div class="b bg-med gw-1 text-center">3</div>
+                                <div class="gw-10"><input type="text" name="attr_pcharml3" /></div>
+                                <div class="b bg-med gw-2 pad-right pad-left text-center">NEED HELP</div>
+                            </div>
+                            <div class="grid gtw-13 bordered">
+                                <div class="b bg-med gw-1 text-center">2</div>
+                                <div class="gw-5 border-right padding-right"><input type="text" name="attr_pcharml21" /></div>
+                                <div class="gw-5 padding-right"><input type="text" name="attr_pcharml22" /></div>
+                                <div class="b bg-med gw-2 pad-right pad-left text-center">-1D</div>
+                            </div>
+                            <div class="grid gtw-13 bordered">
+                                <div class="b bg-med gw-1 text-center"><span class="text-bottom">1</span></div>
+                                <div class="gw-5 border-right padding-right"><input type="text" name="attr_pcharml11" /></div>
+                                <div class="gw-5 padding-right"><input type="text" name="attr_pcharml12" /></div>
+                                <div class="b bg-med gw-2 pad-right pad-left text-center">LESS EFFECT</div>
+                            </div>
+                        </div>
+                        <div id="pcpanel-healingbox" class="debug gw-1 gh-2 grid gtw-3 gth-3 gdense">
+                            <div class="b bg-black gw-3">HEALING</div>
+                            <div class="gw-2 gh-1 i">Project clock</div>
+                            <div class="gw-1 gh-2 justify-center">
+                                <div class="clock-container">
+                                    <input type="hidden" class="clock-size" value="4" />
 
-                    <input type="text" name="attr_pcbackground" class="border-bottom pcdetail" />
-                    <input type="text" name="attr_pcheritage" class="border-bottom pcdetail" />
-                    <span class="b">BACKGROUND</span>
-                    <span class="b">HERITAGE</span>
-                </div>
-                <div id="pcpanel-scandalstatus" class="debug gw-9 grid gtw-3">
-                    <div class="gw-2 grid gtw-1 align-center">
-                        <input type="text" name="attr_pcscandals" class="pcdetail" />
-                        <span class="b">SCANDALS</span>
-                        <span class="i">Sentimental, Wicked, Grasping, False, Gauche, Jealous, Faithless, Fragile</span>
-                    </div>
-                    <div id="pcpanel-statusbox" class="debug grid gth-5 gtw-10">
-                        <div class="gw-10 b text-center">STATUS</div>
-                        <div class="gw-1 gh-4 grid gth-4 gtw-1 maxh-5">
-                            <input type="radio" value="1" name="attr_status1" class="shape-square-black" />
-                            <input type="radio" value="1" name="attr_status2" class="shape-square-black" />
-                            <input type="radio" value="1" name="attr_status3" class="shape-square-black" />
-                            <input type="radio" value="1" name="attr_status4" class="shape-square-black" />
-                        </div>
-                        <div class="gw-1 gh-4 grid gth-4 gtw-1 maxh-5">
-                            <input type="radio" value="2" name="attr_status1" class="shape-square-black" />
-                            <input type="radio" value="2" name="attr_status2" class="shape-square-black" />
-                            <input type="radio" value="2" name="attr_status3" class="shape-square-black" />
-                            <input type="radio" value="2" name="attr_status4" class="shape-square-black" />
-                        </div>
-                        <div class="gw-1 gh-4 grid gth-4 gtw-1 maxh-5">
-                            <input type="radio" value="3" name="attr_status1" class="shape-square-black" />
-                            <input type="radio" value="3" name="attr_status2" class="shape-square-black" />
-                            <input type="radio" value="3" name="attr_status3" class="shape-square-black" />
-                            <input type="radio" value="3" name="attr_status4" class="shape-square-black" />
-                        </div>
-                        <div class="gw-1 gh-4 grid gth-4 gtw-1 maxh-5">
-                            <input type="radio" value="4" name="attr_status1" class="shape-square-black" />
-                            <input type="radio" value="4" name="attr_status2" class="shape-square-black" />
-                            <input type="radio" value="4" name="attr_status3" class="shape-square-black" />
-                            <input type="radio" value="4" name="attr_status4" class="shape-square-black" />
-                        </div>
-                        <div class="gw-1 gh-4 grid gth-4 gtw-1 maxh-5">
-                            <input type="radio" value="5" name="attr_status1" class="shape-square-black" />
-                            <input type="radio" value="5" name="attr_status2" class="shape-square-black" />
-                            <input type="radio" value="5" name="attr_status3" class="shape-square-black" />
-                            <input type="radio" value="5" name="attr_status4" class="shape-square-black" />
-                        </div>
-                        <div class="gw-1 gh-4 grid gth-4 gtw-1 maxh-5">
-                            <input type="radio" value="6" name="attr_status1" class="shape-square-black" />
-                            <input type="radio" value="6" name="attr_status2" class="shape-square-black" />
-                            <input type="radio" value="6" name="attr_status3" class="shape-square-black" />
-                            <input type="radio" value="6" name="attr_status4" class="shape-square-black" />
-                        </div>
-                        <div class="gw-1 gh-4 grid gth-4 gtw-1 maxh-5">
-                            <input type="radio" value="7" name="attr_status1" class="shape-square-black" />
-                            <input type="radio" value="7" name="attr_status2" class="shape-square-black" />
-                            <input type="radio" value="7" name="attr_status3" class="shape-square-black" />
-                            <input type="radio" value="7" name="attr_status4" class="shape-square-black" />
-                        </div>
-                        <div class="gw-1 gh-4 grid gth-4 gtw-1 maxh-5">
-                            <input type="radio" value="8" name="attr_status1" class="shape-square-black" />
-                            <input type="radio" value="8" name="attr_status2" class="shape-square-black" />
-                            <input type="radio" value="8" name="attr_status3" class="shape-square-black" />
-                            <input type="radio" value="8" name="attr_status4" class="shape-square-black" />
-                        </div>
-                        <div class="gw-1 gh-4 grid gth-4 gtw-1 maxh-5">
-                            <input type="radio" value="9" name="attr_status1" class="shape-square-black" />
-                            <input type="radio" value="9" name="attr_status2" class="shape-square-black" />
-                            <input type="radio" value="9" name="attr_status3" class="shape-square-black" />
-                            <input type="radio" value="9" name="attr_status4" class="shape-square-black" />
-                        </div>
-                        <div class="gw-1 gh-4 grid gth-4 gtw-1 maxh-5 bg-med" style="width:1.75em;">
-                            <input type="radio" value="10" name="attr_status1" class="shape-diamond-red justify-center" />
-                            <input type="radio" value="10" name="attr_status2" class="shape-diamond-red justify-center" />
-                            <input type="radio" value="10" name="attr_status3" class="shape-diamond-red justify-center" />
-                            <input type="radio" value="10" name="attr_status4" class="shape-diamond-red justify-center" />
-                        </div>
-                    </div>
-                </div>
-                <div id="pcpanel-stressinfluence" class="debug gw-9 grid gth-2 gtw-3 text-center padding-top padding-bottom maxh-3">
-                    <span class="b gw-2 align-bottom">STRESS</span>
-                    <span class="b gw-1 align-bottom">INFLUENCE</span>
-                    <div class="gw-2 grid gtw-4">
-                        <div class="gw-1"></div>
-                        <div class="gw-2 grid gtw-9 gth-1 gapc-2 justify-center">
-                            <input type="radio" name="attr_pcstress" value="1" class="shape-diamond-red" />
-                            <input type="radio" name="attr_pcstress" value="2" class="shape-diamond-red" />
-                            <input type="radio" name="attr_pcstress" value="3" class="shape-diamond-red" />
-                            <input type="radio" name="attr_pcstress" value="4" class="shape-diamond-red" />
-                            <input type="radio" name="attr_pcstress" value="5" class="shape-diamond-red" />
-                            <input type="radio" name="attr_pcstress" value="6" class="shape-diamond-red" />
-                            <input type="radio" name="attr_pcstress" value="7" class="shape-diamond-red" />
-                            <input type="radio" name="attr_pcstress" value="8" class="shape-diamond-red" />
-                            <input type="radio" name="attr_pcstress" value="9" class="shape-diamond-red" />
-                        </div>
-                    </div>
-                    <div class="gw-1 grid gtw-4 gth-1 gapc-2 justify-center">
-                        <input type="radio" name="attr_pcinfluence" value="1" class="shape-diamond-red" />
-                        <input type="radio" name="attr_pcinfluence" value="2" class="shape-diamond-red" />
-                        <input type="radio" name="attr_pcinfluence" value="3" class="shape-diamond-red" />
-                        <input type="radio" name="attr_pcinfluence" value="4" class="shape-diamond-red" />
-                    </div>
-                </div>
-                <div id="pcpanel-harmhealing" class="debug gw-9 grid gtw-5">
-                    <div id="pcpanel-harmbox" class="debug gw-4 gh-4 grid gtw-1 bordered">
-                        <div class="b bg-black">HARM</div>
-                        <div class="grid gtw-13 bordered">
-                            <div class="b bg-med gw-1 text-center">3</div>
-                            <div class="gw-10"><input type="text" name="attr_pcharml3" /></div>
-                            <div class="b bg-med gw-2 pad-right pad-left text-center">NEED HELP</div>
-                        </div>
-                        <div class="grid gtw-13 bordered">
-                            <div class="b bg-med gw-1 text-center">2</div>
-                            <div class="gw-5 border-right padding-right"><input type="text" name="attr_pcharml21" /></div>
-                            <div class="gw-5 padding-right"><input type="text" name="attr_pcharml22" /></div>
-                            <div class="b bg-med gw-2 pad-right pad-left text-center">-1D</div>
-                        </div>
-                        <div class="grid gtw-13 bordered">
-                            <div class="b bg-med gw-1 text-center"><span class="text-bottom">1</span></div>
-                            <div class="gw-5 border-right padding-right"><input type="text" name="attr_pcharml11" /></div>
-                            <div class="gw-5 padding-right"><input type="text" name="attr_pcharml12" /></div>
-                            <div class="b bg-med gw-2 pad-right pad-left text-center">LESS EFFECT</div>
-                        </div>
-                    </div>
-                    <div id="pcpanel-healingbox" class="debug gw-1 gh-2 grid gtw-3 gth-2 gdense">
-                        <div class="b bg-black gw-2">HEALING</div>
-                        <div class="gw-1 gh-2 clock-container">
-                            <div class="spoke-0"></div>
-                            <div class="spoke-90"></div>
-                            <div class="clock"></div>
-                        </div>
-                        <div class="gw-2 gh-1 i">Project clock</div>
-                    </div>
-                    <div id="pcpanel-armourbox" class="debug gw-1 gh-2 align-end grid gtw-3 gth-4 b">
-                        <div class="bg-black text-center gw-3 marg-bottom">ARMOR USES</div>
-                        <div class="text-center gw-2">ARMOR</div><input type="checkbox" name="attr_pcarmour" class="shape-diamond-red" />
-                        <div class="text-center gw-2">SPECIAL</div><input type="checkbox" name="attr_pcsarmour" class="shape-diamond-red" />
-                    </div>
-                </div>
-                <div id="pcpanel-paramour" class="debug gw-9 grid gtw-3 marg-bottom">
-                    <div class="debug gw-3 grid gtw-3 marg-top">
-                        <div class="gw-2 gh-2 grid gtw-5 align-end">
-                            <div class="paramourname gw-1 align-end text-right pad-right">Paramour</div>
-                            <input type="text" name="attr_pcparamour" class="gw-4 pcdetail" />
-                        </div>
-                        <div class="gw-1 gh-1 b text-center marg-bottom">HEAT</div>
-                        <div class="grid gtw-6 align-center maxh-2">
-                            <input type="radio" name="attr_pcheat" value="1" class="shape-heart" />
-                            <input type="radio" name="attr_pcheat" value="2" class="shape-heart" />
-                            <input type="radio" name="attr_pcheat" value="3" class="shape-heart" />
-                            <input type="radio" name="attr_pcheat" value="4" class="shape-heart" />
-                            <input type="radio" name="attr_pcheat" value="5" class="shape-heart" />
-                            <input type="radio" name="attr_pcheat" value="6" class="shape-heart" />
-                        </div>
-                    </div>
-                    <div class="debug bg-med gw-9 b grid gtw-9 marg-top text-center">
-                        <div class="gw-4">CONTACTS</div>
-                        <div class="gw-2">GATHER INFORMATION</div>
-                        <div class="gw-3">NOTES</div>
-                    </div>
-                    <div class="debug gw-9 grid gtw-9">
-                        <fieldset class="gw-4">
-                            <div class="grid gtw-7">
-                                <div class="gw-1">
-                                    <input type="checkbox" name="repeat1up" value="1" class="shape-uparrow-red" />
-                                    <input type="checkbox" name="repeat1down" value="1" class="shape-downarrow-red" />
-                                </div>
-                                <div class="gw-2 marg-right">
-                                    <input type="text" name="repeat1name" class="b border-bottom" />
-                                </div>
-                                <div class="gw-4">
-                                    <input type="text" name="repeat1desc" class="i border-bottom" />
+                                    <div class="spoke-0 clock-2 clock-4 clock-6 clock-8 clock-10 clock-12"></div>
+                                    <div class="spoke-30 clock-12"></div>
+                                    <div class="spoke-45 clock-8"></div>
+                                    <div class="spoke-36 clock-10"></div>
+                                    <div class="spoke-60 clock-6 clock-12"></div>
+                                    <div class="spoke-72 clock-10"></div>
+                                    <div class="spoke-90 clock-4 clock-8 clock-12"></div>
+                                    <div class="spoke-108 clock-10"></div>
+                                    <div class="spoke-120 clock-6 clock-12"></div>
+                                    <div class="spoke-135 clock-8"></div>
+                                    <div class="spoke-144 clock-10"></div>
+                                    <div class="spoke-150 clock-12"></div>
+
+                                    <input class="clock-zero clock-progress" type="radio" name="attr_pcharmclock" value="0" checked="checked">
+                                    <span class="clock-zero-button"></span>
+
+                                    <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="1" name="attr_pcharmclock">
+                                    <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="2" name="attr_pcharmclock">
+                                    <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="3" name="attr_pcharmclock">
+                                    <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="4" name="attr_pcharmclock">
+                                    <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="5" name="attr_pcharmclock">
+                                    <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="6" name="attr_pcharmclock">
+                                    <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="7" name="attr_pcharmclock">
+                                    <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="8" name="attr_pcharmclock">
+                                    <input class="clock-progress clock-10 clock-12" type="radio" value="9" name="attr_pcharmclock">
+                                    <input class="clock-progress clock-10 clock-12" type="radio" value="10" name="attr_pcharmclock">
+                                    <input class="clock-progress clock-12" type="radio" value="11" name="attr_pcharmclock">
+                                    <input class="clock-progress clock-12" type="radio" value="12" name="attr_pcharmclock">
+
+                                    <div class="clock-image"></div>
                                 </div>
                             </div>
-                            <div class="grid gtw-7">
-                                <div class="gw-1">
-                                    <input type="checkbox" name="repeat2up" value="1" class="shape-uparrow-red" />
-                                    <input type="checkbox" name="repeat2down" value="1" class="shape-downarrow-red" />
+                        </div>
+                        <div id="pcpanel-armourbox" class="debug gw-1 gh-2 align-end grid gtw-3 gth-4 b">
+                            <div class="bg-black text-center gw-3 marg-bottom">ARMOR USES</div>
+                            <div class="text-center gw-2">ARMOR</div><input type="checkbox" name="attr_pcarmour" class="shape-diamond-red" />
+                            <div class="text-center gw-2">SPECIAL</div><input type="checkbox" name="attr_pcsarmour" class="shape-diamond-red" />
+                        </div>
+                    </div>
+                    <div id="pcpanel-paramour" class="debug gw-9 grid gtw-3 marg-bottom">
+                        <div class="debug gw-3 grid gtw-3 marg-top">
+                            <div class="gw-2 gh-2 grid gtw-3 align-end">
+                                <div class="paramourname gw-1 align-end text-right pad-right content">Paramour</div>
+                                <input type="text" name="attr_pcparamour" class="gw-2 pcdetail" />
+                            </div>
+                            <div class="gw-1 gh-1 b text-center marg-bottom">HEAT</div>
+                            <div id="pcpanel-heatbox" class="grid gtw-6 align-center maxh-2">
+                                <input type="radio" name="attr_pcheat" value="1" class="shape-heart" />
+                                <input type="radio" name="attr_pcheat" value="2" class="shape-heart" />
+                                <input type="radio" name="attr_pcheat" value="3" class="shape-heart" />
+                                <input type="radio" name="attr_pcheat" value="4" class="shape-heart" />
+                                <input type="radio" name="attr_pcheat" value="5" class="shape-heart" />
+                                <input type="radio" name="attr_pcheat" value="6" class="shape-heart" />
+                            </div>
+                        </div>
+                        <div class="debug bg-med gw-9 b grid gtw-9 marg-top text-center">
+                            <div class="gw-4">CONTACTS</div>
+                            <div class="gw-2">GATHER INFORMATION</div>
+                            <div class="gw-3">NOTES</div>
+                        </div>
+                        <div class="debug gw-9 grid gtw-9">
+                            <fieldset class="gw-4 content">
+                                <div class="grid gtw-7">
+                                    <div class="gw-1 grid gtw-2">
+                                        <input type="checkbox" name="repeat1up" value="1" class="shape-uparrow-red" />
+                                        <input type="checkbox" name="repeat1down" value="1" class="shape-downarrow-red" />
+                                    </div>
+                                    <div class="gw-2 marg-right">
+                                        <input type="text" name="repeat1name" class="b border-bottom" />
+                                    </div>
+                                    <div class="gw-4">
+                                        <input type="text" name="repeat1desc" class="i border-bottom" />
+                                    </div>
                                 </div>
-                                <div class="gw-2 marg-right">
-                                    <input type="text" name="repeat2name" class="b border-bottom" />
+                                <div class="grid gtw-7">
+                                    <div class="gw-1 grid gtw-2">
+                                        <input type="checkbox" name="repeat2up" value="1" class="shape-uparrow-red" />
+                                        <input type="checkbox" name="repeat2down" value="1" class="shape-downarrow-red" />
+                                    </div>
+                                    <div class="gw-2 marg-right">
+                                        <input type="text" name="repeat2name" class="b border-bottom" />
+                                    </div>
+                                    <div class="gw-4">
+                                        <input type="text" name="repeat2desc" class="i border-bottom" />
+                                    </div>
                                 </div>
-                                <div class="gw-4">
-                                    <input type="text" name="repeat2desc" class="i border-bottom" />
+                                <div class="grid gtw-7">
+                                    <div class="gw-1 grid gtw-2">
+                                        <input type="checkbox" name="repeat3up" value="1" class="shape-uparrow-red" />
+                                        <input type="checkbox" name="repeat3down" value="1" class="shape-downarrow-red" />
+                                    </div>
+                                    <div class="gw-2 marg-right">
+                                        <input type="text" name="repeat3name" class="b border-bottom" />
+                                    </div>
+                                    <div class="gw-4">
+                                        <input type="text" name="repeat3desc" class="i border-bottom" />
+                                    </div>
+                                </div>
+                                <div class="grid gtw-7">
+                                    <div class="gw-1 grid gtw-2">
+                                        <input type="checkbox" name="repeat4up" value="1" class="shape-uparrow-red" />
+                                        <input type="checkbox" name="repeat4down" value="1" class="shape-downarrow-red" />
+                                    </div>
+                                    <div class="gw-2 marg-right">
+                                        <input type="text" name="repeat4name" class="b border-bottom" />
+                                    </div>
+                                    <div class="gw-4">
+                                        <input type="text" name="repeat4desc" class="i border-bottom" />
+                                    </div>
+                                </div>
+                                <div class="grid gtw-7">
+                                    <div class="gw-1 grid gtw-2">
+                                        <input type="checkbox" name="repeat5up" value="1" class="shape-uparrow-red" />
+                                        <input type="checkbox" name="repeat5down" value="1" class="shape-downarrow-red" />
+                                    </div>
+                                    <div class="gw-2 marg-right">
+                                        <input type="text" name="repeat5name" class="b border-bottom" />
+                                    </div>
+                                    <div class="gw-4">
+                                        <input type="text" name="repea5desc" class="i border-bottom" />
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="gw-2 grid gtw-1 marg-left content">
+                                <div class="gw-1"><span class="shape-smalldiamond-red marg-right"></span><span class="i">How can I hurt them?</span></div>
+                                <div class="gw-1"><span class="shape-smalldiamond-red marg-right"></span><span class="i">What do they want most?</span></div>
+                                <div class="gw-1"><span class="shape-smalldiamond-red marg-right"></span><span class="i">Who's most dangerous here?</span></div>
+                                <div class="gw-1"><span class="shape-smalldiamond-red marg-right"></span><span class="i">What do they intend to do?</span></div>
+                                <div class="gw-1"><span class="shape-smalldiamond-red marg-right"></span><span class="i">How can I get them to [X]?</span></div>
+                                <div class="gw-1"><span class="shape-smalldiamond-red marg-right"></span><span class="i">Are they telling the truth?</span></div>
+                                <div class="gw-1"><span class="shape-smalldiamond-red marg-right"></span><span class="i">What's really going on here?</span></div>
+                            </div>
+                            <div class="debug gw-3 border-left">
+                                <textarea></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="pcpanel-bonds" class="debug gw-9 grid gtw-1 marg-top bg-light">
+                        <div class="b text-center">BONDS</div>
+                        <textarea></textarea>
+                    </div>
+                </div>
+                <div id="abilitypanel" class="grid gw-6 gtw-1 panel">
+                    <div id="abilitypanel-titlebox" class="debug gh-3 grid gth-3 gtw-1">
+                        <div id="abilitypanel-titlebox-title" class="debug gh-2 titlebox-title">The Bravo</div>
+                        <div id="abilitypanel-titlebox-subtitle" class="debug titlebox-subtitle">A dashing sworn-sword, quick of wit and unmatched in combat.</div>
+                    </div>
+                    <div id="abilitypanel-specfeatbox" class="debug grid gtw-1">
+                        <div id="abilitypanel-specfeatbox-heading" class="debug heading bg-med">SPECIAL ARMOUR</div>
+                        <div id="abilitypanel-specfeatbox-option" class="debug gcheckboxlist"><input type="checkbox" checked="checked" class="shape-dot-black"><span class="label"><b>Resist</b> a complication related to physical obstacles or being outnumbered for you and your coterie (when you are present).</span></div>
+                    </div>
+                    <div class="debug abilitypanel-specabilitybox grid gtw-1">
+                        <div id="abilitypanel-specabilitybox-heading" class="debug heading bg-med">SPECIAL ABILITIES</div>
+                        <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot-black"/><span class="label"><b>HOUSE GUARD: </b>When you protect a member of your coterie, you <b>resist</b> with <b>+1d</b>. When you take <b>harm</b>, clear 1 <b>stress</b>.</span></div>
+                        <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot-black"/><span class="label"><b>BLOODY BUT UNBOWED: </b>You ignore the effects of all level 1 <b>harm penalties</b> while dueling or engaging in combat. When you <b>push</b> yourself to ignore level 3 harm penalties, it only takes 1 <b>stress</b> (not 2).</span></div>
+                        <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot-black"/><span class="label"><b>UNSTOPPABLE: </b>You may <b>push</b> yourself to accomplisha feat of speed or endurance that borders on the superhuman, <i>e.g. engage a small group on equal footing.</i></span></div>
+                        <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot-black"/><span class="label"><b>CODE DUELLO: </b>Your challenges carry the weight of your House. When you deliver a challenge for formal combat, your enemy cannot refuse. Take an additional <b>xp trigger: </b><i>Did you answer a challenge to your honor?</i></span></div>
+                        <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot-black"/><span class="label"><b>HONOR GUARD: </b>Your formal trainning allows you the privilege of wearing your weapons openly anywhere, without repercussion. When <b>Commanding</b> others to act or stand fast, take <b>+1d</b>.</span></div>
+                        <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot-black"/><span class="label"><b>UPON A NEEDLE: </b>You are sure-footed and gain <b>+1 effect</b> when balance or grace is an issue, such as navigating difficult terrain (or a dance floor). <i>How many angels can dance upon the head of a needle? It depends on the tune.</i></span></div>
+                        <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot-black"/><span class="label"><b>GAP IN THE ARMOR: </b> When you <b>Survey</b> you may <b>push</b> yourself to find a weakness in an argument, gesture, or evasion, and sieze an advantage. Take <b>+1d</b> and <b>+1 effect</b> to the next roll that takes advantage of this information. This bonus may be given to a coterie member.</span></div>
+                        <div id="abilitypanel-specabilitybox-veteran" class="debug gcheckboxlist ">
+                        <span class="test"><input type="checkbox" class="shape-dot-black"/></span>
+                        <span class="label"><b>VETERAN: </b> Choose a <b>special ability</b> from another <b>playbook</b>.</span></div>
+                    </div>
+                    <div id="abilitypanel-pcxpbox" class="debug grid gtw-3">
+                        <div id="abilitypanel-pcxpbox-heading" class="debug gw-3 heading bg-med">XP TRIGGERS</div>
+                        <div id="abilitypanel-pcxpbox-subheading" class="debug gw-3">When you roll a desperate action, mark xp in that action's attribute.</div>
+                        <div class="debug gw-3">At the end of each session, for each item below, mark 1 xp (in your playbook or an attribute), for a maximum of 4 xp.</div>
+                        <div class="debug gw-2"><span class="shape-smalldiamond-red marg-right marg-left"></span>You addressed a challenge with violence</div>
+                        <div class="debug gw-1"><span class="shape-smalldiamond-red marg-right marg-left"></span>and/or panache.</div>
+                        <div class="debug gw-3"><span class="shape-smalldiamond-red marg-right marg-left"></span>You expressed your beliefs, drives, heritage, or background.</div>
+                        <div class="debug gw-3"><span class="shape-smalldiamond-red marg-right marg-left"></span>You struggled with issues from your indulgences or scandals during the session.</div>
+                    </div>
+                    <div id="abilitypanel-rulerefs" class="debug grid gtw-3">
+                        <div class="debug gw-1 gh-2">
+                            <b>TEAMWORK</b>
+                            <ul>
+                                <li><b>Assist</b> a teammate</li>
+                                <li>Lead a <b>group action</b></li>
+                                <li><b>Protect</b> a teammate</li>
+                                <li><b>Set up</b> a teammate</li>
+                            </ul>
+                        </div>
+                        <div class="debug gw-2 gh-1">
+                            <b>PLANNING &amp; LOAD</b>
+                            <p>
+                                Choose a <b>plan</b>, provide a <b>detail</b>.<br />
+                                Choose your <b>load</b> limit for the errand.
+                            </p>
+                        </div>
+                        <div class="debug gw-2 gh-1 grid gth-1 gtw-2">
+                            <ul>
+                                <li><b>Assault: </b><i>Point of attack</i></li>
+                                <li><b>Deception: </b><i>Method</i></li>
+                                <li><b>Stealth: </b><i>Entry point</i></li>
+                            </ul>
+                            <ul>
+                                <li><b>Arcane: </b><i>Magical</i></li>
+                                <li><b>Social: </b><i>Connection</i></li>
+                                <li><b>Transport: </b><i>Route</i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="ability-clocks" class="debug gw-1 grid gtw-1 marg-top">
+                        <div class="b bg-med text-center gw-1">
+                            CLOCKS
+                        </div>
+                        <fieldset class="gw-1 flex-clocks">
+                            <div class="clock-subcontainer grid gtw-2 gth-1">
+                                <div class="clock-container gw-1 gh-1">
+                                    <input type="hidden" class="clock-size" value="4" />
+
+                                    <div class="spoke-0 clock-2 clock-4 clock-6 clock-8 clock-10 clock-12"></div>
+                                    <div class="spoke-30 clock-12"></div>
+                                    <div class="spoke-45 clock-8"></div>
+                                    <div class="spoke-36 clock-10"></div>
+                                    <div class="spoke-60 clock-6 clock-12"></div>
+                                    <div class="spoke-72 clock-10"></div>
+                                    <div class="spoke-90 clock-4 clock-8 clock-12"></div>
+                                    <div class="spoke-108 clock-10"></div>
+                                    <div class="spoke-120 clock-6 clock-12"></div>
+                                    <div class="spoke-135 clock-8"></div>
+                                    <div class="spoke-144 clock-10"></div>
+                                    <div class="spoke-150 clock-12"></div>
+
+                                    <input class="clock-zero clock-progress" type="radio" name="attr_pcclockdynamic-1" value="0" checked="checked">
+                                    <span class="clock-zero-button"></span>
+
+                                    <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="1" name="attr_pcclockdynamic-1">
+                                    <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="2" name="attr_pcclockdynamic-1">
+                                    <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="3" name="attr_pcclockdynamic-1">
+                                    <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="4" name="attr_pcclockdynamic-1">
+                                    <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="5" name="attr_pcclockdynamic-1">
+                                    <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="6" name="attr_pcclockdynamic-1">
+                                    <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="7" name="attr_pcclockdynamic-1">
+                                    <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="8" name="attr_pcclockdynamic-1">
+                                    <input class="clock-progress clock-10 clock-12" type="radio" value="9" name="attr_pcclockdynamic-1">
+                                    <input class="clock-progress clock-10 clock-12" type="radio" value="10" name="attr_pcclockdynamic-1">
+                                    <input class="clock-progress clock-12" type="radio" value="11" name="attr_pcclockdynamic-1">
+                                    <input class="clock-progress clock-12" type="radio" value="12" name="attr_pcclockdynamic-1">
+
+                                    <div class="clock-image"></div>
+                                </div>
+                                <div class="gw-1 gh-1">
+                                    <textarea rows="3" class="clock-label" name="attr_pcclocklabel-1"></textarea>
                                 </div>
                             </div>
-                            <div class="grid gtw-7">
-                                <div class="gw-1">
-                                    <input type="checkbox" name="repeat3up" value="1" class="shape-uparrow-red" />
-                                    <input type="checkbox" name="repeat3down" value="1" class="shape-downarrow-red" />
+                            <div class="clock-subcontainer grid gtw-2 gth-1">
+                                <div class="clock-container gw-1 gh-1">
+                                    <input type="hidden" class="clock-size" value="8" />
+
+                                    <div class="spoke-0 clock-2 clock-4 clock-6 clock-8 clock-10 clock-12"></div>
+                                    <div class="spoke-30 clock-12"></div>
+                                    <div class="spoke-45 clock-8"></div>
+                                    <div class="spoke-36 clock-10"></div>
+                                    <div class="spoke-60 clock-6 clock-12"></div>
+                                    <div class="spoke-72 clock-10"></div>
+                                    <div class="spoke-90 clock-4 clock-8 clock-12"></div>
+                                    <div class="spoke-108 clock-10"></div>
+                                    <div class="spoke-120 clock-6 clock-12"></div>
+                                    <div class="spoke-135 clock-8"></div>
+                                    <div class="spoke-144 clock-10"></div>
+                                    <div class="spoke-150 clock-12"></div>
+
+                                    <input class="clock-zero clock-progress" type="radio" name="attr_pcclockdynamic-2" value="0" checked="checked">
+                                    <span class="clock-zero-button"></span>
+
+                                    <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="1" name="attr_pcclockdynamic-2">
+                                    <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="2" name="attr_pcclockdynamic-2">
+                                    <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="3" name="attr_pcclockdynamic-2">
+                                    <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="4" name="attr_pcclockdynamic-2">
+                                    <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="5" name="attr_pcclockdynamic-2">
+                                    <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="6" name="attr_pcclockdynamic-2">
+                                    <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="7" name="attr_pcclockdynamic-2">
+                                    <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="8" name="attr_pcclockdynamic-2">
+                                    <input class="clock-progress clock-10 clock-12" type="radio" value="9" name="attr_pcclockdynamic-2">
+                                    <input class="clock-progress clock-10 clock-12" type="radio" value="10" name="attr_pcclockdynamic-2">
+                                    <input class="clock-progress clock-12" type="radio" value="11" name="attr_pcclockdynamic-2">
+                                    <input class="clock-progress clock-12" type="radio" value="12" name="attr_pcclockdynamic-2">
+
+                                    <div class="clock-image"></div>
                                 </div>
-                                <div class="gw-2 marg-right">
-                                    <input type="text" name="repeat3name" class="b border-bottom" />
-                                </div>
-                                <div class="gw-4">
-                                    <input type="text" name="repeat3desc" class="i border-bottom" />
+                                <div class="gw-1 gh-1">
+                                    <textarea rows="3" class="clock-label" name="attr_pcclocklabel-2"></textarea>
                                 </div>
                             </div>
-                            <div class="grid gtw-7">
-                                <div class="gw-1">
-                                    <input type="checkbox" name="repeat4up" value="1" class="shape-uparrow-red" />
-                                    <input type="checkbox" name="repeat4down" value="1" class="shape-downarrow-red" />
+                            <div class="clock-subcontainer">
+                                <div class="clock-container gw-1 gh-1">
+                                    <input type="hidden" class="clock-size" value="12" />
+
+                                    <div class="spoke-0 clock-2 clock-4 clock-6 clock-8 clock-10 clock-12"></div>
+                                    <div class="spoke-30 clock-12"></div>
+                                    <div class="spoke-45 clock-8"></div>
+                                    <div class="spoke-36 clock-10"></div>
+                                    <div class="spoke-60 clock-6 clock-12"></div>
+                                    <div class="spoke-72 clock-10"></div>
+                                    <div class="spoke-90 clock-4 clock-8 clock-12"></div>
+                                    <div class="spoke-108 clock-10"></div>
+                                    <div class="spoke-120 clock-6 clock-12"></div>
+                                    <div class="spoke-135 clock-8"></div>
+                                    <div class="spoke-144 clock-10"></div>
+                                    <div class="spoke-150 clock-12"></div>
+
+                                    <input class="clock-zero clock-progress" type="radio" name="attr_pcclockdynamic-3" value="0" checked="checked">
+                                    <span class="clock-zero-button"></span>
+
+                                    <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="1" name="attr_pcclockdynamic-3">
+                                    <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="2" name="attr_pcclockdynamic-3">
+                                    <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="3" name="attr_pcclockdynamic-3">
+                                    <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="4" name="attr_pcclockdynamic-3">
+                                    <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="5" name="attr_pcclockdynamic-3">
+                                    <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="6" name="attr_pcclockdynamic-3">
+                                    <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="7" name="attr_pcclockdynamic-3">
+                                    <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="8" name="attr_pcclockdynamic-3">
+                                    <input class="clock-progress clock-10 clock-12" type="radio" value="9" name="attr_pcclockdynamic-3">
+                                    <input class="clock-progress clock-10 clock-12" type="radio" value="10" name="attr_pcclockdynamic-3">
+                                    <input class="clock-progress clock-12" type="radio" value="11" name="attr_pcclockdynamic-3">
+                                    <input class="clock-progress clock-12" type="radio" value="12" name="attr_pcclockdynamic-3">
+
+                                    <div class="clock-image"></div>
                                 </div>
-                                <div class="gw-2 marg-right">
-                                    <input type="text" name="repeat4name" class="b border-bottom" />
-                                </div>
-                                <div class="gw-4">
-                                    <input type="text" name="repeat4desc" class="i border-bottom" />
-                                </div>
-                            </div>
-                            <div class="grid gtw-7">
-                                <div class="gw-1">
-                                    <input type="checkbox" name="repeat5up" value="1" class="shape-uparrow-red" />
-                                    <input type="checkbox" name="repeat5down" value="1" class="shape-downarrow-red" />
-                                </div>
-                                <div class="gw-2 marg-right">
-                                    <input type="text" name="repeat5name" class="b border-bottom" />
-                                </div>
-                                <div class="gw-4">
-                                    <input type="text" name="repea5desc" class="i border-bottom" />
+                                <div class="gw-1 gh-1">
+                                    <textarea rows="3" class="clock-label" name="attr_pcclocklabel-3"></textarea>
                                 </div>
                             </div>
                         </fieldset>
-                        <div class="gw-2 grid gtw-1 marg-left">
-                            <div class="gw-1"><span class="shape-smalldiamond-red marg-right"></span><span class="i">How can I hurt them?</span></div>
-                            <div class="gw-1"><span class="shape-smalldiamond-red marg-right"></span><span class="i">What do they want most?</span></div>
-                            <div class="gw-1"><span class="shape-smalldiamond-red marg-right"></span><span class="i">Who's most dangerous here?</span></div>
-                            <div class="gw-1"><span class="shape-smalldiamond-red marg-right"></span><span class="i">What do they intend to do?</span></div>
-                            <div class="gw-1"><span class="shape-smalldiamond-red marg-right"></span><span class="i">How can I get them to [X]?</span></div>
-                            <div class="gw-1"><span class="shape-smalldiamond-red marg-right"></span><span class="i">Are they telling the truth?</span></div>
-                            <div class="gw-1"><span class="shape-smalldiamond-red marg-right"></span><span class="i">What's really going on here?</span></div>
-                        </div>
-                        <div class="debug gw-3 border-left">
-                            <textarea></textarea>
-                        </div>
                     </div>
                 </div>
-                <div id="pcpanel-bonds" class="debug gw-9 grid gtw-1 marg-top bg-light">
-                    <div class="b text-center">BONDS</div>
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div id="abilitypanel" class="grid gw-6 gtw-1 panel">
-                <div id="abilitypanel-titlebox" class="debug gh-3 grid gth-3 gtw-1">
-                    <div id="abilitypanel-titlebox-title" class="debug gh-2 titlebox-title">The Bravo</div>
-                    <div id="abilitypanel-titlebox-subtitle" class="debug titlebox-subtitle">A dashing sworn-sword, quick of wit and unmatched in combat.</div>
-                </div>
-                <div id="abilitypanel-specfeatbox" class="debug grid gtw-1">
-                    <div id="abilitypanel-specfeatbox-heading" class="debug heading bg-med">SPECIAL ARMOUR</div>
-                    <div id="abilitypanel-specfeatbox-option" class="debug gcheckboxlist"><input type="checkbox" checked="checked" class="shape-dot-black"><span class="label"><b>Resist</b> a complication related to physical obstacles or being outnumbered for you and your coterie (when you are present).</span></div>
-                </div>
-                <div class="debug abilitypanel-specabilitybox grid gtw-1">
-                    <div id="abilitypanel-specabilitybox-heading" class="debug heading bg-med">SPECIAL ABILITIES</div>
-                    <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot-black"/><span class="label"><b>HOUSE GUARD: </b>When you protect a member of your coterie, you <b>resist</b> with <b>+1d</b>. When you take <b>harm</b>, clear 1 <b>stress</b>.</span></div>
-                    <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot-black"/><span class="label"><b>BLOODY BUT UNBOWED: </b>You ignore the effects of all level 1 <b>harm penalties</b> while dueling or engaging in combat. When you <b>push</b> yourself to ignore level 3 harm penalties, it only takes 1 <b>stress</b> (not 2).</span></div>
-                    <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot-black"/><span class="label"><b>UNSTOPPABLE: </b>You may <b>push</b> yourself to accomplisha feat of speed or endurance that borders on the superhuman, <i>e.g. engage a small group on equal footing.</i></span></div>
-                    <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot-black"/><span class="label"><b>CODE DUELLO: </b>Your challenges carry the weight of your House. When you deliver a challenge for formal combat, your enemy cannot refuse. Take an additional <b>xp trigger: </b><i>Did you answer a challenge to your honor?</i></span></div>
-                    <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot-black"/><span class="label"><b>HONOR GUARD: </b>Your formal trainning allows you the privilege of wearing your weapons openly anywhere, without repercussion. When <b>Commanding</b> others to act or stand fast, take <b>+1d</b>.</span></div>
-                    <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot-black"/><span class="label"><b>UPON A NEEDLE: </b>You are sure-footed and gain <b>+1 effect</b> when balance or grace is an issue, such as navigating difficult terrain (or a dance floor). <i>How many angels can dance upon the head of a needle? It depends on the tune.</i></span></div>
-                    <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot-black"/><span class="label"><b>GAP IN THE ARMOR: </b> When you <b>Survey</b> you may <b>push</b> yourself to find a weakness in an argument, gesture, or evasion, and sieze an advantage. Take <b>+1d</b> and <b>+1 effect</b> to the next roll that takes advantage of this information. This bonus may be given to a coterie member.</span></div>
-                    <div id="abilitypanel-specabilitybox-veteran" class="debug gcheckboxlist ">
-                    <span class="test"><input type="checkbox" class="shape-dot-black"/></span>
-                    <span class="label"><b>VETERAN: </b> Choose a <b>special ability</b> from another <b>playbook</b>.</span></div>
-                </div>
-                <div id="abilitypanel-pcxpbox" class="debug grid gtw-3">
-                    <div id="abilitypanel-pcxpbox-heading" class="debug gw-3 heading bg-med">XP TRIGGERS</div>
-                    <div id="abilitypanel-pcxpbox-subheading" class="debug gw-3">When you roll a desperate action, mark xp in that action's attribute.</div>
-                    <div class="debug gw-3">At the end of each session, for each item below, mark 1 xp (in your playbook or an attribute), for a maximum of 4 xp.</div>
-                    <div class="debug gw-2"><span class="shape-smalldiamond-red marg-right marg-left"></span>You addressed a challenge with violence</div>
-                    <div class="debug gw-1"><span class="shape-smalldiamond-red marg-right marg-left"></span>and/or panache.</div>
-                    <div class="debug gw-3"><span class="shape-smalldiamond-red marg-right marg-left"></span>You expressed your beliefs, drives, heritage, or background.</div>
-                    <div class="debug gw-3"><span class="shape-smalldiamond-red marg-right marg-left"></span>You struggled with issues from your indulgences or scandals during the session.</div>
-                </div>
-                <div id="abilitypanel-rulerefs" class="debug grid gtw-3">
-                    <div class="debug gw-1 gh-2">
-                        <b>TEAMWORK</b>
-                        <ul>
-                            <li><b>Assist</b> a teammate</li>
-                            <li>Lead a <b>group action</b></li>
-                            <li><b>Protect</b> a teammate</li>
-                            <li><b>Set up</b> a teammate</li>
-                        </ul>
-                    </div>
-                    <div class="debug gw-2 gh-1">
-                        <b>PLANNING &amp; LOAD</b>
-                        <p>
-                            Choose a <b>plan</b>, provide a <b>detail</b>.<br />
-                            Choose your <b>load</b> limit for the errand.
-                        </p>
-                    </div>
-                    <div class="debug gw-2 gh-1 grid gth-1 gtw-2">
-                        <ul>
-                            <li><b>Assault: </b><i>Point of attack</i></li>
-                            <li><b>Deception: </b><i>Method</i></li>
-                            <li><b>Stealth: </b><i>Entry point</i></li>
-                        </ul>
-                        <ul>
-                            <li><b>Arcane: </b><i>Magical</i></li>
-                            <li><b>Social: </b><i>Connection</i></li>
-                            <li><b>Transport: </b><i>Route</i></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div id="pcstatpanel" class="grid gw-3 gtw-1 panel">
-                <div id="pcstatpanel-charxp" class="debug gw-3 grid gtw-1gapr-2">
-                    <div id="pcstatpanel-charxp-title" class="debug header gh-1 text-center vert-bottom"><br />CHARACTER XP</div>
-                    <div id="pcstatpanel-charxp-tracker" class="debug gh-1 grid gtw-10 gth-1 vert-top text-center">
-                        <input type="radio" name="attr_pccharxp" value="1" class="shape-diamond-red" />
-                        <input type="radio" name="attr_pccharxp" value="2" class="shape-diamond-red" />
-                        <input type="radio" name="attr_pccharxp" value="3" class="shape-diamond-red" />
-                        <input type="radio" name="attr_pccharxp" value="4" class="shape-diamond-red" />
-                        <input type="radio" name="attr_pccharxp" value="5" class="shape-diamond-red" />
-                        <input type="radio" name="attr_pccharxp" value="6" class="shape-diamond-red" />
-                        <input type="radio" name="attr_pccharxp" value="7" class="shape-diamond-red" />
-                        <input type="radio" name="attr_pccharxp" value="8" class="shape-diamond-red" />
-                        <input type="radio" name="attr_pccharxp" value="9" class="shape-diamond-red" />
-                        <input type="radio" name="attr_pccharxp" value="10" class="shape-diamond-red" />
-                        <span><br /></span>
-                    </div>
-                </div>
-                <div id="pcstatpanel-statsbox" class="debug ">
-                    <div id="" class="grid gtw-10 gth-4 text-center stat-grid">
-                        <div class="skillname gw-10 gh-1 grid gth-1 gtw-10">
-                            <div class="gw-2 text-left pad-left">Body</div>
-                            <span class="minw-1"><input type="radio" name="attr_stat1xp" value="1" class="gw-1 shape-diamond-red text-align-center" /></span>
-                            <span class="minw-1"><input type="radio" name="attr_stat1xp" value="2" class="shape-diamond-red text-align-center" /></span>
-                            <span class="minw-1"><input type="radio" name="attr_stat1xp" value="3" class="shape-diamond-red text-align-center" /></span>
-                            <span class="minw-1"><input type="radio" name="attr_stat1xp" value="4" class="shape-diamond-red text-align-center" /></span>
-                            <span class="minw-1"><input type="radio" name="attr_stat1xp" value="5" class="shape-diamond-red text-align-center" /></span>
-                            <span class="minw-1"><input type="radio" name="attr_stat1xp" value="6" class="shape-diamond-red text-align-center" /></span>
-                            <span class="minw-1"><input type="radio" name="attr_stat1xp" value="7" class="shape-diamond-red text-align-center" /></span>
-                            <span class="minw-1"><input type="radio" name="attr_stat1xp" value="8" class="shape-diamond-red text-align-center" /></span>
-                        </div>
-                        <div class="gh-4 grid gtw-1 gth-4 stat-grid border-right">
-                            <span class="maxh-1"><input type="radio" name="attr_rating11" value="1" class="shape-dot-black" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating12" value="1" class="shape-dot-black" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating13" value="1" class="shape-dot-black" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating14" value="1" class="shape-dot-black" /></span>
-                        </div>
-                        <div class="gh-4 grid gtw-1 gth-4 stat-grid border-left">
-                            <span class="maxh-1"><input type="radio" name="attr_rating11" value="2" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating12" value="2" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating13" value="2" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating14" value="2" class="shape-dot-black maxh-1" /></span>
-                        </div>
-                        <div class="gh-4 grid gtw-1 gth-4 stat-grid">
-                            <span class="maxh-1"><input type="radio" name="attr_rating11" value="3" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating12" value="3" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating13" value="3" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating14" value="3" class="shape-dot-black maxh-1" /></span>
-                        </div>
-                        <div class="gh-4 grid gtw-1 gth-4 stat-grid">
-                            <span class="maxh-1"><input type="radio" name="attr_rating11" value="4" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating12" value="4" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating13" value="4" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating14" value="4" class="shape-dot-black maxh-1" /></span>
-                        </div>
-                        <div class="gw-6 gh-4 grid gtw-1 gth-4 stat-grid b">
-                            <div class="gw-4 text-left maxh-1">Skulk</div>
-                            <div class="gw-4 text-left maxh-1">Maneuver</div>
-                            <div class="gw-4 text-left maxh-1">Skirmish</div>
-                            <div class="gw-4 text-left maxh-1">Wreck</div>
+                <div id="pcstatpanel" class="grid gw-3 gtw-1 panel">
+                    <div id="pcstatpanel-charxp" class="debug gw-3 grid gtw-1gapr-2">
+                        <div id="pcstatpanel-charxp-title" class="debug header gh-1 text-center vert-bottom"><br />CHARACTER XP</div>
+                        <div id="pcstatpanel-charxp-tracker" class="debug gh-1 grid gtw-10 gth-1 vert-top text-center">
+                            <input type="radio" name="attr_pccharxp" value="1" class="shape-diamond-red" />
+                            <input type="radio" name="attr_pccharxp" value="2" class="shape-diamond-red" />
+                            <input type="radio" name="attr_pccharxp" value="3" class="shape-diamond-red" />
+                            <input type="radio" name="attr_pccharxp" value="4" class="shape-diamond-red" />
+                            <input type="radio" name="attr_pccharxp" value="5" class="shape-diamond-red" />
+                            <input type="radio" name="attr_pccharxp" value="6" class="shape-diamond-red" />
+                            <input type="radio" name="attr_pccharxp" value="7" class="shape-diamond-red" />
+                            <input type="radio" name="attr_pccharxp" value="8" class="shape-diamond-red" />
+                            <input type="radio" name="attr_pccharxp" value="9" class="shape-diamond-red" />
+                            <input type="radio" name="attr_pccharxp" value="10" class="shape-diamond-red" />
+                            <span><br /></span>
                         </div>
                     </div>
-                    <div id="" class="grid gtw-10 gth-4 text-center stat-grid">
-                        <div class="skillname gw-10 gh-1 grid gth-1 gtw-10">
-                            <div class="gw-2 text-left marg-right pad-left">Mind</div>
-                            <input type="radio" name="attr_stat2xp" value="1" class="gw-1 shape-diamond-red text-align-center" />
-                            <input type="radio" name="attr_stat2xp" value="2" class="shape-diamond-red text-align-center" />
-                            <input type="radio" name="attr_stat2xp" value="3" class="shape-diamond-red text-align-center" />
-                            <input type="radio" name="attr_stat2xp" value="4" class="shape-diamond-red text-align-center" />
-                            <input type="radio" name="attr_stat2xp" value="5" class="shape-diamond-red text-align-center" />
-                            <input type="radio" name="attr_stat2xp" value="6" class="shape-diamond-red text-align-center" />
-                            <input type="radio" name="attr_stat2xp" value="7" class="shape-diamond-red text-align-center" />
-                            <input type="radio" name="attr_stat2xp" value="8" class="shape-diamond-red text-align-center" />
+                    <div id="pcstatpanel-statsbox" class="debug ">
+                        <div id="" class="grid gtw-10 gth-4 text-center stat-grid">
+                            <div class="skillname gw-10 gh-1 grid gth-1 gtw-10">
+                                <div class="gw-2 text-left pad-left">Body</div>
+                                <span class="minw-1"><input type="radio" name="attr_stat1xp" value="1" class="gw-1 shape-diamond-red text-align-center" /></span>
+                                <span class="minw-1"><input type="radio" name="attr_stat1xp" value="2" class="shape-diamond-red text-align-center" /></span>
+                                <span class="minw-1"><input type="radio" name="attr_stat1xp" value="3" class="shape-diamond-red text-align-center" /></span>
+                                <span class="minw-1"><input type="radio" name="attr_stat1xp" value="4" class="shape-diamond-red text-align-center" /></span>
+                                <span class="minw-1"><input type="radio" name="attr_stat1xp" value="5" class="shape-diamond-red text-align-center" /></span>
+                                <span class="minw-1"><input type="radio" name="attr_stat1xp" value="6" class="shape-diamond-red text-align-center" /></span>
+                                <span class="minw-1"><input type="radio" name="attr_stat1xp" value="7" class="shape-diamond-red text-align-center" /></span>
+                                <span class="minw-1"><input type="radio" name="attr_stat1xp" value="8" class="shape-diamond-red text-align-center" /></span>
+                            </div>
+                            <div class="gh-4 grid gtw-1 gth-4 stat-grid border-right">
+                                <span class="maxh-1"><input type="radio" name="attr_rating11" value="1" class="shape-dot-black" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating12" value="1" class="shape-dot-black" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating13" value="1" class="shape-dot-black" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating14" value="1" class="shape-dot-black" /></span>
+                            </div>
+                            <div class="gh-4 grid gtw-1 gth-4 stat-grid border-left">
+                                <span class="maxh-1"><input type="radio" name="attr_rating11" value="2" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating12" value="2" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating13" value="2" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating14" value="2" class="shape-dot-black maxh-1" /></span>
+                            </div>
+                            <div class="gh-4 grid gtw-1 gth-4 stat-grid">
+                                <span class="maxh-1"><input type="radio" name="attr_rating11" value="3" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating12" value="3" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating13" value="3" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating14" value="3" class="shape-dot-black maxh-1" /></span>
+                            </div>
+                            <div class="gh-4 grid gtw-1 gth-4 stat-grid">
+                                <span class="maxh-1"><input type="radio" name="attr_rating11" value="4" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating12" value="4" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating13" value="4" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating14" value="4" class="shape-dot-black maxh-1" /></span>
+                            </div>
+                            <div class="gw-6 gh-4 grid gtw-1 gth-4 stat-grid b">
+                                <div class="gw-4 text-left maxh-1">Skulk</div>
+                                <div class="gw-4 text-left maxh-1">Maneuver</div>
+                                <div class="gw-4 text-left maxh-1">Skirmish</div>
+                                <div class="gw-4 text-left maxh-1">Wreck</div>
+                            </div>
                         </div>
-                        <div class="gh-4 grid gtw-1 gth-4 stat-grid border-right">
-                            <span class="maxh-1"><input type="radio" name="attr_rating21" value="1" class="shape-dot-black" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating22" value="1" class="shape-dot-black" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating23" value="1" class="shape-dot-black" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating24" value="1" class="shape-dot-black" /></span>
+                        <div id="" class="grid gtw-10 gth-4 text-center stat-grid">
+                            <div class="skillname gw-10 gh-1 grid gth-1 gtw-10">
+                                <div class="gw-2 text-left marg-right pad-left">Mind</div>
+                                <input type="radio" name="attr_stat2xp" value="1" class="gw-1 shape-diamond-red text-align-center" />
+                                <input type="radio" name="attr_stat2xp" value="2" class="shape-diamond-red text-align-center" />
+                                <input type="radio" name="attr_stat2xp" value="3" class="shape-diamond-red text-align-center" />
+                                <input type="radio" name="attr_stat2xp" value="4" class="shape-diamond-red text-align-center" />
+                                <input type="radio" name="attr_stat2xp" value="5" class="shape-diamond-red text-align-center" />
+                                <input type="radio" name="attr_stat2xp" value="6" class="shape-diamond-red text-align-center" />
+                                <input type="radio" name="attr_stat2xp" value="7" class="shape-diamond-red text-align-center" />
+                                <input type="radio" name="attr_stat2xp" value="8" class="shape-diamond-red text-align-center" />
+                            </div>
+                            <div class="gh-4 grid gtw-1 gth-4 stat-grid border-right">
+                                <span class="maxh-1"><input type="radio" name="attr_rating21" value="1" class="shape-dot-black" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating22" value="1" class="shape-dot-black" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating23" value="1" class="shape-dot-black" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating24" value="1" class="shape-dot-black" /></span>
+                            </div>
+                            <div class="gh-4 grid gtw-1 gth-4 stat-grid border-left">
+                                <span class="maxh-1"><input type="radio" name="attr_rating21" value="2" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating22" value="2" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating23" value="2" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating24" value="2" class="shape-dot-black maxh-1" /></span>
+                            </div>
+                            <div class="gh-4 grid gtw-1 gth-4 stat-grid">
+                                <span class="maxh-1"><input type="radio" name="attr_rating21" value="3" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating22" value="3" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating23" value="3" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating24" value="3" class="shape-dot-black maxh-1" /></span>
+                            </div>
+                            <div class="gh-4 grid gtw-1 gth-4 stat-grid">
+                                <span class="maxh-1"><input type="radio" name="attr_rating21" value="4" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating22" value="4" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating23" value="4" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating24" value="4" class="shape-dot-black maxh-1" /></span>
+                            </div>
+                            <div class="gw-6 gh-4 grid gtw-1 gth-4 stat-grid b">
+                                <div class="gw-4 text-left maxh-1">Tinker</div>
+                                <div class="gw-4 text-left maxh-1">Study</div>
+                                <div class="gw-4 text-left maxh-1">Survey</div>
+                                <div class="gw-4 text-left maxh-1">Hunt</div>
+                            </div>
                         </div>
-                        <div class="gh-4 grid gtw-1 gth-4 stat-grid border-left">
-                            <span class="maxh-1"><input type="radio" name="attr_rating21" value="2" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating22" value="2" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating23" value="2" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating24" value="2" class="shape-dot-black maxh-1" /></span>
-                        </div>
-                        <div class="gh-4 grid gtw-1 gth-4 stat-grid">
-                            <span class="maxh-1"><input type="radio" name="attr_rating21" value="3" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating22" value="3" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating23" value="3" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating24" value="3" class="shape-dot-black maxh-1" /></span>
-                        </div>
-                        <div class="gh-4 grid gtw-1 gth-4 stat-grid">
-                            <span class="maxh-1"><input type="radio" name="attr_rating21" value="4" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating22" value="4" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating23" value="4" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating24" value="4" class="shape-dot-black maxh-1" /></span>
-                        </div>
-                        <div class="gw-6 gh-4 grid gtw-1 gth-4 stat-grid b">
-                            <div class="gw-4 text-left maxh-1">Tinker</div>
-                            <div class="gw-4 text-left maxh-1">Study</div>
-                            <div class="gw-4 text-left maxh-1">Survey</div>
-                            <div class="gw-4 text-left maxh-1">Hunt</div>
+                        <div id="" class="grid gtw-10 gth-4 text-center stat-grid">
+                            <div class="skillname gw-10 gh-1 grid gth-1 gtw-10">
+                                <div class="gw-2 text-left marg-right pad-left">Spirit</div>
+                                <input type="radio" name="attr_stat3xp" value="1" class="gw-1 shape-diamond-red text-align-center" />
+                                <input type="radio" name="attr_stat3xp" value="2" class="shape-diamond-red text-align-center" />
+                                <input type="radio" name="attr_stat3xp" value="3" class="shape-diamond-red text-align-center" />
+                                <input type="radio" name="attr_stat3xp" value="4" class="shape-diamond-red text-align-center" />
+                                <input type="radio" name="attr_stat3xp" value="5" class="shape-diamond-red text-align-center" />
+                                <input type="radio" name="attr_stat3xp" value="6" class="shape-diamond-red text-align-center" />
+                                <input type="radio" name="attr_stat3xp" value="7" class="shape-diamond-red text-align-center" />
+                                <input type="radio" name="attr_stat3xp" value="8" class="shape-diamond-red text-align-center" />
+                            </div>
+                            <div class="gh-4 grid gtw-1 gth-4 stat-grid border-right">
+                                <span class="maxh-1"><input type="radio" name="attr_rating31" value="1" class="shape-dot-black" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating32" value="1" class="shape-dot-black" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating33" value="1" class="shape-dot-black" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating34" value="1" class="shape-dot-black" /></span>
+                            </div>
+                            <div class="gh-4 grid gtw-1 gth-4 stat-grid border-left">
+                                <span class="maxh-1"><input type="radio" name="attr_rating31" value="2" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating32" value="2" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating33" value="2" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating34" value="2" class="shape-dot-black maxh-1" /></span>
+                            </div>
+                            <div class="gh-4 grid gtw-1 gth-4 stat-grid">
+                                <span class="maxh-1"><input type="radio" name="attr_rating31" value="3" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating32" value="3" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating33" value="3" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating34" value="3" class="shape-dot-black maxh-1" /></span>
+                            </div>
+                            <div class="gh-4 grid gtw-1 gth-4 stat-grid">
+                                <span class="maxh-1"><input type="radio" name="attr_rating31" value="4" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating32" value="4" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating33" value="4" class="shape-dot-black maxh-1" /></span>
+                                <span class="maxh-1"><input type="radio" name="attr_rating34" value="4" class="shape-dot-black maxh-1" /></span>
+                            </div>
+                            <div class="gw-6 gh-4 grid gtw-1 gth-4 stat-grid b">
+                                <div class="gw-4 text-left maxh-1">Channel</div>
+                                <div class="gw-4 text-left maxh-1">Command</div>
+                                <div class="gw-4 text-left maxh-1">Consort</div>
+                                <div class="gw-4 text-left maxh-1">Sway</div>
+                            </div>
                         </div>
                     </div>
-                    <div id="" class="grid gtw-10 gth-4 text-center stat-grid">
-                        <div class="skillname gw-10 gh-1 grid gth-1 gtw-10">
-                            <div class="gw-2 text-left marg-right pad-left">Spirit</div>
-                            <input type="radio" name="attr_stat3xp" value="1" class="gw-1 shape-diamond-red text-align-center" />
-                            <input type="radio" name="attr_stat3xp" value="2" class="shape-diamond-red text-align-center" />
-                            <input type="radio" name="attr_stat3xp" value="3" class="shape-diamond-red text-align-center" />
-                            <input type="radio" name="attr_stat3xp" value="4" class="shape-diamond-red text-align-center" />
-                            <input type="radio" name="attr_stat3xp" value="5" class="shape-diamond-red text-align-center" />
-                            <input type="radio" name="attr_stat3xp" value="6" class="shape-diamond-red text-align-center" />
-                            <input type="radio" name="attr_stat3xp" value="7" class="shape-diamond-red text-align-center" />
-                            <input type="radio" name="attr_stat3xp" value="8" class="shape-diamond-red text-align-center" />
-                        </div>
-                        <div class="gh-4 grid gtw-1 gth-4 stat-grid border-right">
-                            <span class="maxh-1"><input type="radio" name="attr_rating31" value="1" class="shape-dot-black" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating32" value="1" class="shape-dot-black" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating33" value="1" class="shape-dot-black" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating34" value="1" class="shape-dot-black" /></span>
-                        </div>
-                        <div class="gh-4 grid gtw-1 gth-4 stat-grid border-left">
-                            <span class="maxh-1"><input type="radio" name="attr_rating31" value="2" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating32" value="2" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating33" value="2" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating34" value="2" class="shape-dot-black maxh-1" /></span>
-                        </div>
-                        <div class="gh-4 grid gtw-1 gth-4 stat-grid">
-                            <span class="maxh-1"><input type="radio" name="attr_rating31" value="3" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating32" value="3" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating33" value="3" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating34" value="3" class="shape-dot-black maxh-1" /></span>
-                        </div>
-                        <div class="gh-4 grid gtw-1 gth-4 stat-grid">
-                            <span class="maxh-1"><input type="radio" name="attr_rating31" value="4" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating32" value="4" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating33" value="4" class="shape-dot-black maxh-1" /></span>
-                            <span class="maxh-1"><input type="radio" name="attr_rating34" value="4" class="shape-dot-black maxh-1" /></span>
-                        </div>
-                        <div class="gw-6 gh-4 grid gtw-1 gth-4 stat-grid b">
-                            <div class="gw-4 text-left maxh-1">Channel</div>
-                            <div class="gw-4 text-left maxh-1">Command</div>
-                            <div class="gw-4 text-left maxh-1">Consort</div>
-                            <div class="gw-4 text-left maxh-1">Sway</div>
+                    <div id="pcstatpanel-bonusdicebox" class="debug gw-3 grid gtw-9 marg-top">
+                        <div class="debug gw-9 emphasis">BONUS DICE</div>
+                        <div class="debug text-center vert-middle emphasis gw-1 bg-black">&#43;</div>
+                        <div class="debug bg-med gw-8 grid gtw-1 gth-3">
+                            <div><span class="b">PUSH YOURSELF</span>  (Take 2 stress)</div>
+                            <div>OR take a <span class="b">LADY'S FAVOR</span></div>
                         </div>
                     </div>
-                </div>
-                <div id="pcstatpanel-bonusdicebox" class="debug gw-3 grid gtw-9 marg-top">
-                    <div class="debug gw-9 emphasis">BONUS DICE</div>
-                    <div class="debug text-center vert-middle emphasis gw-1 bg-black">&#43;</div>
-                    <div class="debug bg-med gw-8 grid gtw-1 gth-3">
-                        <div><span class="b">PUSH YOURSELF</span>  (Take 2 stress)</div>
-                        <div>OR take a <span class="b">LADY'S FAVOR</span></div>
+                    <div id="pcstatpanel-load" class="debug bg-med gw-3 grid gth-1 gtw-10 text-left vert-middle marg-top">
+                        <span class="b gw-2">LOAD</span>
+                        <input type="radio" name="attr_pcload" value="1" class="shape-diamond-red gw-1"/>
+                        <span class="gw-3"><i>Discrete</i> 1-3</span>
+                        <input type="radio" name="attr_pcload" value="2" class="shape-diamond-red gw-1"/>
+                        <span class="gw-3"><i>Loaded</i> 3-6</span>
                     </div>
-                </div>
-                <div id="pcstatpanel-load" class="debug bg-med gw-3 grid gth-1 gtw-10 text-left vert-middle marg-top">
-                    <span class="b gw-2">LOAD</span>
-                    <input type="radio" name="attr_pcload" value="1" class="shape-diamond-red gw-1"/>
-                    <span class="gw-3"><i>Discrete</i> 1-3</span>
-                    <input type="radio" name="attr_pcload" value="2" class="shape-diamond-red gw-1"/>
-                    <span class="gw-3"><i>Loaded</i> 3-6</span>
-                </div>
-                <div id="pcstatpanel-specperm" class="debug gw-3 grid gtw-1 marg-top">
-                    <div class="debug bg-med b">SPECIAL PERMISSION</div>
-                    <div class="debug grid gtw-9">
-                        <input type="checkbox" value="1" name="attr_sitem1" class="gw-1 shape-square-black" /><div class="gw-8 i">A Fine Wit</div>
+                    <div id="pcstatpanel-specperm" class="debug gw-3 grid gtw-1 marg-top">
+                        <div class="debug bg-med b">SPECIAL PERMISSION</div>
+                        <div class="debug grid gtw-9">
+                            <input type="checkbox" value="1" name="attr_sitem1" class="gw-1 shape-square-black" /><div class="gw-8 i">A Fine Wit</div>
+                        </div>
                     </div>
-                </div>
                     <div id="pcstatpanel-gear" class="debug gw-3 grid gtw-1 marg-top">
                         <div class="debug gw-1 bg-med b">GEAR</div>
                         <div class="debug bg-light gw-1 grid gtw-13 pad-bottom">
@@ -565,7 +649,7 @@
                         <div class="debug gw-1 grid gtw-13">
                             <input type="checkbox" value="1" name="attr_uitem1" class="gw-1 shape-square-black" /><div class="gw-12 i">Luck Charm</div>
                             <input type="checkbox" value="1" name="attr_uitem2" class="gw-1 shape-square-black" /><div class="gw-12 i">Flint and Steel</div>
-                            <input type="checkbox" value="1" name="attr_uitem3" class="shape-square-black" /><input type="checkbox" value="1" name="attr_uitem3" class="shape-square-black" /><div class="gw-11 text-left">Armour</div>
+                            <input type="checkbox" value="1" name="attr_uitem3" class="shape-square-black" /><input type="checkbox" value="1" name="attr_uitem3" class="shape-square-black shape-link-left" /><div class="gw-11 text-left">Armour</div>
                             <input type="checkbox" value="1" name="attr_uitem4" class="gw-1 shape-square-black" /><div class="gw-12">A Small Blade or Two</div>
                             <input type="checkbox" value="1" name="attr_uitem5" class="gw-1 shape-square-black" /><div class="gw-12">A Single-Shot Pistol</div>
                             <input type="checkbox" value="1" name="attr_uitem6" class="gw-1 shape-square-black" /><div class="gw-12">A Large Weapon</div>
@@ -574,15 +658,13 @@
                             <input type="checkbox" value="1" name="attr_uitem9" class="gw-1 shape-square-black" /><div class="gw-12">Burglary Tools</div>
                             <input type="checkbox" value="1" name="attr_uitem10" class="gw-1 shape-square-black" /><div class="gw-12">Demolition Tools</div>
                             <input type="checkbox" value="1" name="attr_uitem11" class="gw-1 shape-square-black" /><div class="gw-12">Arcane Implements</div>
-                            <input type="checkbox" value="1" name="attr_uitem12" class="gw-1 shape-square-black" /><input type="checkbox" value="1" name="attr_uitem12" class="gw-1 shape-square-black" /><div class="gw-11">Climbing Gear</div>
+                            <input type="checkbox" value="1" name="attr_uitem12" class="gw-1 shape-square-black" /><input type="checkbox" value="1" name="attr_uitem12" class="gw-1 shape-square-black shape-link-left" /><div class="gw-11">Climbing Gear</div>
                             <input type="checkbox" value="1" name="attr_uitem13" class="gw-1 shape-square-black" /><div class="gw-12">Subterfuge Supplies</div>
                             <input type="checkbox" value="1" name="attr_uitem14" class="gw-1 shape-square-black" /><div class="gw-12">Documents</div>
                         </div>
-                    
+                    </div>
                 </div>
-                        </div>
+            </div>
         </div>
-
-
-</div>
-</div></body></html>
+    </div>
+</body></html>

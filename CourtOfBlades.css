@@ -3,10 +3,10 @@
 
 .charsheet {
     font-family: 'EB Garamond', serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     color: black;
-    background: white;
+    
     z-index: -13;
 }
 
@@ -42,13 +42,140 @@
 
 input[type=text].pcdetail {
     vertical-align: bottom;
+    background: none;
     min-height: 2em;
     font-size: 20px;
-    width: 95%;
+    width: 100%;
     padding-top: 8px;
     border-bottom-style: solid;
     border-bottom-color: black;
     border-bottom-width: 1px;
+}
+
+/* Tracks */
+#pcpanel-statusbox input[type=radio]:not(.shape-diamond-red) {
+    background-color: black;
+}
+
+#pcpanel-statusbox input[type=radio].shape-diamond-red {
+    background-color: red;
+}
+
+#pcpanel-influencebox input[type=radio]:checked ~ input[type=radio],
+#pcpanel-statusbox input[type=radio]:checked ~ input[type=radio] {
+    background-color: white;
+}
+
+#pcpanel-heatbox input[type=radio]::before,
+#pcpanel-heatbox input[type=radio]::after,
+#pcpanel-heatbox input[type=radio] {
+    background-color: #333333;
+}
+
+#pcpanel-heatbox input[type=radio]:checked ~ input[type=radio]::before,
+#pcpanel-heatbox input[type=radio]:checked ~ input[type=radio]::after,
+#pcpanel-heatbox input[type=radio]:checked ~ input[type=radio] {
+    background-color: #DDDDDD;
+}
+
+#pcpanel-influencebox input[type=radio]:not(.clear-track-inline),
+#pcpanel-stressbox input[type=radio]:not(.clear-track-inline) {
+    background-color: #333333;
+}
+
+#pcpanel-influencebox input[type=radio]:checked ~ input[type=radio],
+#pcpanel-stressbox input[type=radio]:checked ~ input[type=radio] {
+    background-color: white;
+}
+
+input.clear-track-inline {
+    display:inline-block;
+    opacity: 100;
+    height: 15px;
+    width: 15px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background: white;
+}
+
+input.clear-track-inline:checked {
+    opacity: 0;
+}
+
+.clear-track-inline::before {
+    transform: translate(4px, -1px) rotate(45deg);
+}
+
+.clear-track-inline::after {
+    transform: translate(4px, -1px) rotate(-45deg);
+}
+
+.clear-track-inline::before,
+.clear-track-inline::after {
+    display: block;
+    position: absolute;
+    width: 1px;
+    content: "";
+    background: black;
+    height: 14px;
+}
+
+
+.clear-track {
+    height: 15px;
+    width: 15px;
+    display: block;
+    position: absolute;
+    opacity: 0;
+    z-index: 3;
+}
+
+.clear-track.clear-track-up {
+    top: -20px;
+    left: 0px;
+}
+
+.clear-track.clear-track-up + span {
+    top: -17px;
+    left: 5px;
+}
+
+.clear-track + span {
+    height: 13px;
+    width: 13px;
+    border: 1px solid black;
+    background: white;
+    border-radius: 50%;
+    display: block;
+    z-index: 1;
+    position: absolute;
+}
+
+.clear-track:checked + span {
+    display: none;
+}
+
+.clear-track + span::before {
+    transform: translate(4px, -1px) rotate(45deg);
+}
+
+.clear-track + span::after {
+    transform: translate(4px, -1px) rotate(-45deg);
+}
+
+.clear-track + span::before,
+.clear-track + span::after {
+    position: absolute;
+    width: 1px;
+    content: "";
+    background: black;
+    height: 14px;
+}
+
+.clear-track.clear-track-up + span::before,
+.clear-track.clear-track-up + span::after {
+    left: 2px;
+    top: 0px;
 }
 
 .paramourname {
@@ -230,6 +357,10 @@ input[type=text].pcdetail {
     grid-column-gap: 1px;
     grid-row-gap:4px;
 }
+
+
+
+
 
 /* For debugging */
 

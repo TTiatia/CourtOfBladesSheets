@@ -2,13 +2,25 @@ div {
     box-sizing: border-box;
 }
 
+.abso {
+    position: absolute;
+}
 
-
+.clock-label {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    text-align: left;
+    vertical-align: bottom;
+    border: none;
+    overflow-y: auto;
+    word-wrap: break-word;
+    resize: none;
+}
 
 .container {
     border: 2px solid black;
-    width: 100%;
-    min-height: 200px;
+    width: auto;
     display: flex;
     flex-flow: row wrap;
 }
@@ -17,16 +29,22 @@ div {
     border: 1px dashed black;
     display: block;
     padding: 4px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.clock-container {
+    padding: 2px;
+    margin: 2px;
+    min-height: 50px;
+    min-width: 50px;
+    box-sizing: border-box;
+    position: relative;
 }
 
 .clock-container input[type=radio] {
     display: none;
     cursor: pointer;
-    position: absolute;
-}
-
-.clock-container div {
-    position: absolute;
 }
 
 .clock-container div {
@@ -39,22 +57,23 @@ div {
     border-radius: 50%;
     width: 44px;
     height: 44px;
-    position: absolute;
     display: block;
-    margin: 8px;
+    position: absolute;
     z-index: -1
 }
 
-
+.clock-container .clock-size[value="0"] ~ .clock-image {
+    border-style: none;
+}
 
 .clock-container .clock-selector,
 .clock-container .clock-image .clock-all,
-.clock-container .clock-size[value="2"]~ .clock-2,
-.clock-container .clock-size[value="4"]~ .clock-4,
-.clock-container .clock-size[value="6"]~ .clock-6,
-.clock-container .clock-size[value="8"]~ .clock-8,
-.clock-container .clock-size[value="10"]~ .clock-10,
-.clock-container .clock-size[value="12"]~ .clock-12 {
+.clock-container .clock-size[value="2"] ~ .clock-2,
+.clock-container .clock-size[value="4"] ~ .clock-4,
+.clock-container .clock-size[value="6"] ~ .clock-6,
+.clock-container .clock-size[value="8"] ~ .clock-8,
+.clock-container .clock-size[value="10"] ~ .clock-10,
+.clock-container .clock-size[value="12"] ~ .clock-12 {
     display: block;
 }
 
@@ -63,7 +82,7 @@ div {
 .clock-container .clock-size[value="6"] ~ div.clock-image,
 .clock-container .clock-size[value="8"] ~ div.clock-image,
 .clock-container .clock-size[value="10"] ~ div.clock-image,
-.clock-container .clock-size[value="122"] ~ div.clock-image {
+.clock-container .clock-size[value="12"] ~ div.clock-image {
     background-color: white;
 }
 
@@ -72,12 +91,10 @@ div {
 .clock-container div[class*=" stroke"] {
     height: 44px;
     width: 2px;
-    position: absolute;
     display: none;
-    left: 0;
-    top: 0;
     background: black;
     z-index: 1;
+    position: absolute;
 }
 
 .spoke-0 {
@@ -128,30 +145,87 @@ div {
     transform: translateX(21px) rotate(150deg);
 }
 
-
 /* Inputs */
-.clock-container .clock-size[value=""] {
+.clock-container .clock-progress.clock-zero {
+    height: 11px;
+    width: 11px;
+    margin-top: 1px;
+    margin-right: 2px;
+    vertical-align: top;
+    position: absolute;
+    left: -8px;
+    top: -3px;
+    display: block;
+    z-index: 1;
+}
+
+.clock-zero + span {
+    height: 11px;
+    width: 11px;
+    margin-top: 1px;
+    margin-right: 2px;
+    vertical-align: top;
+    border: 1px solid black;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    left: -4px;
+    top: -4px;
+    display: block;
+}
+
+.clock-zero:checked + span {
     display: none;
 }
 
+.clock-zero + span::before {
+    transform: translate(4px, -1px) rotate(45deg);
+}
 
-.clock-container .clock-size[value="2"]~ input:not(.zero) {
+.clock-zero + span::after {
+    transform: translate(4px, -1px) rotate(-45deg);
+}
+
+.clock-zero + span::before,
+.clock-zero + span::after {
+    position: absolute;
+    width: 1px;
+    content: "";
+    left: 1px;
+    background: black;
+    height: 11px;
+    top: 1px;
+}
+
+.clock-container input.clock-progress {
+    position: absolute;
+    opacity: 0;
+}
+
+.clock-container .clock-size[value=""],
+.clock-container .clock-size[value="0"] {
+    display: none;
+}
+
+.clock-container .clock-size[value="2"]~ input:not(.clock-zero) {
     height: 20px;
     width: 20px;
     margin-top: 12px;
 }
 
 .clock-container .clock-size[value="2"]~ input[value="1"] {
-    margin-left: 25px;
+    margin-left: 22px;
 }
 
 .clock-container .clock-size[value="2"]~ input[value="2"] {
-    left: -6px;
+    left: -1px;
 }
 
-.clock-container .clock-size[value="4"]~ input:not(.zero) {
-    height: 20px;
-    width: 20px;
+.clock-container .clock-size[value="4"] ~ input:not(.clock-zero) {
+    height: 17px;
+    width: 17px;
+    left: 3px;
+    top: 4px;
 }
 
 .clock-container .clock-size[value="4"]~ input[value="1"] {
@@ -166,10 +240,11 @@ div {
     margin-top: 20px;
 }
 
-
-.clock-container .clock-size[value="6"] ~  input:not(.zero) {
+.clock-container .clock-size[value="6"] ~ input:not(.clock-zero) {
     height: 17px;
-    width: 12px;
+    width: 14px;
+    left: 4px;
+    top: 3px;
 }
 
 .clock-container .clock-size[value="6"]~ input[value="1"] {
@@ -202,10 +277,11 @@ div {
     transform: rotate(330deg);
 }
 
-
-.clock-container .clock-size[value="8"] ~  input:not(.zero) {
+.clock-container .clock-size[value="8"] ~ input:not(.clock-zero) {
     height: 14px;
-    width: 10px;
+    width: 11px;
+    top: 3px;
+    left: 4px;
 }
 
 .clock-container .clock-size[value="8"]~ input[value="1"] {
@@ -248,9 +324,11 @@ div {
     transform: rotate(337.5deg);
 }
 
-.clock-container .clock-size[value="10"] ~ .clock-container input:not(.zero) {
+.clock-container .clock-size[value="10"] ~ input:not(.clock-zero) {
     height: 14px;
-    width: 9px;
+    width: 10px;
+    left: 3.5px;
+    top: 3px;
 }
 
 .clock-container .clock-size[value="10"]~ input[value="1"] {
@@ -303,9 +381,11 @@ div {
     margin-left: 12px;
 }
 
-.clock-container .clock-size[value="12"]~ input:not(.zero) {
+.clock-container .clock-size[value="12"] ~ input:not(.clock-zero) {
     height: 12px;
     width: 8px;
+    top: 4px;
+    left: 4px;
 }
 
 .clock-container .clock-size[value="12"]~ input[value="1"] {
@@ -366,4 +446,185 @@ div {
 .clock-container .clock-size[value="12"]~ input[value="12"] {
     margin-left: 12px;
     transform: rotate(345deg);
+}
+
+.charsheet .clock-container .clock-zero,
+.charsheet .clock-container .clock-zero + span {
+    position: absolute;
+    top: 37px;
+    left: -5px;
+}
+
+/* Progress pie */
+
+.clock-container .clock-progress[value="0"]:checked ~ .clock-image {
+    background: white;
+}
+
+.clock-container .clock-size[value="2"] ~ .clock-progress[value="1"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, transparent 50%, red 50%);
+}
+
+.clock-container .clock-size[value="2"] ~ .clock-progress[value="2"]:checked ~ .clock-image {
+    background-color: red;
+}
+
+.clock-container .clock-size[value="4"] ~ .clock-progress[value="1"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(180deg, red 50%, white 50%);
+}
+
+.clock-container .clock-size[value="4"] ~ .clock-progress[value="2"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="4"] ~ .clock-progress[value="3"]:checked ~ .clock-image {
+    background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="4"] ~ .clock-progress[value="4"]:checked ~ .clock-image {
+    background: red;
+}
+
+.clock-container .clock-size[value="6"] ~ .clock-progress[value="1"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(150deg, red 50%, white 50%);
+}
+
+.clock-container .clock-size[value="6"] ~ .clock-progress[value="2"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(210deg, red 50%, white 50%);
+}
+
+.clock-container .clock-size[value="6"] ~ .clock-progress[value="3"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="6"] ~ .clock-progress[value="4"]:checked ~ .clock-image {
+    background-image: linear-gradient(150deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="6"] ~ .clock-progress[value="5"]:checked ~ .clock-image {
+    background-image: linear-gradient(210deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="6"] ~ .clock-progress[value="6"]:checked ~ .clock-image {
+    background: red;
+}
+
+.clock-container .clock-size[value="8"] ~ .clock-progress[value="1"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(135deg, red 50%, white 50%);
+}
+
+.clock-container .clock-size[value="8"] ~ .clock-progress[value="2"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(180deg, red 50%, white 50%);
+}
+
+.clock-container .clock-size[value="8"] ~ .clock-progress[value="3"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(225deg, red 50%, white 50%);
+}
+
+.clock-container .clock-size[value="8"] ~ .clock-progress[value="4"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="8"] ~ .clock-progress[value="5"]:checked ~ .clock-image {
+    background-image: linear-gradient(135deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="8"] ~ .clock-progress[value="6"]:checked ~ .clock-image {
+    background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="8"] ~ .clock-progress[value="7"]:checked ~ .clock-image {
+    background-image: linear-gradient(225deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="8"] ~ .clock-progress[value="8"]:checked ~ .clock-image {
+    background: red;
+}
+
+.clock-container .clock-size[value="10"] ~ .clock-progress[value="1"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(126deg, red 50%, white 50%);
+}
+
+.clock-container .clock-size[value="10"] ~ .clock-progress[value="2"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(162deg, red 50%, white 50%);
+}
+
+.clock-container .clock-size[value="10"] ~ .clock-progress[value="3"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(198deg, red 50%, white 50%);
+}
+
+.clock-container .clock-size[value="10"] ~ .clock-progress[value="4"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(234deg, red 50%, white 50%);
+}
+
+.clock-container .clock-size[value="10"] ~ .clock-progress[value="5"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="10"] ~ .clock-progress[value="6"]:checked ~ .clock-image {
+    background-image: linear-gradient(126deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="10"] ~ .clock-progress[value="7"]:checked ~ .clock-image {
+    background-image: linear-gradient(162deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="10"] ~ .clock-progress[value="8"]:checked ~ .clock-image {
+    background-image: linear-gradient(198deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="10"] ~ .clock-progress[value="9"]:checked ~ .clock-image {
+    background-image: linear-gradient(234deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="10"] ~ .clock-progress[value="10"]:checked ~ .clock-image {
+    background: red;
+}
+
+.clock-container .clock-size[value="12"] ~ .clock-progress[value="1"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(120deg, red 50%, white 50%);
+}
+
+.clock-container .clock-size[value="12"] ~ .clock-progress[value="2"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(150deg, red 50%, white 50%);
+}
+
+.clock-container .clock-size[value="12"] ~ .clock-progress[value="3"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(180deg, red 50%, white 50%);
+}
+
+.clock-container .clock-size[value="12"] ~ .clock-progress[value="4"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(210deg, red 50%, white 50%);
+}
+
+.clock-container .clock-size[value="12"] ~ .clock-progress[value="5"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(240deg, red 50%, white 50%);
+}
+
+.clock-container .clock-size[value="12"] ~ .clock-progress[value="6"]:checked ~ .clock-image {
+    background-image: linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="12"] ~ .clock-progress[value="7"]:checked ~ .clock-image {
+    background-image: linear-gradient(120deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="12"] ~ .clock-progress[value="8"]:checked ~ .clock-image {
+    background-image: linear-gradient(150deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="12"] ~ .clock-progress[value="9"]:checked ~ .clock-image {
+    background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="12"] ~ .clock-progress[value="10"]:checked ~ .clock-image {
+    background-image: linear-gradient(210deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="12"] ~ .clock-progress[value="11"]:checked ~ .clock-image {
+    background-image: linear-gradient(240deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+}
+
+.clock-container .clock-size[value="12"] ~ .clock-progress[value="12"]:checked ~ .clock-image {
+    background: red;
 }

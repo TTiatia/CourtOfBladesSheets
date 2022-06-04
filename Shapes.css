@@ -70,15 +70,16 @@ input.shape-square-red:checked {
 }
 
 input.shape-diamond-red {
+    position: relative;
     display: inline-block;
     border-style: solid;
     border-color: black;
     border-width: 2px;
-    vertical-align: middle;
+    vertical-align: baseline;
     width: 14px;
     height: 14px;
+    top: -1px;
     transform: rotate(45deg);
-    background-color: white;
 }
 
 input.shape-diamond-red:checked {
@@ -107,12 +108,12 @@ input.shape-smalldiamond-red:checked {
 .shape-heart {
     background-color: gray;
     display: inline-block;
-    height: 18px;
-    margin: 0 10px;
+    height: 10px;
+    margin: 0 5px;
     position: relative;
     top: 0;
     transform: rotate(-45deg);
-    width: 18px;
+    width: 10px;
 }
 
 .shape-heart:before,
@@ -120,18 +121,18 @@ input.shape-smalldiamond-red:checked {
     content: "";
     background-color: gray;
     border-radius: 50%;
-    height: 18px;
+    height: 10px;
     position: absolute;
-    width: 18px;
+    width: 10px;
 }
 
 .shape-heart:before {
-    top: -9px;
+    top: -5px;
     left: 0;
 }
 
 .shape-heart:after {
-    left: 9px;
+    left: 5px;
     top: 0;
 }
 
@@ -143,4 +144,16 @@ input.shape-smalldiamond-red:checked {
 .shape-heart:checked:after {
     content: "";
     background-color: red;
+}
+
+.shape-link-left::after {
+    content: "";
+    display: block;
+    position: relative;
+    z-index: -1;
+    width: 20px;
+    height: 5px;
+    left: -20px;
+    top: 4px;
+    background-color: black;
 }
