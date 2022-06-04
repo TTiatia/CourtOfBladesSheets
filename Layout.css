@@ -106,3 +106,15 @@ div.content {
 .justify-stretch {
     justify-self: stretch;
 }
+
+.maxh-25 {
+    min-height: 25px;
+}
+
+.minw-content {
+    min-width: max-content;
+}
+
+.minh-content {
+    min-height: max-content;
+}

@@ -1,6 +1,6 @@
 ﻿/*
     Clolour reference:
-        light:  #CCCCCC
+        light:  #EEEEEE
         dark:   #333333
         red:    red
 */
@@ -10,6 +10,7 @@
     margin: 1px;
     padding: 2px;
     position: relative;
+    vertical-align: middle;
 }
 
 /* || Shapes */
@@ -24,6 +25,11 @@
 
 input[class^="shape"], input[class*=" shape"] {
     cursor: pointer;
+}
+
+[class*="shape-"].shape-hidden {
+    opacity: 0;
+    cursor: default;
 }
 
 [class*="shape-square"],
@@ -45,8 +51,8 @@ input[class^="shape"], input[class*=" shape"] {
 
 .shape-square-small,
 .shape-diamond-small {
-    width: 6px;
-    height: 6px;
+    width: 2px;
+    height: 2px;
 }
 
 .shape-square-med {
@@ -57,6 +63,28 @@ input[class^="shape"], input[class*=" shape"] {
 .shape-diamond-med {
     width: 11px;
     height: 11px;
+}
+
+.shape-diamond-big {
+    width: 22px;
+    height: 22px;
+}
+
+.shape-divider {
+    width: 0px;
+    height: 15px;
+}
+
+.shape-divider:after {
+    content: "";
+    width: 1px;
+    height: 27px;
+    background: none;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
 
 .shape-cross {
@@ -183,7 +211,7 @@ input[class^="shape"], input[class*=" shape"] {
 }
 
 .unchecked-light:not([class*="shape-arrow"]) {
-    background: #CCCCCC;
+    background: #EEEEEE;
 }
 
 [class*="shape-arrow"].unchecked-dark {
@@ -192,8 +220,8 @@ input[class^="shape"], input[class*=" shape"] {
 }
 
 [class*="shape-arrow"].unchecked-light {
-    border-top-color: #CCCCCC;
-    border-bottom-color: #CCCCCC;
+    border-top-color: #EEEEEE;
+    border-bottom-color: #EEEEEE;
 }
 
 .checked-red:checked:not([class*="shape-arrow"]) {
@@ -201,7 +229,7 @@ input[class^="shape"], input[class*=" shape"] {
 }
 
 .checked-dark:not([class*="shape-arrow"]) {
-    background: #CCCCCC;
+    background: #EEEEEE;
 }
 
 .checked-dark:checked:not([class*="shape-arrow"]) {
@@ -213,7 +241,7 @@ input[class^="shape"], input[class*=" shape"] {
 }
 
 .checked-light:checked:not([class*="shape-arrow"]) {
-    background: #CCCCCC;
+    background: #EEEEEE;
 }
 
 .checked-red.shape-heart:checked:before,
@@ -228,12 +256,12 @@ input[class^="shape"], input[class*=" shape"] {
 
 .checked-light.shape-heart:checked:before,
 .checked-light.shape-heart:checked:after {
-    background: #CCCCCC;
+    background: #EEEEEE;
 }
 
 .checked-dark.shape-heart:before,
 .checked-dark.shape-heart:after {
-    background: #CCCCCC;
+    background: #EEEEEE;
 }
 
 .checked-light.shape-heart:before,
@@ -248,12 +276,12 @@ input[class^="shape"], input[class*=" shape"] {
 
 .unchecked-light.shape-heart:before,
 .unchecked-light.shape-heart:after {
-    background: #CCCCCC;
+    background: #EEEEEE;
 }
 
 .checked-dark[class*="shape-arrow"] {
-    border-top-color: #CCCCCC;
-    border-bottom-color: #CCCCCC;
+    border-top-color: #EEEEEE;
+    border-bottom-color: #EEEEEE;
     background: none;
 }
 
@@ -270,8 +298,8 @@ input[class^="shape"], input[class*=" shape"] {
 }
 
 .checked-light[class*="shape-arrow"]:checked {
-    border-top-color: #CCCCCC;
-    border-bottom-color: #CCCCCC;
+    border-top-color: #EEEEEE;
+    border-bottom-color: #EEEEEE;
     background: none;
 }
 
@@ -291,44 +319,78 @@ input[class^="shape"], input[class*=" shape"] {
 /* || Trackers */
 .tracker {
     z-index: 3;
+    vertical-align: middle;
+    min-height: 28px;
+    position: relative;
 }
 
 .tracker input {
     vertical-align: middle;
+    margin: 2px;
 }
 
-.tracker .tracked-light {
-    background: #CCCCCC;
+.tracker input[class*="-big"] {
+    margin: 4px;
 }
 
-.tracker .tracked-dark {
+
+.tracker input.shape-heart {
+    margin: 4px;
+}
+
+.tracker.tracked-dark input:not(.track-zero) {
+    background: #333333;
+    border-color: black;
+}
+
+.tracker.tracked-dark input:not(.track-zero):before,
+.tracker.tracked-dark input:not(.track-zero):after {
     background: #333333;
 }
 
-.tracker .tracked-light:before,
-.tracker .tracked-light:after {
-    background: #CCCCCC;
+.tracker.tracked-dark input[type=radio]:checked ~ input[type=radio]:not(.track-zero) {
+    background: #EEEEEE;
 }
 
-.tracker .tracked-dark:before,
-.tracker .tracked-dark:after {
+.tracker.tracked-dark input[type=radio]:checked ~ input[type=radio]:not(.track-zero):after,
+.tracker.tracked-dark input[type=radio]:checked ~ input[type=radio]:not(.track-zero):before {
+    background: #EEEEEE;
+}
+
+
+.tracker.tracked-light input[type=radio]:checked ~ input[type=radio]:not(.track-zero):after,
+.tracker.tracked-light input[type=radio]:checked ~ input[type=radio]:not(.track-zero):before {
     background: #333333;
 }
 
-.tracker input[type=radio]:checked ~ input[type=radio].tracked-light {
+.tracker.tracked-light input:not(.track-zero) {
+    background: #EEEEEE;
+}
+
+.tracker.tracked-light input:not(.track-zero):before,
+.tracker.tracked-light input:not(.track-zero):after {
+    background: #EEEEEE;
+}
+
+.tracker.tracked-light input[type=radio]:checked ~ input[type=radio]:not(.track-zero) {
     background: #333333;
 }
 
-.tracker input[type=radio]:checked ~ input[type=radio].tracked-dark {
-    background: #CCCCCC;
+
+.tracker.tracked-red input[type=radio]:checked ~ input[type=radio]:not(.track-zero):after,
+.tracker.tracked-red input[type=radio]:checked ~ input[type=radio]:not(.track-zero):before {
+    background: #EEEEEE;
 }
 
-.tracker input[type=radio]:checked ~ input[type=radio].tracked-light:after,
-.tracker input[type=radio]:checked ~ input[type=radio].tracked-light:before {
-    background: #333333;
+.tracker.tracked-red input:not(.track-zero) {
+    background: red;
 }
 
-.tracker input[type=radio]:checked ~ input[type=radio].tracked-dark:after,
-.tracker input[type=radio]:checked ~ input[type=radio].tracked-dark:before {
-    background: #CCCCCC;
+.tracker.tracked-red input:not(.track-zero):before,
+.tracker.tracked-red input:not(.track-zero):after {
+    background: red;
+}
+
+.tracker.tracked-red input[type=radio]:checked ~ input[type=radio]:not(.track-zero) {
+    background: #EEEEEE;
 }
