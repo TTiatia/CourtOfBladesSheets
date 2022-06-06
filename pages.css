@@ -1,0 +1,29 @@
+﻿[class^="panel-"], [class*=" panel-"] {
+    margin: 4px;
+    padding: 4px;
+    border: 2px dashed black;
+    width: 100%;
+}
+
+.panel-left {
+    min-width: 500px;
+    max-width: 850px;
+}
+
+.panel-centre {
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.panel-right {
+    min-width: 150px;
+    max-width: 300px;
+}
+
+.page {
+    display: flex;
+    flex-basis: content;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 2px dotted darkblue;
+}
