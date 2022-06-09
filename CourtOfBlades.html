@@ -89,20 +89,78 @@
             <div class="debug panel-centre">
                 <div id="houseabilitypanel" class="grid gtw-1 panel-centre">
                     <div id="houseabilitypanel-titlebox" class="debug gh-3 grid gth-3 gtw-1">
-                        <div id="houseabilitypanel-titlebox-title" class="debug gh-2 titlebox-title">House Battalia</div>
+                        <input type="text" name="attr_housename" id="houseabilitypanel-titlebox-title" class="debug gh-2 titlebox-title" placeholder="House Battalia" />
                         <div id="houseabilitypanel-titlebox-subtitle" class="debug">
-                            <input type="text" name="attr_housewords" class="titlebox-subtitle text-center" value="&quot;Upon Our Shields&quot;"/>
+                            <input type="text" name="attr_housewords" class="titlebox-subtitle text-center" value="&quot;Upon Our Shields&quot;" />
                         </div>
                     </div>
                     <div id="houseabilitypanel-specfeatbox" class="debug grid gtw-1">
                         <div id="houseabilitypanel-specfeatbox-heading" class="debug heading bg-med">SPECIAL FEATURE</div>
-                        <div id="houseabilitypanel-specfeatbox-option" class="debug gcheckboxlist"><input type="checkbox" checked="checked" class="shape-dot checked-red"><span class="label"><b>Duty First</b> Your <b>retinues</b> heal at double the normal speed.</span></div>
+                        <div class="debug ability-row">
+                            <span class="row-cb-holder">
+                                <input type="checkbox" checked="checked" disabled="disabled" class="shape-dot checked-red align-start" name="attr_">
+                            </span>
+                            <textarea rows="1" name="attr_" class="ability-label label align-start" spellcheck="false">Ability name</textarea>
+                            <textarea rows="1" name="attr_" class="clock-label label align-start" spellcheck="false">Ability description goes here</textarea>
+                        </div>
+                    </div>
+                    <div id="houseabilitypanel-abilitybox" class="debug grid gtw-1">
+                        <div id="houseabilitypanel-specfeatbox-heading" class="debug heading bg-med">SPECIAL ABILITES</div>
+                        <div class="debug ability-row">
+                            <span class="row-cb-holder">
+                                <input type="checkbox" class="shape-dot checked-red align-start" name="attr_">
+                            </span>
+                            <textarea rows="1" name="attr_" class="ability-label label align-start" spellcheck="false">Ability name</textarea>
+                            <textarea rows="1" name="attr_" class="clock-label label align-start" spellcheck="false">Ability description goes here</textarea>
+                        </div>
+                        <div class="debug ability-row">
+                            <span class="row-cb-holder">
+                                <input type="checkbox" class="shape-dot checked-red align-start" name="attr_">
+                            </span>
+                            <textarea rows="1" name="attr_" class="ability-label label align-start" spellcheck="false">Ability name</textarea>
+                            <textarea rows="1" name="attr_" class="clock-label label align-start" spellcheck="false">Ability description goes here</textarea>
+                        </div>
+                        <div class="debug ability-row">
+                            <span class="row-cb-holder">
+                                <input type="checkbox" class="shape-dot checked-red align-start" name="attr_">
+                            </span>
+                            <textarea rows="1" name="attr_" class="ability-label label align-start" spellcheck="false">Ability name</textarea>
+                            <textarea rows="1" name="attr_" class="clock-label label align-start" spellcheck="false">Ability description goes here</textarea>
+                        </div>
+                        <div class="debug ability-row">
+                            <span class="row-cb-holder">
+                                <input type="checkbox" class="shape-dot checked-red align-start" name="attr_">
+                            </span>
+                            <textarea rows="1" name="attr_" class="ability-label label align-start" spellcheck="false">Ability name</textarea>
+                            <textarea rows="1" name="attr_" class="clock-label label align-start" spellcheck="false">Ability description goes here</textarea>
+                        </div>
+                        <div class="debug ability-row">
+                            <span class="row-cb-holder">
+                                <input type="checkbox" class="shape-dot checked-red align-start" name="attr_">
+                            </span>
+                            <textarea rows="1" name="attr_" class="ability-label label align-start" spellcheck="false">Ability name</textarea>
+                            <textarea rows="1" name="attr_" class="clock-label label align-start" spellcheck="false">Ability description goes here</textarea>
+                        </div>
+                        <div class="debug ability-row">
+                            <span class="row-cb-holder">
+                                <input type="checkbox" class="shape-dot checked-red align-start" name="attr_">
+                            </span>
+                            <textarea rows="1" name="attr_" class="ability-label label align-start" spellcheck="false">Ability name</textarea>
+                            <textarea rows="1" name="attr_" class="clock-label label align-start" spellcheck="false">Ability description goes here</textarea>
+                        </div>
+                        <div class="debug ability-row">
+                            <span class="row-cb-holder">
+                                <input type="checkbox" class="shape-dot checked-red align-start" name="attr_">
+                            </span>
+                            <textarea rows="1" name="attr_" class="ability-label label align-start" spellcheck="false">Ability name</textarea>
+                            <textarea rows="1" name="attr_" class="clock-label label align-start" spellcheck="false">Ability description goes here</textarea>
+                        </div>
                     </div>
                 </div>
                 <div class="debug panel-right">
                 </div>
             </div>
-
+        </div>
         <div id="page-pc" class="page">
             <div id="pcpanel" class="grid gtw-9 panel-left">
                 <div id="pcpanel-titlebox" class="debug grid gh-3 gw-9 grid gtw-1">
@@ -389,20 +447,16 @@
                 </div>
                 <div id="pcabilitypanel-specfeatbox" class="debug grid gtw-1">
                     <div id="pcabilitypanel-specfeatbox-heading" class="debug heading bg-med">SPECIAL ARMOUR</div>
-                    <div id="pcabilitypanel-specfeatbox-option" class="debug gcheckboxlist"><input type="checkbox" checked="checked" class="shape-dot checked-red"><span class="label"><b>Resist</b> a complication related to physical obstacles or being outnumbered for you and your coterie (when you are present).</span></div>
+                    <div id="pcabilitypanel-specfeatbox-option" class="debug ability-row"><input type="checkbox" checked="checked" class="shape-dot checked-red"><span class="label"><b>Resist</b> a complication related to physical obstacles or being outnumbered for you and your coterie (when you are present).</span></div>
                 </div>
                 <div id="pcabilitypanel-specabilitybox" class="debug grid gtw-1">
                     <div id="pcabilitypanel-specabilitybox-heading" class="debug heading bg-med">SPECIAL ABILITIES</div>
-                    <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot checked-red" /><span class="label"><b>HOUSE GUARD: </b>When you protect a member of your coterie, you <b>resist</b> with <b>+1d</b>. When you take <b>harm</b>, clear 1 <b>stress</b>.</span></div>
-                    <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot checked-red" /><span class="label"><b>BLOODY BUT UNBOWED: </b>You ignore the effects of all level 1 <b>harm penalties</b> while dueling or engaging in combat. When you <b>push</b> yourself to ignore level 3 harm penalties, it only takes 1 <b>stress</b> (not 2).</span></div>
-                    <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot checked-red" /><span class="label"><b>UNSTOPPABLE: </b>You may <b>push</b> yourself to accomplisha feat of speed or endurance that borders on the superhuman, <i>e.g. engage a small group on equal footing.</i></span></div>
-                    <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot checked-red" /><span class="label"><b>CODE DUELLO: </b>Your challenges carry the weight of your House. When you deliver a challenge for formal combat, your enemy cannot refuse. Take an additional <b>xp trigger: </b><i>Did you answer a challenge to your honor?</i></span></div>
-                    <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot checked-red" /><span class="label"><b>HONOR GUARD: </b>Your formal trainning allows you the privilege of wearing your weapons openly anywhere, without repercussion. When <b>Commanding</b> others to act or stand fast, take <b>+1d</b>.</span></div>
-                    <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot checked-red" /><span class="label"><b>UPON A NEEDLE: </b>You are sure-footed and gain <b>+1 effect</b> when balance or grace is an issue, such as navigating difficult terrain (or a dance floor). <i>How many angels can dance upon the head of a needle? It depends on the tune.</i></span></div>
-                    <div class="debug gcheckboxlist"><input type="checkbox" class="shape-dot checked-red" /><span class="label"><b>GAP IN THE ARMOR: </b> When you <b>Survey</b> you may <b>push</b> yourself to find a weakness in an argument, gesture, or evasion, and sieze an advantage. Take <b>+1d</b> and <b>+1 effect</b> to the next roll that takes advantage of this information. This bonus may be given to a coterie member.</span></div>
-                    <div id="pcabilitypanel-specabilitybox-veteran" class="debug gcheckboxlist ">
-                        <span class="test"><input type="checkbox" class="shape-dot checked-red" /></span>
-                        <span class="label"><b>VETERAN: </b> Choose a <b>special ability</b> from another <b>playbook</b>.</span>
+                    <div class="debug ability-row">
+                        <span class="row-cb-holder">
+                            <input type="checkbox"  class="shape-dot checked-red align-start" name="attr_houseability1">
+                        </span>
+                        <input type="text" placeholder="Ability name" class="ability-label label align-start" name="attr_houseability1name">
+                        <textarea rows="1" name="attr_houseabilitydesc1" class="clock-label label align-start" spellcheck="false">Ability description goes here</textarea>
                     </div>
                 </div>
                 <div id="pcabilitypanel-pcxpbox" class="debug grid gtw-3">
@@ -854,4 +908,5 @@
             </div>
         </div>
     </div>
+
 </body></html>

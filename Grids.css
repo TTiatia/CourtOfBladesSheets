@@ -7,6 +7,12 @@
     align-self: start;
 }
 
+.ability-row {
+    grid-template-columns: 1.5em 3fr 7fr;
+    grid-template-rows: minmax(1.5em, max-content);
+    grid-auto-flow: row;
+    display: grid;
+}
 
 .gth-1 {
     grid-template-rows: minmax(1em, auto);
