@@ -1,0 +1,143 @@
+.charsheet .court-of-blades .page .clock-container {
+    .clock-progress[value="0"]:checked~.clock-image {
+        background: white;
+    }
+    .clock-size[value="2"] {
+        &~.clock-progress[value="1"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, transparent 50%, red 50%);
+        }
+        &~.clock-progress[value="2"]:checked~.clock-image {
+            background-color: red;
+        }
+    }
+    .clock-size[value="4"] {
+        &~.clock-progress[value="1"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(180deg, red 50%, white 50%);
+        }
+        &~.clock-progress[value="2"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="3"]:checked~.clock-image {
+            background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="4"]:checked~.clock-image {
+            background: red;
+        }
+    }
+    .clock-size[value="6"] {
+        &~.clock-progress[value="1"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(150deg, red 50%, white 50%);
+        }
+        &~.clock-progress[value="2"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(210deg, red 50%, white 50%);
+        }
+        &~.clock-progress[value="3"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="4"]:checked~.clock-image {
+            background-image: linear-gradient(150deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="5"]:checked~.clock-image {
+            background-image: linear-gradient(210deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="6"]:checked~.clock-image {
+            background: red;
+        }
+    }
+    .clock-size[value="8"] {
+        &~.clock-progress[value="1"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(135deg, red 50%, white 50%);
+        }
+        &~.clock-progress[value="2"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(180deg, red 50%, white 50%);
+        }
+        &~.clock-progress[value="3"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(225deg, red 50%, white 50%);
+        }
+        &~.clock-progress[value="4"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="5"]:checked~.clock-image {
+            background-image: linear-gradient(135deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="6"]:checked~.clock-image {
+            background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="7"]:checked~.clock-image {
+            background-image: linear-gradient(225deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="8"]:checked~.clock-image {
+            background: red;
+        }
+    }
+    .clock-size[value="10"] {
+        &~.clock-progress[value="1"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(126deg, red 50%, white 50%);
+        }
+        &~.clock-progress[value="2"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(162deg, red 50%, white 50%);
+        }
+        &~.clock-progress[value="3"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(198deg, red 50%, white 50%);
+        }
+        &~.clock-progress[value="4"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(234deg, red 50%, white 50%);
+        }
+        &~.clock-progress[value="5"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="6"]:checked~.clock-image {
+            background-image: linear-gradient(126deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="7"]:checked~.clock-image {
+            background-image: linear-gradient(162deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="8"]:checked~.clock-image {
+            background-image: linear-gradient(198deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="9"]:checked~.clock-image {
+            background-image: linear-gradient(234deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="10"]:checked~.clock-image {
+            background: red;
+        }
+    }
+    .clock-size[value="12"] {
+        &~.clock-progress[value="1"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(120deg, red 50%, white 50%);
+        }
+        &~.clock-progress[value="2"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(150deg, red 50%, white 50%);
+        }
+        &~.clock-progress[value="3"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(180deg, red 50%, white 50%);
+        }
+        &~.clock-progress[value="4"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(210deg, red 50%, white 50%);
+        }
+        &~.clock-progress[value="5"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, transparent 50%), linear-gradient(240deg, red 50%, white 50%);
+        }
+        &~.clock-progress[value="6"]:checked~.clock-image {
+            background-image: linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="7"]:checked~.clock-image {
+            background-image: linear-gradient(120deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="8"]:checked~.clock-image {
+            background-image: linear-gradient(150deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="9"]:checked~.clock-image {
+            background-image: linear-gradient(180deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="10"]:checked~.clock-image {
+            background-image: linear-gradient(210deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="11"]:checked~.clock-image {
+            background-image: linear-gradient(240deg, transparent 50%, red 50%), linear-gradient(90deg, white 50%, red 50%);
+        }
+        &~.clock-progress[value="12"]:checked~.clock-image {
+            background: red;
+        }
+    }
+}

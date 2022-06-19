@@ -1,0 +1,73 @@
+/* ||
+  Classes for trackers.
+    .tracker        Enables the tracker behaviour
+
+    .tracked-dark   Radio buttons are light by default and dark when checked
+    .tracked-light  Radio buttons are dark by default and light when checked
+    .tracked-red    Radio buttons are light by default and red when checked
+  */
+
+.charsheet .court-of-blades .page .tracker {
+    z-index: 3;
+    vertical-align: middle;
+    position: relative;
+    input {
+        vertical-align: middle;
+        margin: 2px;
+    }
+    input[class*="-big"] {
+        margin: 4px;
+    }
+    input.shape-heart {
+        margin: 4px;
+    }
+    &.tracked-dark {
+        input:not(.track-zero) {
+            background: #333333;
+            border-color: black;
+        }
+        input:not(.track-zero):before,
+        input:not(.track-zero):after {
+            background: #333333;
+        }
+        input[type=radio]:checked~input[type=radio]:not(.track-zero) {
+            background: #EEEEEE;
+        }
+        input[type=radio]:checked~input[type=radio]:not(.track-zero):after,
+        input[type=radio]:checked~input[type=radio]:not(.track-zero):before {
+            background: #EEEEEE;
+        }
+    }
+    &.tracked-light {
+        input[type=radio]:checked~input[type=radio]:not(.track-zero):after,
+        input[type=radio]:checked~input[type=radio]:not(.track-zero):before {
+            background: #333333;
+        }
+        input:not(.track-zero) {
+            background: #EEEEEE;
+        }
+        input:not(.track-zero):before,
+        input:not(.track-zero):after {
+            background: #EEEEEE;
+        }
+        input[type=radio]:checked~input[type=radio]:not(.track-zero) {
+            background: #333333;
+        }
+    }
+    &.tracked-red {
+        input[type=radio]:checked~input[type=radio]:not(.track-zero):after,
+        input[type=radio]:checked~input[type=radio]:not(.track-zero):before {
+            background: #EEEEEE;
+        }
+        input:not(.track-zero) {
+            background: red;
+        }
+        input:not(.track-zero):before,
+        input:not(.track-zero):after {
+            background: red;
+        }
+        input[type=radio]:checked~input[type=radio]:not(.track-zero) {
+            background: #EEEEEE;
+        }
+    }
+}

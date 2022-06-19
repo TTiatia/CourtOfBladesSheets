@@ -1,0 +1,57 @@
+/* ||
+  Classes for using grids
+    
+  Grid Items:
+    gw-n	Sets the grid width (horizontal span) of the grid cell to n
+    gh-n	Sets the grid height (vertical span) of the grid cell to n
+    
+  Grid Containers:
+    grid	Sets the element as a grid container, using equal sizes columns and rows to n
+    gtw-n	Sets the template width (columns) of the grid container to n
+    gth-n	Sets the template height (rows) of the grid container to n
+    gapw-n	Sets the grid gap width (row-width) of the grid container to n
+    gaph-n	Sets the grid gap heigh (row-width) of the grid container to n
+*/
+
+@mixin define-grid-rules($min, $max) {
+    .charsheet .court-of-blades .page {
+        @for $val from $min through $max {
+            .gw-#{$val} {
+                grid-column: span #{$val};
+            }
+            .gh-#{$val} {
+                grid-row: span #{$val};
+            }
+            .gtw-#{$val} {
+                grid-template-columns: repeat(#{$val}, minmax(1em, 1fr))
+            }
+            .gth-#{$val} {
+                grid-template-rows: repeat(#{$val}, minmax(1em, max-content))
+            }
+        }
+    }
+}
+
+@mixin define-grid-gaps($vals...) {
+    .charsheet .court-of-blades .page {
+        @each $val in $vals {
+            .gapw-#{$val} {
+                column-gap: #{$val}px;
+            }
+            .gaph-#{$val} {
+                row-gap: #{$val}px;
+            }
+        }
+    }
+}
+
+@include define-grid-rules(1, 18);
+@include define-grid-gaps(2, 4, 6, 8, 10);
+.charsheet .court-of-blades .page .grid {
+    display: grid;
+    grid-auto-flow: row;
+    width: auto;
+    place-self: stretch;
+    grid-auto-rows: minmax(1em, max-content);
+    z-index: 0;
+}

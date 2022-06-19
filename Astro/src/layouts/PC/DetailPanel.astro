@@ -1,0 +1,36 @@
+---
+import NoteField from "../../components/NoteField.astro"
+
+import CharInfo from "./Details/CharInfo.astro";
+import StressShame from "./Details/StressShame.astro";
+import TitleBox from "./Details/TitleBox.astro";
+import ParamourInfo from "./Details/ParamourInfo.astro";
+import GatherInfoRules from "./Details/GatherInfoRules.astro";
+import HarmBox from "./Details/HarmBox.astro";
+import HealingBox from "./Details/HealingBox.astro";
+import ArmourBox from "./Details/ArmourBox.astro";
+import StatusBox from "./Details/StatusBox.astro";
+import ContactsBox from "./Details/ContactsBox.astro";
+
+const { id, panelType } = Astro.props;
+---
+<div id={id} class={panelType}>
+    <TitleBox id="pcpanel-titlebox"></TitleBox>
+    <div class="offset-for-title">
+        <CharInfo id="pcpanel-detailbox"></CharInfo>
+        <StressShame id="pcpanel-stressinfluence" classes="marg-top"></StressShame>
+        <HarmBox id="pcpanel-harmhealing" classes="marg-top"></HarmBox>
+        <div class="marg-top grid gtw-4 border-right border-left border-bottom bg-white">
+            <HealingBox id="pcpanel-healingbox" attr="pc_healing" classes="border-right"></HealingBox>
+            <ArmourBox id="pcpanel-armourbox" armourAttr="pc_armour" specAttr="pc_armour_spec"></ArmourBox>
+            <StatusBox id="pcpanel-statusbox" attr="pc_status" classes="gw-2 border-left"></StatusBox>
+        </div>
+        <ParamourInfo id="pcpanel-paramour" classes="marg-bottom"></ParamourInfo>
+        <div class="gw-1 grid gtw-8 bg-white border-left border-bottom border-right">
+            <ContactsBox id="pc_contacts" classes="gw-5" repAttr="pccontacts"></ContactsBox>
+            <GatherInfoRules id="gatherinfo" classes="gw-3 border-left"></GatherInfoRules>
+        </div>
+        <NoteField id="pcpanel-bonds" attr="pcbonds" label="Bonds" classes="marg-top"></NoteField>
+        <NoteField id="pcpanel-notes" attr="pcnotes" label="Notes" classes="marg-top"></NoteField>
+    </div>
+</div>

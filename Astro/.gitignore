@@ -1,8 +1,7 @@
 # build output
 dist/
 .output/
-.vs/
-*.mp4
+
 # dependencies
 node_modules/
 

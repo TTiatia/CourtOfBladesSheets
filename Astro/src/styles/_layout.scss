@@ -1,0 +1,97 @@
+/* ||
+  Various classes used for layout
+*/
+
+.charsheet .court-of-blades .page {
+    abso {
+        position: absolute;
+    }
+    .rela {
+        position: relative;
+    }
+    div.content {
+        height: max-content;
+        width: max-content;
+    }
+    .center-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .offset-for-title {
+        /* 0.83 400*/
+        top: -54px;
+        left: 31px;
+        position: relative;
+        width: 425px;
+    }
+    .text-left {
+        text-align: left;
+    }
+    .text-center {
+        text-align: center;
+    }
+    .text-right {
+        text-align: right;
+    }
+    .vert-top {
+        vertical-align: top;
+    }
+    .vert-middle {
+        vertical-align: middle;
+    }
+    .vert-bottom {
+        vertical-align: bottom;
+    }
+    .marg-left {
+        margin-left: 0.5em;
+    }
+    .marg-right {
+        margin-right: 0.5em;
+    }
+    .marg-top {
+        margin-top: 0.5em;
+    }
+    .marg-bottom {
+        margin-bottom: 0.5em;
+    }
+    .pad-left {
+        padding-left: 0.5em;
+    }
+    .pad-right {
+        padding-right: 0.5em;
+    }
+    .pad-top {
+        padding-top: 0.5em;
+    }
+    .pad-bottom {
+        padding-bottom: 0.5em;
+    }
+    .align-center {
+        align-self: center;
+    }
+    .align-start {
+        align-self: start;
+    }
+    .align-end {
+        align-self: end;
+    }
+    .align-baseline {
+        align-self: baseline;
+    }
+    .align-stretch {
+        align-self: stretch;
+    }
+    .justify-center {
+        justify-self: center;
+    }
+    .justify-left {
+        justify-self: left;
+    }
+    .justify-right {
+        justify-self: right;
+    }
+    .justify-stretch {
+        justify-self: stretch;
+    }
+}

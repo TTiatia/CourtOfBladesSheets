@@ -1,0 +1,253 @@
+.charsheet .court-of-blades .page .clock-container {
+    .clock-progress.clock-zero {
+        height: 11px;
+        width: 11px;
+        margin-top: 1px;
+        margin-right: 2px;
+        position: absolute;
+        left: -8px;
+        top: -3px;
+        display: block;
+        z-index: 1;
+    }
+    input.clock-progress {
+        position: absolute;
+        opacity: 0;
+    }
+    .clock-size[value=""],
+    .clock-size[value="0"] {
+        display: none;
+    }
+    .clock-size[value="2"]~input:not(.clock-zero) {
+        height: 20px;
+        width: 20px;
+        margin-top: 12px;
+    }
+    .clock-size[value="2"]~input[value="1"] {
+        margin-left: 22px;
+    }
+    .clock-size[value="2"]~input[value="2"] {
+        left: -1px;
+    }
+    .clock-size[value="4"]~input:not(.clock-zero) {
+        height: 17px;
+        width: 17px;
+        left: 3px;
+        top: 4px;
+    }
+    .clock-size[value="4"]~input[value="1"] {
+        margin-left: 20px;
+    }
+    .clock-size[value="4"]~input[value="2"] {
+        margin: 20px 0 0 20px;
+    }
+    .clock-size[value="4"]~input[value="3"] {
+        margin-top: 20px;
+    }
+    .clock-size[value="6"]~input:not(.clock-zero) {
+        height: 17px;
+        width: 14px;
+        left: 4px;
+        top: 3px;
+    }
+    .clock-size[value="6"]~input[value="1"] {
+        margin-left: 21px;
+        transform: rotate(30deg);
+    }
+    .clock-size[value="6"]~input[value="2"] {
+        margin: 12px 0 0 25px;
+        transform: rotate(90deg);
+    }
+    .clock-size[value="6"]~input[value="3"] {
+        margin: 22px 0 0 21px;
+        transform: rotate(150deg);
+    }
+    .clock-size[value="6"]~input[value="4"] {
+        margin: 22px 0 0 8px;
+        transform: rotate(210deg);
+    }
+    .clock-size[value="6"]~input[value="5"] {
+        margin: 12px 0 0 1px;
+        transform: rotate(270deg);
+    }
+    .clock-size[value="6"]~input[value="6"] {
+        margin-left: 8px;
+        transform: rotate(330deg);
+    }
+    .clock-size[value="8"]~input:not(.clock-zero) {
+        height: 14px;
+        width: 11px;
+        top: 3px;
+        left: 4px;
+    }
+    .clock-size[value="8"]~input[value="1"] {
+        margin-left: 20px;
+        transform: rotate(22.5deg);
+    }
+    .clock-size[value="8"]~input[value="2"] {
+        margin: 8px 0 0 26px;
+        transform: rotate(67.5deg);
+    }
+    .clock-size[value="8"]~input[value="3"] {
+        margin: 18px 0 0 26px;
+        transform: rotate(112.5deg);
+    }
+    .clock-size[value="8"]~input[value="4"] {
+        margin: 25px 0 0 20px;
+        transform: rotate(157.5deg);
+    }
+    .clock-size[value="8"]~input[value="5"] {
+        margin: 25px 0 0 9px;
+        transform: rotate(202.5deg);
+    }
+    .clock-size[value="8"]~input[value="6"] {
+        margin: 18px 0 0 2px;
+        transform: rotate(247.5deg);
+    }
+    .clock-size[value="8"]~input[value="7"] {
+        margin: 8px 0 0 2px;
+        transform: rotate(292.5deg);
+    }
+    .clock-size[value="8"]~input[value="8"] {
+        margin-left: 9px;
+        transform: rotate(337.5deg);
+    }
+    .clock-size[value="10"]~input:not(.clock-zero) {
+        height: 14px;
+        width: 10px;
+        left: 3.5px;
+        top: 3px;
+    }
+    .clock-size[value="10"]~input[value="1"] {
+        transform: rotate(18deg);
+        margin-left: 20px;
+    }
+    .clock-size[value="10"]~input[value="2"] {
+        transform: rotate(54deg);
+        margin: 5px 0 0 27px;
+    }
+    .clock-size[value="10"]~input[value="3"] {
+        transform: rotate(90deg);
+        margin: 13px 0 0 30px;
+    }
+    .clock-size[value="10"]~input[value="4"] {
+        transform: rotate(126deg);
+        margin: 21px 0 0 27px;
+    }
+    .clock-size[value="10"]~input[value="5"] {
+        transform: rotate(162deg);
+        margin: 26px 0 0 20px;
+    }
+    .clock-size[value="10"]~input[value="6"] {
+        transform: rotate(198deg);
+        margin: 26px 0 0 12px;
+    }
+    .clock-size[value="10"]~input[value="7"] {
+        transform: rotate(234deg);
+        margin: 21px 0 0 5px;
+    }
+    .clock-size[value="10"]~input[value="8"] {
+        transform: rotate(270deg);
+        margin: 13px 0 0 1px;
+    }
+    .clock-size[value="10"]~input[value="9"] {
+        transform: rotate(306deg);
+        margin: 5px 0 0 5px;
+    }
+    .clock-size[value="10"]~input[value="10"] {
+        transform: rotate(342deg);
+        margin-left: 12px;
+    }
+    .clock-size[value="12"]~input:not(.clock-zero) {
+        height: 12px;
+        width: 8px;
+        top: 4px;
+        left: 4px;
+    }
+    clock-size[value="12"]~input[value="1"] {
+        margin-left: 20px;
+        transform: rotate(15deg);
+    }
+    .clock-size[value="12"]~input[value="2"] {
+        margin: 4px 0 0 26px;
+        transform: rotate(45deg);
+    }
+    .clock-size[value="12"]~input[value="3"] {
+        margin: 10px 0 0 29px;
+        transform: rotate(75deg);
+    }
+    .clock-size[value="12"]~input[value="4"] {
+        margin: 18px 0 0 29px;
+        transform: rotate(105deg);
+    }
+    .clock-size[value="12"]~input[value="5"] {
+        margin: 24px 0 0 26px;
+        transform: rotate(135deg);
+    }
+    .clock-size[value="12"]~input[value="6"] {
+        margin: 28px 0 0 20px;
+        transform: rotate(165deg);
+    }
+    .clock-size[value="12"]~input[value="7"] {
+        margin: 28px 0 0 12px;
+        transform: rotate(195deg);
+    }
+    .clock-size[value="12"]~input[value="8"] {
+        margin: 24px 0 0 6px;
+        transform: rotate(225deg);
+    }
+    .clock-size[value="12"]~input[value="9"] {
+        margin: 18px 0 0 3px;
+        transform: rotate(255deg);
+    }
+    .clock-size[value="12"]~input[value="10"] {
+        margin: 10px 0 0 3px;
+        transform: rotate(295deg);
+    }
+    .clock-size[value="12"]~input[value="11"] {
+        margin: 4px 0 0 6px;
+        transform: rotate(315deg);
+    }
+    .clock-size[value="12"]~input[value="12"] {
+        margin-left: 12px;
+        transform: rotate(345deg);
+    }
+    .clock-zero {
+        position: absolute;
+        top: 37px;
+        left: -5px;
+        &+span {
+            height: 11px;
+            width: 11px;
+            margin-top: 1px;
+            margin-right: 2px;
+            vertical-align: top;
+            border: 1px solid black;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            left: -4px;
+            top: -4px;
+            display: block;
+        }
+        &:checked+span {
+            display: none;
+        }
+        &+span::before {
+            transform: translate(4px, -1px) rotate(45deg);
+        }
+        &+span::after {
+            transform: translate(4px, -1px) rotate(-45deg);
+        }
+        &+span::before,
+        &+span::after {
+            position: absolute;
+            width: 1px;
+            content: "";
+            left: 0px;
+            top: 0px;
+            background: black;
+            height: 11px;
+        }
+    }
+}

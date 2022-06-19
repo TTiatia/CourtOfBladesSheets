@@ -1,0 +1,51 @@
+/* ||
+  Basic shapes
+    .shape-square-small
+    .shape-square-med
+    .shape-diamond-small
+    .shape-diamond-med
+    .shape-dot
+*/
+
+
+/* Squares/Diamonds */
+
+.charsheet .court-of-blades .page {
+    [class*="shape-square"],
+    [class*="shape-diamond"] {
+        border: 2px solid black;
+    }
+    [class*="shape-diamond"] {
+        transform: rotate(45deg);
+    }
+    .shape-square-small,
+    .shape-diamond-small {
+        width: 2px;
+        height: 2px;
+    }
+    .shape-square-med {
+        width: 10px;
+        height: 10px
+    }
+    .shape-diamond-med {
+        width: 8px;
+        height: 8px;
+    }
+    .shape-diamond-big {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+
+/* Dots/Circles */
+
+.charsheet .court-of-blades .page {
+    [class^="shape-dot"],
+    [class*=" shape-dot"] {
+        border: 2px solid black;
+        border-radius: 50%;
+        width: 14px;
+        height: 14px;
+    }
+}

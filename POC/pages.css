@@ -1,0 +1,39 @@
+﻿[class^="panel-"], [class*=" panel-"] {
+    margin: 4px;
+    padding: 4px;
+    border: 2px dashed black;
+    width: 100%;
+}
+
+.panel-left {
+    min-width: 850px;
+    max-width: 900px;
+}
+
+.panel-centre {
+    min-width: 530px;
+    max-width: 600px;
+}
+
+.panel-right {
+    min-width: 250px;
+    max-width: 275px;
+}
+
+.page {
+    display: none;
+    flex-basis: content;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 2px dotted darkblue;
+}
+
+/* Control which page is visible */
+#page-selector[value="0"]:checked ~ [id^="page"],
+#page-selector[value="1"]:checked ~ #page-1,
+#page-selector[value="2"]:checked ~ #page-2,
+#page-selector[value="3"]:checked ~ #page-3,
+#page-selector[value="4"]:checked ~ #page-4,
+#page-selector[value="5"]:checked ~ #page-5 {
+    display: flex;
+}

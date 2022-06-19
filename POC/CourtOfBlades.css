@@ -6,33 +6,93 @@
     font-size: 14px;
     font-weight: 500;
     color: black;
-    
     z-index: -13;
 }
 
-.charsheet div
+.font-med {
+    font-size: 18px;
+}
+
+span.xp-bullet {
+    margin-top: 8px;
+    margin-left: 5px;
+}
+
+div
 {
     box-sizing: border-box;
 }
 
-.charsheet ul {
+ul {
     padding: 0;
     list-style-type: none;
 }
 
-.charsheet textarea,
-.charsheet input[type=text] {
+.round-borders {
+    border-radius: 1em;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    opacity: 100%;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    font-weight: normal;
+    top: 99%;
+    left: 0;
+    z-index: 5;
+}
+
+textarea.tooltip-text {
+    height: max-content;
+    width: max-content;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    transition: visibility 0s linear 0.5s;
+}
+
+select,
+textarea,
+input[type=text] {
     border-color: none;
     border-style: none;
     border-width: 0;
-    background-color: none;
+    background: none;
     border-image: none;
-    display: block;
-    width: 100%;
-    text-align: left;
-    font-size: 16px;
+    display: inline-block;
     font-family: 'EB Garamond', serif;
     min-height: 1.75em;
+    width: 100%;
+}
+
+input[type=text].label,
+textarea.label {
+    font-size: 14px;
+}
+
+textarea.label {
+    margin-top: 2px;
+}
+
+.ability-label {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.row-cb-holder {
+    margin-top: 5px;
 }
 
 input[type=text].pcdetail {
@@ -47,6 +107,9 @@ input[type=text].pcdetail {
     border-bottom-width: 1px;
 }
 
+.full-width {
+    width: 100%;
+}
 
 .paramourname {
     font-size: 25px;
@@ -54,16 +117,31 @@ input[type=text].pcdetail {
     font-weight: bold;
 }
 
+.faction-grid select {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.upcase {
+    text-transform: uppercase;
+}
+
+.capitalise {
+    text-transform: capitalize;
+}
+
 .min-1 {
     min-height: 1.5em;
     min-width: 1.5em;
 }
 
-.charsheet ul {
+ul {
     margin: 2px;
 }
 
-.charsheet p {
+p {
     margin: 2px;
 }
 
@@ -89,7 +167,7 @@ input[type=text].pcdetail {
     padding-left: 4px;
 }
 
-.charsheet textarea {
+textarea {
     width: 100%;
     height: 100%;
     border: none;
@@ -97,16 +175,15 @@ input[type=text].pcdetail {
     color: black;
 }
 
-.charsheet span.label {
+span.label {
     vertical-align: middle;
     padding-left: 2px;
 }
 
 .logo {
-    padding-top: 2em;
     font-style: italic;
     font-weight: bold;
-    font-size: 72px;
+    font-size: 5vh;
     text-align: center;
     vertical-align: bottom;
 }
@@ -115,11 +192,8 @@ input[type=text].pcdetail {
     min-width: 1em;
 }
 
-.panel {
-    margin: 4px;
-    padding: 4px;
-    border: 2px dashed black;
-    width: 100%;
+.notes {
+    height: 100%;
 }
 
 .skillname {
@@ -137,18 +211,23 @@ input[type=text].pcdetail {
     font-weight: 700;
 }
 
-.gcheckboxlist {
-    grid-template-columns: 1.5em 1fr;
-    grid-auto-flow: row;
-    display: grid;
-}
-
-.titlebox-title {
+input.titlebox-title {
     font-size: 48px;
     font-weight: 700;
     font-style: italic;
     text-align: center;
     padding: 8px 2px
+}
+
+.faction-grid input.titlebox-title {
+    font-size: 24px;
+}
+
+.faction-grid input[type="text"]:not(.titlebox-title) {
+    font-size: 16px;
+    height: 100%;
+    text-align: left;
+    vertical-align: middle;
 }
 
 .emphasis {
@@ -188,7 +267,7 @@ input[type=text].pcdetail {
     border-top-width: 1px;
 }
 
-.charsheet input[type=text].border-bottom,
+input[type=text].border-bottom,
 .border-bottom {
     border-bottom-style: solid;
     border-bottom-color: black;
