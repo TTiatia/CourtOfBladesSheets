@@ -7,11 +7,48 @@
     align-self: start;
 }
 
-.ability-row {
-    grid-template-columns: 1.5em 3fr 7fr;
+[class^="checkbox-row"], [class*=" checkbox-row"] {
     grid-template-rows: minmax(1.5em, max-content);
     grid-auto-flow: row;
     display: grid;
+}
+
+.checkbox-row-named {
+    display: grid;
+    grid-template-columns: 1.5em 3fr 7fr;
+}
+
+.checkbox-row {
+    display: grid;
+    grid-template-columns: 1.5em 1fr;
+}
+
+.stat-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin: -2px 0px;
+}
+
+.favor-row {
+    display: grid;
+    grid-template-columns: 1fr max-content max-content 1fr;
+    justify-items: center;
+    padding-bottom: 5px;
+}
+
+.gmturn-row {
+    display: grid;
+    grid-template-columns: 150px 150px 200px 1fr;
+}
+
+.faction-grid {
+    display: grid;
+    grid-template-columns: 48px 1fr 64px;
+}
+
+.xp-row {
+    display: grid;
+    grid-template-columns: 1em 1fr;
 }
 
 .gth-1 {

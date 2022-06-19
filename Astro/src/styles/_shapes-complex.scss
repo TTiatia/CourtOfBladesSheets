@@ -1,0 +1,161 @@
+/* ||
+  Complex shapes utilising psuedo-elements
+*/
+
+
+/* Vertical divider */
+
+.charsheet .court-of-blades .page {
+    .shape-divider {
+        width: 0px;
+        height: 15px;
+    }
+    .shape-divider:after {
+        content: "";
+        width: 1px;
+        height: 27px;
+        background: none;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+}
+
+
+/* Circle with a cross through it */
+
+.charsheet .court-of-blades .page {
+    .shape-cross {
+        width: 9px;
+        height: 9px;
+        border: 1px solid black;
+        border-radius: 50%;
+        background-color: white;
+    }
+    .shape-cross:before,
+    .shape-cross:after {
+        content: "";
+        position: absolute;
+        height: 1px;
+        width: 9px;
+        top: 3px;
+        left: -1px;
+        background-color: black;
+    }
+    .shape-cross:before {
+        transform: rotate(45deg);
+    }
+    .shape-cross:after {
+        transform: rotate(-45deg);
+    }
+}
+
+
+/* Horizontal line connecting one simple shape to another to its left. */
+
+.charsheet .court-of-blades .page {
+    [class^="shape-link"]:before,
+    [class*=" shape-link"]:before {
+        content: "";
+        display: none;
+        position: absolute;
+        z-index: -1;
+        width: 20px;
+        height: 5px;
+        background-color: black;
+    }
+    .shape-link-left::before {
+        display: inline-block;
+        left: -20px;
+        top: 2px;
+    }
+}
+
+
+/* Arrows */
+
+.charsheet .court-of-blades .page {
+    [class^="shape-arrow"],
+    [class*=" shape-arrow"] {
+        width: 10px;
+        height: 10px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        background: none;
+        padding: 0;
+        margin: 2px;
+    }
+    [class^="shape-arrow"]:after,
+    [class*=" shape-arrow"]:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        position: absolute;
+        z-index: -1;
+    }
+}
+
+
+/* Down arrows */
+
+.charsheet .court-of-blades .page {
+    .shape-arrowdown {
+        border-top: 10px solid black;
+    }
+    .shape-arrowdown:after {
+        border-top: 15px solid black;
+        top: -11.5px;
+        left: -8px;
+    }
+}
+
+
+/* Up arrows */
+
+.charsheet .court-of-blades .page {
+    .shape-arrowup {
+        border-bottom: 10px solid black;
+    }
+    .shape-arrowup:after {
+        border-bottom: 15px solid black;
+        top: -3.5px;
+        left: -8px;
+    }
+}
+
+
+/* Hearts */
+
+.charsheet .court-of-blades .page {
+    .shape-heart {
+        background-color: gray;
+        display: inline-block;
+        height: 10px;
+        margin: 0 5px;
+        position: relative;
+        top: 0;
+        transform: rotate(-45deg);
+        width: 10px;
+    }
+    .shape-heart:before,
+    .shape-heart:after {
+        content: "";
+        position: absolute;
+        background-color: gray;
+        border-radius: 50%;
+        height: 10px;
+        width: 10px;
+    }
+    .shape-heart:before {
+        top: -5px;
+        left: 0;
+    }
+    .shape-heart:after {
+        left: 5px;
+        top: 0;
+    }
+}

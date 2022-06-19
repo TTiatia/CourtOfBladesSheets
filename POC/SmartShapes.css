@@ -320,7 +320,6 @@ input[class^="shape"], input[class*=" shape"] {
 .tracker {
     z-index: 3;
     vertical-align: middle;
-    min-height: 28px;
     position: relative;
 }
 

@@ -69,6 +69,7 @@ div {
 .clock-container .clock-selector,
 .clock-container .clock-image .clock-all,
 .clock-container .clock-size[value="2"] ~ .clock-2,
+.clock-container .clock-size[value="3"] ~ .clock-3,
 .clock-container .clock-size[value="4"] ~ .clock-4,
 .clock-container .clock-size[value="6"] ~ .clock-6,
 .clock-container .clock-size[value="8"] ~ .clock-8,
@@ -78,6 +79,7 @@ div {
 }
 
 .clock-container .clock-size[value="2"] ~ div.clock-image,
+.clock-container .clock-size[value="3"] ~ div.clock-image,
 .clock-container .clock-size[value="4"] ~ div.clock-image,
 .clock-container .clock-size[value="6"] ~ div.clock-image,
 .clock-container .clock-size[value="8"] ~ div.clock-image,
@@ -97,7 +99,14 @@ div {
     position: absolute;
 }
 
-.spoke-0 {
+.clock-container div[class^="spoke"][class*="-half"],
+.clock-container div[class*=" stroke"][class*="-half"] {
+    height: 22px;
+}
+
+
+.spoke-0,
+.spoke-0-half {
     transform: translateX(21px);
 }
 
@@ -113,7 +122,8 @@ div {
     transform: translateX(21px) rotate(45deg);
 }
 
-.spoke-60 {
+.spoke-60,
+.spoke-60-half {
     transform: translateX(21px) rotate(60deg);
 }
 
@@ -129,7 +139,8 @@ div {
     transform: translateX(21px) rotate(108deg);
 }
 
-.spoke-120 {
+.spoke-120,
+.spoke-120-half {
     transform: translateX(21px) rotate(120deg);
 }
 
@@ -143,6 +154,11 @@ div {
 
 .spoke-150 {
     transform: translateX(21px) rotate(150deg);
+}
+
+.spoke-240,
+.spoke-240-half {
+    transform: translateX(21px) rotate(240deg);
 }
 
 /* Inputs */

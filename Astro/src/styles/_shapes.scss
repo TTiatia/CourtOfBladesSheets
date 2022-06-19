@@ -1,0 +1,22 @@
+/* ||
+  Base styles for shapes.
+*/
+
+.charsheet .court-of-blades .page {
+    [class^="shape"],
+    [class*=" shape"] {
+        appearance: none;
+        display: inline-block;
+        position: relative;
+        margin: 1px;
+        padding: 1px;
+    }
+    input[class^="shape"],
+    input[class*=" shape"] {
+        cursor: pointer;
+    }
+    [class*="shape-"].shape-hidden {
+        opacity: 0;
+        cursor: default;
+    }
+}

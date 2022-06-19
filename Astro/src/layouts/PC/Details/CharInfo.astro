@@ -1,0 +1,30 @@
+---
+const {id} = Astro.props;
+---
+<div id={id} class="grid gtw-2 gapw-10">
+    <input type="text" name="attr_pcname" class="border-bottom pcdetail" />
+    <input type="text" name="attr_pchouse" class="border-bottom pcdetail" />
+    <span class="b">NAME &amp; ALIAS</span>
+    <span class="b">HOUSE</span>
+
+    <input type="text" name="attr_pclook" class="border-bottom pcdetail" />
+    <input type="text" name="attr_pcindulgence" class="border-bottom pcdetail" />
+    <span class="b">LOOK</span>
+    <span class="b">INDULGENCE &amp; SOURCE</span>
+
+    <input type="text" name="attr_pcbackground" class="border-bottom pcdetail" />
+    <input type="text" name="attr_pcheritage" class="border-bottom pcdetail" />
+    <span class="b">BACKGROUND</span>
+    <span class="b">HERITAGE</span>
+
+    <div id="scandal-info" class="gw-2 grid gtw-1 align-center">
+        <input type="text" name="attr_pcscandals" class="pcdetail" />
+        <span class="b">SCANDALS</span>
+        <span class="i">Sentimental, Wicked, Grasping, False, Gauche, Jealous, Faithless, Fragile</span>
+    </div>
+    <div id="shatter-info" class="gw-2 grid gtw-1 align-center">
+        <input type="text" name="attr_pcscandals" class="pcdetail" />
+        <span class="b">SHATTERS</span>
+        <span class="i">Detached, Uncanny, Vengeful, Insatiable, Morose, Destructive, Obsessed, Territorial</span>
+    </div>
+</div>

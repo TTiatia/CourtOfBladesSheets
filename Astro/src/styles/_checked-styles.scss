@@ -1,0 +1,101 @@
+/* ||
+  Classes modifying the behaviour of shapes representing radio buttons and checkboxes.
+*/
+
+.charsheet .court-of-blades .page {
+    .checked-hidden:checked {
+        opacity: 0;
+    }
+    .checked-red {
+        &:checked:not([class*="shape-arrow"]) {
+            background: red;
+        }
+        &.shape-heart:checked:before,
+        &.shape-heart:checked:after {
+            background: red;
+        }
+        &[class*="shape-arrow"]:checked {
+            border-top-color: red;
+            border-bottom-color: red;
+            background: none;
+        }
+    }
+    .checked-light {
+        &:not([class*="shape-arrow"]) {
+            background: #333333;
+        }
+        &:checked:not([class*="shape-arrow"]) {
+            background: #EEEEEE;
+        }
+        &.shape-heart:checked:before,
+        &.shape-heart:checked:after {
+            background: #EEEEEE;
+        }
+        &.shape-heart:before,
+        &.shape-heart:after {
+            background: #333333;
+        }
+        &[class*="shape-arrow"] {
+            border-top-color: #333333;
+            border-bottom-color: #333333;
+            background: none;
+        }
+        &[class*="shape-arrow"]:checked {
+            border-top-color: #EEEEEE;
+            border-bottom-color: #EEEEEE;
+            background: none;
+        }
+    }
+    .checked-dark {
+        .checked-dark[class*="shape-arrow"] {
+            border-top-color: #EEEEEE;
+            border-bottom-color: #EEEEEE;
+            background: none;
+        }
+        .checked-dark[class*="shape-arrow"]:checked {
+            border-top-color: #333333;
+            border-bottom-color: #333333;
+            background: none;
+        }
+        .checked-dark.shape-heart:checked:before,
+        .checked-dark.shape-heart:checked:after {
+            background: #333333;
+        }
+        .checked-dark.shape-heart:before,
+        .checked-dark.shape-heart:after {
+            background: #EEEEEE;
+        }
+        .checked-dark:not([class*="shape-arrow"]) {
+            background: #EEEEEE;
+        }
+        .checked-dark:checked:not([class*="shape-arrow"]) {
+            background: #333333;
+        }
+    }
+    .unchecked-dark {
+        &:not([class*="shape-arrow"]) {
+            background: #333333;
+        }
+        &[class*="shape-arrow"] {
+            border-top-color: #333333;
+            border-bottom-color: #333333;
+        }
+        &.shape-heart:before,
+        &.shape-heart:after {
+            background: #333333;
+        }
+    }
+    .unchecked-light {
+        &:not([class*="shape-arrow"]) {
+            background: #EEEEEE;
+        }
+        &[class*="shape-arrow"] {
+            border-top-color: #EEEEEE;
+            border-bottom-color: #EEEEEE;
+        }
+        &.shape-heart:before,
+        &.shape-heart:after {
+            background: #EEEEEE;
+        }
+    }
+}

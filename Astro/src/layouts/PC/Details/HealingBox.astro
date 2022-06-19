@@ -1,0 +1,12 @@
+---
+import ClockContainer from "../../../components/ClockContainer.astro";
+
+const {id, classes, attr} = Astro.props;
+---
+<div id={id} class={`gw-1 grid gtw-1 ${classes}`}>
+    <div class="b bg-black">HEALING</div>
+    <div class="pad-left i">Project clock</div>
+    <div class="gh-2 justify-center">
+        <ClockContainer attr={attr} maxSize={4} defaultSize={4}></ClockContainer>
+    </div>
+</div>

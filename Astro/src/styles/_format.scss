@@ -1,0 +1,170 @@
+/* ||
+  Various classes used for formatting
+*/
+
+.charsheet .court-of-blades .page {
+    .ability-label {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .round-borders {
+        border-radius: 1em;
+    }
+    .round-borders-top {
+        border-top-right-radius: 1em;
+        border-top-left-radius: 1em;
+    }
+    .round-borders-bottom {
+        border-bottom-right-radius: 1em;
+        border-bottom-left-radius: 1em;
+    }
+    .xp-bullet {
+        margin-top: 8px;
+        margin-left: 5px;
+    }
+    .font-med {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    input[type=text].mylabel,
+    textarea.mylabel {
+        font-size: 14px;
+    }
+    textarea.mylabel {
+        margin-top: 2px;
+    }
+    span.mylabel {
+        vertical-align: middle;
+        padding-left: 2px;
+    }
+    #paramour-name {
+        height: 16px;
+        align-self: end;
+        font-size: 14px;
+        line-height: 16px;
+        border-bottom: 1px solid black;
+    }
+    .titlebox img {
+        width: 400px;
+    }
+    .upcase {
+        text-transform: uppercase;
+    }
+    .capitalise {
+        text-transform: capitalize;
+    }
+    .bordered {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    .bg-light {
+        background-color: lightgray;
+        z-index: 2;
+    }
+    .bg-med {
+        background-color: #999999;
+        z-index: 0;
+    }
+    .bg-black {
+        background-color: black;
+        color: white;
+        z-index: 1;
+    }
+    .bg-white {
+        background-color: white;
+        color: black;
+    }
+    .notes {
+        height: 100%;
+    }
+    .skillname {
+        background: #333333;
+        color: lightgray;
+        min-height: 25px;
+        margin: 3px 0;
+        font-weight: 700;
+        vertical-align: middle;
+        padding: 2px;
+    }
+    .titlebox-subtitle {
+        font-weight: 700;
+        font-style: italic;
+        text-align: center;
+    }
+    .border-left {
+        border-left-style: solid;
+        border-left-color: black;
+        border-left-width: 1px;
+    }
+    .border-right {
+        border-right-style: solid;
+        border-right-color: black;
+        border-right-width: 1px;
+    }
+    .border-top {
+        border-top-style: solid;
+        border-top-color: black;
+        border-top-width: 1px;
+    }
+    input[type=text].border-bottom,
+    .border-bottom {
+        border-bottom-style: solid;
+        border-bottom-color: black;
+        border-bottom-width: 1px;
+    }
+    .emphasis {
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 22px;
+    }
+    .skillname {
+        background: #333333;
+        color: lightgray;
+        min-height: 25px;
+        margin: 3px 0;
+        font-weight: 700;
+        vertical-align: middle;
+        padding: 2px;
+    }
+    .heading {
+        font-size: 18px;
+        line-height: 20px;
+        font-weight: 700;
+    }
+    .titlebox-title {
+        font-size: 48px;
+        line-height: 50px;
+        font-weight: 700;
+        font-style: italic;
+        text-align: center;
+        padding: 8px 2px
+    }
+    .full-width {
+        width: 100%;
+    }
+    .paramourname {
+        font-size: 20px;
+        line-height: 22px;
+        font-style: italic;
+        font-weight: bold;
+    }
+    .pcdetail {
+        vertical-align: bottom;
+        background: none;
+        min-height: 2em;
+        font-size: 20px;
+        line-height: 22px;
+        width: 100%;
+        padding-top: 8px;
+        border-bottom-style: solid;
+        border-bottom-color: black;
+        border-bottom-width: 1px;
+    }
+    .stat-grid {
+        grid-column-gap: 1px;
+        grid-row-gap: 4px;
+    }
+    .row-cb-holder {
+        margin-top: 5px;
+    }
+}

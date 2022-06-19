@@ -1,0 +1,66 @@
+/* ||
+  A series of grids with differently sized columns.
+  For grids with columns with equal widths, use .grid, .gth, and .gitw.
+*/
+
+@mixin define-custom-grid($templateColumns) {
+    display: grid;
+    grid-template-columns: $templateColumns;
+}
+
+.charsheet .court-of-blades .page {
+    .grid-ability-row {
+        @include define-custom-grid(1.5em 1fr);
+    }
+    .grid-ability-row-named {
+        @include define-custom-grid(1.5em 3fr 7fr);
+    }
+    .grid-stat-row {
+        @include define-custom-grid(auto 1fr);
+        margin: -2px 0px;
+    }
+    .grid-favor-row {
+        @include define-custom-grid(1fr max-content max-content 1fr);
+        justify-items: center;
+        padding-bottom: 5px;
+    }
+    .grid-gmturn-row {
+        @include define-custom-grid(150px 150px 200px 1fr);
+    }
+    .grid-faction-row {
+        @include define-custom-grid(48px 1fr 64px);
+        select {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            vertical-align: middle;
+        }
+        input.titlebox-title {
+            font-size: 24px;
+        }
+        input[type="text"]:not(.titlebox-title) {
+            font-size: 16px;
+            height: 100%;
+            text-align: left;
+            vertical-align: middle;
+        }
+    }
+    .grid-xp-row {
+        @include define-custom-grid(1em 1fr);
+    }
+    .grid-paramour {
+        @include define-custom-grid(auto 1fr max-content);
+    }
+    .grid-harm {
+        grid-template-columns: auto 40px / 15px auto auto 40px;
+        textarea {
+            height: 100%;
+            overflow: hidden;
+            text-align: center;
+            font-size: 14px;
+            line-height: 16px;
+            color: rgb(200, 0, 0);
+            resize: none;
+        }
+    }
+}

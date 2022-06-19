@@ -1,0 +1,8 @@
+---
+const { 
+	id,
+	name,
+	defaultValue
+} = Astro.props;
+---
+<input type="hidden" id={id} name={`attr_setting_${name}`} value={defaultValue}/>
