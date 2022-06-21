@@ -1,0 +1,15 @@
+---
+import RepeatingSection from "../../../components/RepeatingSection.astro";
+const {id, classes, repeatAttr, enabledAttr, descAttr} = Astro.props;
+---
+<div id={id} class={`grid gtw-1 ${classes}`}>
+    <div class="heading bg-med border-top border-bottom">SPECIAL ARMOUR</div>
+    <RepeatingSection attr={repeatAttr} classes="grid gtw-1">
+        <div class="grid-ability-row pad-left">
+            <span class="row-cb-holder marg-right">
+                <input type="checkbox" class="shape-dot checked-red align-start" checked={true} disabled={true} name={`attr_${enabledAttr}`}>
+            </span>
+            <textarea rows={1} name={`attr_${descAttr}`} class="clock-label mylabel align-start" spellcheck="false" placeholder="Special armour ability description"></textarea>
+        </div>
+    </RepeatingSection>
+</div>

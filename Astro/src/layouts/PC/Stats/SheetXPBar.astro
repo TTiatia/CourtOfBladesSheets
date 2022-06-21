@@ -1,0 +1,19 @@
+---
+const {id, classes, title, attr, boxCount} = Astro.props;
+function boxes() { return Array.from(Array(boxCount),(x,i)=>i + 1); }
+---
+<div id={id} class={`grid gtw-1 gapr-2 ${classes}`}>
+    <div id="pcstatpanel-charxp-title" class="header gh-1 text-center vert-bottom b heading upcase"><br />{title}</div>
+    <div id="pcstatpanel-charxp-tracker" class="gh-1 tracker tracked-red text-center">
+        <input type="radio" name={`attr_${attr}`} value="0" class="track-zero checked-hidden shape-cross" checked={true} />
+        
+        {boxes().map((boxNum) => (
+            <>
+            <input type="radio" name={`attr_${attr}`} value={boxNum} class="shape-diamond-med" />
+            </>
+          ))}
+
+        <input type="radio" disabled={true} class="shape-diamond-med tracked-dark shape-hidden" />
+        <span><br /></span>
+    </div>
+</div>

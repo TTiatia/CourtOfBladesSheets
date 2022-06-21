@@ -1,28 +1,33 @@
 ﻿.charsheet .court-of-blades {
     [class^="panel-"],
     [class*=" panel-"] {
-        margin: 4px;
-        padding: 4px;
+        margin: 1px;
         border: 2px dashed black;
         display: block;
     }
     .panel-left {
         width: 475px;
+        min-width: 475px;
     }
     .panel-centre {
-        width: 300px;
+        width: 375px;
+        min-width: 375px;
     }
     .panel-right {
-        width: 150px;
+        width: 190px;
+        min-width: 190px;
     }
     .page {
         display: none;
+        min-width: 475+375+190+4+4px;
         border: 2px dotted darkblue;
+        flex-wrap: nowrap;
+        flex-direction: row;
     }
     #page-selector[value="0"]~#page-pc,
     #page-selector[value="1"]~#page-house,
     #page-selector[value="2"]~#page-factions,
     #page-selector[value="3"]~#page-gmturn {
-        display: block;
+        display: flex;
     }
 }

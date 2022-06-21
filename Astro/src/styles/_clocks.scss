@@ -5,12 +5,14 @@
 .charsheet .court-of-blades .page {
     .flex-clocks {
         border: 2px solid black;
-        width: auto;
-        display: flex;
-        flex-flow: row wrap;
+        .repcontainer {
+            width: auto;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
     }
     .clock-subcontainer {
-        border: 1px dashed black;
         padding: 4px;
         width: fit-content;
         height: fit-content;
@@ -23,7 +25,8 @@
             font-size: 14px;
             text-align: center;
             vertical-align: bottom;
-            border: none;
+            border: 1px solid black;
+            border-radius: 3px;
             overflow-y: auto;
             word-wrap: break-word;
             resize: none;

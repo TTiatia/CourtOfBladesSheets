@@ -3,14 +3,17 @@ import RepeatingSection from "../../../components/RepeatingSection.astro";
 
 const {id, classes, repAttr} = Astro.props;
 ---
-<RepeatingSection attr={repAttr} id={id} classes={classes}>
-    <div class="grid gtw-7 gapw-4">
-        <div class="gw-7 bg-black b upcase text-center">Contacts</div>
-        <div class="gw-1 grid gtw-2 align-center pad-left">
-            <input type="checkbox" name={`$attr_contact-friend`} value="1" class="shape-arrowup checked-red unchecked-light" />
-            <input type="checkbox" name={`$attr_contact-rival`} value="1" class="shape-arrowdown checked-red unchecked-light checked-red unchecked-light" />
+
+<div class={`grid gtw-1 ${classes}`}>
+    <div class="bg-black b upcase text-center">Contacts</div>
+    <RepeatingSection attr={repAttr} id={id}>
+        <div class="grid gtw-7 gaph-4 gapw-2">
+            <div class="gw-1 grid gtw-2 align-center pad-left">
+                <input type="checkbox" name={`$attr_contactfriend`} value="1" class="shape-arrowup checked-red unchecked-light" />
+                <input type="checkbox" name={`$attr_contactrival`} value="1" class="shape-arrowdown checked-red unchecked-light checked-red unchecked-light" />
+            </div>
+            <input type="text" name={`$attr_contactname`} class="gw-2 b border-bottom" />
+            <textarea type="text" spellcheck="false" name={`$attr_contactdesc`} class="gw-4 i border-bottom" />
         </div>
-        <input type="text" name={`$attr_contact-name`} class="gw-2 b border-bottom" />
-        <textarea type="text" name={`$attr_contact-desc`} class="gw-4 i border-bottom" />
-    </div>
-</RepeatingSection>
+    </RepeatingSection>
+</div>

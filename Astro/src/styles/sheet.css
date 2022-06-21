@@ -4,18 +4,22 @@
 .charsheet .court-of-blades .page {
   font-family: "EB Garamond", serif;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 16px;
   font-weight: 500;
   color: black;
   z-index: -13;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 115px, transparent 115px), url("../public/bg-web.png");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 115px, transparent 115px), url("https://raw.githubusercontent.com/TTiatia/CourtOfBladesSheets/main/Astro/public/bg-web.png");
   background-repeat: repeat;
 }
-.charsheet .court-of-blades .page * {
-  box-sizing: border-box;
-}
+.charsheet .court-of-blades .page *,
 .charsheet .court-of-blades .page div {
   box-sizing: border-box;
+}
+.charsheet .court-of-blades .page .itemcontrol {
+  z-index: 2;
+}
+.charsheet .court-of-blades .page .itemcontrol .repcontrol_move {
+  z-index: 5;
 }
 .charsheet .court-of-blades .page ul {
   padding: 0;
@@ -23,11 +27,13 @@
   list-style-type: none;
 }
 .charsheet .court-of-blades .page fieldset,
+.charsheet .court-of-blades .page p,
 .charsheet .court-of-blades .page select,
+.charsheet .court-of-blades .page label,
 .charsheet .court-of-blades .page textarea,
 .charsheet .court-of-blades .page input {
   height: auto;
-  width: auto;
+  width: 100%;
   padding: 0;
   margin: 0;
   border-color: none;
@@ -37,9 +43,15 @@
   border-radius: 0;
   background: none;
   border-image: none;
+  font-size: 12px;
+  line-height: 16px;
   display: inline-block;
   font-family: "EB Garamond", serif;
   color: black;
+}
+.charsheet .court-of-blades .page p,
+.charsheet .court-of-blades .page label {
+  width: auto;
 }
 .charsheet .court-of-blades .page img {
   width: min-content;
@@ -461,6 +473,18 @@
   border: 1px solid black;
   border-collapse: collapse;
 }
+.charsheet .court-of-blades .page .border-bold-left {
+  border-left: solid 3px black;
+}
+.charsheet .court-of-blades .page .border-bold-top {
+  border-top: solid 3px black;
+}
+.charsheet .court-of-blades .page .border-bold-right {
+  border-right: solid 3px black;
+}
+.charsheet .court-of-blades .page .border-bold-bottom {
+  border-bottom: solid 3px black;
+}
 .charsheet .court-of-blades .page .bg-light {
   background-color: lightgray;
   z-index: 2;
@@ -492,6 +516,8 @@
 }
 .charsheet .court-of-blades .page .titlebox-subtitle {
   font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
   font-style: italic;
   text-align: center;
 }
@@ -569,7 +595,10 @@
   grid-row-gap: 4px;
 }
 .charsheet .court-of-blades .page .row-cb-holder {
-  margin-top: 5px;
+  margin-top: 1px;
+}
+.charsheet .court-of-blades .page .xptriggers input {
+  width: 100%;
 }
 
 /* ||
@@ -666,18 +695,36 @@
 .charsheet .court-of-blades .page .justify-stretch {
   justify-self: stretch;
 }
+.charsheet .court-of-blades .page [class^=flex],
+.charsheet .court-of-blades .page [class*=""] {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.charsheet .court-of-blades .page .flex-left {
+  justify-content: flex-start;
+}
+.charsheet .court-of-blades .page .flex-right {
+  justify-content: flex-end;
+}
+.charsheet .court-of-blades .page .flex-center {
+  justify-content: center;
+}
+.charsheet .court-of-blades .page .flex-vert-center {
+  align-items: center;
+}
 
 /* ||
   Classes for css-only tooltips.
-    The element with the .tooltip class is the container.
-    The element with the .tooltip-text class is the tooltip itself, and must be a child of the container.
+    The element with the .tooltip-custom class is the container.
+    The element with the .tooltip-custom-text class is the tooltip itself, and must be a child of the container.
 */
-.charsheet .court-of-blades .tooltip {
+.charsheet .court-of-blades .tooltip-custom {
   position: relative;
   display: inline-block;
   opacity: 100%;
 }
-.charsheet .court-of-blades .tooltip .tooltip-text {
+.charsheet .court-of-blades .tooltip-custom .tooltip-custom-text {
   visibility: hidden;
   background-color: black;
   color: #fff;
@@ -691,40 +738,45 @@
   left: 0;
   z-index: 5;
 }
-.charsheet .court-of-blades .tooltip:hover .tooltip-text {
+.charsheet .court-of-blades .tooltip-custom:hover .tooltip-custom-text {
   visibility: visible;
   transition: visibility 0s linear 0.5s;
 }
-.charsheet .court-of-blades textarea.tooltip-text {
+.charsheet .court-of-blades textarea.tooltip-custom-text {
   height: max-content;
   width: max-content;
 }
 
 .charsheet .court-of-blades [class^=panel-],
 .charsheet .court-of-blades [class*=" panel-"] {
-  margin: 4px;
-  padding: 4px;
+  margin: 1px;
   border: 2px dashed black;
   display: block;
 }
 .charsheet .court-of-blades .panel-left {
   width: 475px;
+  min-width: 475px;
 }
 .charsheet .court-of-blades .panel-centre {
-  width: 300px;
+  width: 375px;
+  min-width: 375px;
 }
 .charsheet .court-of-blades .panel-right {
-  width: 150px;
+  width: 190px;
+  min-width: 190px;
 }
 .charsheet .court-of-blades .page {
   display: none;
+  min-width: 1048px;
   border: 2px dotted darkblue;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
 .charsheet .court-of-blades #page-selector[value="0"] ~ #page-pc,
 .charsheet .court-of-blades #page-selector[value="1"] ~ #page-house,
 .charsheet .court-of-blades #page-selector[value="2"] ~ #page-factions,
 .charsheet .court-of-blades #page-selector[value="3"] ~ #page-gmturn {
-  display: block;
+  display: flex;
 }
 
 /* ||
@@ -1079,12 +1131,14 @@
 */
 .charsheet .court-of-blades .page .flex-clocks {
   border: 2px solid black;
+}
+.charsheet .court-of-blades .page .flex-clocks .repcontainer {
   width: auto;
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-between;
 }
 .charsheet .court-of-blades .page .clock-subcontainer {
-  border: 1px dashed black;
   padding: 4px;
   width: fit-content;
   height: fit-content;
@@ -1098,7 +1152,8 @@
   font-size: 14px;
   text-align: center;
   vertical-align: bottom;
-  border: none;
+  border: 1px solid black;
+  border-radius: 3px;
   overflow-y: auto;
   word-wrap: break-word;
   resize: none;
@@ -1131,6 +1186,9 @@
   z-index: -1;
 }
 
+.charsheet .court-of-blades .page .clock-size-selector-controller:not([value="0"]) ~ .clock-size-selector {
+  display: none;
+}
 .charsheet .court-of-blades .page .clock-container .clock-size[value="0"] ~ .clock-image {
   border-style: none;
 }

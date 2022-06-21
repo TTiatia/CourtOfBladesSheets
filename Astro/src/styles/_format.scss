@@ -57,6 +57,18 @@
         border: 1px solid black;
         border-collapse: collapse;
     }
+    .border-bold-left {
+        border-left: solid 3px black;
+    }
+    .border-bold-top {
+        border-top: solid 3px black;
+    }
+    .border-bold-right {
+        border-right: solid 3px black;
+    }
+    .border-bold-bottom {
+        border-bottom: solid 3px black;
+    }
     .bg-light {
         background-color: lightgray;
         z-index: 2;
@@ -88,6 +100,8 @@
     }
     .titlebox-subtitle {
         font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
         font-style: italic;
         text-align: center;
     }
@@ -165,6 +179,9 @@
         grid-row-gap: 4px;
     }
     .row-cb-holder {
-        margin-top: 5px;
+        margin-top: 1px;
+    }
+    .xptriggers input {
+        width: 100%;
     }
 }

@@ -1,0 +1,33 @@
+---
+const {id, classes} = Astro.props;
+---
+<div id={id} class={`grid gtw-3 ${classes}`}>
+    <div class="gw-1 gh-2 border-right">
+        <b>TEAMWORK</b>
+        <ul>
+            <li><b>Assist</b> a teammate</li>
+            <li>Lead a <b>group action</b></li>
+            <li><b>Protect</b> a teammate</li>
+            <li><b>Set up</b> a teammate</li>
+        </ul>
+    </div>
+    <div class="gw-2 gh-1 pad-left">
+        <b>PLANNING &amp; LOAD</b>
+        <p>
+            Choose a <b>plan</b>, provide a <b>detail</b>.<br />
+            Choose your <b>load</b> limit for the errand.
+        </p>
+    </div>
+    <div class="gw-2 gh-1 grid gth-1 gtw-2 pad-left">
+        <ul>
+            <li><b>Assault: </b><i>Point of attack</i></li>
+            <li><b>Deception: </b><i>Method</i></li>
+            <li><b>Stealth: </b><i>Entry point</i></li>
+        </ul>
+        <ul>
+            <li><b>Arcane: </b><i>Magical</i></li>
+            <li><b>Social: </b><i>Connection</i></li>
+            <li><b>Transport: </b><i>Route</i></li>
+        </ul>
+    </div>
+</div>

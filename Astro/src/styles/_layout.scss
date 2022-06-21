@@ -94,4 +94,22 @@
     .justify-stretch {
         justify-self: stretch;
     }
+    [class^="flex"],
+    [class*=""] {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .flex-left {
+        justify-content: flex-start;
+    }
+    .flex-right {
+        justify-content: flex-end;
+    }
+    .flex-center {
+        justify-content: center;
+    }
+    .flex-vert-center {
+        align-items: center;
+    }
 }

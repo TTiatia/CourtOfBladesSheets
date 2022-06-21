@@ -2,7 +2,7 @@
 const {id, classes, attr} = Astro.props;
 ---
 <div id={id} class={classes}>
-    <fieldset name={`repeating_${attr}`}>
+    <fieldset class={`repeating_${attr}`}>
         <slot />
     </fieldset>
 </div>

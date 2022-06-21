@@ -1,5 +1,273 @@
 ---
-const { panelClass } = Astro.props;
+import SheetXPBar from "./Stats/SheetXPBar.astro";
+
+const { id, panelType } = Astro.props;
+
+//
 ---
-<div class={`${panelClass} grid gtw-1`}>
+<div id={id} class={`${panelType}`}>
+    <SheetXPBar id="pcstatpanel-charxp" title="Character xp" attr="playbookxp" boxCount={10}></SheetXPBar>
+    <div id="pcstatpanel-statsbox" class="">
+        <div id="pcstatpanel-attr-1" class="grid gtw-1 gth-4 text-center marg-top">
+            <div class="gw-1 grid gtw-10 skillname">
+                <div class="gw-2 text-left pad-left align-center">
+                    <span class="vert-middle">Body</span>
+                </div>
+                <div class="gw-8 tracker tracked-red align-center text-right pad-right">
+                    <input type="radio" name="attr_stat1xp" value="0" class="shape-cross checked-hidden track-zero" checked={true} />
+                    <input type="radio" name="attr_stat1xp" value="1" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat1xp" value="2" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat1xp" value="3" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat1xp" value="4" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat1xp" value="5" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat1xp" value="6" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat1xp" value="7" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat1xp" value="8" class="shape-diamond-med" />
+                </div>
+            </div>
+            <div class="gw-1 text-left grid-stat-row">
+                <span class="tracker tracked-red marg-right rela">
+                    <input type="radio" name="attr_skill11" value="0" class="shape-cross track-zero checked-hidden" checked={true} />
+                    <input type="radio" name="attr_skill11" value="1" class="shape-dot" /><span class="shape-divider marg-right"></span>
+                    <input type="radio" name="attr_skill11" value="2" class="shape-dot" />
+                    <input type="radio" name="attr_skill11" value="3" class="shape-dot" />
+                    <input type="radio" name="attr_skill11" value="4" class="shape-dot " />
+                </span>
+                <div class="b align-center tooltip-custom">
+                    <input name="attr_" type="text" class="b" value="Skulk" />
+                    <textarea name="attr_" class="tooltip-custom-text">A description of the currently selected attribute.</textarea>
+                </div>
+            </div>
+            <div class="gw-1 text-left grid-stat-row">
+                <span class="tracker tracked-red marg-right rela">
+                    <input type="radio" name="attr_skill12" value="0" class="shape-cross track-zero checked-hidden" checked={true} />
+                    <input type="radio" name="attr_skill12" value="1" class="shape-dot" /><span class="shape-divider marg-right"></span>
+                    <input type="radio" name="attr_skill12" value="2" class="shape-dot" />
+                    <input type="radio" name="attr_skill12" value="3" class="shape-dot" />
+                    <input type="radio" name="attr_skill12" value="4" class="shape-dot " />
+                </span>
+                <div class="b align-center tooltip-custom">
+                    <input name="attr_" type="text" class="b" value="Maneuver" />
+                    <textarea name="attr_" class="tooltip-custom-text">A description of the currently selected attribute.</textarea>
+                </div>
+            </div>
+            <div class="gw-1 text-left grid-stat-row">
+                <span class="tracker tracked-red marg-right rela">
+                    <input type="radio" name="attr_skill13" value="0" class="shape-cross track-zero checked-hidden" checked={true} />
+                    <input type="radio" name="attr_skill13" value="1" class="shape-dot" /><span class="shape-divider marg-right"></span>
+                    <input type="radio" name="attr_skill13" value="2" class="shape-dot" />
+                    <input type="radio" name="attr_skill13" value="3" class="shape-dot" />
+                    <input type="radio" name="attr_skill13" value="4" class="shape-dot " />
+                </span>
+                <div class="b align-center tooltip-custom">
+                    <input name="attr_" type="text" class="b" value="Skirmish" />
+                    <textarea name="attr_" class="tooltip-custom-text">A description of the currently selected attribute.</textarea>
+                </div>
+            </div>
+            <div class="gw-1 text-left grid-stat-row">
+                <span class="tracker tracked-red marg-right rela">
+                    <input type="radio" name="attr_skill14" value="0" class="shape-cross track-zero checked-hidden" checked={true} />
+                    <input type="radio" name="attr_skill14" value="1" class="shape-dot" /><span class="shape-divider marg-right"></span>
+                    <input type="radio" name="attr_skill14" value="2" class="shape-dot" />
+                    <input type="radio" name="attr_skill14" value="3" class="shape-dot" />
+                    <input type="radio" name="attr_skill14" value="4" class="shape-dot " />
+                </span>
+                <div class="b align-center tooltip-custom">
+                    <input name="attr_" type="text" class="b" value="Skirmish" />
+                    <textarea name="attr_" class="tooltip-custom-text">A description of the currently selected attribute.</textarea>
+                </div>
+            </div>
+        </div>
+        <div id="pcstatpanel-attr-2" class="grid gtw-1 gth-4 text-center marg-top">
+            <div class="grid gtw-10 skillname">
+                <div class="gw-2 text-left pad-left align-center">
+                    <span class="vert-middle">Mind</span>
+                </div>
+                <div class="gw-8 tracker tracked-red align-center text-right pad-right">
+                    <input type="radio" name="attr_stat2xp" value="0" class="shape-cross checked-hidden track-zero" checked={true} />
+                    <input type="radio" name="attr_stat2xp" value="1" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat2xp" value="2" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat2xp" value="3" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat2xp" value="4" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat2xp" value="5" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat2xp" value="6" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat2xp" value="7" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat2xp" value="8" class="shape-diamond-med" />
+                </div>
+            </div>
+            <div class="text-left grid-stat-row">
+                <span class="tracker tracked-red marg-right rela">
+                    <input type="radio" name="attr_skill21" value="0" class="shape-cross track-zero checked-hidden" checked={true} />
+                    <input type="radio" name="attr_skill21" value="1" class="shape-dot" /><span class="shape-divider marg-right"></span>
+                    <input type="radio" name="attr_skill21" value="2" class="shape-dot" />
+                    <input type="radio" name="attr_skill21" value="3" class="shape-dot" />
+                    <input type="radio" name="attr_skill21" value="4" class="shape-dot " />
+                </span>
+                <div class="b align-center tooltip-custom">
+                    <input name="attr_" type="text" class="b" value="Tinker" />
+                    <textarea name="attr_" class="tooltip-custom-text">A description of the currently selected attribute.</textarea>
+                </div>
+            </div>
+            <div class="text-left grid-stat-row">
+                <span class="tracker tracked-red marg-right rela">
+                    <input type="radio" name="attr_skill22" value="0" class="shape-cross track-zero checked-hidden" checked={true} />
+                    <input type="radio" name="attr_skill22" value="1" class="shape-dot" /><span class="shape-divider marg-right"></span>
+                    <input type="radio" name="attr_skill22" value="2" class="shape-dot" />
+                    <input type="radio" name="attr_skill22" value="3" class="shape-dot" />
+                    <input type="radio" name="attr_skill22" value="4" class="shape-dot " />
+                </span>
+                <div class="b align-center tooltip-custom">
+                    <input name="attr_" type="text" class="b" value="Study" />
+                    <textarea name="attr_" class="tooltip-custom-text">A description of the currently selected attribute.</textarea>
+                </div>
+            </div>
+            <div class="text-left grid-stat-row">
+                <span class="tracker tracked-red marg-right rela">
+                    <input type="radio" name="attr_skill23" value="0" class="shape-cross track-zero checked-hidden" checked={true} />
+                    <input type="radio" name="attr_skill23" value="1" class="shape-dot" /><span class="shape-divider marg-right"></span>
+                    <input type="radio" name="attr_skill23" value="2" class="shape-dot" />
+                    <input type="radio" name="attr_skill23" value="3" class="shape-dot" />
+                    <input type="radio" name="attr_skill23" value="4" class="shape-dot " />
+                </span>
+                <div class="b align-center tooltip-custom">
+                    <input name="attr_" type="text" class="b" value="Survey" />
+                    <textarea name="attr_" class="tooltip-custom-text">A description of the currently selected attribute.</textarea>
+                </div>
+            </div>
+            <div class="text-left grid-stat-row">
+                <span class="tracker tracked-red marg-right rela">
+                    <input type="radio" name="attr_skill24" value="0" class="shape-cross track-zero checked-hidden" checked={true} />
+                    <input type="radio" name="attr_skill24" value="1" class="shape-dot" /><span class="shape-divider marg-right"></span>
+                    <input type="radio" name="attr_skill24" value="2" class="shape-dot" />
+                    <input type="radio" name="attr_skill24" value="3" class="shape-dot" />
+                    <input type="radio" name="attr_skill24" value="4" class="shape-dot " />
+                </span>
+                <div class="b align-center tooltip-custom">
+                    <input name="attr_" type="text" class="b" value="Hunt" />
+                    <textarea name="attr_" class="tooltip-custom-text">A description of the currently selected attribute.</textarea>
+                </div>
+            </div>
+        </div>
+        <div id="pcstatpanel-attr-3" class="grid gtw-1 gth-4 text-center marg-top marg-bottom">
+            <div class="grid gtw-10 skillname">
+                <div class="gw-2 text-left pad-left align-center">
+                    <span class="vert-middle">Spirit</span>
+                </div>
+                <div class="gw-8 tracker tracked-red align-center text-right pad-right">
+                    <input type="radio" name="attr_stat3xp" value="0" class="shape-cross checked-hidden track-zero" checked={true} />
+                    <input type="radio" name="attr_stat3xp" value="1" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat3xp" value="2" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat3xp" value="3" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat3xp" value="4" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat3xp" value="5" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat3xp" value="6" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat3xp" value="7" class="shape-diamond-med" />
+                    <input type="radio" name="attr_stat3xp" value="8" class="shape-diamond-med" />
+                </div>
+            </div>
+            <div class="text-left grid-stat-row">
+                <span class="tracker tracked-red marg-right rela">
+                    <input type="radio" name="attr_skill31" value="0" class="shape-cross track-zero checked-hidden" checked={true} />
+                    <input type="radio" name="attr_skill31" value="1" class="shape-dot" /><span class="shape-divider marg-right"></span>
+                    <input type="radio" name="attr_skill31" value="2" class="shape-dot" />
+                    <input type="radio" name="attr_skill31" value="3" class="shape-dot" />
+                    <input type="radio" name="attr_skill31" value="4" class="shape-dot " />
+                </span>
+                <div class="b align-center tooltip-custom">
+                    <input name="attr_" type="text" class="b" value="Channel" />
+                    <textarea name="attr_" class="tooltip-custom-text">A description of the currently selected attribute.</textarea>
+                </div>
+            </div>
+            <div class="text-left grid-stat-row">
+                <span class="tracker tracked-red marg-right rela">
+                    <input type="radio" name="attr_skill32" value="0" class="shape-cross track-zero checked-hidden" checked={true} />
+                    <input type="radio" name="attr_skill32" value="1" class="shape-dot" /><span class="shape-divider marg-right"></span>
+                    <input type="radio" name="attr_skill32" value="2" class="shape-dot" />
+                    <input type="radio" name="attr_skill32" value="3" class="shape-dot" />
+                    <input type="radio" name="attr_skill32" value="4" class="shape-dot " />
+                </span>
+                <div class="b align-center tooltip-custom">
+                    <input name="attr_" type="text" class="b" value="Command" />
+                    <textarea name="attr_" class="tooltip-custom-text">A description of the currently selected attribute.</textarea>
+                </div>
+            </div>
+            <div class="text-left grid-stat-row">
+                <span class="tracker tracked-red marg-right rela">
+                    <input type="radio" name="attr_skill33" value="0" class="shape-cross track-zero checked-hidden" checked={true} />
+                    <input type="radio" name="attr_skill33" value="1" class="shape-dot" /><span class="shape-divider marg-right"></span>
+                    <input type="radio" name="attr_skill33" value="2" class="shape-dot" />
+                    <input type="radio" name="attr_skill33" value="3" class="shape-dot" />
+                    <input type="radio" name="attr_skill33" value="4" class="shape-dot " />
+                </span>
+                <div class="b align-center tooltip-custom">
+                    <input name="attr_" type="text" class="b" value="Consort" />
+                    <textarea name="attr_" class="tooltip-custom-text">A description of the currently selected attribute.</textarea>
+                </div>
+            </div>
+            <div class="text-left grid-stat-row">
+                <span class="tracker tracked-red marg-right rela">
+                    <input type="radio" name="attr_skill34" value="0" class="shape-cross track-zero checked-hidden" checked={true} />
+                    <input type="radio" name="attr_skill34" value="1" class="shape-dot" /><span class="shape-divider marg-right"></span>
+                    <input type="radio" name="attr_skill34" value="2" class="shape-dot" />
+                    <input type="radio" name="attr_skill34" value="3" class="shape-dot" />
+                    <input type="radio" name="attr_skill34" value="4" class="shape-dot " />
+                </span>
+                <div class="b align-center tooltip-custom">
+                    <input name="attr_" type="text" class="b" value="Sway" />
+                    <textarea name="attr_" class="tooltip-custom-text">A description of the currently selected attribute.</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="pcstatpanel-bonusdicebox" class="grid gtw-9 marg-top">
+        <div class="gw-9 emphasis">BONUS DICE</div>
+        <div class="text-center vert-middle emphasis gw-1 bg-black">&#43;</div>
+        <div class="bg-med gw-8 grid gtw-1 gth-3">
+            <div><span class="b">PUSH YOURSELF</span>  (Take 2 stress)</div>
+            <div>OR take a <span class="b">LADY'S FAVOR</span></div>
+        </div>
+    </div>
+    <div id="pcstatpanel-load" class="bg-med grid gth-1 gtw-10 text-left vert-middle marg-top">
+        <div class="b gw-2 vert-middle">LOAD</div>
+        <div class="gw-1">
+            <input type="radio" name="attr_pcload" value="1" class="shape-diamond-med unchecked-light checked-red vert-middle" />
+        </div>
+        <div class="gw-3 vert-middle"><i>Discrete</i> 1-3</div>
+        <div class="gw-1">
+            <input type="radio" name="attr_pcload" value="2" class="shape-diamond-med unchecked-light checked-red vert-middle" />
+        </div>
+        <div class="gw-3"><i>Loaded</i> 3-6</div>
+    </div>
+    <div id="pcstatpanel-specperm" class="grid gtw-1 marg-top">
+        <div class="bg-med b">SPECIAL PERMISSION</div>
+        <div class="grid gtw-9">
+            <input type="checkbox" value="1" name="attr_sitem1" class="gw-1 shape-square-med checked-red" /><div class="gw-8 i">A Fine Wit</div>
+        </div>
+    </div>
+    <div id="pcstatpanel-gear" class="grid gtw-1 marg-top">
+        <div class="gw-1 bg-med b">GEAR</div>
+        <div class="bg-light gw-1 grid gtw-13 pad-bottom">
+            <input type="checkbox" value="1" name="attr_pitem1" class="gw-1 shape-square-med unchecked-light checked-red" /><div class="gw-12">A <i>Fine</i> Courtly Blade</div>
+            <input type="checkbox" value="1" name="attr_pitem2" class="gw-1 shape-square-med unchecked-light checked-red" /><div class="gw-12">A <i>Fine</i> Deadly Blade</div>
+            <input type="checkbox" value="1" name="attr_pitem3" class="gw-1 shape-square-med unchecked-light checked-red" /><div class="gw-12">A Duelist's Guantlet</div>
+            <input type="checkbox" value="1" name="attr_pitem3" class="gw-1 shape-square-med unchecked-light checked-red" /><div class="gw-12 i">A Badge of Honor</div>
+            <input type="checkbox" value="1" name="attr_pitem5" class="gw-1 shape-square-med unchecked-light checked-red" /><div class="gw-12 i">A Courtly Favor</div>
+        </div>
+        <div class="gw-1 grid gtw-13">
+            <input type="checkbox" value="1" name="attr_uitem1" class="gw-1 shape-square-med unchecked-light checked-red" /><div class="gw-12 i">Luck Charm</div>
+            <input type="checkbox" value="1" name="attr_uitem2" class="gw-1 shape-square-med unchecked-light checked-red" /><div class="gw-12 i">Flint and Steel</div>
+            <input type="checkbox" value="1" name="attr_uitem3" class="shape-square-med unchecked-light checked-red" /><input type="checkbox" value="1" name="attr_uitem3" class="shape-square-med checked-red shape-link-left" /><div class="gw-11 text-left">Armour</div>
+            <input type="checkbox" value="1" name="attr_uitem4" class="gw-1 shape-square-med unchecked-light checked-red" /><div class="gw-12">A Small Blade or Two</div>
+            <input type="checkbox" value="1" name="attr_uitem5" class="gw-1 shape-square-med unchecked-light checked-red" /><div class="gw-12">A Single-Shot Pistol</div>
+            <input type="checkbox" value="1" name="attr_uitem6" class="gw-1 shape-square-med unchecked-light checked-red" /><div class="gw-12">A Large Weapon</div>
+            <input type="checkbox" value="1" name="attr_uitem7" class="gw-1 shape-square-med unchecked-light checked-red" /><div class="gw-12">Lantern</div>
+            <input type="checkbox" value="1" name="attr_uitem8" class="gw-1 shape-square-med unchecked-light checked-red" /><div class="gw-12">Throwing Knives</div>
+            <input type="checkbox" value="1" name="attr_uitem9" class="gw-1 shape-square-med unchecked-light checked-red" /><div class="gw-12">Burglary Tools</div>
+            <input type="checkbox" value="1" name="attr_uitem10" class="gw-1 shape-square-med unchecked-light checked-red" /><div class="gw-12">Demolition Tools</div>
+            <input type="checkbox" value="1" name="attr_uitem11" class="gw-1 shape-square-med unchecked-light checked-red" /><div class="gw-12">Arcane Implements</div>
+            <input type="checkbox" value="1" name="attr_uitem12" class="gw-1 shape-square-med unchecked-light checked-red" /><input type="checkbox" value="1" name="attr_uitem12" class="gw-1 shape-square-med checked-red shape-link-left" /><div class="gw-11">Climbing Gear</div>
+            <input type="checkbox" value="1" name="attr_uitem13" class="gw-1 shape-square-med unchecked-light checked-red" /><div class="gw-12">Subterfuge Supplies</div>
+            <input type="checkbox" value="1" name="attr_uitem14" class="gw-1 shape-square-med unchecked-light checked-red" /><div class="gw-12">Documents</div>
+        </div>
+    </div>
 </div>

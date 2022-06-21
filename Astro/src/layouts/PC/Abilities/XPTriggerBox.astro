@@ -1,0 +1,24 @@
+---
+import RepeatingSection from "../../../components/RepeatingSection.astro";
+
+const {id, classes, attrPrefix} = Astro.props;
+---
+<div id={id} class={`grid gtw-3 xptriggers pad-bottom ${classes}`}>
+    <div class="gw-3 heading bg-med border-top border-bottom">XP TRIGGERS</div>
+    <div class="gw-3 i">When you roll a desperate action, mark xp in that action's attribute.</div>
+    <div class="gw-3 text-center marg-bottom marg-top">At the end of each session, for each item below, mark 1 xp (in your playbook or an attribute), for a maximum of 4 xp.</div>
+    <div class="flex-left gw-2 pad-left">
+        <div class="row-cb-holder"><span class="shape-diamond-small"></span></div>
+        <input type="text" name={`attr_${attrPrefix}1`} class="pad-left" value="You addressed a challenge with violence" />
+    </div>
+    <div class="flex-left gw-1">
+        <div class="row-cb-holder"><span class="shape-diamond-small"></span></div>
+        <input type="text" name={`attr_${attrPrefix}2`} class="pad-left" value="and/or panache." />
+    </div>
+    <RepeatingSection attr="pcxptrigger" classes="gw-3">
+        <div class="flex-left gw-3 pad-left">
+            <div class="row-cb-holder"><span class="shape-diamond-small"></span></div>
+            <input type="text" name={`attr_${attrPrefix}extra`} class="pad-left" placeholder="XP trigger text." />
+        </div>
+    </RepeatingSection>
+</div>
