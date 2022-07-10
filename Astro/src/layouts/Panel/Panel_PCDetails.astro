@@ -1,0 +1,36 @@
+---
+import NoteField from "../../components/Roll20/Roll20_NoteField.astro"
+
+import CharInfo from "../../components/Box/Box_PCDetails.astro";
+import StressShame from "../../components/Box/Box_StressInfluence.astro";
+import LogoBox from "../../components/Box/Box_Logo.astro";
+import ParamourInfo from "../../components/Box/Box_Paramour.astro";
+import GatherInfoBox from "../../components/Box/Box_GatherInfoRules.astro";
+import HarmBox from "../../components/Box/Box_HarmBox.astro";
+import HealingBox from "../../components/Box/Box_HealingClock.astro";
+import ArmourBox from "../../components/Box/Box_PCArmour.astro";
+import StatusBox from "../../components/Box/Box_PCStatus.astro";
+import ContactsBox from "../../components/Box/Box_Contacts.astro";
+
+const { id, classes } = Astro.props;
+---
+<div id={id} class={classes}>
+    <LogoBox id="pcpanel-LogoBox"></LogoBox>
+    <div class="offset-for-title offset-innerpanel-left">
+        <CharInfo id="pcpanel-detailbox"></CharInfo>
+        <StressShame id="pcpanel-stressinfluence" classes="marg-top"></StressShame>
+        <HarmBox id="pcpanel-harmhealing" classes="marg-top"></HarmBox>
+        <div class="marg-top grid gtw-4 border-right border-left border-bottom bg-white">
+            <HealingBox id="pcpanel-healingbox" attr="pc_healing" classes="border-right"></HealingBox>
+            <ArmourBox id="pcpanel-armourbox" armourAttr="pc_armour" specAttr="pc_armour_spec"></ArmourBox>
+            <StatusBox id="pcpanel-statusbox" attr="pc_status" classes="gw-2 border-left"></StatusBox>
+        </div>
+        <ParamourInfo id="pcpanel-paramour" classes="marg-bottom"></ParamourInfo>
+        <div class="gw-1 grid gtw-8 bg-white border-left border-bottom border-right">
+            <ContactsBox id="pc_contacts" classes="gw-5" repAttr="pccontacts"></ContactsBox>
+            <GatherInfoBox id="gatherinfo" classes="gw-3 border-left"></GatherInfoBox>
+        </div>
+        <NoteField id="pcpanel-bonds" attr="pcbonds" label="Bonds" classes="marg-top"></NoteField>
+        <NoteField id="pcpanel-notes" attr="pcnotes" label="Notes" classes="marg-top"></NoteField>
+    </div>
+</div>

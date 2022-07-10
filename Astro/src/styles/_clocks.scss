@@ -4,7 +4,7 @@
 
 .charsheet .court-of-blades .page {
     .flex-clocks {
-        border: 2px solid black;
+        display: block;
         .repcontainer {
             width: auto;
             display: flex;
@@ -17,7 +17,7 @@
         width: fit-content;
         height: fit-content;
         display: grid;
-        grid-template-columns: 55px 95px;
+        grid-template-columns: 55px 120px;
         z-index: 0;
         .clock-label {
             width: 100%;
@@ -26,6 +26,7 @@
             text-align: center;
             vertical-align: bottom;
             border: 1px solid black;
+            background: white;
             border-radius: 3px;
             overflow-y: auto;
             word-wrap: break-word;

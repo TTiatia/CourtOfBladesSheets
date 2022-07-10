@@ -1,0 +1,13 @@
+---
+const {id, classes} = Astro.props;
+---
+
+<div id={id} class={`grid gtw-9 ${classes}`}>
+    <div class="gw-9 emphasis upcase">Bonus dice</div>
+    <div class="text-center vert-middle emphasis gw-1 bg-black flex-vert-center flex-center"><div>&#43;</div></div>
+    <div class="bg-light gw-8 grid gtw-1 gth-3 pad-left">
+        <div><span class="b upcase">Push yourself</span>  (Take 2 stress)</div>
+        <div>-OR-</div>
+        <div>Take a <span class=" upcase b">Lady's favor</span></div>
+    </div>
+</div>

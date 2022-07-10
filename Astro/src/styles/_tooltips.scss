@@ -9,6 +9,7 @@
         position: relative;
         display: inline-block;
         opacity: 100%;
+        z-index: auto;
     }
     .tooltip-custom .tooltip-custom-text {
         visibility: hidden;
@@ -20,16 +21,18 @@
         border-radius: 6px;
         position: absolute;
         font-weight: normal;
-        top: 99%;
+        top: 95%;
         left: 0;
-        z-index: 5;
+        z-index: 6;
     }
     .tooltip-custom:hover .tooltip-custom-text {
         visibility: visible;
-        transition: visibility 0s linear 0.5s;
+        transition: visibility 0s linear 2s;
     }
-    textarea.tooltip-custom-text {
+    textarea.tooltip-custom-text,
+    .tooltip-custom-text textarea {
         height: max-content;
         width: max-content;
+        color: #fff;
     }
 }

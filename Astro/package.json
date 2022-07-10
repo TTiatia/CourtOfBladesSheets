@@ -11,7 +11,10 @@
         "sass-dev": "sass --watch --no-source-map src/styles/sheet.scss src/styles/sheet.css"
     },
     "devDependencies": {
+        "@astrojs/react": "^0.2.0",
         "astro": "^1.0.0-beta.44",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
         "sass": "^1.52.3"
     }
 }

@@ -1,0 +1,59 @@
+---
+import Repeatingsection from "../../components/Roll20/Roll20_RepeatingSection.astro";
+
+const {
+    id, 
+    classes,
+    repAttr,
+    nameAttr,
+    tierAttr,
+    statusAttr,
+    favourAttr,
+    title,
+} = Astro.props;
+---
+<div id={id} class={`grid gtw-1 ${classes}`}>
+    <div class="grid-faction-row">
+        <div class="gw-3 titlebox-title captialise flex-vert-bottom"><span class="max-width">{title}</span></div>
+    </div>
+    <div class="grid-faction-row bg-med border-bottom border-top">
+        <div class="text-center b align-end upcase">Tier</div>
+        <div class="grid-favor-row">
+            <div></div>
+            <div class="b marg-left upcase">Favour</div>
+            <div class="tracker tracked-red text-left">
+                <input type="radio" name={`attr_${favourAttr}`} value="0" class="track-zero shape-cross checked-hidden" checked={true} />
+                <input type="radio" name={`attr_${favourAttr}`} value="1" class="shape-diamond-med" />
+                <input type="radio" name={`attr_${favourAttr}`} value="2" class="shape-diamond-med" />
+                <input type="radio" name={`attr_${favourAttr}`} value="3" class="shape-diamond-med" />
+                <input type="radio" name={`attr_${favourAttr}`} value="4" class="shape-diamond-med" />
+                <input type="radio" name={`attr_${favourAttr}`} disabled={true} class="shape-diamond-med shape-hidden" />
+            </div>
+            <div></div>
+        </div>
+        <div class="b upcase align-end text-center upcase">Status</div>
+    </div>
+    <Repeatingsection attr={repAttr} classes="factionlist">
+        <div class="grid-faction-row border-bottom">
+            <select name={`attr_${tierAttr}`}>
+                <option>0</option>
+                <option>I</option>
+                <option>II</option>
+                <option>III</option>
+                <option>IV</option>
+                <option>V</option>
+                <option>VI</option>
+            </select>
+            <input type="text" name={`attr_${nameAttr}`} class="capitalise" placeholder="Faction name" />
+            <select name={`attr_${statusAttr}`}>
+                <option>-3</option>
+                <option>-2</option>
+                <option>-1</option>
+                <option selected={true}>0</option>
+                <option>+1</option>
+                <option>+2</option>
+                <option>+3</option>
+            </select>
+        </div>
+    </Repeatingsection>
+</div>

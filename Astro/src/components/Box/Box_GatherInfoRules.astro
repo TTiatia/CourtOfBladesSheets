@@ -1,0 +1,21 @@
+---
+const {id, classes} = Astro.props;
+const questions = [
+    "How can I hurt them?",
+    "What do they want most?",
+    "Who's most dangerous here?",
+    "What do they intend to do?",
+    "How can I get them to [X]?",
+    "Are they telling the truth?",
+    "What's really going on here?",
+];
+
+---
+<div id={id} class={`grid gtw-1 ${classes}`}>
+    <div class="bg-black b upcase pad-left">Gather Information</div>
+    {questions.map(q => (
+        <>
+            <div class="pad-left"><span class="shape-diamond-small checked-red marg-right"></span><span class="i pad-left">{q}</span></div>
+        </>
+    ))}
+</div>

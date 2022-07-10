@@ -164,7 +164,7 @@
         top: 4px;
         left: 4px;
     }
-    clock-size[value="12"]~input[value="1"] {
+    .clock-size[value="12"]~input[value="1"] {
         margin-left: 20px;
         transform: rotate(15deg);
     }

@@ -1,0 +1,40 @@
+---
+import RepeatingSection from "../Roll20/Roll20_RepeatingSection.astro";
+
+const {id, classes, title, repeatAttr, nameAttr, valueAttr, styleAttr} = Astro.props;
+---
+<div id={id} class={`grid gtw-1 marg-top ${classes}`}>
+    {title != "" && <><div class="bg-med b upcase pad-left">{title}</div></>}
+    <RepeatingSection attr={repeatAttr} classes="item-list">
+        <div class="flex-left">
+            <input type="hidden" class="item-show-size" name={`attr_${styleAttr}size`} value="0" />
+            <input type="hidden" class="item-show-style" name={`attr_${styleAttr}style`} value="0" />
+            <div class="item-size-selector flex-left">
+                <label class="text-center">Select size:</label>
+                <select class="item-size" name={`attr_${styleAttr}size`} value="0">
+                    <option class="0" selected={true}></option>
+                    <option class="1">1</option>
+                    <option class="2">2</option>
+                    <option class="3">3</option>
+                </select>
+            </div>
+            <div class="item-style-selector flex-right">
+                <label class="text-center">Select style:</label>
+                <select class="item-style" name={`attr_${styleAttr}style`} value="0">
+                    <option class="0" selected={true}></option>
+                    <option value="n">Normal</option>
+                    <option value="i" class="i">Italics</option>
+                    <option value="b" class="b">Bold</option>
+                    <option value="bi" class="b i">Bold Italics</option>
+                </select>
+            </div>
+            <div class="item-boxes">
+                <input type="checkbox" value="1" name={`attr_${valueAttr}`} class="shape-square-med checked-red" />
+                <input type="checkbox" value="1" name={`attr_${valueAttr}`} class="shape-square-med checked-red" />
+                <input type="checkbox" value="1" name={`attr_${valueAttr}`} class="shape-square-med checked-red" />
+            </div>
+            
+            <input type="text" class="item-name marg-left capitalise" name={`attr_${nameAttr}`} placeholder="Item name"/>
+        </div>
+    </RepeatingSection>
+</div>

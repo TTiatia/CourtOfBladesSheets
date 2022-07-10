@@ -1,0 +1,23 @@
+---
+const {id, classes} = Astro.props;
+---
+
+<div id={id} class={`grid gtw-1 ${classes}`}>
+    <div class="gw-1 grid-paramour marg-top gapw-6">
+        <div class="paramourname gw-1 align-end text-right">Paramour</div>
+        <input id="paramour-name" type="text" name="attr_pcparamour" class="gw-1" />
+        <div>
+            <div class="gw-1 gh-1 b text-center upcase">Heat</div>
+            <div id="pcpanel-heatbox" class="text-center tracker tracked-red">
+                <input type="radio" name="attr_pcheat" value="0" class="shape-cross checked-hidden track-zero" checked={true} />
+                <input type="radio" name="attr_pcheat" value="1" class="shape-heart checked-red" />
+                <input type="radio" name="attr_pcheat" value="2" class="shape-heart checked-red" />
+                <input type="radio" name="attr_pcheat" value="3" class="shape-heart checked-red" />
+                <input type="radio" name="attr_pcheat" value="4" class="shape-heart checked-red" />
+                <input type="radio" name="attr_pcheat" value="5" class="shape-heart checked-red" />
+                <input type="radio" name="attr_pcheat" value="6" class="shape-heart checked-red" />
+                <input type="radio" disabled={true} class="shape-heart shape-hidden" />
+            </div>
+        </div>
+    </div>
+</div>

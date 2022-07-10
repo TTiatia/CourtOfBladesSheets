@@ -1,0 +1,13 @@
+---
+import Page from "../Page.astro";
+import PanelGMTurn from "../Panel/Panel_GMTurn.astro";
+
+const {id, classes, pageNum, factionCount} = Astro.props;
+---
+
+<Page id={id} class={classes} pageNum={pageNum}>
+    <PanelGMTurn 
+        classes="" 
+        factionCount={factionCount}>
+    </PanelGMTurn>
+</Page>

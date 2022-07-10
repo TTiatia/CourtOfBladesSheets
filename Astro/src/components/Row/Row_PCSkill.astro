@@ -1,0 +1,26 @@
+---
+const {
+    skillNameAttr,
+    skillValueAttr,
+    skillTooltipAttr,
+    maxSkillCount
+}= Astro.props;
+
+function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
+---
+
+<div class="gw-1 text-left grid-stat-row tooltip-custom">
+    <div class="tracker tracked-red marg-right rela">
+        <input type="radio" name={`attr_${skillValueAttr}`} value="0" class="shape-cross track-zero checked-hidden" checked={true} />
+        {toArray(maxSkillCount).map((xpNum) => (
+            <>
+                <input type="radio" name={`attr_${skillValueAttr}`} value={xpNum} class="shape-dot" />
+                {xpNum==1 && <span class="shape-divider marg-right"></span>}
+            </>
+        ))}
+    </div>
+    <div class="b align-center">
+        <input name={`attr_${skillNameAttr}`} type="text" class="b" placeholder="Skill name" />
+    </div>
+    <textarea name={`attr_${skillTooltipAttr}`} class="tooltip-custom-text" placeholder="Skill description"></textarea>
+</div>

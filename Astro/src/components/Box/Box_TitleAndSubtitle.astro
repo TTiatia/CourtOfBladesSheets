@@ -1,0 +1,7 @@
+---
+const {id, classes, titleAttr, subtitleAttr} = Astro.props;
+---
+<div id={id} class={`grid gtw-1 ${classes}`}>
+    <input type="text" name={`attr_${titleAttr}`} class="gh-2 titlebox-title" placeholder="Title" />
+    <input type="text" name={`attr_${subtitleAttr}`} class="titlebox-subtitle" placeholder="Subtitle" />
+</div>

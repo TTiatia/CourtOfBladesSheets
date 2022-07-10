@@ -1,0 +1,39 @@
+---
+import PCAttributeRow from "../Row/Row_PCSkill.astro";
+import PCSkillRow from "../Row/Row_PCSkill.astro";
+
+const {
+    id, 
+    classes,
+    skillPerCategory,
+    categoryNameAttr,
+    categoryValueAttr,
+    categoryTooltipAttr,
+    categoryXPCount,
+    skillNameAttr,
+    skillValueAttr,
+    skillTooltipAttr,
+    maxSkillCount
+} = Astro.props;
+
+function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
+---
+<div id={id} class={`marg-bottom pad-bottom ${classes}`}>
+    <PCAttributeRow 
+        catNum={1}
+        categoryNameAttr={`${categoryNameAttr}`}
+        categoryValueAttr={`${categoryValueAttr}`}
+        categoryTooltipAttr={`${categoryTooltipAttr}`}
+        categoryXPCount={categoryXPCount}>
+    </PCAttributeRow>
+    {toArray(skillPerCategory).map((skillNum) => (
+        <>
+            <PCSkillRow
+                skillNameAttr={`${skillNameAttr}${skillNum}`}
+                skillValueAttr={`${skillValueAttr}${skillNum}`}
+                skillTooltipAttr={`${skillTooltipAttr}${skillNum}`}
+                maxSkillCount={maxSkillCount}>
+            </PCSkillRow>
+        </>
+    ))}
+</div>

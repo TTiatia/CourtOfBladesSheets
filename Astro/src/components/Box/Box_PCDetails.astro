@@ -1,0 +1,31 @@
+---
+const {id, scandalVisibilityAttr, scandalAttr} = Astro.props;
+---
+<div id={id} class="grid gtw-2 gapw-10">
+    <input type="text" name="attr_pcname" class="border-bottom pcdetail" />
+    <input type="text" name="attr_pchouse" class="border-bottom pcdetail" />
+    <span class="b upcase">Name &amp; Alias</span>
+    <span class="b  upcase">House</span>
+
+    <input type="text" name="attr_pclook" class="border-bottom pcdetail" />
+    <input type="text" name="attr_pcindulgence" class="border-bottom pcdetail" />
+    <span class="b upcase">Look</span>
+    <span class="b upcase">Indulgence &amp; Source</span>
+
+    <input type="text" name="attr_pcbackground" class="border-bottom pcdetail" />
+    <input type="text" name="attr_pcheritage" class="border-bottom pcdetail" />
+    <span class="b upcase">Background</span>
+    <span class="b upcase">Heritage</span>
+
+    <input type="hidden" name={`attr_${scandalVisibilityAttr}`} value="scandals"/>
+    <div id="scandal-info" class="gw-2 grid gtw-1 align-center">
+        <input type="text" name={`attr_${scandalAttr}`} class="pcdetail" />
+        <span class="b upcase">Scandals</span>
+        <span class="i capitalise">Sentimental, Wicked, Grasping, False, Gauche, Jealous, Faithless, Fragile</span>
+    </div>
+    <div id="shatter-info" class="gw-2 grid gtw-1 align-center">
+        <input type="text" name={`attr_${scandalAttr}`} class="pcdetail" />
+        <span class="b upcase">Shatters</span>
+        <span class="i capitalise">Detached, Uncanny, Vengeful, Insatiable, Morose, Destructive, Obsessed, Territorial</span>
+    </div>
+</div>

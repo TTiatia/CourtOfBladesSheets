@@ -1,0 +1,59 @@
+---
+const {id, classes} = Astro.props;
+---
+<div id={id} class={`grid-stat-row pad-top ${classes}`}>
+    <div>
+        <span class="b">+3:</span>
+        <span class="i marg-left capitalise">Allies</span>
+    </div>
+    <div class="marg-left">
+        This faction will help you even if it is not in their best interest to do so. They expect you to do the same for them.
+    </div>
+
+    <div>
+        <span class="b">+2:</span>
+        <span class="i marg-left capitalise">Friendly</span>
+    </div>
+    <div class="marg-left">
+        This faction will help you if it does not create serious problems for them. They expect the same from you.
+    </div>
+
+    <div>
+        <span class="b">+1:</span>
+        <span class="i marg-left capitalise">Helpful</span>
+    </div>
+    <div class="marg-left">
+        This faction will help you if it causes no problems or significant cost for them. They expect the same from you.
+    </div>
+
+    <div>
+        <span class="b">0:</span>
+        <span class="i marg-left capitalise">Neutral</span>
+    </div>
+    <div class="marg-left"></div>
+
+    <div>
+        <span class="b">-1:</span>
+        <span class="i pad-left capitalise">Interfering</span>
+    </div>
+    <div class="marg-left">
+        This faction will look for opportunities to cause problems for you (or profit from your misfortune) so long as it causes no problems or significant cost for them. They expect the same from you.
+    </div>
+
+    <div>
+        <span class="b">-2:</span>
+        <span class="i marg-left capitalise">Hostile</span>
+    </div>
+    <div class="marg-left">
+        This faction will look for opportunities to hurt you so long as it does not create serious problems for them. They expect you to do the same and take precautions against you.
+    </div>
+
+    <div>
+        <span class="b">-3:</span>
+        <span class="i marg-left capitalise">War</span>
+    </div>
+    <div class="marg-left">
+        <p>This faction will go out of its way to hurt you even if it's not in their best interest to do so. They expect you to do the same and take precautions against you.</p>
+        <p>When you are at war with any number of factions, your crew suffers <b>+1 exposure</b> from errands, and PC's get only one downtime action rather than two. You can end a war by eliminating your enemy or by negotiating a mutual agreement to estrablish a new status rating.</p>
+    </div>
+</div>

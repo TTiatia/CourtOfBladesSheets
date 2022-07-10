@@ -145,6 +145,9 @@
         line-height: 20px;
         font-weight: 700;
     }
+    .logo-title {
+        left: 40px;
+    }
     .titlebox-title {
         font-size: 48px;
         line-height: 50px;
@@ -183,5 +186,54 @@
     }
     .xptriggers input {
         width: 100%;
+    }
+    .item-boxes {
+        display: none;
+        input {
+            display: none;
+        }
+    }
+    .item-show-size[value="0"],
+    .item-show-style[value="0"] {
+        &~input,
+        &~.item-boxes {
+            display: none;
+        }
+        &~.item-style-selector,
+        &~.item-size-selector {
+            display: flex;
+        }
+    }
+    .item-show-size:not([value="0"])+.item-show-style:not([value="0"]) {
+        &~.item-name,
+        &~.item-boxes {
+            display: flex;
+        }
+        &~.item-style-selector,
+        &~.item-size-selector {
+            display: none;
+        }
+    }
+    .item-list .item-show-size[value="1"]~.item-boxes input:nth-child(1) {
+        display: block;
+    }
+    .item-list .item-show-size[value="2"]~.item-boxes input:nth-child(1),
+    .item-list .item-show-size[value="2"]~.item-boxes input:nth-child(2) {
+        display: block;
+    }
+    .item-list .item-show-size[value="3"]~.item-boxes input {
+        display: block;
+    }
+    .item-list .item-show-style[value*="b"]~.item-name {
+        font-weight: bold;
+    }
+    .item-list .item-show-style[value*="i"]~.item-name {
+        font-style: italic;
+    }
+    .factionnotes {
+        margin-top: 30px;
+    }
+    .majorfactionlist input[type="text"] {
+        padding-left: 12px;
     }
 }

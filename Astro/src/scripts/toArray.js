@@ -1,0 +1,1 @@
+function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }

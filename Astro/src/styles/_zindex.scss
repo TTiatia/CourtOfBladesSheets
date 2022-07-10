@@ -1,0 +1,11 @@
+@mixin define-zindex-rules($min, $max) {
+    .charsheet .court-of-blades .page {
+        @for $val from $min through $max {
+            .z-#{$val} {
+                z-index: #{$val};
+            }
+        }
+    }
+}
+
+@include define-zindex-rules(-5, 5)

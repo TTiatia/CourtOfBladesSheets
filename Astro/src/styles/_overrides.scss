@@ -21,6 +21,22 @@
             z-index: 5;
         }
     }
+    .factionlist .repcontainer {
+        display: block;
+    }
+    .repcontainer {
+        display: flex;
+    }
+    .repcontrol {
+        padding: 3px;
+    }
+    .item-list,
+    .ability-list,
+    .xp-list {
+        .repcontainer {
+            flex-direction: column;
+        }
+    }
     ul {
         padding: 0;
         margin: 2px;

@@ -1,0 +1,24 @@
+---
+const {id, classes, harmAttrPrefix} = Astro.props;
+---
+
+<div id={id} class={`grid-harm border-left bg-white border-bottom border-right ${classes}`}>
+    <div class="b bg-black upcase">Harm</div>
+    <div class="grid gtw-13 border-bottom">
+        <div class="b bg-med gw-1 text-center center-item">3</div>
+        <div class="gw-10"><textarea name={`attr_${harmAttrPrefix}3`}></textarea></div>
+        <div class="b bg-med gw-2 pad-right pad-left text-center center-item upcase">Need help</div>
+    </div>
+    <div class="grid gtw-13 border-bottom">
+        <div class="b bg-med gw-1 text-center center-item">2</div>
+        <div class="gw-5 border-right padding-right"><textarea type="text" name={`attr_${harmAttrPrefix}21`}></textarea></div>
+        <div class="gw-5 padding-right"><textarea type="text" name={`attr_${harmAttrPrefix}22`}></textarea></div>
+        <div class="b bg-med gw-2 pad-right pad-left text-center center-item">-1D</div>
+    </div>
+    <div class="grid gtw-13">
+        <div class="b bg-med gw-1 text-center center-item"><span class="text-bottom">1</span></div>
+        <div class="gw-5 border-right padding-right"><textarea name={`attr_${harmAttrPrefix}11`}></textarea></div>
+        <div class="gw-5 padding-right"><textarea name={`attr_${harmAttrPrefix}12`}></textarea></div>
+        <div class="b bg-med gw-2 pad-right pad-left text-center center-item upcase">Less effect</div>
+    </div>
+</div>

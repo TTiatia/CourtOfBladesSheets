@@ -1,0 +1,16 @@
+---
+import RepeatingSection from "../Roll20/Roll20_RepeatingSection.astro";
+const {id, classes, repeatAttr, enabledAttr, nameAttr, descAttr, title} = Astro.props;
+---
+<div id={id} class={`grid gtw-1 ${classes}`}>
+    <div class="heading bg-med pad-left border-top border-bottom upcase">{title}</div>
+    <RepeatingSection attr={repeatAttr} classes="ability-list">
+        <div class="flex-left flex-vert-center pad-left">
+            <div class="row-cb-holder marg-right">
+                <input type="checkbox" class="shape-dot checked-red align-start" name={`attr_${enabledAttr}`}>
+            </div>
+            <input type="text" name={`attr_${nameAttr}`} class="ability-label mylabel align-start" placeholder="Ability name">
+        </div>
+        <textarea rows={1} name={`attr_${descAttr}`} class="clock-label mylabel align-start pad-left" spellcheck="false" placeholder="Ability description"></textarea>
+    </RepeatingSection>
+</div>

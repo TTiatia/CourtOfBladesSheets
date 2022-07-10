@@ -1,5 +1,6 @@
 .charsheet .court-of-blades .page {
-    .clock-size-selector-controller:not([value="0"])~.clock-size-selector {
+    .clock-size-selector-controller:not([value="0"])~.clock-size-selector,
+    .clock-size-selector-controller[value="0"]~div textarea {
         display: none;
     }
     .clock-container {

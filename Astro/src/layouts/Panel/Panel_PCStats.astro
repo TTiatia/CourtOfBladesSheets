@@ -1,0 +1,67 @@
+---
+import BonusDiceBox from "../../components/Box/Box_BonusDiceRules.astro";
+import ItemListBox from "../../components/Box/Box_ItemList.astro";
+import LoadSelectionBox from "../../components/Box/Box_LoadSelection.astro";
+import PcStatBox from "../../components/Box/Box_PCStats.astro";
+import SheetXPBox from "../../components/Box/Box_SheetXP.astro";
+
+const { id, classes } = Astro.props;
+
+//
+---
+<div id={id} class={classes}>
+    <SheetXPBox 
+        id="pcstatpanel-charxp" 
+        title="Character xp" 
+        attr="playbookxp" 
+        boxCount={10}>
+    </SheetXPBox>
+    <PcStatBox 
+        id="pcstatpanel-statsbox" 
+        classes=""
+        categoryCount={3}
+        skillPerCategory={4}
+        maxSkillCount={4}
+        categoryXPCount={8}
+        categoryNameAttr="pcattrname"
+        categoryValueAttr="pcattrval"
+        categoryTooltipAttr="pcattrdesc"
+        skillNameAttr="pcskillname"
+        skillValueAttr="pcskillval"
+        skillTooltipAttr="pcskilldesc">
+    </PcStatBox>
+    <BonusDiceBox 
+        id="pcstatpanel-bonusdicebox" 
+        classes="marg-top">
+    </BonusDiceBox>
+    <LoadSelectionBox 
+        id="pcstatpanel-load" 
+        classes="marg-top" 
+        attrName="pcload">
+    </LoadSelectionBox>
+    <ItemListBox 
+        id="pcstatpanel-specperm" 
+        title="Special permissions"
+        classes="marg-bottom"
+        repeatAttr="pcpermissions"
+        nameAttr="pcpermissionname"
+        valueAttr="pcpermissionvalue"
+        styleAttr="pcpermissionstyle">
+    </ItemListBox>
+    <ItemListBox id="pcstatpanel-playbookgear" 
+        title="Gear"
+        classes="bg-light"
+        repeatAttr="pcplaybookitems"
+        nameAttr="pcplaybookitemname"
+        valueAttr="pcplaybookitemvalue"
+        styleAttr="pcplaybookitemstyle">
+    </ItemListBox>
+    <ItemListBox id="pcstatpanel-universalgear" 
+        title=""
+        classes=""
+        repeatAttr="pcitems"
+        nameAttr="pcitemname"
+        valueAttr="pcitemvalue"
+        styleAttr="pcitemstyle">
+    </ItemListBox>
+</div>
