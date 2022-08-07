@@ -6,6 +6,8 @@ import Page from "../layouts/Page.astro";
 import PagePC from "../layouts/Page/Page_PC.astro";
 import PageGM from "../layouts/Page/Page_GMTurn.astro";
 import PageFactions from "../layouts/Page/Page_Factions.astro";
+import PageCoterie from "../layouts/Page/Page_Coterie.astro";
+import PageSheetsettings from "../layouts/Page/Page_SheetSettings.astro";
 ---
 
 <div class="court-of-blades">
@@ -16,7 +18,11 @@ import PageFactions from "../layouts/Page/Page_Factions.astro";
         classes=""
         pageNum={0}>
     </PagePC>
-    <Page id="page-house" pageNum={1}></Page>
+    <PageCoterie 
+        id="page-house" 
+        classes=""
+        pageNum={1}>
+    </PageCoterie>
     <PageFactions id="page-factions" pageNum={2}></PageFactions>
     <PageGM
         id="page-gmturn"
@@ -24,5 +30,9 @@ import PageFactions from "../layouts/Page/Page_Factions.astro";
         factionCount={5}
         pageNum={3}>
     </PageGM>
-    <Page id="page-settings" pageNum={4}></Page>
+    <PageSheetsettings
+        id="page-settings"
+        classes=""
+        pageNum={4}>
+    </PageSheetsettings>
 </div>

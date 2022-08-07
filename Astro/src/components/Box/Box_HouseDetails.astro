@@ -1,0 +1,29 @@
+---
+import FieldLabeledTrack from "../Field/Field_LabeledTrack.astro";
+
+const {
+    id, 
+    classes
+} = Astro.props;
+---
+<div id={id} class={`grid gtw-3 ${classes}`}>
+    <input type="text" name="attr_coteriename" class="gw-3 border-bottom pcdetail" />
+    <div class="gw-3 b text-left upcase">COTERIE NAME</div>
+    <input type="text" name="attr_housestrengths" class="gw-2 border-bottom pcdetail marg-right" />
+    <input type="text" name="attr_househealer" class="gw-1 border-bottom pcdetail" />
+    <div class="gw-2 b text-left upcase">STRENGTHS</div>
+    <span class="gw-1 b marg-right upcase">HEALER TYPE</span>
+    <div class="gw-3 i text-left capitalise">Force, Intelligence, Magic, Supply, Transport, Wealth</div>
+    <div class="gw-3 grid gtw-3 align-center">
+        <input type="text" name="attr_houserep" class="pcdetail gw-3" />
+        <div class="gw-2 b text-left upcase">REPUTATIONS</div>
+        <div class="gw-2 i capitalise">Ambitious, Brutal, Daring, Honorable, Subtle, Arcane, Loyal, Reliable, Uncouth, Respectable, Dangerous</div>
+        <FieldLabeledTrack
+            id="housedetailpanel-influencebox"
+            classes="gw-1 gh-2"
+            trackTitle="Influence"
+            trackAttr="attr_houseinfluence"
+            trackLength={4}>
+        </FieldLabeledTrack>
+    </div>
+</div>

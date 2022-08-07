@@ -32,6 +32,9 @@
         @include define-custom-grid(1fr 575px);
         column-gap: 6px;
     }
+    .grid-favoured-contact {
+        @include define-custom-grid(max-content 1fr max-content);
+    }
     .grid-faction-row {
         @include define-custom-grid(48px 1fr 64px);
         select {

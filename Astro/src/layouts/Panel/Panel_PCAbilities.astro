@@ -4,7 +4,7 @@ import DynamicClocks from "../../components/Clocks/Clocks_DynamicContainer.astro
 import PlaybookTitleBox from "../../components/Box/Box_TitleAndSubtitle.astro";
 import SpecialAbilities from "../../components/Box/Box_SpecialAbilities.astro";
 import TeamworkPlanningLoadRulesBox from "../../components/Box/Box_TeamworkPlanningLoadRules.astro";
-import XPTriggerBox from "../../components/Box/Box_XPTrigger.astro";
+import XPTriggerBox from "../../components/Box/Box_PCXPTrigger.astro";
 
 const { id, classes } = Astro.props;
 ---
@@ -37,5 +37,4 @@ const { id, classes } = Astro.props;
         </div>
         <DynamicClocks id="pcability-clocks"  repeatAttr="pcclocks" sizeAttr="pcclocksize" progressAttr="pcclockprogress" descAttr="pcclockdesc"></DynamicClocks>
     </div>
-    
 </div>

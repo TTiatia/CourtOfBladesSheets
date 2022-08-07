@@ -44,8 +44,12 @@
         line-height: 16px;
         border-bottom: 1px solid black;
     }
-    .titlebox img {
-        width: 400px;
+    .titlebox {
+        z-index: 1;
+        img {
+            width: 400px;
+            z-index: 3;
+        }
     }
     .upcase {
         text-transform: uppercase;
@@ -89,15 +93,6 @@
     .notes {
         height: 100%;
     }
-    .skillname {
-        background: #333333;
-        color: lightgray;
-        min-height: 25px;
-        margin: 3px 0;
-        font-weight: 700;
-        vertical-align: middle;
-        padding: 2px;
-    }
     .titlebox-subtitle {
         font-weight: 700;
         font-size: 14px;
@@ -135,10 +130,8 @@
         background: #333333;
         color: lightgray;
         min-height: 25px;
-        margin: 3px 0;
         font-weight: 700;
         vertical-align: middle;
-        padding: 2px;
     }
     .heading {
         font-size: 18px;
@@ -147,6 +140,8 @@
     }
     .logo-title {
         left: 40px;
+        max-height: 50px;
+        z-index: 3;
     }
     .titlebox-title {
         font-size: 48px;

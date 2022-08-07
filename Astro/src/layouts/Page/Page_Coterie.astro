@@ -1,0 +1,14 @@
+---
+import Page from "../Page.astro";
+import PanelHouseDetails from "../Panel/Panel_HouseDetails.astro";
+import PanelHouseAbilities from "../Panel/Panel_HouseAbilities.astro";
+import PanelHouseUpgrades from "../Panel/Panel_HouseUpgrades.astro";
+
+const {id, classes, pageNum} = Astro.props;
+---
+
+<Page id={id} classes={classes} pageNum={pageNum}>
+    <PanelHouseDetails classes="panel-left"></PanelHouseDetails>
+    <PanelHouseAbilities classes="panel-centre"></PanelHouseAbilities>
+    <PanelHouseUpgrades classes="panel-right"></PanelHouseUpgrades>
+</Page>

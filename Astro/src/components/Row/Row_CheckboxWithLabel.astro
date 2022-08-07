@@ -1,0 +1,10 @@
+---
+const {id, classes, nameAttr, valueAttr, tooltipAttr} = Astro.props;
+---
+<div id={id} class={`flex-left tooltip-custom pad-left ${classes}`}>
+    <div class="row-cb-holder marg-right">
+        <input type="checkbox" name={`attr_${valueAttr}`} class="shape-dot-med checked-red" />
+    </div>
+    <input type="text" name={`attr_${nameAttr}`} class=" " />
+    <textarea class="tooltip-custom-text" name={`attr_${tooltipAttr}`}/>
+</div>

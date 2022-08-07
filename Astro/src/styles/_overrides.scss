@@ -21,8 +21,18 @@
             z-index: 5;
         }
     }
-    .factionlist .repcontainer {
+    .repblock .repcontainer {
         display: block;
+    }
+    .repcol2 .repcontainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-flow: row;
+    }
+    .repcol3 .repcontainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-auto-flow: row;
     }
     .repcontainer {
         display: flex;
@@ -92,5 +102,15 @@
     }
     .i {
         font-style: italic;
+    }
+    select.customsetting {
+        width: max-content;
+    }
+    input.customsetting {
+        width: 10em;
+    }
+    input.attribute-for-label {
+        display: inline;
+        width: max-content;
     }
 }

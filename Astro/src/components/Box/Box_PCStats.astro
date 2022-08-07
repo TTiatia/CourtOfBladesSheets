@@ -1,6 +1,5 @@
 ---
-import PCAttribute from "../Row/Row_PCAttribute.astro";
-
+import PCAttribute from "../Box/Box_PCAttribute.astro";
 
 const {
     id, 
@@ -20,6 +19,7 @@ const {
 function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
 ---
 <div id={id} class={classes}> 
+    <input type="hidden" name="attr_setting_attrcount" class="visibility-control" />
     {toArray(categoryCount).map((catNum) => (
         <>
             <PCAttribute 
@@ -32,7 +32,8 @@ function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
                 skillNameAttr={`${skillNameAttr}${catNum}`}
                 skillValueAttr={`${skillValueAttr}${catNum}`}
                 skillTooltipAttr={`${skillTooltipAttr}${catNum}`}
-                maxSkillCount={maxSkillCount}>
+                maxSkillCount={maxSkillCount}
+                classes={`visibility-gte-${catNum}`}>
             </PCAttribute>
         </>
     ))}

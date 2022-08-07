@@ -2,19 +2,18 @@
 import FieldLabeledtrack from "../Field/Field_LabeledTrack.astro";
 
 const { id, classes, } = Astro.props;
-function toArray(arg) { return Array.from(Array(arg),(x,i)=>i + 1); }
 ---
 <div id={id} class={`grid gtw-3 text-center padding-top padding-bottom maxh-3 ${classes}`}>
     <FieldLabeledtrack
         classes="gw-2" 
         trackTitle="Stress" 
         trackAttr="pcstress" 
-        trackLength="8">
+        trackLength={8}>
     </FieldLabeledtrack>
     <FieldLabeledtrack
         classes="" 
         trackTitle="Influence" 
         trackAttr="pcinfluence" 
-        trackLength="4">
+        trackLength={4}>
     </FieldLabeledtrack>
 </div>

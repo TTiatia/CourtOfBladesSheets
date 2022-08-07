@@ -18,7 +18,7 @@ function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
             <span class="upcase">House</span>
             <span class="upcase">Stats</span>
             <span class="upcase">Notes</span>
-            <span class="upcase">Clocks</span>
+            <span class="upcase">Long-Term Objectives</span>
         </div>
         {toArray(factionCount).map((factionNum) => (
             <>
@@ -37,7 +37,9 @@ function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
             <NoteField label="GM Notes" attr="gmnotes"></NoteField>
             <div>
                 <div class="bordered round-borders-top bg-light upcase text-center b">GM Clocks</div>
-                <DynamicClocks id="faction-clocks" classes="border-left border-bottom border-right round-borders-bottom" 
+                <DynamicClocks 
+                    id="faction-clocks" 
+                    classes="border-left border-bottom border-right round-borders-bottom" 
                     repeatAttr="gmclocks"
                     sizeAttr="gmclocksize"
                     progressAttr="gmclockprogress"

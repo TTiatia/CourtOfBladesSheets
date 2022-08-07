@@ -1,5 +1,5 @@
 ---
-import PCAttributeRow from "../Row/Row_PCSkill.astro";
+import PCAttributeRow from "../Row/Row_PCAttribute.astro";
 import PCSkillRow from "../Row/Row_PCSkill.astro";
 
 const {
@@ -26,13 +26,15 @@ function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
         categoryTooltipAttr={`${categoryTooltipAttr}`}
         categoryXPCount={categoryXPCount}>
     </PCAttributeRow>
+    <input type="hidden" name="attr_setting_actioncount" class="visibility-control" />
     {toArray(skillPerCategory).map((skillNum) => (
         <>
             <PCSkillRow
                 skillNameAttr={`${skillNameAttr}${skillNum}`}
                 skillValueAttr={`${skillValueAttr}${skillNum}`}
                 skillTooltipAttr={`${skillTooltipAttr}${skillNum}`}
-                maxSkillCount={maxSkillCount}>
+                maxSkillCount={maxSkillCount}
+                classes={`visibility-gte-${skillNum}`}>
             </PCSkillRow>
         </>
     ))}

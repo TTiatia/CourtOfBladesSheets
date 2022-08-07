@@ -18,8 +18,7 @@ const {
     </div>
     <div class="grid-faction-row bg-med border-bottom border-top">
         <div class="text-center b align-end upcase">Tier</div>
-        <div class="grid-favor-row">
-            <div></div>
+        <div class="flex-center">
             <div class="b marg-left upcase">Favour</div>
             <div class="tracker tracked-red text-left">
                 <input type="radio" name={`attr_${favourAttr}`} value="0" class="track-zero shape-cross checked-hidden" checked={true} />
@@ -29,11 +28,10 @@ const {
                 <input type="radio" name={`attr_${favourAttr}`} value="4" class="shape-diamond-med" />
                 <input type="radio" name={`attr_${favourAttr}`} disabled={true} class="shape-diamond-med shape-hidden" />
             </div>
-            <div></div>
         </div>
         <div class="b upcase align-end text-center upcase">Status</div>
     </div>
-    <Repeatingsection attr={repAttr} classes="factionlist">
+    <Repeatingsection attr={repAttr} classes="repblock">
         <div class="grid-faction-row border-bottom">
             <select name={`attr_${tierAttr}`}>
                 <option>0</option>
