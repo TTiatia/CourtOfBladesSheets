@@ -15,6 +15,26 @@
 .charsheet .court-of-blades .page div {
   box-sizing: border-box;
 }
+.charsheet .court-of-blades .page button {
+  padding: 2px;
+  font-size: 12px;
+  margin: 0px;
+  border: none;
+  color: black;
+}
+.charsheet .court-of-blades .page button.button-action, .charsheet .court-of-blades .page button.button-attr {
+  appearance: none;
+  text-shadow: none;
+  background: none;
+  box-shadow: none;
+}
+.charsheet .court-of-blades .page button.button-attr {
+  color: lightgray;
+}
+.charsheet .court-of-blades .page button[type=roll]::after,
+.charsheet .court-of-blades .page button[type=roll]::before {
+  content: none;
+}
 .charsheet .court-of-blades .page .itemcontrol {
   z-index: 2;
 }
@@ -41,6 +61,7 @@
   padding: 3px;
 }
 .charsheet .court-of-blades .page .item-list .repcontainer,
+.charsheet .court-of-blades .page .contact-list .repcontainer,
 .charsheet .court-of-blades .page .ability-list .repcontainer,
 .charsheet .court-of-blades .page .xp-list .repcontainer {
   flex-direction: column;
@@ -94,6 +115,9 @@
   border: none;
   resize: vertical;
   color: black;
+}
+.charsheet .court-of-blades .page button.customsetting {
+  margin: 2px 0px;
 }
 .charsheet .court-of-blades .page .b {
   font-weight: 700;
@@ -517,6 +541,9 @@
 .charsheet .court-of-blades .page .upcase {
   text-transform: uppercase;
 }
+.charsheet .court-of-blades .page .downcase {
+  text-transform: lowercase;
+}
 .charsheet .court-of-blades .page .capitalise {
   text-transform: capitalize;
 }
@@ -647,6 +674,7 @@
 }
 .charsheet .court-of-blades .page .item-boxes {
   display: none;
+  align-items: center;
 }
 .charsheet .court-of-blades .page .item-boxes input {
   display: none;
@@ -887,13 +915,15 @@
   border-radius: 6px;
   position: absolute;
   font-weight: normal;
+  font-style: normal;
   top: 95%;
   left: 0;
   z-index: 6;
+  transition: visibility 0s linear 2s;
 }
 .charsheet .court-of-blades .tooltip-custom:hover .tooltip-custom-text {
   visibility: visible;
-  transition: visibility 0s linear 2s;
+  transition: visibility 0s linear 1s;
 }
 .charsheet .court-of-blades textarea.tooltip-custom-text,
 .charsheet .court-of-blades .tooltip-custom-text textarea {
@@ -903,13 +933,13 @@
 }
 
 .charsheet .court-of-blades {
-  min-width: 1048px;
-  max-width: 1048px;
-  width: 1048px;
+  min-width: 1056px;
+  max-width: 1584px;
+  width: fit-content;
 }
 .charsheet .court-of-blades [class^=panel-],
 .charsheet .court-of-blades [class*=" panel-"] {
-  display: block;
+  display: inline-block;
 }
 .charsheet .court-of-blades .panel-left {
   width: 475px;
@@ -919,10 +949,10 @@
   width: 375px;
   min-width: 375px;
   margin-left: 2px;
-  margin-right: 2px;
+  margin-right: 10px;
 }
 .charsheet .court-of-blades .panel-right {
-  width: 190px;
+  max-width: 285px;
   min-width: 190px;
 }
 .charsheet .court-of-blades .page {

@@ -1,16 +1,25 @@
 ---
 import RepeatingSection from "../Roll20/Roll20_RepeatingSection.astro";
-const {id, classes, repeatAttr, enabledAttr, nameAttr, descAttr, title} = Astro.props;
+const {
+    id, 
+    classes, 
+    repeatAttr, 
+    enabledAttr, 
+    nameAttr, 
+    descAttr, 
+    title,
+    titleTranslation
+} = Astro.props;
 ---
 <div id={id} class={`grid gtw-1 ${classes}`}>
-    <div class="heading bg-med pad-left border-top border-bottom upcase">{title}</div>
+    <div class="heading bg-med pad-left border-top border-bottom upcase"  data-i18n={titleTranslation || ""}>{title}</div>
     <RepeatingSection attr={repeatAttr} classes="ability-list">
         <div class="flex-left flex-vert-center pad-left">
             <div class="row-cb-holder marg-right">
                 <input type="checkbox" class="shape-dot checked-red align-start" name={`attr_${enabledAttr}`}>
             </div>
-            <input type="text" name={`attr_${nameAttr}`} class="ability-label mylabel align-start" placeholder="Ability name">
+            <input type="text" name={`attr_${nameAttr}`} class="ability-label mylabel align-start" placeholder="Ability name"  data-i18n-placeholder="AbilityName">
         </div>
-        <textarea rows={1} name={`attr_${descAttr}`} class="clock-label mylabel align-start pad-left" spellcheck="false" placeholder="Ability description"></textarea>
+        <textarea rows={1} name={`attr_${descAttr}`} class="clock-label mylabel align-start pad-left" spellcheck="false" placeholder="Ability description" data-i18n-placeholder="AbilityDescription"></textarea>
     </RepeatingSection>
 </div>

@@ -3,31 +3,32 @@ const {id, classes} = Astro.props;
 ---
 <div id={id} class={`grid gtw-3 ${classes}`}>
     <div class="gw-1 gh-2 border-right">
-        <span class="b  upcase">Teamwork</span>
+        <span class="b upcase" data-i18n="Teamwork">Teamwork</span>
         <ul>
-            <li><b>Assist</b> a teammate</li>
-            <li>Lead a <b>group action</b></li>
-            <li><b>Protect</b> a teammate</li>
-            <li><b>Set up</b> a teammate</li>
+            <li><span class="b" data-i18n="Assist">Assist</span>&nbsp;<span class="downcase" data-i18n="ATeammate">a teammate</span></li>
+            <li><span class="b" data-i18n="Lead">Lead</span>&nbsp;<span class="downcase" data-i18n="AGroupAction">a group action</span></li>
+            <li><span class="b" data-i18n="Protect">Protect</span>&nbsp;<span class="downcase" data-i18n="ATeammate">a teammate</span></li>
+            <li><span class="b" data-i18n="SetUp">Set up</span>&nbsp;<span class="downcase" data-i18n="ATeammate">a teammate</span></li>
         </ul>
     </div>
     <div class="gw-2 gh-1 pad-left">
-        <span class="b upcase">Planning &amp; Load</span>
+        <span class="b upcase" data-i18n="PlanningAndLoad">Planning &amp; Load</span>
         <p>
-            Choose a <b>plan</b>, provide a <b>detail</b>.<br />
-            Choose your <b>load</b> limit for the errand.
+            <span data-i18n="ChoosePlanAndDetailText"></span><br />
+            <span data-i18n="ChooseLoadLimitText"></span>
         </p>
     </div>
     <div class="gw-2 gh-1 grid gth-1 gtw-2 pad-left">
         <ul>
-            <li><b>Assault: </b><i>Point of attack</i></li>
-            <li><b>Deception: </b><i>Method</i></li>
-            <li><b>Stealth: </b><i>Entry point</i></li>
+            <li><span class="b capitalise" data-i18n="Assault">Assault</span>:&nbsp;<span class="i" data-i18n="AssaultPlanDetailText">Point of attack</span></li>
+            <li><span class="b capitalise" data-i18n="Deception">Deception</span>:&nbsp;<span class="i" data-i18n="DeceptionPlanDetailText">Method</span></li>
+            <li><span class="b capitalise" data-i18n="Stealth">Stealth</span>:&nbsp;<span class="i" data-i18n="StealthPlanDetailText">Entry point</span></li>
         </ul>
         <ul>
-            <li><b>Arcane: </b><i>Magical</i></li>
-            <li><b>Social: </b><i>Connection</i></li>
-            <li><b>Transport: </b><i>Route</i></li>
+
+            <li><span class="b capitalise" data-i18n="Arcane">Arcane</span>:&nbsp;<span class="i" data-i18n="ArcanePlanDetailText">Magical</span></li>
+            <li><span class="b capitalise" data-i18n="Social">Social</span>:&nbsp;<span class="i" data-i18n="SocialPlanDetailText">Connection</span></li>
+            <li><span class="b capitalise" data-i18n="Transport">Transport</span>:&nbsp;<span class="i" data-i18n="TransportPlanDetailText">Route</span></li>
         </ul>
     </div>
 </div>

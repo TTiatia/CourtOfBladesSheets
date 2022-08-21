@@ -54,6 +54,9 @@
     .upcase {
         text-transform: uppercase;
     }
+    .downcase {
+        text-transform: lowercase;
+    }
     .capitalise {
         text-transform: capitalize;
     }
@@ -184,6 +187,7 @@
     }
     .item-boxes {
         display: none;
+        align-items: center;
         input {
             display: none;
         }

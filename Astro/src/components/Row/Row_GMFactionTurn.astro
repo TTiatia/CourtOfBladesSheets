@@ -4,8 +4,8 @@ const {factionNumber, nameAttr, strengthAttr, statAttr, notesAttr, clockPrefixAt
 ---
 <div class="grid-gmturn-row border-bottom marg-bottom">
     <div class="grid gth-2 gtw-1">
-        <input type="text" name={`attr_${nameAttr}${factionNumber}`} class="b pcdetail" placeholder="House Name" />
-        <input type="text" name={`attr_${strengthAttr}${factionNumber}`} class="" placeholder="Strengths" />
+        <input type="text" name={`attr_${nameAttr}${factionNumber}`} class="b pcdetail" placeholder="House Name"  data-i18n-placeholder="HouseName" />
+        <input type="text" name={`attr_${strengthAttr}${factionNumber}`} class="" placeholder="Strengths"  data-i18n-placeholder="Strengths"/>
     </div>
 
     <div class="grid gtw-1 gth-4 gaph-2 align-center pad-left">
@@ -16,7 +16,7 @@ const {factionNumber, nameAttr, strengthAttr, statAttr, notesAttr, clockPrefixAt
                 <input type="radio" name={`attr_${statAttr}${factionNumber}1`} value="2" class="shape-dot" />
                 <input type="radio" name={`attr_${statAttr}${factionNumber}1`} value="3" class="shape-dot" />
             </div>
-            <div class="pad-left b capitalise">Reach</div>
+            <div class="pad-left b capitalise" data-i18n="Reach">Reach</div>
         </div>
         <div class="grid-stat-row">
             <div class="tracker tracked-red">
@@ -25,7 +25,7 @@ const {factionNumber, nameAttr, strengthAttr, statAttr, notesAttr, clockPrefixAt
                 <input type="radio" name={`attr_${statAttr}${factionNumber}2`} value="2" class="shape-dot" />
                 <input type="radio" name={`attr_${statAttr}${factionNumber}2`} value="3" class="shape-dot" />
             </div>
-            <div class="pad-left b capitalise">Grasp</div>
+            <div class="pad-left b capitalise" data-i18n="Grasp">Grasp</div>
         </div>
         <div class="grid-stat-row">
             <div class="tracker tracked-red">
@@ -34,10 +34,10 @@ const {factionNumber, nameAttr, strengthAttr, statAttr, notesAttr, clockPrefixAt
                 <input type="radio" name={`attr_${statAttr}${factionNumber}3`} value="2" class="shape-dot" />
                 <input type="radio" name={`attr_${statAttr}${factionNumber}3`} value="3" class="shape-dot" />
             </div>
-            <div class="pad-left b capitalise">Sleight</div>
+            <div class="pad-left b capitalise" data-i18n="Sleight">Sleight</div>
         </div>
     </div>
-    <textarea spellcheck={false} class="autoexpand" name={`attr_${notesAttr}${factionNumber}`} placeholder="Faction-specific notes"></textarea>
+    <textarea spellcheck={false} class="autoexpand" name={`attr_${notesAttr}${factionNumber}`} placeholder="Faction-specific notes"  data-i18n-placeholder="FactionSpecificNotes"></textarea>
     <ClockDynamicContainer id="faction-clocks" classes="marg-top" 
         repeatAttr={`${clockPrefixAttr}${factionNumber}`} 
         sizeAttr={`${clockPrefixAttr}${factionNumber}size`} 

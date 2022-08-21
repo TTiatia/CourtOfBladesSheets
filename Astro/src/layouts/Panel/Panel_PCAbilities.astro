@@ -15,6 +15,7 @@ const { id, classes } = Astro.props;
             id="pcabilitypanel-specfeatbox"
             classes=""
             title="Special Armor"
+            titleTranslation="SpecialArmor"
             enabledAttr="armourAbilityActive" 
             descAttr="armourAbilityDesc" 
             repeatAttr="armourAbility">
@@ -23,6 +24,7 @@ const { id, classes } = Astro.props;
             id="pcabilitypanel-specabilitybox" 
             classes=""
             title="Special Abilities"
+            titleTranslation="SpecialAbilities"
             enabledAttr="playbookAbilityActive" 
             nameAttr="playbookAbilityName" 
             descAttr="playbookAbilityDesc" 
@@ -32,9 +34,7 @@ const { id, classes } = Astro.props;
     </div>
     <TeamworkPlanningLoadRulesBox id="pcabilitypanel-rulerefs" classes="marg-top pad-left"></TeamworkPlanningLoadRulesBox>
     <div class="bordered marg-top gw-1 grid gtw-1">
-        <div class="b bg-med text-center border-bottom gw-1 upcase">
-            Clocks
-        </div>
-        <DynamicClocks id="pcability-clocks"  repeatAttr="pcclocks" sizeAttr="pcclocksize" progressAttr="pcclockprogress" descAttr="pcclockdesc"></DynamicClocks>
+        <div class="b bg-med text-center border-bottom gw-1 upcase" data-i18n="Clocks">Clocks</div>
+        <DynamicClocks id="pcability-clocks" repeatAttr="pcclocks" sizeAttr="pcclocksize" progressAttr="pcclockprogress" descAttr="pcclockdesc"></DynamicClocks>
     </div>
 </div>

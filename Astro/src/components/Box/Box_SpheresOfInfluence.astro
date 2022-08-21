@@ -4,18 +4,18 @@ import RepeatingSection from "../../components/Roll20/Roll20_RepeatingSection.as
 const {id, classes, repAttr,nameAttr, perkAttr, contactsAttr} = Astro.props;
 ---
 <div id={id} class={`grid gtw-1 bordered ${classes}`}>
-    <div class="bg-med b upcase border-bottom pad-left">Spheres of influence</div>
+    <div class="bg-med b upcase border-bottom pad-left" data-i18n="SpheresOfInfluence">Spheres of influence</div>
     <div>
         <RepeatingSection
             classes="repblock"
             attr={repAttr}>
             <div class="grid gtw-2 pad-left pad-right pad-top pad-bottom marg-top marg-left marg-right bordered round-borders bg-white">
                 <input type="text" name={`attr_${nameAttr}`} class="border-bottom" />
-                <input type="text" name={`attr_${perkAttr}`} class="border-bottom" />
-                <div class="text-left b upcase">Sphere of influence</div>
-                <div class="text-left b upcase">Perk</div>
-                <input type="text" name={`attr_${contactsAttr}`} class="gw-2 border-bottom" />
-                <div class="gw-2 text-left b upcase">Contacts</div>
+                <input type="text" name={`attr_${contactsAttr}`} class="border-bottom" />
+                <div class="text-left b upcase" data-i18n="SphereOfInfluence">Sphere of influence</div>
+                <div class="text-left b upcase" data-i18n="Contacts">Contacts</div>
+                <input type="text" name={`attr_${perkAttr}`} class="gw-2 border-bottom" />
+                <div class="text-left gw-2 b upcase" data-i18n="Perk">Perk</div>
             </div>
         </RepeatingSection>
     </div>

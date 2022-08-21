@@ -10,15 +10,15 @@ const {id, classes, repeatAttr, sizeAttr, progressAttr, descAttr} = Astro.props;
             <input type="hidden" class="clock-size-selector-controller" value="0" name={`attr_${sizeAttr}`} />
             <div class="clock-size-selector gw-2">
                 <div class="flex-left">
-                    <label>Select clock size:</label>
+                    <label><span data-i18n="SelectClockSize">Select clock size</span>:</label>
                     <select name={`attr_${sizeAttr}`}>
-                        <option value="0" selected={true}>0</option>
-                        <option value="2">2</option>
-                        <option value="4">4</option>
-                        <option value="6">6</option>
-                        <option value="8">8</option>
-                        <option value="10">10</option>
-                        <option value="12">12</option>
+                        <option value="0" selected={true} data-i18n="0">0</option>
+                        <option value="2" data-i18n="2">2</option>
+                        <option value="4" data-i18n="4">4</option>
+                        <option value="6" data-i18n="6">6</option>
+                        <option value="8" data-i18n="8">8</option>
+                        <option value="10" data-i18n="10">10</option>
+                        <option value="12" data-i18n="12">12</option>
                     </select>
                 </div>
             </div>

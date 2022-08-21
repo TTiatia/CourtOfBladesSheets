@@ -16,6 +16,7 @@ const {id, classes} = Astro.props;
         <SpecialAbilities 
             classes=""
             title="Special Feature"
+            titleTranslation="SpecialFeature"
             enabledAttr="housefeatureenabled" 
             descAttr="housefeaturedes" 
             repeatAttr="housefeatures">
@@ -23,6 +24,7 @@ const {id, classes} = Astro.props;
         <SpecialAbilities 
             classes=""
             title="Special Abilities"
+            titleTranslation="SpecialAbilities"
             enabledAttr="houseAbilityActive" 
             nameAttr="houseAbilityName" 
             descAttr="houseAbilityDesc" 
@@ -32,11 +34,9 @@ const {id, classes} = Astro.props;
             attrPrefix="housexp">
         </BoxHouseXPTrigger>
     </div>
-    <NoteField attr="housenotes" label="Notes" classes="marg-top"></NoteField>
+    <NoteField attr="housenotes" label="Notes" labelTranslation="Notes" classes="marg-top"></NoteField>
     <div class="bordered marg-top gw-1 grid gtw-1">
-        <div class="b bg-med text-center border-bottom gw-1 upcase">
-            Clocks
-        </div>
+        <div class="b bg-med text-center border-bottom gw-1 upcase" data-i18n="Clocks"></div>
         <DynamicClocks repeatAttr="houseclocks" sizeAttr="houseclocksize" progressAttr="houseclockprogress" descAttr="houseclockdesc"></DynamicClocks>
     </div>
 </div>

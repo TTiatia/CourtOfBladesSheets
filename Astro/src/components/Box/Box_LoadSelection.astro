@@ -2,13 +2,25 @@
 const {id, classes, attrName} = Astro.props;
 ---
 <div id={id} class={`bg-med text-left flex-spaced pad-left pad-right pad-top ${classes}`}>
-    <div class="b upcase flex-vert-center flex-center">Load</div>
+    <div class="b upcase flex-vert-center flex-center" data-i18n="Load">Load</div>
     <div class="flex-vert flex-vert-center flex-center">
         <input type="checkbox" name={`attr_${attrName}`} value="1" class="shape-diamond-med unchecked-light checked-red vert-middle" />
-        <div class=""><i>Discrete</i> 1-3</div>
+        <div class="">
+            <span class="i" data-i18n="Discrete">Discrete</span>
+            &nbsp;
+            <span data-i18n="1"></span>
+            -
+            <span data-i18n="3"></span>
+        </div>
     </div>
     <div class="flex-vert flex-vert-center flex-center">
         <input type="checkbox" name={`attr_${attrName}`} value="2" class="shape-diamond-med unchecked-light checked-red vert-middle" />
-        <div class=""><i>Loaded</i> 3-6</div>
+        <div class="">
+            <span class="i" data-i18n="Loaded">Loaded</span>
+            &nbsp;
+            <span data-i18n="4"></span>
+            -
+            <span data-i18n="6"></span>
+        </div>
     </div>
 </div>

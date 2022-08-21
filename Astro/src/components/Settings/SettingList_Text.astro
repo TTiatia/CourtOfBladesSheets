@@ -1,0 +1,22 @@
+---
+import SettingText from "./Setting_Text.astro";
+
+const {
+    title,
+    defaultOption,
+    attr,
+    count
+} = Astro.props;
+
+function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
+---
+
+{toArray(count).map((i) => (
+    <SettingText
+        class=""
+        title={`${title} ${i}`}
+        attr={`attr_${attr}${i}`}
+        defaultOption={defaultOption}
+        visibility={`gte-${i}`}>
+    </SettingText>
+))}

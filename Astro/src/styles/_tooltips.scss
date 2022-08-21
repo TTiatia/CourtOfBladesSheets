@@ -21,13 +21,15 @@
         border-radius: 6px;
         position: absolute;
         font-weight: normal;
+        font-style: normal;
         top: 95%;
         left: 0;
         z-index: 6;
+        transition: visibility 0s linear 2s;
     }
     .tooltip-custom:hover .tooltip-custom-text {
         visibility: visible;
-        transition: visibility 0s linear 2s;
+        transition: visibility 0s linear 1s;
     }
     textarea.tooltip-custom-text,
     .tooltip-custom-text textarea {

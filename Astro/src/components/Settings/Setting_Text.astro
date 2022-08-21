@@ -1,0 +1,18 @@
+---
+const {
+    id,
+    title,
+    titleTranslation,
+    defaultOption,
+    visibility,
+    attr
+} = Astro.props;
+
+var conditionalVisibility = visibility != null && visibility != undefined && visibility != "";
+
+---
+
+<div id={id || ""} class={`flex-left${conditionalVisibility ? " visibility-" + visibility : ""}`}>
+    &nbsp;<label class="capitalise"><span data-i18n={titleTranslation || ""}>{title}</span>:</label>
+    <input type="text" name={`attr_${attr}`} class="customsetting marg-left border-bottom" value={defaultOption || ""}/>
+</div>

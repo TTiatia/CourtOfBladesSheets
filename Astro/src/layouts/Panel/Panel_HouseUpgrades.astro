@@ -9,11 +9,12 @@ const {id, classes} = Astro.props;
 <div id={id} class={classes}>
     <SheetXPBox 
         title="Coterie xp" 
+        titleTranslation="CoterieXP"
         attr="housexp" 
         boxCount={10}>
     </SheetXPBox>
     <div class="marg-top bordered">
-        <div class="border-bottom skillname b upcase pad-left">Unique upgrades</div>
+        <div class="border-bottom skillname b upcase pad-left"><span data-i18n="UniqueUpgrades">Unique upgrades</span></div>
         <RepeatingSection class="grid gtw-1 gaph-4 repblock"  attr="houseup1">
             <UpgradeRow 
             nameAttr="houseup1name"
@@ -23,8 +24,8 @@ const {id, classes} = Astro.props;
         </RepeatingSection>
     </div>
     <div class="marg-top bordered">
-        <div class="border-bottom skillname b upcase pad-left">Universal upgrades</div>
-        <div class="i b marg-top capitalise">Quality:</div>
+        <div class="border-bottom skillname b upcase pad-left"><span data-i18n="UniversalUpgrades">Universal upgrades</span></div>
+        <div class="i b marg-top capitalise"><span data-i18n="Quality">Quality</span>:</div>
         <RepeatingSection classes="grid gtw-1 gaph-4 repcol2"  attr="houseup2">
             <UpgradeRow 
                 nameAttr="houseup2name"
@@ -32,7 +33,7 @@ const {id, classes} = Astro.props;
                 tooltipAttr="houseup2desc">
             </UpgradeRow>
         </RepeatingSection>
-        <div class="i b marg-top capitalise">Training:</div>
+        <div class="i b marg-top capitalise"><span data-i18n="Training"></span>:</div>
         <RepeatingSection classes="grid gtw-1 gaph-4 repcol3" attr="houseup3">
             <UpgradeRow 
                 nameAttr="houseup3name"
@@ -40,7 +41,7 @@ const {id, classes} = Astro.props;
                 tooltipAttr="houseup3desc">
             </UpgradeRow>
         </RepeatingSection>
-        <div class="i b marg-top capitalise">Others:</div>
+        <div class="i b marg-top capitalise"><span data-i18n="Others">Others</span>:</div>
         <RepeatingSection classes="grid gtw-1 gaph-4 repblock" attr="houseup4">
             <UpgradeRow 
                 nameAttr="houseup4name"

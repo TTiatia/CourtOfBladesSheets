@@ -1,10 +1,10 @@
 ﻿.charsheet .court-of-blades {
-    min-width: 475+375+190+4+4px;
-    max-width: 475+375+190+4+4px;
-    width: 475+375+190+4+4px;
+    min-width: 475+375+190+4+12px;
+    max-width: (475+375+190+4+12) * 1.5px;
+    width: fit-content;
     [class^="panel-"],
     [class*=" panel-"] {
-        display: block;
+        display: inline-block;
     }
     .panel-left {
         width: 475px;
@@ -14,10 +14,10 @@
         width: 375px;
         min-width: 375px;
         margin-left: 2px;
-        margin-right: 2px;
+        margin-right: 10px;
     }
     .panel-right {
-        width: 190px;
+        max-width: 190*1.5px;
         min-width: 190px;
     }
     .page {

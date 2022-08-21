@@ -1,11 +1,13 @@
 ---
 import PCAttributeRow from "../Row/Row_PCAttribute.astro";
 import PCSkillRow from "../Row/Row_PCSkill.astro";
+import VisibilityControl from "../Visibility/Visibility_Control.astro";
 
 const {
     id, 
     classes,
     skillPerCategory,
+    catNum,
     categoryNameAttr,
     categoryValueAttr,
     categoryTooltipAttr,
@@ -20,13 +22,13 @@ function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
 ---
 <div id={id} class={`marg-bottom pad-bottom ${classes}`}>
     <PCAttributeRow 
-        catNum={1}
+        catNum={catNum}
         categoryNameAttr={`${categoryNameAttr}`}
         categoryValueAttr={`${categoryValueAttr}`}
         categoryTooltipAttr={`${categoryTooltipAttr}`}
         categoryXPCount={categoryXPCount}>
     </PCAttributeRow>
-    <input type="hidden" name="attr_setting_actioncount" class="visibility-control" />
+    <VisibilityControl attr={`setting_attrskillcount${catNum}`}></VisibilityControl>
     {toArray(skillPerCategory).map((skillNum) => (
         <>
             <PCSkillRow

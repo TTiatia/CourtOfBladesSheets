@@ -1,5 +1,11 @@
 ---
 import LogoBox from "../../components/Box/Box_Logo.astro";
+import SettingListDropdown from "../../components/Settings/SettingList_Dropdown.astro";
+import SettingListText from "../../components/Settings/SettingList_Text.astro";
+import SettingListTextDouble from "../../components/Settings/SettingList_TextDouble.astro";
+import SettingDropdown from "../../components/Settings/Setting_Dropdown.astro";
+import SettingText from "../../components/Settings/Setting_Text.astro";
+import VisibilityControl from "../../components/Visibility/Visibility_Control.astro";
 
 import Page from "../Page.astro";
 
@@ -15,6 +21,8 @@ const {
     skillDescAttrPrefix,
 } = Astro.props;
 function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
+const maxCount = 6;
+const maxCountString = "1=1;2=2;3=3;4=4;5=5;6=6"
 //attr_scandaltype
 ---
 
@@ -22,296 +30,90 @@ function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
     <div class="grid gtw-1 max-width gapw-4">
         <div class="flex-left gw-1">
             <LogoBox></LogoBox>
-            <div class="titlebox-title logo-title offset-from-top">Sheet Settings</div>
+            <div class="titlebox-title logo-title offset-from-top" data-i18n="SheetSettings">Sheet Settings</div>
         </div>
         <div class="offset-for-title offset-innerpanel-full marg-top pad-top grid gtw-3 gapw-6">
             <div class="border-bold-left border-bold-right border-bold-top border-bold-bottom bg-white grid gtw-1">
-                <div class="capitalise b i text-center heading">
-                    Actions &amp; Attributtes
+                <div class="capitalise b i text-center heading" data-i18n="ActionsAndAttributes">Actions &amp; Attributes</div>
+                &nbsp;
+                <div class="bg-med b upcase border-top border-bottom" data-i18n="Attributes">Attributes</div>
+                <div id="setting-attributes-general">
+                    <SettingDropdown
+                        class=""
+                        titleTranslation="NumberOfAttributes"
+                        attr="setting_attrcount"
+                        options={maxCountString}
+                        defaultOption={3}
+                        >
+                    </SettingDropdown>
+
+                    <VisibilityControl attr="setting_attrcount"></VisibilityControl>
+                    <SettingListDropdown
+                        titleTranslation="NumberOfSkillsInAttribute"
+                        defaultOption={4}
+                        attr="setting_attrskillcount"
+                        count={maxCount}>
+                    </SettingListDropdown>
                 </div>
-                <div class="bg-med b upcase border-top border-bottom pad-left">
-                    General
-                </div>
-                <div>
-                    <div class="flex-left">
-                        <label class="capitalise">Number of attributes</label>
-                        <select name="attr_setting_attrcount" class="customsetting">
-                            <option value={1}>1</option>
-                            <option value={2}>2</option>
-                            <option value={3} selected={true}>3</option>
-                            <option value={4} >4</option>
-                            <option value={5} >5</option>
-                        </select>
-                    </div>
-                    <div class="flex-left">
-                        <label class="capitalise">&nbsp;Actions per attribute</label>
-                        <select name="attr_setting_actioncount" class="customsetting">
-                            <option value={1} >1</option>
-                            <option value={2} >2</option>
-                            <option value={3} >3</option>
-                            <option value={4} selected={true}>4</option>
-                            <option value={5} >5</option>
-                            <option value={6} >6</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="bg-med b upcase border-top border-bottom pad-left">
-                    Attribute Names
-                </div>
+                
                 <div class="grid gtw-1">
-                    <input type="hidden" name="attr_setting_attrcount" class="visibility-control" />
-                    <div class="flex-left visibility-gte-1">
-                        <label class="capitalise marg-right">Attribute 1:</label>
-                        <input type="text" name="attr_pcattrname1" class="customsetting"/>
-                    </div>
-                    <div class="flex-left visibility-gte-2">
-                        <label class="capitalise marg-right">Attribute 2:</label>
-                        <input type="text" name="attr_pcattrname2" class="customsetting"/>
-                    </div>
-                    <div class="flex-left visibility-gte-3">
-                        <label class="capitalise marg-right">Attribute 3:</label>
-                        <input type="text" name="attr_pcattrname3" class="customsetting"/>
-                    </div>
-                    <div class="flex-left visibility-gte-4">
-                        <label class="capitalise marg-right">Attribute 4:</label>
-                        <input type="text" name="attr_pcattrname4" class="customsetting"/>
-                    </div>
-                    <div class="flex-left visibility-gte-5">
-                        <label class="capitalise marg-right">Attribute 5:</label>
-                        <input type="text" name="attr_pcattrname5" class="customsetting"/>
-                    </div>
-                </div>
-                <div class="bg-med b upcase border-top border-bottom pad-left">
-                    Action Names
-                </div>
-                <div class="grid gtw-1">
-                    <input type="hidden" name="attr_setting_attrcount" class="visibility-control"/>
-                    <div class="grid gtw-1 visibility-gte-1">
-                        <input type="hidden" name="attr_setting_actioncount" class="visibility-control" />
-                        <div class="flex-left visibility-gte-1">
-                            <span type="text" readonly={true} name="attr_pcattrname1"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 1:</label>
-                            <input type="text" name="attr_pcskillname11" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc11" class="customsetting border-bottom"/>
+                    <VisibilityControl attr="setting_attrcount"></VisibilityControl>
+                    {toArray(maxCount).map((i) => (<>
+                        <div class={`grid gtw-1 visibility-gte-${i}`}>
+                            <div class="bg-med b upcase border-top border-bottom marg-top">
+                                &nbsp;<span data-i18n="Attribute"></span> {i} (<span name={`attr_pcattrname${i}`}></span>)
+                            </div>
+                            <SettingText
+                                titleTranslation="AttributeName"
+                                attr={`pcattrname${i}`}>
+                            </SettingText>
+                            <SettingText
+                                titleTranslation="ResistanceDescription"
+                                attr={`pcattrdesc${i}`}>
+                            </SettingText>
+                            <div class="grid gtw-1">
+                                <VisibilityControl attr={`setting_attrskillcount${i}`}></VisibilityControl>
+                                <SettingListTextDouble
+                                    titleTranslation="Action"
+                                    attr1={`pcskillname${i}`}
+                                    attr2={`pcskilldesc${i}`}
+                                    count={maxCount}>
+                                </SettingListTextDouble>
+                            </div>
                         </div>
-                        <div class="flex-left visibility-gte-2">
-                            <span type="text" readonly={true} name="attr_pcattrname1" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 2:</label>
-                            <input type="text" name="attr_pcskillname12" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc12" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-3">
-                            <span type="text" readonly={true} name="attr_pcattrname1" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 3:</label>
-                            <input type="text" name="attr_pcskillname13" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc13" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-4">
-                            <span type="text" readonly={true} name="attr_pcattrname1" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 4:</label>
-                            <input type="text" name="attr_pcskillname14" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc14" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-5">
-                            <span type="text" readonly={true} name="attr_pcattrname1" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 5:</label>
-                            <input type="text" name="attr_pcskillname15" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc15" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-6">
-                            <span type="text" readonly={true} name="attr_pcattrname1" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 6:</label>
-                            <input type="text" name="attr_pcskillname16" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc16" class="customsetting border-bottom"/>
-                        </div>
-                    </div>
-                    <div class="grid gtw-1 visibility-gte-2">
-                        <input type="hidden" name="attr_setting_actioncount" class="visibility-control" />
-                        <div class="flex-left visibility-gte-1">
-                            <span type="text" readonly={true} name="attr_pcattrname2"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 1:</label>
-                            <input type="text" name="attr_pcskillname21" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc21" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-2">
-                            <span type="text" readonly={true} name="attr_pcattrname2" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 2:</label>
-                            <input type="text" name="attr_pcskillname22" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc22" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-3">
-                            <span type="text" readonly={true} name="attr_pcattrname2" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 3:</label>
-                            <input type="text" name="attr_pcskillname23" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc23" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-4">
-                            <span type="text" readonly={true} name="attr_pcattrname2" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 4:</label>
-                            <input type="text" name="attr_pcskillname24" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc24" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-5">
-                            <span type="text" readonly={true} name="attr_pcattrname2" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 5:</label>
-                            <input type="text" name="attr_pcskillname25" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc25" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-6">
-                            <span type="text" readonly={true} name="attr_pcattrname2" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 6:</label>
-                            <input type="text" name="attr_pcskillname26" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc26" class="customsetting border-bottom"/>
-                        </div>
-                    </div>
-                    <div class="grid gtw-1 visibility-gte-3">
-                        <input type="hidden" name="attr_setting_actioncount" class="visibility-control" />
-                        <div class="flex-left visibility-gte-1">
-                            <span type="text" readonly={true} name="attr_pcattrname3"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 1:</label>
-                            <input type="text" name="attr_pcskillname31" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc31" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-2">
-                            <span type="text" readonly={true} name="attr_pcattrname3" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 2:</label>
-                            <input type="text" name="attr_pcskillname32" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc32" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-3">
-                            <span type="text" readonly={true} name="attr_pcattrname3" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 3:</label>
-                            <input type="text" name="attr_pcskillname33" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc33" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-4">
-                            <span type="text" readonly={true} name="attr_pcattrname3" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 4:</label>
-                            <input type="text" name="attr_pcskillname34" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc34" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-5">
-                            <span type="text" readonly={true} name="attr_pcattrname3" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 5:</label>
-                            <input type="text" name="attr_pcskillname35" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc35" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-6">
-                            <span type="text" readonly={true} name="attr_pcattrname3" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 6:</label>
-                            <input type="text" name="attr_pcskillname36" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc36" class="customsetting border-bottom"/>
-                        </div>
-                    </div>
-                    <div class="grid gtw-1 visibility-gte-2">
-                        <input type="hidden" name="attr_setting_actioncount" class="visibility-control" />
-                        <div class="flex-left visibility-gte-1">
-                            <span type="text" readonly={true} name="attr_pcattrname4"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 1:</label>
-                            <input type="text" name="attr_pcskillname41" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc41" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-2">
-                            <span type="text" readonly={true} name="attr_pcattrname4" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 2:</label>
-                            <input type="text" name="attr_pcskillname42" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc42" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-3">
-                            <span type="text" readonly={true} name="attr_pcattrname4" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 3:</label>
-                            <input type="text" name="attr_pcskillname43" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc43" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-4">
-                            <span type="text" readonly={true} name="attr_pcattrname4" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 4:</label>
-                            <input type="text" name="attr_pcskillname44" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc44" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-5">
-                            <span type="text" readonly={true} name="attr_pcattrname4" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 5:</label>
-                            <input type="text" name="attr_pcskillname45" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc45" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-6">
-                            <span type="text" readonly={true} name="attr_pcattrname4" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 6:</label>
-                            <input type="text" name="attr_pcskillname46" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc46" class="customsetting border-bottom"/>
-                        </div>
-                    </div>
-                    <div class="grid gtw-1 visibility-gte-2">
-                        <input type="hidden" name="attr_setting_actioncount" class="visibility-control" />
-                        <div class="flex-left visibility-gte-1">
-                            <span type="text" readonly={true} name="attr_pcattrname5"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 1:</label>
-                            <input type="text" name="attr_pcskillname51" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc51" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-2">
-                            <span type="text" readonly={true} name="attr_pcattrname5" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 2:</label>
-                            <input type="text" name="attr_pcskillname52" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc52" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-3">
-                            <span type="text" readonly={true} name="attr_pcattrname5" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 3:</label>
-                            <input type="text" name="attr_pcskillname53" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc53" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-4">
-                            <span type="text" readonly={true} name="attr_pcattrname5" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 4:</label>
-                            <input type="text" name="attr_pcskillname54" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc54" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-5">
-                            <span type="text" readonly={true} name="attr_pcattrname5" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 5:</label>
-                            <input type="text" name="attr_pcskillname55" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc55" class="customsetting border-bottom"/>
-                        </div>
-                        <div class="flex-left visibility-gte-6">
-                            <span type="text" readonly={true} name="attr_pcattrname5" class="attribute-for-label"></span>
-                            <label class="capitalise marg-right">&nbsp;Action 6:</label>
-                            <input type="text" name="attr_pcskillname56" class="customsetting border-bottom"/>
-                            <input type="text" name="attr_pcskilldesc56" class="customsetting border-bottom"/>
-                        </div>
-                    </div>
+                    </>))}
                 </div>
             </div>
             <div class="border-bold-left border-bold-right border-bold-top border-bold-bottom bg-white grid gtw-1">
-                <div class="capitalise b i text-center heading">
-                    Playbook
+                <div class="capitalise b i text-center heading" data-i18n="Playbook">Playbook</div>
+                <div class="bg-med b upcase border-top border-bottom pad-left" data-i18n="General">General</div>
+                <div class="grid gtw-1">
+                    <SettingDropdown
+                        titleTranslation="TraumaTypes"
+                        defaultOption={1}
+                        options="1=Scandals;2=Shatters"
+                        attr="scandaltype"
+                        count={maxCount}>
+                    </SettingDropdown>
+                    <SettingDropdown
+                        titleTranslation="Playbook"
+                        defaultOption={0}
+                        options="0=Not Set;1=The Bravo;2=The Hawk;3=The Eye;4=The Couth;5=The Knack;6=The Key;7=The Kiss;8=The Curse;99=Custom"
+                        attr="playbooktype"
+                        count={maxCount}>
+                    </SettingDropdown>
+                    <SettingDropdown
+                        titleTranslation="Coterie"
+                        defaultOption={0}
+                        options="0=Not Set;1=House Corvetto;3=House Battalia;4=HouseBastien;5=House Lovell;6=House Al-Mari;7=House Elanda;99=Custom"
+                        attr="coteriehouse"
+                        count={maxCount}>
+                    </SettingDropdown>
                 </div>
-                <div class="bg-med b upcase border-top border-bottom pad-left">
-                    General
-                </div>
+                <div class="bg-med b upcase border-top border-bottom pad-left" data-i18n="Items"></div>
                 <div>
-                    <div class="flex-left">
-                        <label class="capitalise">Trauma type: </label>
-                        <select name="attr_scandaltype" class="customsetting">
-                            <option value={1} selected={true}>Scandals</option>
-                            <option value={2}>Shatters</option>
-                        </select>
-                    </div>
-                    <div class="flex-left">
-                        <label class="capitalise">Playbook: </label>
-                        <select name="attr_playbooktype" class="customsetting">
-                            <option value={1} selected={true}>Unset</option>
-                            <option value={2}>The Bravo</option>
-                            <option value={3}>The Hawk</option>
-                            <option value={4}>The Eye</option>
-                            <option value={5}>The Couth</option>
-                            <option value={6}>The Knack</option>
-                            <option value={7}>The Key</option>
-                            <option value={8}>The Kiss*</option>
-                            <option value={9}>The Curse*</option>
-                        </select>
-                    </div>
+                    <label class="captialise b customsetting">&nbsp;<span data-i18n="UniversalItemsList">Universal items list</span>:</label>
+                    <button class="customsetting upcase" data-i18n="Reset">RESET</button>
                 </div>
             </div>
         </div>

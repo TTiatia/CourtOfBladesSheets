@@ -5,7 +5,6 @@ import NoteField from "../../components/Roll20/Roll20_NoteField.astro";
 import Page from "../Page.astro";
 import PanelFactionMajor from "../Panel/Panel_FactionMajor.astro";
 import PanelFactionMinor from "../Panel/Panel_FactionMinor.astro";
-import PanelFactionNotes from "../Panel/Panel_FactionNotes.astro";
 import PanelFactionRules from "../Panel/Panel_FactionRules.astro";
 
 const {id, classes, pageNum} = Astro.props;
@@ -16,7 +15,7 @@ const {id, classes, pageNum} = Astro.props;
         <div class="grid gtw-1">
             <div class="flex-left">
                 <LogoBox></LogoBox>
-                <div class="titlebox-title logo-title offset-from-top">Factions of Ilrien</div>
+                <div class="titlebox-title logo-title offset-from-top capitalise" data-i18n="FactionsOfIlrien">Factions of Ilrien</div>
             </div>
         </div>
         <div class="offset-for-title grid gtw-3 gapw-8">
@@ -28,6 +27,8 @@ const {id, classes, pageNum} = Astro.props;
                 statusAttr="factmajorstatus"
                 favourAttr="factmajorfavor"
                 title="Houses Major"
+                titleTranslation="HousesMajor"
+                wordsTranslation="HousesMajorWords"
                 >
             </PanelFactionMajor>
             <PanelFactionMinor
@@ -37,7 +38,10 @@ const {id, classes, pageNum} = Astro.props;
                 tierAttr="factminor1tier"
                 statusAttr="factminor1status"
                 favourAttr="factminor1favor"
-                title="Houses Minor">   
+                title="Houses Minor"   
+                titleTranslation="HousesMinor"
+                wordsTranslation="HousesMinorWords"
+                >
             </PanelFactionMinor>
             <NoteField
                 attr="factgmnotes"
@@ -51,7 +55,10 @@ const {id, classes, pageNum} = Astro.props;
                 tierAttr="factminor2tier"
                 statusAttr="factminor2status"
                 favourAttr="factminor2favor"
-                title="The Outsiders">   
+                title="The Outsiders"   
+                titleTranslation="TheOutsiders"
+                wordsTranslation="OutsidersWords"
+                >
             </PanelFactionMinor>
             <PanelFactionMinor
                 classes=""
@@ -60,7 +67,10 @@ const {id, classes, pageNum} = Astro.props;
                 tierAttr="factminor3tier"
                 statusAttr="factminor3status"
                 favourAttr="factminor3favor"
-                title="The Uncouth">   
+                title="The Uncouth"   
+                titleTranslation="TheUncouth"
+                wordsTranslation="UncouthWords"
+                >   
             </PanelFactionMinor>
 
             <PanelFactionRules classes=""></PanelFactionRules>

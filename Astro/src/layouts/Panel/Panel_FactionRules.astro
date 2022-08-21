@@ -3,57 +3,64 @@ const {id, classes} = Astro.props;
 ---
 <div id={id} class={`grid-stat-row pad-top ${classes}`}>
     <div>
-        <span class="b">+3:</span>
-        <span class="i marg-left capitalise">Allies</span>
+        <span class="b" data-i18n="+3">+3</span>
+        :
+        <span class="i marg-left capitalise" data-i18n="Allies">Allies</span>
     </div>
-    <div class="marg-left">
+    <div class="marg-left" data-i18n="AlliesDescriptionText">
         This faction will help you even if it is not in their best interest to do so. They expect you to do the same for them.
     </div>
 
     <div>
-        <span class="b">+2:</span>
-        <span class="i marg-left capitalise">Friendly</span>
+        <span class="b" data-i18n="+2">+2</span>
+        :
+        <span class="i marg-left capitalise" data-i18n="Friendly">Friendly</span>
     </div>
-    <div class="marg-left">
+    <div class="marg-left" data-i18n="FriendlyDescriptionText">
         This faction will help you if it does not create serious problems for them. They expect the same from you.
     </div>
 
     <div>
-        <span class="b">+1:</span>
-        <span class="i marg-left capitalise">Helpful</span>
+        <span class="b" data-i18n="+1">+1</span>
+        :
+        <span class="i marg-left capitalise" data-i18n="Helpful">Helpful</span>
     </div>
-    <div class="marg-left">
+    <div class="marg-left" data-i18n="HelpfulDescriptionText">
         This faction will help you if it causes no problems or significant cost for them. They expect the same from you.
     </div>
 
     <div>
-        <span class="b">0:</span>
-        <span class="i marg-left capitalise">Neutral</span>
+        <span class="b" data-i18n="0">0</span>
+        :
+        <span class="i marg-left capitalise" data-i18n="Neutral">Neutral</span>
     </div>
     <div class="marg-left"></div>
 
     <div>
-        <span class="b">-1:</span>
-        <span class="i pad-left capitalise">Interfering</span>
+        <span class="b" data-i18n="-1">-1</span>
+        :
+        <span class="i pad-left capitalise" data-i18n="Interfering">Interfering</span>
     </div>
-    <div class="marg-left">
+    <div class="marg-left" data-i18n="InterferingDescriptionText">
         This faction will look for opportunities to cause problems for you (or profit from your misfortune) so long as it causes no problems or significant cost for them. They expect the same from you.
     </div>
 
     <div>
-        <span class="b">-2:</span>
-        <span class="i marg-left capitalise">Hostile</span>
+        <span class="b" data-i18n="-2">-2</span>
+        :
+        <span class="i marg-left capitalise" data-i18n="Hostile">Hostile</span>
     </div>
-    <div class="marg-left">
+    <div class="marg-left" data-i18n="HostileDescriptionText">
         This faction will look for opportunities to hurt you so long as it does not create serious problems for them. They expect you to do the same and take precautions against you.
     </div>
 
     <div>
-        <span class="b">-3:</span>
-        <span class="i marg-left capitalise">War</span>
+        <span class="b" data-i18n="-3">-3</span>
+        :
+        <span class="i marg-left capitalise" data-i18n="War">War</span>
     </div>
     <div class="marg-left">
-        <p>This faction will go out of its way to hurt you even if it's not in their best interest to do so. They expect you to do the same and take precautions against you.</p>
-        <p>When you are at war with any number of factions, your crew suffers <b>+1 exposure</b> from errands, and PC's get only one downtime action rather than two. You can end a war by eliminating your enemy or by negotiating a mutual agreement to estrablish a new status rating.</p>
+        <p  data-i18n="WarDescriptionTextParagraph1"></p>
+        <p  data-i18n="WarDescriptionTextParagraph2"></p>
     </div>
 </div>

@@ -13,6 +13,7 @@ const { id, classes } = Astro.props;
     <SheetXPBox 
         id="pcstatpanel-charxp" 
         title="Character xp" 
+        titleTranslation="CharacterXP"
         attr="playbookxp" 
         boxCount={10}>
     </SheetXPBox>
@@ -42,17 +43,21 @@ const { id, classes } = Astro.props;
     <ItemListBox 
         id="pcstatpanel-specperm" 
         title="Special permissions"
+        titleTranslation="SpecialPermissions"
         classes="marg-bottom"
         repeatAttr="pcpermissions"
         nameAttr="pcpermissionname"
+        descAttr="pcpermissiondesc"
         valueAttr="pcpermissionvalue"
         styleAttr="pcpermissionstyle">
     </ItemListBox>
     <ItemListBox id="pcstatpanel-playbookgear" 
         title="Gear"
+        titleTranslation="Gear"
         classes="bg-light"
         repeatAttr="pcplaybookitems"
         nameAttr="pcplaybookitemname"
+        descAttr="pcplaybookitemdesc"
         valueAttr="pcplaybookitemvalue"
         styleAttr="pcplaybookitemstyle">
     </ItemListBox>
@@ -61,6 +66,7 @@ const { id, classes } = Astro.props;
         classes=""
         repeatAttr="pcitems"
         nameAttr="pcitemname"
+        descAttr="pcitemdesc"
         valueAttr="pcitemvalue"
         styleAttr="pcitemstyle">
     </ItemListBox>

@@ -1,13 +1,13 @@
 ---
 const {id, classes} = Astro.props;
 const questions = [
-    "How can I hurt them?",
-    "What do they want most?",
-    "Who's most dangerous here?",
-    "What do they intend to do?",
-    "How can I get them to [X]?",
-    "Are they telling the truth?",
-    "What's really going on here?",
+    {translationKey:"GatherInfoQuestion1", text: "How can I hurt them?"},
+    {translationKey:"GatherInfoQuestion2", text: "What do they want most?"},
+    {translationKey:"GatherInfoQuestion3", text: "Who's most dangerous here?"},
+    {translationKey:"GatherInfoQuestion4", text: "What do they intend to do?"},
+    {translationKey:"GatherInfoQuestion5", text: "How can I get them to [X]?"},
+    {translationKey:"GatherInfoQuestion6", text: "Are they telling the truth?"},
+    {translationKey:"GatherInfoQuestion7", text: "What's really going on here?"},
 ];
 
 ---
@@ -15,7 +15,7 @@ const questions = [
     <div class="bg-black b upcase pad-left">Gather Information</div>
     {questions.map(q => (
         <>
-            <div class="pad-left"><span class="shape-diamond-small checked-red marg-right"></span><span class="i pad-left">{q}</span></div>
+            <div class="pad-left"><span class="shape-diamond-small checked-red marg-right"></span><span class="i pad-left" data-i18n={q.translationKey}>{q.text}</span></div>
         </>
     ))}
 </div>
