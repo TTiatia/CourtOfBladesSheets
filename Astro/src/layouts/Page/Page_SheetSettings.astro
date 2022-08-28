@@ -35,7 +35,6 @@ const maxCountString = "1=1;2=2;3=3;4=4;5=5;6=6"
         <div class="offset-for-title offset-innerpanel-full marg-top pad-top grid gtw-3 gapw-6">
             <div class="border-bold-left border-bold-right border-bold-top border-bold-bottom bg-white grid gtw-1">
                 <div class="capitalise b i text-center heading" data-i18n="ActionsAndAttributes">Actions &amp; Attributes</div>
-                &nbsp;
                 <div class="bg-med b upcase border-top border-bottom" data-i18n="Attributes">Attributes</div>
                 <div id="setting-attributes-general">
                     <SettingDropdown
@@ -59,9 +58,9 @@ const maxCountString = "1=1;2=2;3=3;4=4;5=5;6=6"
                 <div class="grid gtw-1">
                     <VisibilityControl attr="setting_attrcount"></VisibilityControl>
                     {toArray(maxCount).map((i) => (<>
-                        <div class={`grid gtw-1 visibility-gte-${i}`}>
-                            <div class="bg-med b upcase border-top border-bottom marg-top">
-                                &nbsp;<span data-i18n="Attribute"></span> {i} (<span name={`attr_pcattrname${i}`}></span>)
+                        <div class={`grid gtw-1 visibility-gte-${i} marg-bottom`}>
+                            <div class="bg-med b upcase border-top border-bottom">
+                                <span data-i18n="Attribute"></span> {i} (<span name={`attr_pcattrname${i}`}></span>)
                             </div>
                             <SettingText
                                 titleTranslation="AttributeName"
@@ -110,10 +109,18 @@ const maxCountString = "1=1;2=2;3=3;4=4;5=5;6=6"
                         count={maxCount}>
                     </SettingDropdown>
                 </div>
-                <div class="bg-med b upcase border-top border-bottom pad-left" data-i18n="Items"></div>
-                <div>
-                    <label class="captialise b customsetting">&nbsp;<span data-i18n="UniversalItemsList">Universal items list</span>:</label>
-                    <button class="customsetting upcase" data-i18n="Reset">RESET</button>
+            </div>
+            <div class="border-bold-left border-bold-right border-bold-top border-bold-bottom bg-white grid gtw-1">
+                <div class="capitalise b i text-center heading" data-i18n="GM">Roll settings</div>
+                <div class="bg-med b upcase border-top border-bottom pad-left" data-i18n="GM"></div>
+                <div class="grid gtw-1">
+                    <SettingDropdown
+                        titleTranslation="ShowGMTurnRollsTo"
+                        defaultOption={1}
+                        options="1=OnlyToGM;2=Everyone"
+                        attr="hideGMTurnRolls"
+                        count={maxCount}>
+                    </SettingDropdown>
                 </div>
             </div>
         </div>

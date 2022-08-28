@@ -17,8 +17,10 @@ const { id, classes } = Astro.props;
             title="Special Armor"
             titleTranslation="SpecialArmor"
             enabledAttr="armourAbilityActive" 
+            nameAttr="armourAbilityName"
             descAttr="armourAbilityDesc" 
-            repeatAttr="armourAbility">
+            repeatAttr="armourAbility"
+            hasName={false}>
         </SpecialAbilities>
         <SpecialAbilities 
             id="pcabilitypanel-specabilitybox" 
@@ -28,9 +30,13 @@ const { id, classes } = Astro.props;
             enabledAttr="playbookAbilityActive" 
             nameAttr="playbookAbilityName" 
             descAttr="playbookAbilityDesc" 
-            repeatAttr="playbookAbility">
+            repeatAttr="playbookAbility"
+            hasName={true}>
         </SpecialAbilities>
-        <XPTriggerBox id="pcabilitypanel-xptriggers"></XPTriggerBox>
+        <XPTriggerBox 
+            id="pcabilitypanel-xptriggers"
+            attrPrefix="pcxptriggers">
+        </XPTriggerBox>
     </div>
     <TeamworkPlanningLoadRulesBox id="pcabilitypanel-rulerefs" classes="marg-top pad-left"></TeamworkPlanningLoadRulesBox>
     <div class="bordered marg-top gw-1 grid gtw-1">

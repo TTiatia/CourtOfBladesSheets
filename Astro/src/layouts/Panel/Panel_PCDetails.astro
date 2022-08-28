@@ -17,9 +17,9 @@ const { id, classes } = Astro.props;
 <div id={id} class={classes}>
     <LogoBox id="pcpanel-LogoBox"></LogoBox>
     <div class="offset-for-title offset-innerpanel-left">
-        <CharInfo id="pcpanel-detailbox"></CharInfo>
+        <CharInfo id="pcpanel-detailbox" scandalAttr="scandals"></CharInfo>
         <StressShame id="pcpanel-stressinfluence" classes="marg-top"></StressShame>
-        <HarmBox id="pcpanel-harmhealing" classes="marg-top"></HarmBox>
+        <HarmBox id="pcpanel-harmhealing" harmAttrPrefix="pcharm" classes="marg-top"></HarmBox>
         <div class="marg-top grid gtw-4 border-right border-left border-bottom bg-white">
             <HealingBox id="pcpanel-healingbox" attr="pc_healing" classes="border-right"></HealingBox>
             <ArmourBox id="pcpanel-armourbox" armourAttr="pc_armour" specAttr="pc_armour_spec"></ArmourBox>

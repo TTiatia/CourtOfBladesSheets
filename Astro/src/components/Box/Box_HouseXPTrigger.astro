@@ -1,12 +1,16 @@
 ---
 import RepeatingSection from "../Roll20/Roll20_RepeatingSection.astro";
 
-const {id, classes, attrPrefix} = Astro.props;
+const {id, classes, attrPrefix, repeatAttr} = Astro.props;
 ---
 <div id={id} class={`grid gtw-3 xptriggers ${classes}`}>
     <div class="gw-3 heading pad-left bg-med border-top border-bottom upcase"  data-i18n="XPTriggers">XP Triggers</div>
     <div class="gw-3 text-center marg-bottom marg-top" data-i18n="HouseEndOfSessionXPText">At the end of each session, for each item below, mark 1 xp (on your House sheet), for a maximum of 4 xp.</div>
-    <RepeatingSection attr="pcxptrigger" classes="gw-3 xp-list">
+    <div class="flex-left gw-3 pad-left">
+        <div class="row-cb-holder"><span class="shape-diamond-small"></span></div>
+        <input type="text" name={`attr_${attrPrefix}unique`} class="pad-left" placeholder="XP trigger description" data-i18n-placeholder="XPTriggerDescription"/>
+    </div>
+    <RepeatingSection attr={repeatAttr} classes="gw-3 xp-list">
         <div class="flex-left gw-3 pad-left">
             <div class="row-cb-holder"><span class="shape-diamond-small"></span></div>
             <input type="text" name={`attr_${attrPrefix}extra`} class="pad-left" placeholder="XP trigger description" data-i18n-placeholder="XPTriggerDescription"/>

@@ -4,8 +4,6 @@ import DynamicClocks from "../../components/Clocks/Clocks_DynamicContainer.astro
 
 import TitleBox from "../../components/Box/Box_TitleAndSubtitle.astro";
 import SpecialAbilities from "../../components/Box/Box_SpecialAbilities.astro";
-import TeamworkPlanningLoadRulesBox from "../../components/Box/Box_TeamworkPlanningLoadRules.astro";
-import XPTriggerBox from "../../components/Box/Box_HouseXPTrigger.astro";
 import BoxHouseXPTrigger from "../../components/Box/Box_HouseXPTrigger.astro";
 
 const {id, classes} = Astro.props;
@@ -18,8 +16,10 @@ const {id, classes} = Astro.props;
             title="Special Feature"
             titleTranslation="SpecialFeature"
             enabledAttr="housefeatureenabled" 
+            nameAttr="housefeaturename" 
             descAttr="housefeaturedes" 
-            repeatAttr="housefeatures">
+            repeatAttr="housefeatures"
+            hasName={true}>
         </SpecialAbilities>
         <SpecialAbilities 
             classes=""
@@ -28,10 +28,12 @@ const {id, classes} = Astro.props;
             enabledAttr="houseAbilityActive" 
             nameAttr="houseAbilityName" 
             descAttr="houseAbilityDesc" 
-            repeatAttr="houseAbility">
+            repeatAttr="houseAbility"
+            hasName={true}>
         </SpecialAbilities>
         <BoxHouseXPTrigger
-            attrPrefix="housexp">
+            attrPrefix="housexp"
+            repeatAttr="housexptrigger">
         </BoxHouseXPTrigger>
     </div>
     <NoteField attr="housenotes" label="Notes" labelTranslation="Notes" classes="marg-top"></NoteField>
