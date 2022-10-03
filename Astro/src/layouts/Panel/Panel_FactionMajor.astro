@@ -1,0 +1,62 @@
+---
+import Repeatingsection from "../../components/Roll20/Roll20_RepeatingSection.astro";
+
+const {
+    id, 
+    classes,
+    repAttr,
+    nameAttr,
+    tierAttr,
+    statusAttr,
+    favourAttr,
+    title,
+    titleTranslation,
+    wordsTranslation,
+} = Astro.props;
+---
+<div id={id} class={`grid gtw-1 ${classes}`}>
+    <div class="grid-faction-row">
+        <div class="gw-3 titlebox-title capitalise flex-vert-bottom"><span class="max-width" data-i18n={titleTranslation || ""}>{title}</span></div>
+    </div>
+    <div class="text-center i capitalise">
+        <span data-i18n={wordsTranslation}></span>
+    </div>
+    <div class="grid-faction-row border-bottom border-top bg-med">
+        <div class="text-center b upcase" data-i18n="Tier">Tier</div>
+        <div class="text-left b marg-left pad-left upcase" data-i18n="Favor">Favour</div>
+        <div class="b upcase text-center upcase" data-i18n="Status">Status</div>
+    </div>
+    <Repeatingsection attr={repAttr} classes="repblock majorfactionlist">
+        <div class="grid-faction-row border-bottom pad-bottom">
+            <select name={`attr_${tierAttr}`}>
+                <option selected={true}>0</option>
+                <option>I</option>
+                <option>II</option>
+                <option>III</option>
+                <option>IV</option>
+                <option>V</option>
+                <option>VI</option>
+            </select>
+            <div class="grid gtw-1">
+                <div class="b pad-left"><input type="text" name={`attr_${nameAttr}`} class="capitalise" placeholder="House Name"  data-i18n-placeholder="HouseName"/></div>
+                <div class="tracker tracked-red text-left">
+                    <input type="radio" name={`attr_${favourAttr}`} value="0" class="track-zero shape-cross checked-hidden" checked={true} />
+                    <input type="radio" name={`attr_${favourAttr}`} value="1" class="shape-diamond-med" />
+                    <input type="radio" name={`attr_${favourAttr}`} value="2" class="shape-diamond-med" />
+                    <input type="radio" name={`attr_${favourAttr}`} value="3" class="shape-diamond-med" />
+                    <input type="radio" name={`attr_${favourAttr}`} value="4" class="shape-diamond-med" />
+                    <input type="radio" name={`attr_${favourAttr}`} disabled={true} class="shape-diamond-med shape-hidden" />
+                </div>
+            </div>
+            <select name={`attr_${statusAttr}`}>
+                <option data-i18n="-3">-3</option>
+                <option data-i18n="-2">-2</option>
+                <option data-i18n="-1">-1</option>
+                <option data-i18n="0" selected={true}>0</option>
+                <option data-i18n="+1">+1</option>
+                <option data-i18n="+2">+2</option>
+                <option data-i18n="+3">+3</option>
+            </select>
+        </div>
+    </Repeatingsection>
+</div>

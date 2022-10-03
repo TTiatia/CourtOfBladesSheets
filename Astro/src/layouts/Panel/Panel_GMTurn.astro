@@ -1,0 +1,51 @@
+---
+import LogoBox from "../../components/Box/Box_Logo.astro";
+
+import GMFactionTurnRow from "../../components/Row/Row_GMFactionTurn.astro";
+import NoteField from "../../components/Roll20/Roll20_NoteField.astro";
+import DynamicClocks from "../../components/Clocks/Clocks_DynamicContainer.astro";
+
+const {id, classes, factionCount} = Astro.props;
+function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
+---
+<div id={id} class={`grid gtw-1 max-width ${classes}`}>
+    <div class="flex-left">
+        <LogoBox></LogoBox>
+        <div class="titlebox-title logo-title offset-from-top" data-i18n="HousesOfTheEsultare">Houses of the Esultare</div>
+    </div>
+    <div class="offset-for-title offset-innerpanel-full">
+        <div class="grid-gmturn-row bordered bg-med upcase b text-center marg-bottom">
+            <span class="upcase" data-i18n="House">House</span>
+            <span class="upcase" data-i18n="Stats">Stats</span>
+            <span class="upcase" data-i18n="Notes">Notes</span>
+            <span class="upcase" data-i18n="LongTermObjectives">Long-Term Objectives</span>
+        </div>
+        {toArray(factionCount).map((factionNum) => (
+            <>
+                <GMFactionTurnRow
+                    factionNumber={factionNum} 
+                    nameAttr="factname"
+                    strengthAttr="factstrengths"
+                    statAttr="factstat" 
+                    notesAttr="factnotes"
+                    clockPrefixAttr="factclock"
+                    classes="marg-bottom">
+                </GMFactionTurnRow>
+            </>
+        ))}
+        <div class="marg-top grid-gmnotes">
+            <NoteField label="GM Notes" labelTranslation="GMNotes" attr="gmnotes"></NoteField>
+            <div>
+                <div class="bordered round-borders-top bg-light upcase text-center b"  data-i18n="GMClocks">GM Clocks</div>
+                <DynamicClocks 
+                    id="faction-clocks" 
+                    classes="border-left border-bottom border-right round-borders-bottom" 
+                    repeatAttr="gmclocks"
+                    sizeAttr="gmclocksize"
+                    progressAttr="gmclockprogress"
+                    descAttr="gmclockdesc">
+                </DynamicClocks>
+            </div>
+        </div>
+    </div>
+</div>

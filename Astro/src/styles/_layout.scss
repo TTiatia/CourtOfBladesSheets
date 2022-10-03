@@ -18,12 +18,30 @@
         justify-content: center;
         align-items: center;
     }
+    .max-width {
+        width: 100%;
+    }
     .offset-for-title {
         /* 0.83 400*/
         top: -54px;
         left: 31px;
         position: relative;
-        width: 425px;
+    }
+    .offset-innerpanel-left {
+        width: 435px;
+    }
+    .offset-innerpanel-full {
+        width: 998px;
+    }
+    .offset-from-top {
+        position: relative;
+        top: 48px;
+    }
+    .clock-size-selector select {
+        width: min-content;
+    }
+    .top-box {
+        height: 87px;
     }
     .text-left {
         text-align: left;

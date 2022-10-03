@@ -1,0 +1,35 @@
+---
+const {id, scandalAttr} = Astro.props;
+---
+<div id={id} class="grid gtw-2 gapw-10">
+    <input type="text" name="attr_pcname" class="border-bottom pcdetail" />
+    <input type="text" name="attr_pchouse" class="border-bottom pcdetail" />
+    <span class="b upcase" data-i18n="NameAndAlias">Name &amp; Alias</span>
+    <span class="b  upcase" data-i18n="House">House</span>
+
+    <input type="text" name="attr_pclook" class="border-bottom pcdetail" />
+    <input type="text" name="attr_pcindulgence" class="border-bottom pcdetail" />
+    <span class="b upcase" data-i18n="Look">Look</span>
+    <span class="b upcase" data-i18n="IndulgenceAndSource">Indulgence &amp; Source</span>
+
+    <input type="text" name="attr_pcbackground" class="border-bottom pcdetail" />
+    <input type="text" name="attr_pcheritage" class="border-bottom pcdetail" />
+    <span class="b upcase" data-i18n="Background">Background</span>
+    <span class="b upcase" data-i18n="Heritage">Heritage</span>
+
+    <input type="hidden" name="attr_scandaltype" value="1" class="visibility-control"/>
+    <div id="scandal-info" class="visibility-1 gw-2">
+        <div class="grid gtw-1 align-center">
+            <input type="text" name={`attr_${scandalAttr}`} class="pcdetail" />
+            <span class="b upcase" data-i18n="Scandals">Scandals</span>
+            <span class="i capitalise" data-i18n="ScandalList">Sentimental, Wicked, Grasping, False, Gauche, Jealous, Faithless, Fragile</span>
+        </div>
+    </div>
+    <div id="shatter-info" class="visibility-2 gw-2">
+        <div class="grid gtw-1 align-center">
+            <input type="text" name={`attr_${scandalAttr}`} class="pcdetail" />
+            <span class="b upcase" data-i18n="Shatters">Shatters</span>
+            <span class="i capitalise" data-i18n="ShatterList">Detached, Uncanny, Vengeful, Insatiable, Morose, Destructive, Obsessed, Territorial</span>
+        </div>
+    </div>
+</div>

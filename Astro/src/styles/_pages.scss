@@ -1,28 +1,38 @@
 ﻿.charsheet .court-of-blades {
+    min-width: 475+375+190+4+12px;
+    max-width: (475+375+190+4+12) * 1.5px;
+    width: fit-content;
     [class^="panel-"],
     [class*=" panel-"] {
-        margin: 4px;
-        padding: 4px;
-        border: 2px dashed black;
-        display: block;
+        display: inline-block;
     }
     .panel-left {
         width: 475px;
+        min-width: 475px;
     }
     .panel-centre {
-        width: 300px;
+        width: 375px;
+        min-width: 375px;
+        margin-left: 2px;
+        margin-right: 10px;
     }
     .panel-right {
-        width: 150px;
+        max-width: 190*1.5px;
+        min-width: 190px;
     }
     .page {
         display: none;
-        border: 2px dotted darkblue;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        width: 100%;
+        padding: 6px 4px 6px 4px;
+        border: 2px solid #333333;
     }
     #page-selector[value="0"]~#page-pc,
     #page-selector[value="1"]~#page-house,
     #page-selector[value="2"]~#page-factions,
-    #page-selector[value="3"]~#page-gmturn {
-        display: block;
+    #page-selector[value="3"]~#page-gmturn,
+    #page-selector[value="4"]~#page-settings {
+        display: flex;
     }
 }

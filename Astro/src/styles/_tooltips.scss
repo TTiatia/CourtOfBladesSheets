@@ -1,16 +1,17 @@
 /* ||
   Classes for css-only tooltips.
-    The element with the .tooltip class is the container.
-    The element with the .tooltip-text class is the tooltip itself, and must be a child of the container.
+    The element with the .tooltip-custom class is the container.
+    The element with the .tooltip-custom-text class is the tooltip itself, and must be a child of the container.
 */
 
 .charsheet .court-of-blades {
-    .tooltip {
+    .tooltip-custom {
         position: relative;
         display: inline-block;
         opacity: 100%;
+        z-index: auto;
     }
-    .tooltip .tooltip-text {
+    .tooltip-custom .tooltip-custom-text {
         visibility: hidden;
         background-color: black;
         color: #fff;
@@ -20,16 +21,20 @@
         border-radius: 6px;
         position: absolute;
         font-weight: normal;
-        top: 99%;
+        font-style: normal;
+        top: 95%;
         left: 0;
-        z-index: 5;
+        z-index: 6;
+        transition: visibility 0s linear 2s;
     }
-    .tooltip:hover .tooltip-text {
+    .tooltip-custom:hover .tooltip-custom-text {
         visibility: visible;
-        transition: visibility 0s linear 0.5s;
+        transition: visibility 0s linear 1s;
     }
-    textarea.tooltip-text {
+    textarea.tooltip-custom-text,
+    .tooltip-custom-text textarea {
         height: max-content;
         width: max-content;
+        color: #fff;
     }
 }

@@ -1,0 +1,79 @@
+---
+import LogoBox from "../../components/Box/Box_Logo.astro";
+import NoteField from "../../components/Roll20/Roll20_NoteField.astro";
+
+import Page from "../Page.astro";
+import PanelFactionMajor from "../Panel/Panel_FactionMajor.astro";
+import PanelFactionMinor from "../Panel/Panel_FactionMinor.astro";
+import PanelFactionRules from "../Panel/Panel_FactionRules.astro";
+
+const {id, classes, pageNum} = Astro.props;
+---
+
+<Page id={id} classes={classes} pageNum={pageNum}>
+    <div class="offset-innerpanel-full">
+        <div class="grid gtw-1">
+            <div class="flex-left">
+                <LogoBox></LogoBox>
+                <div class="titlebox-title logo-title offset-from-top capitalise" data-i18n="FactionsOfIlrien">Factions of Ilrien</div>
+            </div>
+        </div>
+        <div class="offset-for-title grid gtw-3 gapw-8">
+            <PanelFactionMajor
+                classes=""
+                repAttr="factmajors"
+                nameAttr="factmajorname"
+                tierAttr="factmajortier"
+                statusAttr="factmajorstatus"
+                favourAttr="factmajorfavor"
+                title="Houses Major"
+                titleTranslation="HousesMajor"
+                wordsTranslation="HousesMajorWords"
+                >
+            </PanelFactionMajor>
+            <PanelFactionMinor
+                classes=""
+                repAttr="factminors1"
+                nameAttr="factminor1name"
+                tierAttr="factminor1tier"
+                statusAttr="factminor1status"
+                favourAttr="factminor1favor"
+                title="Houses Minor"   
+                titleTranslation="HousesMinor"
+                wordsTranslation="HousesMinorWords"
+                >
+            </PanelFactionMinor>
+            <NoteField
+                attr="factgmnotes"
+                label="Notes"
+                class="factionnotes">
+            </NoteField>
+            <PanelFactionMinor
+                classes=""
+                repAttr="factminors2"
+                nameAttr="factminor2name"
+                tierAttr="factminor2tier"
+                statusAttr="factminor2status"
+                favourAttr="factminor2favor"
+                title="The Outsiders"   
+                titleTranslation="TheOutsiders"
+                wordsTranslation="OutsidersWords"
+                >
+            </PanelFactionMinor>
+            <PanelFactionMinor
+                classes=""
+                repAttr="factminors3"
+                nameAttr="factminor3name"
+                tierAttr="factminor3tier"
+                statusAttr="factminor3status"
+                favourAttr="factminor3favor"
+                title="The Uncouth"   
+                titleTranslation="TheUncouth"
+                wordsTranslation="UncouthWords"
+                >   
+            </PanelFactionMinor>
+
+            <PanelFactionRules classes=""></PanelFactionRules>
+        </div>
+    </div>
+</Page>

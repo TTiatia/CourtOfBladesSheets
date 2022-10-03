@@ -4,18 +4,67 @@
 .charsheet .court-of-blades .page {
   font-family: "EB Garamond", serif;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 16px;
   font-weight: 500;
   color: black;
   z-index: -13;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 115px, transparent 115px), url("../public/bg-web.png");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 115px, transparent 115px), url("https://raw.githubusercontent.com/TTiatia/CourtOfBladesSheets/main/Astro/public/bg-web.png");
   background-repeat: repeat;
 }
-.charsheet .court-of-blades .page * {
-  box-sizing: border-box;
-}
+.charsheet .court-of-blades .page *,
 .charsheet .court-of-blades .page div {
   box-sizing: border-box;
+}
+.charsheet .court-of-blades .page button {
+  padding: 2px;
+  font-size: 12px;
+  margin: 0px;
+  border: none;
+  color: black;
+}
+.charsheet .court-of-blades .page button.button-action, .charsheet .court-of-blades .page button.button-attr {
+  appearance: none;
+  text-shadow: none;
+  background: none;
+  box-shadow: none;
+}
+.charsheet .court-of-blades .page button.button-attr {
+  color: lightgray;
+}
+.charsheet .court-of-blades .page button[type=roll]::after,
+.charsheet .court-of-blades .page button[type=roll]::before {
+  content: none;
+}
+.charsheet .court-of-blades .page .itemcontrol {
+  z-index: 2;
+}
+.charsheet .court-of-blades .page .itemcontrol .repcontrol_move {
+  z-index: 5;
+}
+.charsheet .court-of-blades .page .repblock .repcontainer {
+  display: block;
+}
+.charsheet .court-of-blades .page .repcol2 .repcontainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: row;
+}
+.charsheet .court-of-blades .page .repcol3 .repcontainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-flow: row;
+}
+.charsheet .court-of-blades .page .repcontainer {
+  display: flex;
+}
+.charsheet .court-of-blades .page .repcontrol {
+  padding: 3px;
+}
+.charsheet .court-of-blades .page .item-list .repcontainer,
+.charsheet .court-of-blades .page .contact-list .repcontainer,
+.charsheet .court-of-blades .page .ability-list .repcontainer,
+.charsheet .court-of-blades .page .xp-list .repcontainer {
+  flex-direction: column;
 }
 .charsheet .court-of-blades .page ul {
   padding: 0;
@@ -23,11 +72,13 @@
   list-style-type: none;
 }
 .charsheet .court-of-blades .page fieldset,
+.charsheet .court-of-blades .page p,
 .charsheet .court-of-blades .page select,
+.charsheet .court-of-blades .page label,
 .charsheet .court-of-blades .page textarea,
 .charsheet .court-of-blades .page input {
   height: auto;
-  width: auto;
+  width: 100%;
   padding: 0;
   margin: 0;
   border-color: none;
@@ -37,9 +88,15 @@
   border-radius: 0;
   background: none;
   border-image: none;
+  font-size: 12px;
+  line-height: 16px;
   display: inline-block;
   font-family: "EB Garamond", serif;
   color: black;
+}
+.charsheet .court-of-blades .page p,
+.charsheet .court-of-blades .page label {
+  width: auto;
 }
 .charsheet .court-of-blades .page img {
   width: min-content;
@@ -59,11 +116,24 @@
   resize: vertical;
   color: black;
 }
+.charsheet .court-of-blades .page button.customsetting {
+  margin: 2px 0px;
+}
 .charsheet .court-of-blades .page .b {
   font-weight: 700;
 }
 .charsheet .court-of-blades .page .i {
   font-style: italic;
+}
+.charsheet .court-of-blades .page select.customsetting {
+  width: max-content;
+}
+.charsheet .court-of-blades .page input.customsetting {
+  width: 10em;
+}
+.charsheet .court-of-blades .page input.attribute-for-label {
+  display: inline;
+  width: max-content;
 }
 
 /* ||
@@ -334,7 +404,7 @@
   width: auto;
   place-self: stretch;
   grid-auto-rows: minmax(1em, max-content);
-  z-index: 0;
+  z-index: auto;
 }
 
 /* ||
@@ -362,7 +432,17 @@
 }
 .charsheet .court-of-blades .page .grid-gmturn-row {
   display: grid;
-  grid-template-columns: 150px 150px 200px 1fr;
+  grid-template-columns: 200px 135px 1fr 370px;
+  column-gap: 10px;
+}
+.charsheet .court-of-blades .page .grid-gmnotes {
+  display: grid;
+  grid-template-columns: 1fr 575px;
+  column-gap: 6px;
+}
+.charsheet .court-of-blades .page .grid-favoured-contact {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
 }
 .charsheet .court-of-blades .page .grid-faction-row {
   display: grid;
@@ -374,8 +454,11 @@
   text-align: center;
   vertical-align: middle;
 }
-.charsheet .court-of-blades .page .grid-faction-row input.titlebox-title {
+.charsheet .court-of-blades .page .grid-faction-row .titlebox-title {
   font-size: 24px;
+  line-height: 28px;
+  padding: 0px;
+  padding-top: 8px;
 }
 .charsheet .court-of-blades .page .grid-faction-row input[type=text]:not(.titlebox-title) {
   font-size: 16px;
@@ -448,11 +531,18 @@
   line-height: 16px;
   border-bottom: 1px solid black;
 }
+.charsheet .court-of-blades .page .titlebox {
+  z-index: 1;
+}
 .charsheet .court-of-blades .page .titlebox img {
   width: 400px;
+  z-index: 3;
 }
 .charsheet .court-of-blades .page .upcase {
   text-transform: uppercase;
+}
+.charsheet .court-of-blades .page .downcase {
+  text-transform: lowercase;
 }
 .charsheet .court-of-blades .page .capitalise {
   text-transform: capitalize;
@@ -460,6 +550,18 @@
 .charsheet .court-of-blades .page .bordered {
   border: 1px solid black;
   border-collapse: collapse;
+}
+.charsheet .court-of-blades .page .border-bold-left {
+  border-left: solid 3px black;
+}
+.charsheet .court-of-blades .page .border-bold-top {
+  border-top: solid 3px black;
+}
+.charsheet .court-of-blades .page .border-bold-right {
+  border-right: solid 3px black;
+}
+.charsheet .court-of-blades .page .border-bold-bottom {
+  border-bottom: solid 3px black;
 }
 .charsheet .court-of-blades .page .bg-light {
   background-color: lightgray;
@@ -481,17 +583,10 @@
 .charsheet .court-of-blades .page .notes {
   height: 100%;
 }
-.charsheet .court-of-blades .page .skillname {
-  background: #333333;
-  color: lightgray;
-  min-height: 25px;
-  margin: 3px 0;
-  font-weight: 700;
-  vertical-align: middle;
-  padding: 2px;
-}
 .charsheet .court-of-blades .page .titlebox-subtitle {
   font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
   font-style: italic;
   text-align: center;
 }
@@ -525,15 +620,18 @@
   background: #333333;
   color: lightgray;
   min-height: 25px;
-  margin: 3px 0;
   font-weight: 700;
   vertical-align: middle;
-  padding: 2px;
 }
 .charsheet .court-of-blades .page .heading {
   font-size: 18px;
   line-height: 20px;
   font-weight: 700;
+}
+.charsheet .court-of-blades .page .logo-title {
+  left: 40px;
+  max-height: 50px;
+  z-index: 3;
 }
 .charsheet .court-of-blades .page .titlebox-title {
   font-size: 48px;
@@ -569,7 +667,84 @@
   grid-row-gap: 4px;
 }
 .charsheet .court-of-blades .page .row-cb-holder {
-  margin-top: 5px;
+  margin-top: 1px;
+}
+.charsheet .court-of-blades .page .xptriggers input {
+  width: 100%;
+}
+.charsheet .court-of-blades .page .item-boxes {
+  display: none;
+  align-items: center;
+}
+.charsheet .court-of-blades .page .item-boxes input {
+  display: none;
+}
+.charsheet .court-of-blades .page .item-show-size[value="0"] ~ input, .charsheet .court-of-blades .page .item-show-size[value="0"] ~ .item-boxes,
+.charsheet .court-of-blades .page .item-show-style[value="0"] ~ input,
+.charsheet .court-of-blades .page .item-show-style[value="0"] ~ .item-boxes {
+  display: none;
+}
+.charsheet .court-of-blades .page .item-show-size[value="0"] ~ .item-style-selector, .charsheet .court-of-blades .page .item-show-size[value="0"] ~ .item-size-selector,
+.charsheet .court-of-blades .page .item-show-style[value="0"] ~ .item-style-selector,
+.charsheet .court-of-blades .page .item-show-style[value="0"] ~ .item-size-selector {
+  display: flex;
+}
+.charsheet .court-of-blades .page .item-show-size:not([value="0"]) + .item-show-style:not([value="0"]) ~ .item-name, .charsheet .court-of-blades .page .item-show-size:not([value="0"]) + .item-show-style:not([value="0"]) ~ .item-boxes {
+  display: flex;
+}
+.charsheet .court-of-blades .page .item-show-size:not([value="0"]) + .item-show-style:not([value="0"]) ~ .item-style-selector, .charsheet .court-of-blades .page .item-show-size:not([value="0"]) + .item-show-style:not([value="0"]) ~ .item-size-selector {
+  display: none;
+}
+.charsheet .court-of-blades .page .item-list .item-show-size[value="1"] ~ .item-boxes input:nth-child(1) {
+  display: block;
+}
+.charsheet .court-of-blades .page .item-list .item-show-size[value="2"] ~ .item-boxes input:nth-child(1),
+.charsheet .court-of-blades .page .item-list .item-show-size[value="2"] ~ .item-boxes input:nth-child(2) {
+  display: block;
+}
+.charsheet .court-of-blades .page .item-list .item-show-size[value="3"] ~ .item-boxes input {
+  display: block;
+}
+.charsheet .court-of-blades .page .item-list .item-show-style[value*=b] ~ .item-name {
+  font-weight: bold;
+}
+.charsheet .court-of-blades .page .item-list .item-show-style[value*=i] ~ .item-name {
+  font-style: italic;
+}
+.charsheet .court-of-blades .page .factionnotes {
+  margin-top: 30px;
+}
+.charsheet .court-of-blades .page .majorfactionlist input[type=text] {
+  padding-left: 12px;
+}
+
+.charsheet .court-of-blades .page [class^=flex-],
+.charsheet .court-of-blades .page [class*=" flex-"] {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.charsheet .court-of-blades .page .flex-vert {
+  flex-direction: column;
+}
+.charsheet .court-of-blades .page .flex-left {
+  justify-content: flex-start;
+}
+.charsheet .court-of-blades .page .flex-right {
+  justify-content: flex-end;
+}
+.charsheet .court-of-blades .page .flex-center {
+  justify-content: center;
+}
+.charsheet .court-of-blades .page .flex-vert-center {
+  align-items: center;
+}
+.charsheet .court-of-blades .page .flex-vert-bottom {
+  align-items: flex-end;
+}
+.charsheet .court-of-blades .page .flex-spaced {
+  justify-content: space-between;
+  align-content: space-between;
 }
 
 /* ||
@@ -590,12 +765,30 @@
   justify-content: center;
   align-items: center;
 }
+.charsheet .court-of-blades .page .max-width {
+  width: 100%;
+}
 .charsheet .court-of-blades .page .offset-for-title {
   /* 0.83 400*/
   top: -54px;
   left: 31px;
   position: relative;
-  width: 425px;
+}
+.charsheet .court-of-blades .page .offset-innerpanel-left {
+  width: 435px;
+}
+.charsheet .court-of-blades .page .offset-innerpanel-full {
+  width: 998px;
+}
+.charsheet .court-of-blades .page .offset-from-top {
+  position: relative;
+  top: 48px;
+}
+.charsheet .court-of-blades .page .clock-size-selector select {
+  width: min-content;
+}
+.charsheet .court-of-blades .page .top-box {
+  height: 87px;
 }
 .charsheet .court-of-blades .page .text-left {
   text-align: left;
@@ -667,17 +860,52 @@
   justify-self: stretch;
 }
 
+.charsheet .court-of-blades .page .z--5 {
+  z-index: -5;
+}
+.charsheet .court-of-blades .page .z--4 {
+  z-index: -4;
+}
+.charsheet .court-of-blades .page .z--3 {
+  z-index: -3;
+}
+.charsheet .court-of-blades .page .z--2 {
+  z-index: -2;
+}
+.charsheet .court-of-blades .page .z--1 {
+  z-index: -1;
+}
+.charsheet .court-of-blades .page .z-0 {
+  z-index: 0;
+}
+.charsheet .court-of-blades .page .z-1 {
+  z-index: 1;
+}
+.charsheet .court-of-blades .page .z-2 {
+  z-index: 2;
+}
+.charsheet .court-of-blades .page .z-3 {
+  z-index: 3;
+}
+.charsheet .court-of-blades .page .z-4 {
+  z-index: 4;
+}
+.charsheet .court-of-blades .page .z-5 {
+  z-index: 5;
+}
+
 /* ||
   Classes for css-only tooltips.
-    The element with the .tooltip class is the container.
-    The element with the .tooltip-text class is the tooltip itself, and must be a child of the container.
+    The element with the .tooltip-custom class is the container.
+    The element with the .tooltip-custom-text class is the tooltip itself, and must be a child of the container.
 */
-.charsheet .court-of-blades .tooltip {
+.charsheet .court-of-blades .tooltip-custom {
   position: relative;
   display: inline-block;
   opacity: 100%;
+  z-index: auto;
 }
-.charsheet .court-of-blades .tooltip .tooltip-text {
+.charsheet .court-of-blades .tooltip-custom .tooltip-custom-text {
   visibility: hidden;
   background-color: black;
   color: #fff;
@@ -687,44 +915,60 @@
   border-radius: 6px;
   position: absolute;
   font-weight: normal;
-  top: 99%;
+  font-style: normal;
+  top: 95%;
   left: 0;
-  z-index: 5;
+  z-index: 6;
+  transition: visibility 0s linear 2s;
 }
-.charsheet .court-of-blades .tooltip:hover .tooltip-text {
+.charsheet .court-of-blades .tooltip-custom:hover .tooltip-custom-text {
   visibility: visible;
-  transition: visibility 0s linear 0.5s;
+  transition: visibility 0s linear 1s;
 }
-.charsheet .court-of-blades textarea.tooltip-text {
+.charsheet .court-of-blades textarea.tooltip-custom-text,
+.charsheet .court-of-blades .tooltip-custom-text textarea {
   height: max-content;
   width: max-content;
+  color: #fff;
 }
 
+.charsheet .court-of-blades {
+  min-width: 1056px;
+  max-width: 1584px;
+  width: fit-content;
+}
 .charsheet .court-of-blades [class^=panel-],
 .charsheet .court-of-blades [class*=" panel-"] {
-  margin: 4px;
-  padding: 4px;
-  border: 2px dashed black;
-  display: block;
+  display: inline-block;
 }
 .charsheet .court-of-blades .panel-left {
   width: 475px;
+  min-width: 475px;
 }
 .charsheet .court-of-blades .panel-centre {
-  width: 300px;
+  width: 375px;
+  min-width: 375px;
+  margin-left: 2px;
+  margin-right: 10px;
 }
 .charsheet .court-of-blades .panel-right {
-  width: 150px;
+  max-width: 285px;
+  min-width: 190px;
 }
 .charsheet .court-of-blades .page {
   display: none;
-  border: 2px dotted darkblue;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  width: 100%;
+  padding: 6px 4px 6px 4px;
+  border: 2px solid #333333;
 }
 .charsheet .court-of-blades #page-selector[value="0"] ~ #page-pc,
 .charsheet .court-of-blades #page-selector[value="1"] ~ #page-house,
 .charsheet .court-of-blades #page-selector[value="2"] ~ #page-factions,
-.charsheet .court-of-blades #page-selector[value="3"] ~ #page-gmturn {
-  display: block;
+.charsheet .court-of-blades #page-selector[value="3"] ~ #page-gmturn,
+.charsheet .court-of-blades #page-selector[value="4"] ~ #page-settings {
+  display: flex;
 }
 
 /* ||
@@ -773,8 +1017,8 @@
   height: 10px;
 }
 .charsheet .court-of-blades .page .shape-diamond-med {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 .charsheet .court-of-blades .page .shape-diamond-big {
   width: 14px;
@@ -935,6 +1179,7 @@
   z-index: 3;
   vertical-align: middle;
   position: relative;
+  flex-shrink: 0;
 }
 .charsheet .court-of-blades .page .tracker input {
   vertical-align: middle;
@@ -1078,18 +1323,20 @@
     Classes for the dynamic clocks
 */
 .charsheet .court-of-blades .page .flex-clocks {
-  border: 2px solid black;
+  display: block;
+}
+.charsheet .court-of-blades .page .flex-clocks .repcontainer {
   width: auto;
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-between;
 }
 .charsheet .court-of-blades .page .clock-subcontainer {
-  border: 1px dashed black;
   padding: 4px;
   width: fit-content;
   height: fit-content;
   display: grid;
-  grid-template-columns: 55px 95px;
+  grid-template-columns: 55px 120px;
   z-index: 0;
 }
 .charsheet .court-of-blades .page .clock-subcontainer .clock-label {
@@ -1098,7 +1345,9 @@
   font-size: 14px;
   text-align: center;
   vertical-align: bottom;
-  border: none;
+  border: 1px solid black;
+  background: white;
+  border-radius: 3px;
   overflow-y: auto;
   word-wrap: break-word;
   resize: none;
@@ -1131,6 +1380,10 @@
   z-index: -1;
 }
 
+.charsheet .court-of-blades .page .clock-size-selector-controller:not([value="0"]) ~ .clock-size-selector,
+.charsheet .court-of-blades .page .clock-size-selector-controller[value="0"] ~ div textarea {
+  display: none;
+}
 .charsheet .court-of-blades .page .clock-container .clock-size[value="0"] ~ .clock-image {
   border-style: none;
 }
@@ -1318,7 +1571,7 @@
   top: 4px;
   left: 4px;
 }
-.charsheet .court-of-blades .page .clock-container clock-size[value="12"] ~ input[value="1"] {
+.charsheet .court-of-blades .page .clock-container .clock-size[value="12"] ~ input[value="1"] {
   margin-left: 20px;
   transform: rotate(15deg);
 }
@@ -1579,4 +1832,122 @@
 }
 .charsheet .court-of-blades .page .clock-container .clock-size[value="12"] ~ .clock-progress[value="12"]:checked ~ .clock-image {
   background: red;
+}
+
+.charsheet .court-of-blades .page *[class^=visibility-],
+.charsheet .court-of-blades .page *[class*=" visibility-"] {
+  display: none;
+}
+.charsheet .court-of-blades .page .visibility-control[value="1"] ~ .visibility-1,
+.charsheet .court-of-blades .page .visibility-control[value="2"] ~ .visibility-2,
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-3,
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-4,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-5,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-5,
+.charsheet .court-of-blades .page .visibility-control[value="1"] ~ .visibility-gte-1,
+.charsheet .court-of-blades .page .visibility-control[value="2"] ~ .visibility-gte-1,
+.charsheet .court-of-blades .page .visibility-control[value="2"] ~ .visibility-gte-2,
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-gte-1,
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-gte-2,
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-gte-3,
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-1,
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-2,
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-3,
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-4,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-1,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-2,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-3,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-4,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-5,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-1,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-2,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-3,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-4,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-5,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-6 {
+  display: block;
+}
+.charsheet .court-of-blades .page .visibility-control[value="1"] ~ .visibility-1.grid,
+.charsheet .court-of-blades .page .visibility-control[value="2"] ~ .visibility-2.grid,
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-3.grid,
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-4.grid,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-5.grid,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-5.grid,
+.charsheet .court-of-blades .page .visibility-control[value="1"] ~ .visibility-gte-1.grid,
+.charsheet .court-of-blades .page .visibility-control[value="2"] ~ .visibility-gte-1.grid,
+.charsheet .court-of-blades .page .visibility-control[value="2"] ~ .visibility-gte-2.grid,
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-gte-1.grid,
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-gte-2.grid,
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-gte-3.grid,
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-1.grid,
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-2.grid,
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-3.grid,
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-4.grid,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-1.grid,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-2.grid,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-3.grid,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-4.grid,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-5.grid,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-1.grid,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-2.grid,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-3.grid,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-4.grid,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-5.grid,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-6.grid {
+  display: grid;
+}
+.charsheet .court-of-blades .page .visibility-control[value="1"] ~ .visibility-1[class^=flex-], .charsheet .court-of-blades .page .visibility-control[value="1"] ~ .visibility-1[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="2"] ~ .visibility-2[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="2"] ~ .visibility-2[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-3[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-3[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-4[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-4[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-5[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-5[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-5[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-5[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="1"] ~ .visibility-gte-1[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="1"] ~ .visibility-gte-1[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="2"] ~ .visibility-gte-1[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="2"] ~ .visibility-gte-1[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="2"] ~ .visibility-gte-2[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="2"] ~ .visibility-gte-2[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-gte-1[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-gte-1[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-gte-2[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-gte-2[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-gte-3[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-gte-3[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-1[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-1[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-2[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-2[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-3[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-3[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-4[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-4[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-1[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-1[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-2[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-2[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-3[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-3[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-4[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-4[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-5[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-5[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-1[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-1[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-2[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-2[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-3[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-3[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-4[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-4[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-5[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-5[class*=" flex-"],
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-6[class^=flex-],
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-6[class*=" flex-"] {
+  display: flex;
 }

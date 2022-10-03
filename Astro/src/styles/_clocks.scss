@@ -4,18 +4,20 @@
 
 .charsheet .court-of-blades .page {
     .flex-clocks {
-        border: 2px solid black;
-        width: auto;
-        display: flex;
-        flex-flow: row wrap;
+        display: block;
+        .repcontainer {
+            width: auto;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
     }
     .clock-subcontainer {
-        border: 1px dashed black;
         padding: 4px;
         width: fit-content;
         height: fit-content;
         display: grid;
-        grid-template-columns: 55px 95px;
+        grid-template-columns: 55px 120px;
         z-index: 0;
         .clock-label {
             width: 100%;
@@ -23,7 +25,9 @@
             font-size: 14px;
             text-align: center;
             vertical-align: bottom;
-            border: none;
+            border: 1px solid black;
+            background: white;
+            border-radius: 3px;
             overflow-y: auto;
             word-wrap: break-word;
             resize: none;

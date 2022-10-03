@@ -1,0 +1,13 @@
+---
+const {
+    id, 
+    classes, 
+    attr, 
+    label,
+    labelTranslation
+} = Astro.props;
+---
+<div id={id} class={`grid gtw-1 round-borders bordered ${classes}`}>
+    <div class="b text-center upcase round-borders-top border-bottom bg-light" data-i18n={labelTranslation}>{label}</div>
+    <textarea name={`attr_${attr}`} class="pad-left pad-right bg-white round-borders-bottom"></textarea>
+</div>

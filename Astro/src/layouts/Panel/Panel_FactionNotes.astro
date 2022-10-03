@@ -1,0 +1,9 @@
+---
+const {id, classes, noteAttr} = Astro.props;
+---
+<div id={id} class={`notes bg-light round-borders borders ${classes}`}>
+    <div class="b text-center border-bottom upcase">Notes</div>
+    <div>
+        <textarea spellcheck={false} name={`attr_${noteAttr}`}></textarea>
+    </div>
+</div>

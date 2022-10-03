@@ -1,0 +1,23 @@
+---
+const { 
+    id, 
+    classes, 
+    trackTitle,
+    trackTitleTranslate, 
+    trackAttr, 
+    trackLength
+} = Astro.props;
+function toArray(arg) { return Array.from(Array(arg),(x,i)=>i + 1); }
+---
+<div id={id} class={`grid gtw-1 gth-2 ${classes}`}>
+    <div class="b gw-2 upcase align-bottom text-center" data-i18n={trackTitleTranslate}>{trackTitle}</div>
+    <div class="tracker tracked-red text-center">
+        <input type="radio" name={`attr_${trackAttr}`} value="0" class="shape-cross checked-hidden track-zero" checked={true} />
+        {toArray(trackLength).map((i) => (
+            <>
+                <input type="radio" name={`attr_${trackAttr}`} value={i} class="shape-diamond-big" />
+            </>
+        ))}
+        <input type="radio" disabled={true} class="shape-diamond-big shape-hidden" />
+    </div>
+</div>

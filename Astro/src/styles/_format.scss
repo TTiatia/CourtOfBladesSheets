@@ -44,11 +44,18 @@
         line-height: 16px;
         border-bottom: 1px solid black;
     }
-    .titlebox img {
-        width: 400px;
+    .titlebox {
+        z-index: 1;
+        img {
+            width: 400px;
+            z-index: 3;
+        }
     }
     .upcase {
         text-transform: uppercase;
+    }
+    .downcase {
+        text-transform: lowercase;
     }
     .capitalise {
         text-transform: capitalize;
@@ -56,6 +63,18 @@
     .bordered {
         border: 1px solid black;
         border-collapse: collapse;
+    }
+    .border-bold-left {
+        border-left: solid 3px black;
+    }
+    .border-bold-top {
+        border-top: solid 3px black;
+    }
+    .border-bold-right {
+        border-right: solid 3px black;
+    }
+    .border-bold-bottom {
+        border-bottom: solid 3px black;
     }
     .bg-light {
         background-color: lightgray;
@@ -77,17 +96,10 @@
     .notes {
         height: 100%;
     }
-    .skillname {
-        background: #333333;
-        color: lightgray;
-        min-height: 25px;
-        margin: 3px 0;
-        font-weight: 700;
-        vertical-align: middle;
-        padding: 2px;
-    }
     .titlebox-subtitle {
         font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
         font-style: italic;
         text-align: center;
     }
@@ -121,15 +133,18 @@
         background: #333333;
         color: lightgray;
         min-height: 25px;
-        margin: 3px 0;
         font-weight: 700;
         vertical-align: middle;
-        padding: 2px;
     }
     .heading {
         font-size: 18px;
         line-height: 20px;
         font-weight: 700;
+    }
+    .logo-title {
+        left: 40px;
+        max-height: 50px;
+        z-index: 3;
     }
     .titlebox-title {
         font-size: 48px;
@@ -165,6 +180,59 @@
         grid-row-gap: 4px;
     }
     .row-cb-holder {
-        margin-top: 5px;
+        margin-top: 1px;
+    }
+    .xptriggers input {
+        width: 100%;
+    }
+    .item-boxes {
+        display: none;
+        align-items: center;
+        input {
+            display: none;
+        }
+    }
+    .item-show-size[value="0"],
+    .item-show-style[value="0"] {
+        &~input,
+        &~.item-boxes {
+            display: none;
+        }
+        &~.item-style-selector,
+        &~.item-size-selector {
+            display: flex;
+        }
+    }
+    .item-show-size:not([value="0"])+.item-show-style:not([value="0"]) {
+        &~.item-name,
+        &~.item-boxes {
+            display: flex;
+        }
+        &~.item-style-selector,
+        &~.item-size-selector {
+            display: none;
+        }
+    }
+    .item-list .item-show-size[value="1"]~.item-boxes input:nth-child(1) {
+        display: block;
+    }
+    .item-list .item-show-size[value="2"]~.item-boxes input:nth-child(1),
+    .item-list .item-show-size[value="2"]~.item-boxes input:nth-child(2) {
+        display: block;
+    }
+    .item-list .item-show-size[value="3"]~.item-boxes input {
+        display: block;
+    }
+    .item-list .item-show-style[value*="b"]~.item-name {
+        font-weight: bold;
+    }
+    .item-list .item-show-style[value*="i"]~.item-name {
+        font-style: italic;
+    }
+    .factionnotes {
+        margin-top: 30px;
+    }
+    .majorfactionlist input[type="text"] {
+        padding-left: 12px;
     }
 }

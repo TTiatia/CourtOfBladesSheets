@@ -1,0 +1,31 @@
+---
+import SettingDropdown from "./Setting_Dropdown.astro";
+
+const {
+    titleTranslation,
+    defaultOption,
+    attr,
+    count
+} = Astro.props;
+
+function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
+function getCountString(max) {
+    var strs = [];
+    for(var i = 1; i <= parseInt(max); i++) {
+        strs.push(`${i}=${i}`);
+    }
+    return strs.join(";");
+}
+---
+
+{toArray(count).map((i) => (
+    <SettingDropdown
+        class=""
+        title={i}
+        titleTranslation={titleTranslation || ""}
+        attr={`${attr}${i}`}
+        options={getCountString(count)}
+        defaultOption={defaultOption}
+        visibility={`gte-${i}`}>
+    </SettingDropdown>
+))}

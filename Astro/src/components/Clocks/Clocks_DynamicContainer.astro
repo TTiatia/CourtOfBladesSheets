@@ -1,0 +1,64 @@
+---
+import RepeatingSection from "../Roll20/Roll20_RepeatingSection.astro";
+
+const {id, classes, repeatAttr, sizeAttr, progressAttr, descAttr} = Astro.props;
+---
+
+<div id={id} class={`${classes}`}>
+    <RepeatingSection classes="repeating_clocks gw-1 flex-clocks" attr={repeatAttr}>
+        <div class="clock-subcontainer grid gtw-2 gth-1">
+            <input type="hidden" class="clock-size-selector-controller" value="0" name={`attr_${sizeAttr}`} />
+            <div class="clock-size-selector gw-2">
+                <div class="flex-left">
+                    <label><span data-i18n="SelectClockSize">Select clock size</span>:</label>
+                    <select name={`attr_${sizeAttr}`}>
+                        <option value="0" selected={true} data-i18n="0">0</option>
+                        <option value="2" data-i18n="2">2</option>
+                        <option value="4" data-i18n="4">4</option>
+                        <option value="6" data-i18n="6">6</option>
+                        <option value="8" data-i18n="8">8</option>
+                        <option value="10" data-i18n="10">10</option>
+                        <option value="12" data-i18n="12">12</option>
+                    </select>
+                </div>
+            </div>
+            <div class="clock-container gw-1 gh-1">
+                <input type="hidden" class="clock-size" value="0" name={`attr_${sizeAttr}`} />
+                
+                <div class="spoke-0 clock-2 clock-4 clock-6 clock-8 clock-10 clock-12"></div>
+                <div class="spoke-30 clock-12"></div>
+                <div class="spoke-45 clock-8"></div>
+                <div class="spoke-36 clock-10"></div>
+                <div class="spoke-60 clock-6 clock-12"></div>
+                <div class="spoke-72 clock-10"></div>
+                <div class="spoke-90 clock-4 clock-8 clock-12"></div>
+                <div class="spoke-108 clock-10"></div>
+                <div class="spoke-120 clock-6 clock-12"></div>
+                <div class="spoke-135 clock-8"></div>
+                <div class="spoke-144 clock-10"></div>
+                <div class="spoke-150 clock-12"></div>
+
+                <input class="clock-zero clock-progress" type="radio" name={`attr_${progressAttr}`} value="0" checked={true}>
+                <span class="clock-zero-button"></span>
+
+                <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="1" name={`attr_${progressAttr}`}>
+                <input class="clock-progress clock-2 clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="2" name={`attr_${progressAttr}`}>
+                <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="3" name={`attr_${progressAttr}`}>
+                <input class="clock-progress clock-4 clock-6 clock-8 clock-10 clock-12" type="radio" value="4" name={`attr_${progressAttr}`}>
+                <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="5" name={`attr_${progressAttr}`}>
+                <input class="clock-progress clock-6 clock-8 clock-10 clock-12" type="radio" value="6" name={`attr_${progressAttr}`}>
+                <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="7" name={`attr_${progressAttr}`}>
+                <input class="clock-progress clock-8 clock-10 clock-12" type="radio" value="8" name={`attr_${progressAttr}`}>
+                <input class="clock-progress clock-10 clock-12" type="radio" value="9" name={`attr_${progressAttr}`}>
+                <input class="clock-progress clock-10 clock-12" type="radio" value="10" name={`attr_${progressAttr}`}>
+                <input class="clock-progress clock-12" type="radio" value="11" name={`attr_${progressAttr}`}>
+                <input class="clock-progress clock-12" type="radio" value="12" name={`attr_${progressAttr}`}>
+
+                <div class="clock-image"></div>
+            </div>
+            <div class="gw-1 gh-1">
+                <textarea rows={3} class="clock-label border-left border-right border-top border-bottom round-borders" name={`attr_${descAttr}`}></textarea>
+            </div>
+        </div>
+    </RepeatingSection>
+</div>

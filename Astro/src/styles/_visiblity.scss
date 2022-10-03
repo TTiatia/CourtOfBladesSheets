@@ -1,0 +1,42 @@
+.charsheet .court-of-blades .page {
+    *[class^="visibility-"],
+    *[class*=" visibility-"] {
+        display: none;
+    }
+    .visibility-control[value="1"]~.visibility-1,
+    .visibility-control[value="2"]~.visibility-2,
+    .visibility-control[value="3"]~.visibility-3,
+    .visibility-control[value="4"]~.visibility-4,
+    .visibility-control[value="5"]~.visibility-5,
+    .visibility-control[value="6"]~.visibility-5,
+    .visibility-control[value="1"]~.visibility-gte-1,
+    .visibility-control[value="2"]~.visibility-gte-1,
+    .visibility-control[value="2"]~.visibility-gte-2,
+    .visibility-control[value="3"]~.visibility-gte-1,
+    .visibility-control[value="3"]~.visibility-gte-2,
+    .visibility-control[value="3"]~.visibility-gte-3,
+    .visibility-control[value="4"]~.visibility-gte-1,
+    .visibility-control[value="4"]~.visibility-gte-2,
+    .visibility-control[value="4"]~.visibility-gte-3,
+    .visibility-control[value="4"]~.visibility-gte-4,
+    .visibility-control[value="5"]~.visibility-gte-1,
+    .visibility-control[value="5"]~.visibility-gte-2,
+    .visibility-control[value="5"]~.visibility-gte-3,
+    .visibility-control[value="5"]~.visibility-gte-4,
+    .visibility-control[value="5"]~.visibility-gte-5,
+    .visibility-control[value="6"]~.visibility-gte-1,
+    .visibility-control[value="6"]~.visibility-gte-2,
+    .visibility-control[value="6"]~.visibility-gte-3,
+    .visibility-control[value="6"]~.visibility-gte-4,
+    .visibility-control[value="6"]~.visibility-gte-5,
+    .visibility-control[value="6"]~.visibility-gte-6 {
+        display: block;
+        &.grid {
+            display: grid;
+        }
+        &[class^="flex-"],
+        &[class*=" flex-"] {
+            display: flex;
+        }
+    }
+}

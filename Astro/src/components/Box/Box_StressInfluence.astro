@@ -1,0 +1,21 @@
+---
+import FieldLabeledtrack from "../Field/Field_LabeledTrack.astro";
+
+const { id, classes, } = Astro.props;
+---
+<div id={id} class={`grid gtw-3 text-center padding-top padding-bottom maxh-3 ${classes}`}>
+    <FieldLabeledtrack
+        classes="gw-2" 
+        trackTitle="Stress"
+        trackTitleTranslate="Stress" 
+        trackAttr="pcstress" 
+        trackLength={8}>
+    </FieldLabeledtrack>
+    <FieldLabeledtrack
+        classes="" 
+        trackTitle="Influence" 
+        trackTitleTranslate="Influence" 
+        trackAttr="pcinfluence" 
+        trackLength={4}>
+    </FieldLabeledtrack>
+</div>

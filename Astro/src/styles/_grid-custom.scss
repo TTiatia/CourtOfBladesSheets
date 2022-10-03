@@ -25,7 +25,15 @@
         padding-bottom: 5px;
     }
     .grid-gmturn-row {
-        @include define-custom-grid(150px 150px 200px 1fr);
+        @include define-custom-grid(200px 135px 1fr 370px);
+        column-gap: 10px;
+    }
+    .grid-gmnotes {
+        @include define-custom-grid(1fr 575px);
+        column-gap: 6px;
+    }
+    .grid-favoured-contact {
+        @include define-custom-grid(max-content 1fr max-content);
     }
     .grid-faction-row {
         @include define-custom-grid(48px 1fr 64px);
@@ -35,8 +43,11 @@
             text-align: center;
             vertical-align: middle;
         }
-        input.titlebox-title {
+        .titlebox-title {
             font-size: 24px;
+            line-height: 28px;
+            padding: 0px;
+            padding-top: 8px;
         }
         input[type="text"]:not(.titlebox-title) {
             font-size: 16px;

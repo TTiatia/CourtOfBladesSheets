@@ -1,0 +1,25 @@
+---
+import SettingTextDouble from "./Setting_TextDouble.astro";
+
+const {
+    titleTranslation,
+    defaultOption,
+    attr1,
+    attr2,
+    count
+} = Astro.props;
+
+function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
+---
+
+{toArray(count).map((i) => (
+    <SettingTextDouble
+        class=""
+        title={i}
+        titleTranslation={titleTranslation}
+        attr1={`${attr1}${i}`}
+        attr2={`${attr2}${i}`}
+        defaultOption={defaultOption}
+        visibility={`gte-${i}`}>
+    </SettingTextDouble>
+))}

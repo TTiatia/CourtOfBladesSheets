@@ -1,0 +1,47 @@
+---
+import FieldLabeledTrack from "../../components/Field/Field_LabeledTrack.astro";
+
+import BoxHouseDetails from "../../components/Box/Box_HouseDetails.astro";
+import LogoBox from "../../components/Box/Box_Logo.astro";
+import BoxFavouredcontact from "../../components/Box/Box_FavouredContact.astro";
+import BoxSpheresOfInfluence from "../../components/Box/Box_SpheresOfInfluence.astro";
+
+const {id, classes} = Astro.props;
+---
+<div id={id} class={classes}>
+    <LogoBox id="pcpanel-LogoBox"></LogoBox>
+    <div class="offset-for-title offset-innerpanel-left">
+        <BoxHouseDetails></BoxHouseDetails>
+        <div class="grid gtw-3 text-center padding-top padding-bottom maxh-3">
+            <FieldLabeledTrack
+                classes="gw-2" 
+                trackTitle="Exposure"
+                trackTitleTranslation="Exposure"
+                trackAttr="houseexposure" 
+                trackLength={9}>
+            </FieldLabeledTrack>
+            <FieldLabeledTrack
+                classes="" 
+                trackTitle="Shame" 
+                trackTitleTranslation="Shame" 
+                trackAttr="houseshame" 
+                trackLength={3}>
+            </FieldLabeledTrack>
+        </div>
+        <BoxFavouredcontact
+            id=""
+            classes=""
+            nameAttr="housefavcontactname"
+            activeAttr="housefavcontactactive">
+        </BoxFavouredcontact>
+        <BoxSpheresOfInfluence
+            id="" 
+            classes="marg-top" 
+            repAttr="housespheres" 
+            nameAttr="housespherename" 
+            perkAttr="housesphereperk" 
+            contactsAttr="housespherecontacts"
+            >
+        </BoxSpheresOfInfluence>
+    </div>
+</div>

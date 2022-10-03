@@ -1,0 +1,46 @@
+---
+import DynamicClocks from "../../components/Clocks/Clocks_DynamicContainer.astro";
+
+import PlaybookTitleBox from "../../components/Box/Box_TitleAndSubtitle.astro";
+import SpecialAbilities from "../../components/Box/Box_SpecialAbilities.astro";
+import TeamworkPlanningLoadRulesBox from "../../components/Box/Box_TeamworkPlanningLoadRules.astro";
+import XPTriggerBox from "../../components/Box/Box_PCXPTrigger.astro";
+
+const { id, classes } = Astro.props;
+---
+<div id={id} class={classes}>
+    <div class="border-bold-top border-bold-left border-bold-right border-bold-bottom bg-white">
+        <PlaybookTitleBox id="pcabilitypanel-titlebox" titleAttr="playbookName" subtitleAttr="playbookDesc"></PlaybookTitleBox>
+        <SpecialAbilities 
+            id="pcabilitypanel-specfeatbox"
+            classes=""
+            title="Special Armor"
+            titleTranslation="SpecialArmor"
+            enabledAttr="armourAbilityActive" 
+            nameAttr="armourAbilityName"
+            descAttr="armourAbilityDesc" 
+            repeatAttr="armourAbility"
+            hasName={false}>
+        </SpecialAbilities>
+        <SpecialAbilities 
+            id="pcabilitypanel-specabilitybox" 
+            classes=""
+            title="Special Abilities"
+            titleTranslation="SpecialAbilities"
+            enabledAttr="playbookAbilityActive" 
+            nameAttr="playbookAbilityName" 
+            descAttr="playbookAbilityDesc" 
+            repeatAttr="playbookAbility"
+            hasName={true}>
+        </SpecialAbilities>
+        <XPTriggerBox 
+            id="pcabilitypanel-xptriggers"
+            attrPrefix="pcxptriggers">
+        </XPTriggerBox>
+    </div>
+    <TeamworkPlanningLoadRulesBox id="pcabilitypanel-rulerefs" classes="marg-top pad-left"></TeamworkPlanningLoadRulesBox>
+    <div class="bordered marg-top gw-1 grid gtw-1">
+        <div class="b bg-med text-center border-bottom gw-1 upcase" data-i18n="Clocks">Clocks</div>
+        <DynamicClocks id="pcability-clocks" repeatAttr="pcclocks" sizeAttr="pcclocksize" progressAttr="pcclockprogress" descAttr="pcclockdesc"></DynamicClocks>
+    </div>
+</div>

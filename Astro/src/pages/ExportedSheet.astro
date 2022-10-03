@@ -1,0 +1,43 @@
+---
+import HiddenSetting from "../components/Roll20/Roll20_HiddenSetting.astro";
+import PageController from "../components/Roll20/Roll20_PageController.astro";
+
+import Page from "../layouts/Page.astro";
+import PagePC from "../layouts/Page/Page_PC.astro";
+import PageGM from "../layouts/Page/Page_GMTurn.astro";
+import PageFactions from "../layouts/Page/Page_Factions.astro";
+import PageCoterie from "../layouts/Page/Page_Coterie.astro";
+import PageSheetsettings from "../layouts/Page/Page_SheetSettings.astro";
+import SheetWorkers from "./SheetWorkers.astro";
+import RollTemplates from "./RollTemplates.astro";
+
+---
+
+<div class="court-of-blades">
+    <HiddenSetting id="page-selector" name="currentPage" defaultValue={0}></HiddenSetting>
+    <PageController name="currentPage"></PageController>
+    <PagePC
+        id="page-pc"
+        classes=""
+        pageNum={0}>
+    </PagePC>
+    <PageCoterie 
+        id="page-house" 
+        classes=""
+        pageNum={1}>
+    </PageCoterie>
+    <PageFactions id="page-factions" pageNum={2}></PageFactions>
+    <PageGM
+        id="page-gmturn"
+        classes=""
+        factionCount={5}
+        pageNum={3}>
+    </PageGM>
+    <PageSheetsettings
+        id="page-settings"
+        classes=""
+        pageNum={4}>
+    </PageSheetsettings>
+</div>
+<RollTemplates></RollTemplates>
+<SheetWorkers></SheetWorkers>

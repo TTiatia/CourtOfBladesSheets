@@ -1,0 +1,66 @@
+---
+const {id, classes} = Astro.props;
+---
+<div id={id} class={`grid-stat-row pad-top ${classes}`}>
+    <div>
+        <span class="b" data-i18n="+3">+3</span>
+        :
+        <span class="i marg-left capitalise" data-i18n="Allies">Allies</span>
+    </div>
+    <div class="marg-left" data-i18n="AlliesDescriptionText">
+        This faction will help you even if it is not in their best interest to do so. They expect you to do the same for them.
+    </div>
+
+    <div>
+        <span class="b" data-i18n="+2">+2</span>
+        :
+        <span class="i marg-left capitalise" data-i18n="Friendly">Friendly</span>
+    </div>
+    <div class="marg-left" data-i18n="FriendlyDescriptionText">
+        This faction will help you if it does not create serious problems for them. They expect the same from you.
+    </div>
+
+    <div>
+        <span class="b" data-i18n="+1">+1</span>
+        :
+        <span class="i marg-left capitalise" data-i18n="Helpful">Helpful</span>
+    </div>
+    <div class="marg-left" data-i18n="HelpfulDescriptionText">
+        This faction will help you if it causes no problems or significant cost for them. They expect the same from you.
+    </div>
+
+    <div>
+        <span class="b" data-i18n="0">0</span>
+        :
+        <span class="i marg-left capitalise" data-i18n="Neutral">Neutral</span>
+    </div>
+    <div class="marg-left"></div>
+
+    <div>
+        <span class="b" data-i18n="-1">-1</span>
+        :
+        <span class="i pad-left capitalise" data-i18n="Interfering">Interfering</span>
+    </div>
+    <div class="marg-left" data-i18n="InterferingDescriptionText">
+        This faction will look for opportunities to cause problems for you (or profit from your misfortune) so long as it causes no problems or significant cost for them. They expect the same from you.
+    </div>
+
+    <div>
+        <span class="b" data-i18n="-2">-2</span>
+        :
+        <span class="i marg-left capitalise" data-i18n="Hostile">Hostile</span>
+    </div>
+    <div class="marg-left" data-i18n="HostileDescriptionText">
+        This faction will look for opportunities to hurt you so long as it does not create serious problems for them. They expect you to do the same and take precautions against you.
+    </div>
+
+    <div>
+        <span class="b" data-i18n="-3">-3</span>
+        :
+        <span class="i marg-left capitalise" data-i18n="War">War</span>
+    </div>
+    <div class="marg-left">
+        <p  data-i18n="WarDescriptionTextParagraph1"></p>
+        <p  data-i18n="WarDescriptionTextParagraph2"></p>
+    </div>
+</div>

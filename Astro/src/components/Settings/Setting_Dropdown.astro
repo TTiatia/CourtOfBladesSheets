@@ -1,0 +1,42 @@
+---
+
+const {
+    id,
+    classes,
+    title,
+    titleTranslation,
+    options,
+    defaultOption,
+    visibility,
+    attr
+} = Astro.props;
+
+var conditionalVisibility = visibility != null && visibility != undefined && visibility != "";
+function parseOptions(list) {
+    var opts = [];
+    list.split(";").map((arg) => {
+        var parts = arg.split("=");
+        var option = {
+            value: parseInt(parts[0].trim()),
+            text: parts[1].toString().trim()
+        }
+        if (parts[2]) { 
+            option["translation"] = parts[2]; 
+        } else {
+            option["translation"] = option.text.replace(/[\s\-]+/ig, "");
+        }
+        opts.push(option);
+    });
+
+    return opts;
+}
+
+var optList = parseOptions(options);
+---
+
+<div id={id || ""} class={`flex-left${conditionalVisibility ? " visibility-" + visibility : ""}`}>
+    <label class="capitalise">&nbsp;<span data-i18n={titleTranslation || ""}></span>&nbsp;{title}:</label>
+    <select name={`attr_${attr}`} class="customsetting">
+        {optList.map((opt) => (<><option value={opt.value} selected={defaultOption == opt.value} data-i18n={opt.translation || ""}>{opt.text}</option></>))}
+    </select>
+</div>
