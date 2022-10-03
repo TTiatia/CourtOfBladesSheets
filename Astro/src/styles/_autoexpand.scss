@@ -1,0 +1,33 @@
+.charsheet .court-of-blades .page {
+    .auto-expand {
+        position: relative;
+        cursor: text;
+        word-wrap: break-word;
+        min-height: 1em;
+        span {
+            visibility: hidden;
+            white-space: pre-wrap;
+            font: inherit;
+            display: block;
+        }
+        textarea {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            margin: 0;
+            overflow: hidden;
+            resize: none;
+            height: 100%;
+            width: 100%;
+            display: block;
+            box-sizing: border-box;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            color: inherit;
+            font: inherit;
+        }
+    }
+}

@@ -1,4 +1,5 @@
 ---
+import FieldTooltip from "../Field/Field_ToolTip.astro";
 const {
     categoryNameAttr,
     categoryValueAttr,
@@ -10,17 +11,19 @@ const {
 function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
 ---
 <div class="gw-1 flex-spaced skillname tooltip-custom bordered">
-    <input type="hidden" name={categoryValueAttr} value={0} />
-    <div class="text-left pad-left align-center ">
-        <button type="roll" value={`/roll (@\{${categoryValueAttr}\})d6kh1`} class="button-attr"><span class="vert-middle text-white" name={`attr_${categoryNameAttr}`} type="text"></span></button>
-    </div>
-    <div class="gw-8 tracker tracked-red">
-        <input type="radio" name={`attr_${categoryXPAttr}`} value="0" class="shape-cross checked-hidden track-zero" checked={true} />
-        {toArray(categoryXPCount).map((i) => (
-            <>
-                <input type="radio" name={`attr_${categoryXPAttr}`} value={i} class="shape-diamond-med" />
-            </>
-        ))}
-    </div>
-        <span class="tooltip-custom-text" name={`attr_${categoryTooltipAttr}`}></span>
+    <!--span class="tooltip-custom-text" name={`attr_${categoryTooltipAttr}`}></span-->
+    <FieldTooltip attr={categoryTooltipAttr} classes="flex-left" textClasses="pad-left pad-right pad-top">
+        <input type="hidden" name={categoryValueAttr} value={0} />
+        <div class="text-left pad-left align-center ">
+            <button type="roll" value={`/roll (@\{${categoryValueAttr}\})d6kh1`} class="button-attr"><span class="vert-middle text-white" name={`attr_${categoryNameAttr}`} type="text"></span></button>
+        </div>
+        <div class="gw-8 tracker tracked-red">
+            <input type="radio" name={`attr_${categoryXPAttr}`} value="0" class="shape-cross checked-hidden track-zero" checked={true} />
+            {toArray(categoryXPCount).map((i) => (
+                <>
+                    <input type="radio" name={`attr_${categoryXPAttr}`} value={i} class="shape-diamond-med" />
+                </>
+            ))}
+        </div>
+    </FieldTooltip>
 </div>

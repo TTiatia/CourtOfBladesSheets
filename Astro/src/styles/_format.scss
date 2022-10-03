@@ -44,6 +44,9 @@
         line-height: 16px;
         border-bottom: 1px solid black;
     }
+    .min-h {
+        min-height: 2em;
+    }
     .titlebox {
         z-index: 1;
         img {
@@ -132,7 +135,6 @@
     .skillname {
         background: #333333;
         color: lightgray;
-        min-height: 25px;
         font-weight: 700;
         vertical-align: middle;
     }
@@ -229,8 +231,11 @@
     .item-list .item-show-style[value*="i"]~.item-name {
         font-style: italic;
     }
-    .factionnotes {
-        margin-top: 30px;
+    .factionnotesheader {
+        margin-top: 50px;
+        span {
+            min-height: 10em;
+        }
     }
     .majorfactionlist input[type="text"] {
         padding-left: 12px;

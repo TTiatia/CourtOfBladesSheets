@@ -1,5 +1,6 @@
 ---
 import RepeatingSection from "../Roll20/Roll20_RepeatingSection.astro";
+import FieldAutoExpandText from "../Field/Field_AutoExpandText.astro";
 const {
     id, 
     classes, 
@@ -17,22 +18,32 @@ const {
     <RepeatingSection attr={repeatAttr} classes="ability-list">
         { hasName == true &&
         <>
-            <div class="flex-left flex-vert-center pad-left">
+            <div class="flex-left flex-vert-top pad-left">
                 <div class="row-cb-holder marg-right">
                     <input type="checkbox" class="shape-dot checked-red align-start" value={1} name={`attr_${enabledAttr}`}>
                 </div>
                 <input type="text" name={`attr_${nameAttr}`} class="ability-label mylabel align-start" placeholder="Ability name"  data-i18n-placeholder="AbilityName">
             </div>
-            <textarea rows={1} name={`attr_${descAttr}`} class="clock-label mylabel align-start pad-left" spellcheck="false" placeholder="Ability description" data-i18n-placeholder="AbilityDescription"></textarea>
+            <FieldAutoExpandText
+                attr={descAttr}
+                classes="marg-bottom"
+                textClasses="pad-left pad-right min-h"
+                placeholderTranslation="AbilityDescription">
+            </FieldAutoExpandText>
         </>
         }
         {!hasName &&
         <>
-            <div class="flex-left flex-vert-center pad-left">
+            <div class="flex-left flex-vert-top pad-left">
                 <div class="row-cb-holder marg-right">
                     <input type="checkbox" class="shape-dot checked-red align-start" value={1} name={`attr_${enabledAttr}`}>
                 </div>
-                <textarea rows={1} name={`attr_${descAttr}`} class="clock-label mylabel align-start pad-left" spellcheck="false" placeholder="Ability description" data-i18n-placeholder="AbilityDescription"></textarea>
+                <FieldAutoExpandText
+                    attr={descAttr}
+                    classes="flex-grow"
+                    textClasses="pad-left pad-right min-h"
+                    placeholderTranslation="AbilityDescription">
+                </FieldAutoExpandText>
             </div>
         </>
         }

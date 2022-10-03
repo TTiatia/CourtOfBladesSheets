@@ -1,5 +1,6 @@
 ---
 import RepeatingSection from "../Roll20/Roll20_RepeatingSection.astro";
+import FieldAutoExpandText from "../Field/Field_AutoExpandText.astro";
 
 const {id, classes, attrPrefix, repeatAttr} = Astro.props;
 ---
@@ -8,12 +9,22 @@ const {id, classes, attrPrefix, repeatAttr} = Astro.props;
     <div class="gw-3 text-center marg-bottom marg-top" data-i18n="HouseEndOfSessionXPText">At the end of each session, for each item below, mark 1 xp (on your House sheet), for a maximum of 4 xp.</div>
     <div class="flex-left gw-3 pad-left">
         <div class="row-cb-holder"><span class="shape-diamond-small"></span></div>
-        <input type="text" name={`attr_${attrPrefix}unique`} class="pad-left" placeholder="XP trigger description" data-i18n-placeholder="XPTriggerDescription"/>
+        <FieldAutoExpandText
+            attr={`${attrPrefix}unique`}
+            classes=""
+            textClasses="pad-left"
+            placeholderTranslation="XPTriggerDescription">
+        </FieldAutoExpandText>
     </div>
     <RepeatingSection attr={repeatAttr} classes="gw-3 xp-list">
         <div class="flex-left gw-3 pad-left">
             <div class="row-cb-holder"><span class="shape-diamond-small"></span></div>
-            <input type="text" name={`attr_${attrPrefix}extra`} class="pad-left" placeholder="XP trigger description" data-i18n-placeholder="XPTriggerDescription"/>
+            <FieldAutoExpandText
+                attr={`${attrPrefix}extra`}
+                classes=""
+                textClasses="pad-left"
+                placeholderTranslation="XPTriggerDescription">
+            </FieldAutoExpandText>
         </div>
     </RepeatingSection>
 </div>

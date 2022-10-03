@@ -1,6 +1,6 @@
 ---
 import RepeatingSection from "../../components/Roll20/Roll20_RepeatingSection.astro";
-
+import FieldAutoExpandText from "../Field/Field_AutoExpandText.astro";
 const {id, classes, repAttr,nameAttr, perkAttr, contactsAttr} = Astro.props;
 ---
 <div id={id} class={`grid gtw-1 bordered ${classes}`}>
@@ -14,7 +14,12 @@ const {id, classes, repAttr,nameAttr, perkAttr, contactsAttr} = Astro.props;
                 <input type="text" name={`attr_${contactsAttr}`} class="border-bottom" />
                 <div class="text-left b upcase" data-i18n="SphereOfInfluence">Sphere of influence</div>
                 <div class="text-left b upcase" data-i18n="Contacts">Contacts</div>
-                <input type="text" name={`attr_${perkAttr}`} class="gw-2 border-bottom" />
+                <FieldAutoExpandText
+                    attr={perkAttr}
+                    classes="gw-2 border-bottom"
+                    textClasses="min-h"
+                    placeholderTranslation="Perk">
+                </FieldAutoExpandText>
                 <div class="text-left gw-2 b upcase" data-i18n="Perk">Perk</div>
             </div>
         </RepeatingSection>
