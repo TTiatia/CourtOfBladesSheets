@@ -1,11 +1,17 @@
 ---
 import ClockDynamicContainer from "../Clocks/Clocks_DynamicContainer.astro";
+import FieldAutoExpandText from "../Field/Field_AutoExpandText.astro";
 const {factionNumber, nameAttr, strengthAttr, statAttr, notesAttr, clockPrefixAttr} = Astro.props;
 ---
 <div class="grid-gmturn-row border-bottom marg-bottom">
     <div class="grid gth-2 gtw-1">
         <input type="text" name={`attr_${nameAttr}${factionNumber}`} class="b pcdetail" placeholder="House Name"  data-i18n-placeholder="HouseName" />
-        <input type="text" name={`attr_${strengthAttr}${factionNumber}`} class="" placeholder="Strengths"  data-i18n-placeholder="Strengths"/>
+        <FieldAutoExpandText
+            attr={`${strengthAttr}${factionNumber}`}
+            classes=""
+            textClasses="pad-left min-h"
+            placeholderTranslation="Strengths">
+        </FieldAutoExpandText>
     </div>
 
     <div class="grid gtw-1 gth-4 gaph-2 pad-left">
@@ -37,7 +43,12 @@ const {factionNumber, nameAttr, strengthAttr, statAttr, notesAttr, clockPrefixAt
             <div class="pad-left b capitalise" data-i18n="Sleight">Sleight</div>
         </div>
     </div>
-    <textarea spellcheck={false} class="autoexpand" name={`attr_${notesAttr}${factionNumber}`} placeholder="Faction-specific notes"  data-i18n-placeholder="FactionSpecificNotes"></textarea>
+    <FieldAutoExpandText
+        attr={`${notesAttr}${factionNumber}`}
+        classes=""
+        textClasses="pad-left"
+        placeholderTranslation="FactionSpecificNotes">
+    </FieldAutoExpandText>
     <ClockDynamicContainer id="faction-clocks" classes="marg-top" 
         repeatAttr={`${clockPrefixAttr}${factionNumber}`} 
         sizeAttr={`${clockPrefixAttr}${factionNumber}size`} 

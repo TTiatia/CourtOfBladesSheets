@@ -1,0 +1,6 @@
+---
+const {id, classes} = Astro.props;
+---
+<div id={id || ""} class={`text-center ${classes || ""}`}>
+    <button class="bordered bg-white b upcase pad-left pad-top pad-right pad-bottom" data-i18n="RollFortune"></button>
+</div>

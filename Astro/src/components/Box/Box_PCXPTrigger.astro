@@ -1,6 +1,6 @@
 ---
 import RepeatingSection from "../Roll20/Roll20_RepeatingSection.astro";
-
+import FieldAutoExpandText from "../Field/Field_AutoExpandText.astro";
 const {id, classes, attrPrefix} = Astro.props;
 ---
 <div id={id} class={`grid gtw-3 xptriggers ${classes}`}>
@@ -18,7 +18,12 @@ const {id, classes, attrPrefix} = Astro.props;
     <RepeatingSection attr="pcxptrigger" classes="gw-3 xp-list">
         <div class="flex-left gw-3 pad-left">
             <div class="row-cb-holder"><span class="shape-diamond-small"></span></div>
-            <input type="text" name={`attr_${attrPrefix}extra`} class="pad-left" placeholder="XP trigger text." />
+            <FieldAutoExpandText
+                attr={`${attrPrefix}extra`}
+                classes=""
+                textClasses="pad-left"
+                placeholderTranslation="XPTriggerDescription">
+            </FieldAutoExpandText>
         </div>
     </RepeatingSection>
 </div>

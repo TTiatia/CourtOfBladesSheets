@@ -1,0 +1,16 @@
+---
+const { 
+    attr, 
+    classes, 
+    textClasses,
+    placeholderTranslation } = Astro.props;
+---
+<div class={``}>
+    <div class={`tooltip-custom ${classes || ""}`}>
+        <slot />
+    </div>
+    <div class={`tooltip-custom-text tooltip-expand`}>
+        <span name={`attr_${attr}`}  class={textClasses}></span>
+        <textarea rows={1} name={`attr_${attr}`} class={textClasses} spellcheck="false" placeholder="Ability description" data-i18n-placeholder={placeholderTranslation}></textarea>
+    </div>
+</div>

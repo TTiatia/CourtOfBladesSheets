@@ -6,8 +6,14 @@ const {
     label,
     labelTranslation
 } = Astro.props;
+import FieldAutoExpandText from "../Field/Field_AutoExpandText.astro";
 ---
 <div id={id} class={`grid gtw-1 round-borders bordered ${classes}`}>
     <div class="b text-center upcase round-borders-top border-bottom bg-light" data-i18n={labelTranslation}>{label}</div>
-    <textarea name={`attr_${attr}`} class="pad-left pad-right bg-white round-borders-bottom"></textarea>
+    <FieldAutoExpandText
+        attr={attr}
+        classes="bg-white round-borders-bottom"
+        textClasses="pad-left pad-right min-h"
+        placeholderTranslation={labelTranslation}>
+    </FieldAutoExpandText>
 </div>

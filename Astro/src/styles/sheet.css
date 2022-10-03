@@ -531,6 +531,9 @@
   line-height: 16px;
   border-bottom: 1px solid black;
 }
+.charsheet .court-of-blades .page .min-h {
+  min-height: 2em;
+}
 .charsheet .court-of-blades .page .titlebox {
   z-index: 1;
 }
@@ -619,7 +622,6 @@
 .charsheet .court-of-blades .page .skillname {
   background: #333333;
   color: lightgray;
-  min-height: 25px;
   font-weight: 700;
   vertical-align: middle;
 }
@@ -711,8 +713,11 @@
 .charsheet .court-of-blades .page .item-list .item-show-style[value*=i] ~ .item-name {
   font-style: italic;
 }
-.charsheet .court-of-blades .page .factionnotes {
-  margin-top: 30px;
+.charsheet .court-of-blades .page .factionnotesheader {
+  margin-top: 50px;
+}
+.charsheet .court-of-blades .page .factionnotesheader span {
+  min-height: 10em;
 }
 .charsheet .court-of-blades .page .majorfactionlist input[type=text] {
   padding-left: 12px;
@@ -745,6 +750,9 @@
 .charsheet .court-of-blades .page .flex-spaced {
   justify-content: space-between;
   align-content: space-between;
+}
+.charsheet .court-of-blades .page .flex-grow {
+  flex-grow: 4;
 }
 
 /* ||
@@ -900,36 +908,54 @@
     The element with the .tooltip-custom-text class is the tooltip itself, and must be a child of the container.
 */
 .charsheet .court-of-blades .tooltip-custom {
-  position: relative;
   display: inline-block;
   opacity: 100%;
   z-index: auto;
 }
-.charsheet .court-of-blades .tooltip-custom .tooltip-custom-text {
+.charsheet .court-of-blades .tooltip-custom-text {
   visibility: hidden;
   background-color: black;
   color: #fff;
-  width: 100%;
+  min-width: 10em;
   text-align: center;
   padding: 5px;
   border-radius: 6px;
   position: absolute;
   font-weight: normal;
   font-style: normal;
-  top: 95%;
-  left: 0;
   z-index: 6;
   transition: visibility 0s linear 2s;
 }
-.charsheet .court-of-blades .tooltip-custom:hover .tooltip-custom-text {
-  visibility: visible;
-  transition: visibility 0s linear 1s;
+.charsheet .court-of-blades .tooltip-expand {
+  position: absolute;
 }
-.charsheet .court-of-blades textarea.tooltip-custom-text,
-.charsheet .court-of-blades .tooltip-custom-text textarea {
-  height: max-content;
-  width: max-content;
-  color: #fff;
+.charsheet .court-of-blades .tooltip-expand span {
+  visibility: hidden;
+  white-space: pre-wrap;
+  display: block;
+}
+.charsheet .court-of-blades .tooltip-expand textarea {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  margin: 0;
+  overflow: hidden;
+  resize: none;
+  height: 100%;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  font: inherit;
+}
+.charsheet .court-of-blades .tooltip-custom:hover .tooltip-custom-text,
+.charsheet .court-of-blades .tooltip-custom:hover + .tooltip-custom-text,
+.charsheet .court-of-blades .tooltip-custom-text:hover {
+  visibility: visible;
+  transition: visibility 0s linear 0.75s;
 }
 
 .charsheet .court-of-blades {
@@ -1950,4 +1976,36 @@
 .charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-6[class^=flex-],
 .charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-6[class*=" flex-"] {
   display: flex;
+}
+
+.charsheet .court-of-blades .page .auto-expand {
+  position: relative;
+  cursor: text;
+  word-wrap: break-word;
+  min-height: 1em;
+}
+.charsheet .court-of-blades .page .auto-expand span {
+  visibility: hidden;
+  white-space: pre-wrap;
+  font: inherit;
+  display: block;
+}
+.charsheet .court-of-blades .page .auto-expand textarea {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  margin: 0;
+  overflow: hidden;
+  resize: none;
+  height: 100%;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  font: inherit;
 }

@@ -43,11 +43,14 @@ const {id, classes, pageNum} = Astro.props;
                 wordsTranslation="HousesMinorWords"
                 >
             </PanelFactionMinor>
-            <NoteField
-                attr="factgmnotes"
-                label="Notes"
-                class="factionnotes">
-            </NoteField>
+            <div class="factionnotesheader">
+                <NoteField
+                    attr="factgmnotes"
+                    label="Notes"
+                    labelTranslation="Notes"
+                    textclasses="factionnotes">
+                </NoteField>
+            </div>
             <PanelFactionMinor
                 classes=""
                 repAttr="factminors2"
@@ -72,8 +75,7 @@ const {id, classes, pageNum} = Astro.props;
                 wordsTranslation="UncouthWords"
                 >   
             </PanelFactionMinor>
-
-            <PanelFactionRules classes=""></PanelFactionRules>
+            <PanelFactionRules classes="factionnotesheader"></PanelFactionRules>
         </div>
     </div>
 </Page>

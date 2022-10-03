@@ -1,0 +1,55 @@
+---
+import FieldAutoExpandText from "../Field/Field_AutoExpandText.astro";
+---
+<div class="grid gtw-2 gapw-4 gaph-2  marg-bottom marg-top marg-right marg-left">
+    <div class="gw-2 border-top border-right border-bottom border-left pad-top pad-bottom pad-right pad-left bg-white round-borders">
+        <input type="text" name="attr_RetinueName" data-i18n-placeholder="Name" class="border-bottom capitalise gw-2 heading"/>
+        <input type="text" name="attr_RetinueType" data-i18n-placeholder="Type" class="gw-2 i font-med"/>
+    </div>
+    <select name="attr_RetinueCategory" class="gw-2 upcase" data-i18n-placeholder="Select">
+        <option value={1} data-i18n="Retinue">Retinue</option>
+        <option value={2} data-i18n="Colleague">Colleague</option>
+    </select>
+    <div data-i18n="Quality" class="b upcase text-left marg-top"></div>
+    <div data-i18n="Scale" class="b upcase text-left marg-top"></div>
+    <select name="attr_RetinueQuality">
+        <option>0</option>
+        <option>I</option>
+        <option>II</option>
+        <option>III</option>
+        <option>IV</option>
+        <option>V</option>
+        <option>VI</option>
+    </select>
+    <select name="attr_RetinueScale">
+        <option data-i18n="Tier0RetinueScaleDescription" value={0}></option>
+        <option data-i18n="Tier1RetinueScaleDescription" value={1}></option>
+        <option data-i18n="Tier2RetinueScaleDescription" value={2}></option>
+        <option data-i18n="Tier3RetinueScaleDescription" value={3}></option>
+        <option data-i18n="Tier4RetinueScaleDescription" value={4}></option>
+        <option data-i18n="Tier5RetinueScaleDescription" value={5}></option>
+    </select>
+    
+    <div class="gw-2 flex-left">
+        <label data-i18n="Harm"></label>
+        <select class="" name="attr_RetinueHarm" data-i18n-placeholder="Harm">
+            <option value={0} data-i18n="NoHarm"></option>
+            <option value={1} data-i18n="RetinueLevel1HarmDescription" class="capitalise"></option>
+            <option value={2} data-i18n="RetinueLevel2HarmDescription" class="capitalise"></option>
+            <option value={3} data-i18n="RetinueLevel3HarmDescription" class="capitalise"></option>
+            <option value={4} data-i18n="RetinueLevel4HarmDescription" class="capitalise"></option>
+        </select>
+    </div>
+    <div data-i18n="Edges" class="b upcase text-left marg-top"></div>
+    <div data-i18n="Flaws" class="b upcase text-left marg-top"></div>
+    <FieldAutoExpandText
+        attr="RetinueEdges"
+        classes="bg-white round-borders-bottom"
+        textClasses="pad-left pad-right min-h">
+    </FieldAutoExpandText>
+    <FieldAutoExpandText
+        attr="RetinueFlaws"
+        classes="bg-white round-borders-bottom"
+        textClasses="pad-left pad-right min-h">
+    </FieldAutoExpandText>
+</div>
