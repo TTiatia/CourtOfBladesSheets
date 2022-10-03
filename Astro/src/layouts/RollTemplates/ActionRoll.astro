@@ -1,0 +1,22 @@
+---
+
+---
+<rolltemplate class="sheet-rolltemplate-bitd">
+    <div
+        class="holder{{#action}} action{{/action}}{{#resist}} resist{{/resist}}{{#vice}} vice{{/vice}}{{#fortune}} fortune{{/fortune}}{{#short}} short{{/short}}{{#action}}{{^position}} short{{/position}}{{/action}}">
+        {{#charimage}}
+        <div class="char-image">[Image]({{charimage}})</div>{{/charimage}}
+        <div class="header{{#charimage}} narrow{{/charimage}}">{{charname}} {{subtitle}}</div>
+        <div class="title"><span class="{{#small-title}}small-title{{/small-title}}">{{title}}</span></div>
+        <div class="dice">
+            {{^zerodice}}{{dice}}{{/zerodice}}{{#zerodice}}
+            <div class="zerodice1">{{zerodice}}</div>
+            <div class="zerodice2" data-i18n="zerodice"></div>{{/zerodice}}
+        </div>{{#position}}
+        <div class="position">{{position}}</div>{{/position}}{{#effect}}
+        <div class="effect">{{effect}}</div>{{/effect}}{{#resist}}{{^short}}
+        <div class="instructions" data-i18n="resist_instructions"></div>{{/short}}{{/resist}}{{#vice}}{{^short}}
+        <div class="instructions" data-i18n="vice_instructions"></div>{{/short}}{{/vice}}{{#notes}}
+        <div class="notes">{{notes}}</div>{{/notes}}
+    </div>
+</rolltemplate>
