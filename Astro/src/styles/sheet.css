@@ -2013,9 +2013,19 @@
   font: inherit;
 }
 
+.sheet-rolltemplate-cob-fortune {
+  background-image: url("https://raw.githubusercontent.com/TTiatia/CourtOfBladesSheets/main/Astro/public/FortuneBlank.png");
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.sheet-rolltemplate-cob-action {
+  background-image: url("https://raw.githubusercontent.com/TTiatia/CourtOfBladesSheets/main/Astro/public/bg-web.png");
+}
+
 .sheet-rolltemplate-cob-action,
 .sheet-rolltemplate-cob-fortune {
-  background-image: url("https://raw.githubusercontent.com/TTiatia/CourtOfBladesSheets/main/Astro/public/bg-web.png");
   height: max-content;
   font-family: "EB Garamond", serif;
   color: black;

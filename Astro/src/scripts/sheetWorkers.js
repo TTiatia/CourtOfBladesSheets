@@ -2192,7 +2192,8 @@ const setDefaultAttrs = (dict) => {
                 [key]: dict[key]()
             });
 
-            if (key.startsWith("pcskillval") && !key.endsWith("formula")) {
+            if ((key.startsWith("pcskillval") || key.startsWith("pcattrval")) && !key.endsWith("formula")) {
+                //console.log(`formula for ${key}`);
                 recalculateFormula(key, dict[key]);
             }
         }
