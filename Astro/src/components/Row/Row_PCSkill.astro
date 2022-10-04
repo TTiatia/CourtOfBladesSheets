@@ -19,8 +19,9 @@ function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
                 {xpNum==1 && <span class="shape-divider marg-right"></span>}
             </>
         ))}
-        <button type="roll" class="button-action" value={`/r (@\{${skillValueAttr}\})d6kh1`}>
-            <span name={`attr_${skillNameAttr}`} class="b capitalise"></span>
+        <input type="hidden" name={`attr_${skillValueAttr}_formula`} value=""/>
+        <button type="roll" class="button-action" value={`&{template:cob-action} {{action=1}} {{name=@{pcname}}} {{stat=@{${skillNameAttr}}}} {{@{position_query}}} {{effect=@{effect_query}}} @{${skillValueAttr}_formula}`}>
+        <span name={`attr_${skillNameAttr}`} class="b capitalise"></span>
         </button>
     </div>
     <span name={`attr_${skillTooltipAttr}`} class="tooltip-custom-text"></span>

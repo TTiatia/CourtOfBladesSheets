@@ -1,21 +1,22 @@
 const metaData = {
     sheetVersion: "1.0",
-    lastUpdate: "2022-08-10",
+    lastUpdate: "2022-08-10"
 };
 
-
 // shorter alias
-const translate = (key) => { return getTranslationByKey(key) || `[${key}]`; };
+const translate = (key) => {
+    return getTranslationByKey(key) || `[${key}]`;
+};
 
 const xpTriggers = {
     pc: [
         () => translate("PCXPTrigger1"),
-        () => translate("PCXPTrigger2"),
+        () => translate("PCXPTrigger2")
     ],
     coterie: [
         () => translate("CoterieXPTrigger1"),
         () => translate("CoterieXPTrigger2"),
-        () => translate("CoterieXPTrigger3"),
+        () => translate("CoterieXPTrigger3")
     ]
 };
 
@@ -28,7 +29,7 @@ const lookup = {
         knack: () => translate("KnackPlaybookName"),
         key: () => translate("KeyPlaybookName"),
         kiss: () => translate("KissPlaybookName"),
-        curse: () => translate("CursePlaybookName"),
+        curse: () => translate("CursePlaybookName")
     },
     playbookId: {
         0: "NotSet",
@@ -68,7 +69,7 @@ const lookup = {
         channel: () => "pcskillval31",
         command: () => "pcskillval32",
         consort: () => "pcskillval33",
-        sway: () => "pcskillval34",
+        sway: () => "pcskillval34"
     },
     coterieId: {
         0: "NotSet",
@@ -78,7 +79,7 @@ const lookup = {
         4: "lovell",
         5: "alMari",
         6: "elanda",
-        99: "custom",
+        99: "custom"
     },
     coterieNames: {
         corvetto: () => translate("HouseCorvetto"),
@@ -86,7 +87,7 @@ const lookup = {
         bastien: () => translate("HouseBastien"),
         lovell: () => translate("HouseLovell"),
         alMari: () => translate("HouseAlMari"),
-        elanda: () => translate("HouseElanda"),
+        elanda: () => translate("HouseElanda")
     }
 };
 
@@ -150,272 +151,227 @@ const pcDefaults = {
     pcskillName34: () => translate("Sway"),
     pcskilldesc34: () => translate("SwayActionDescription"),
     pcskillval34: () => "0",
+
+    bonusdice: () => translate("BonusDice"),
+    numberofdice: () => ` {{?{${translate("NumberOfDice")}|0,zerodice=[[d6]]&amp;#44; [[d6]]|1,dice=[[d6]]|2,dice=[[d6]]&amp;#44; [[d6]]|3,dice=[[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]|4,dice=[[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]|5,dice=[[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]|6,dice=[[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]}}}`,
+    notes_query: () => `?{${translate("Notes")}}`,
+    position_query: () => `?{${translate("Position")}|${translate("Risky")},position=${translate("Risky")}|${translate("Controlled")},position=${translate("Controlled")}|${translate("Desperate")},position=${translate("Desperate")}|${translate("FortuneRoll")},short=1}`,
+    effect_query: () => `?{${translate("Effect")}|${translate("Standard")}|${translate("Limited")}|${translate("Great")}|${translate("Extreme")}|${translate("Zero")}}`
 };
 
 const factionDefaults = {
     housesMajor: [{
-            tier: () => "VI",
-            name: () => translate("TheGrandCouncil"),
-            favor: () => "0",
-            status: () => "0",
-        },
-        {
-            tier: () => "",
-            name: () => translate("HouseCorvetto"),
-            favor: () => "0",
-            status: () => "0",
-        },
-        {
-            tier: () => "",
-            name: () => translate("HouseBattalia"),
-            favor: () => "0",
-            status: () => "0",
-        },
-        {
-            tier: () => "",
-            name: () => translate("HouseBastien"),
-            favor: () => "0",
-            status: () => "0",
-        },
-        {
-            tier: () => "",
-            name: () => translate("HouseLovell"),
-            favor: () => "0",
-            status: () => "0",
-        },
-        {
-            tier: () => "",
-            name: () => translate("HouseAlMari"),
-            favor: () => "0",
-            status: () => "0",
-        },
-        {
-            tier: () => "",
-            name: () => translate("HouseElanda"),
-            favor: () => "0",
-            status: () => "0",
-        },
-    ],
+        tier: () => "VI",
+        name: () => translate("TheGrandCouncil"),
+        favor: () => "0",
+        status: () => "0"
+    }, {
+        tier: () => "",
+        name: () => translate("HouseCorvetto"),
+        favor: () => "0",
+        status: () => "0"
+    }, {
+        tier: () => "",
+        name: () => translate("HouseBattalia"),
+        favor: () => "0",
+        status: () => "0"
+    }, {
+        tier: () => "",
+        name: () => translate("HouseBastien"),
+        favor: () => "0",
+        status: () => "0"
+    }, {
+        tier: () => "",
+        name: () => translate("HouseLovell"),
+        favor: () => "0",
+        status: () => "0"
+    }, {
+        tier: () => "",
+        name: () => translate("HouseAlMari"),
+        favor: () => "0",
+        status: () => "0"
+    }, {
+        tier: () => "",
+        name: () => translate("HouseElanda"),
+        favor: () => "0",
+        status: () => "0"
+    }],
     housesMinor: [{
-            tier: () => "V",
-            name: () => translate("TheBankOfBrassAndBone"),
-            status: () => "0",
-        },
-        {
-            tier: () => "IV",
-            name: () => translate("TheFortunadoTradeFederation"),
-            status: () => "0",
-        },
-        {
-            tier: () => "IV",
-            name: () => translate("TheFirstCourt"),
-            status: () => "0",
-        },
-        {
-            tier: () => "III",
-            name: () => translate("TheScholamNaturalis"),
-            status: () => "0",
-        },
-        {
-            tier: () => "III",
-            name: () => translate("TheGraces"),
-            status: () => "0",
-        },
-        {
-            tier: () => "III",
-            name: () => translate("TheGondoliers"),
-            status: () => "0",
-        },
-        {
-            tier: () => "III",
-            name: () => translate("TheSignora"),
-            status: () => "0",
-        },
-        {
-            tier: () => "III",
-            name: () => translate("TheCityWatch"),
-            status: () => "0",
-        },
-        {
-            tier: () => "III",
-            name: () => translate("TheDockers"),
-            status: () => "0",
-        },
-        {
-            tier: () => "II",
-            name: () => translate("TheBakersGuild"),
-            status: () => "0",
-        },
-        {
-            tier: () => "II",
-            name: () => translate("TheArboristGuild"),
-            status: () => "0",
-        },
-        {
-            tier: () => "II",
-            name: () => translate("TheBroadsheets"),
-            status: () => "0",
-        },
-        {
-            tier: () => "II",
-            name: () => translate("TheIronmongers"),
-            status: () => "0",
-        },
-    ],
+        tier: () => "V",
+        name: () => translate("TheBankOfBrassAndBone"),
+        status: () => "0"
+    }, {
+        tier: () => "IV",
+        name: () => translate("TheFortunadoTradeFederation"),
+        status: () => "0"
+    }, {
+        tier: () => "IV",
+        name: () => translate("TheFirstCourt"),
+        status: () => "0"
+    }, {
+        tier: () => "III",
+        name: () => translate("TheScholamNaturalis"),
+        status: () => "0"
+    }, {
+        tier: () => "III",
+        name: () => translate("TheGraces"),
+        status: () => "0"
+    }, {
+        tier: () => "III",
+        name: () => translate("TheGondoliers"),
+        status: () => "0"
+    }, {
+        tier: () => "III",
+        name: () => translate("TheSignora"),
+        status: () => "0"
+    }, {
+        tier: () => "III",
+        name: () => translate("TheCityWatch"),
+        status: () => "0"
+    }, {
+        tier: () => "III",
+        name: () => translate("TheDockers"),
+        status: () => "0"
+    }, {
+        tier: () => "II",
+        name: () => translate("TheBakersGuild"),
+        status: () => "0"
+    }, {
+        tier: () => "II",
+        name: () => translate("TheArboristGuild"),
+        status: () => "0"
+    }, {
+        tier: () => "II",
+        name: () => translate("TheBroadsheets"),
+        status: () => "0"
+    }, {
+        tier: () => "II",
+        name: () => translate("TheIronmongers"),
+        status: () => "0"
+    }],
     outsiders: [{
-            tier: () => "IV",
-            name: () => translate("TheSevenfoldVeils"),
-            status: () => "0"
-        },
-        {
-            tier: () => "III",
-            name: () => translate("TheMercies"),
-            status: () => "0"
-        },
-        {
-            tier: () => "II",
-            name: () => translate("TheDeadWatchers"),
-            status: () => "0"
-        },
-        {
-            tier: () => "II",
-            name: () => translate("TheCollegeOfSatire"),
-            status: () => "0"
-        },
-        {
-            tier: () => "II",
-            name: () => translate("TheBuskin"),
-            status: () => "0"
-        },
-        {
-            tier: () => "I",
-            name: () => translate("TheTramps"),
-            status: () => "0"
-        },
-        {
-            tier: () => "I",
-            name: () => translate("Soraya"),
-            status: () => "0"
-        },
-    ],
+        tier: () => "IV",
+        name: () => translate("TheSevenfoldVeils"),
+        status: () => "0"
+    }, {
+        tier: () => "III",
+        name: () => translate("TheMercies"),
+        status: () => "0"
+    }, {
+        tier: () => "II",
+        name: () => translate("TheDeadWatchers"),
+        status: () => "0"
+    }, {
+        tier: () => "II",
+        name: () => translate("TheCollegeOfSatire"),
+        status: () => "0"
+    }, {
+        tier: () => "II",
+        name: () => translate("TheBuskin"),
+        status: () => "0"
+    }, {
+        tier: () => "I",
+        name: () => translate("TheTramps"),
+        status: () => "0"
+    }, {
+        tier: () => "I",
+        name: () => translate("Soraya"),
+        status: () => "0"
+    }],
     uncouth: [
 
         {
             tier: () => "IV",
             name: () => translate("ThePrinceOfTatters"),
             status: () => "0"
-        },
-        {
+        }, {
             tier: () => "IV",
             name: () => translate("TheBrizolattoFamily"),
             status: () => "0"
-        },
-        {
+        }, {
             tier: () => "III",
             name: () => translate("RignollesRovers"),
             status: () => "0"
-        },
-        {
+        }, {
             tier: () => "III",
             name: () => translate("TheTenHammerRegulars"),
             status: () => "0"
-        },
-        {
+        }, {
             tier: () => "III",
             name: () => translate("TheFounder"),
             status: () => "0"
-        },
-        {
+        }, {
             tier: () => "II",
             name: () => translate("TheUnburnt"),
             status: () => "0"
-        },
-        {
+        }, {
             tier: () => "II",
             name: () => translate("TheBlueDevils"),
             status: () => "0"
-        },
-        {
+        }, {
             tier: () => "II",
             name: () => translate("TheTwistJacks"),
             status: () => "0"
-        },
-        {
+        }, {
             tier: () => "I",
             name: () => translate("TheMotley"),
             status: () => "0"
-        },
-    ],
+        }
+    ]
 };
 
 const coterieUpgrades = {
     quality: [{
-            name: () => translate("Documents"),
-            desc: () => translate("DocumentsQualityDescription"),
-        },
-        {
-            name: () => translate("Gear"),
-            desc: () => translate("GearQualityDescription"),
-        },
-        {
-            name: () => translate("Implements"),
-            desc: () => translate("ImplementsQualityDescription"),
-        },
-        {
-            name: () => translate("Supplies"),
-            desc: () => translate("SuppliesQualityDescription"),
-        },
-        {
-            name: () => translate("Tools"),
-            desc: () => translate("ToolsQualityDescription"),
-        },
-        {
-            name: () => translate("Weapons"),
-            desc: () => translate("WeaponsQualityDescription"),
-        }
-    ],
+        name: () => translate("Documents"),
+        desc: () => translate("DocumentsQualityDescription")
+    }, {
+        name: () => translate("Gear"),
+        desc: () => translate("GearQualityDescription")
+    }, {
+        name: () => translate("Implements"),
+        desc: () => translate("ImplementsQualityDescription")
+    }, {
+        name: () => translate("Supplies"),
+        desc: () => translate("SuppliesQualityDescription")
+    }, {
+        name: () => translate("Tools"),
+        desc: () => translate("ToolsQualityDescription")
+    }, {
+        name: () => translate("Weapons"),
+        desc: () => translate("WeaponsQualityDescription")
+    }],
     training: [{
-            name: () => translate("Mind"),
-            desc: () => translate("MindTrainingDescription"),
-        },
-        {
-            name: () => translate("Body"),
-            desc: () => translate("BodyTrainingDescription"),
-        },
-        {
-            name: () => translate("Spirit"),
-            desc: () => translate("SpiritTrainingDescription"),
-        }
-    ],
+        name: () => translate("Mind"),
+        desc: () => translate("MindTrainingDescription")
+    }, {
+        name: () => translate("Body"),
+        desc: () => translate("BodyTrainingDescription")
+    }, {
+        name: () => translate("Spirit"),
+        desc: () => translate("SpiritTrainingDescription")
+    }],
     others: [{
-            name: () => translate("PrivateApartments"),
-            desc: () => translate("PrivateApartmentsOtherDescription"),
-        },
-        {
-            name: () => translate("HiddenExit"),
-            desc: () => translate("HiddenExitOtherDescription"),
-        },
-        {
-            name: () => translate("Workspace"),
-            desc: () => translate("WorkspaceOtherDescription"),
-        },
-        {
-            name: () => translate("RitualSpace"),
-            desc: () => translate("RitualSpaceOtherDescription"),
-        },
-        {
-            name: () => translate("PrivateLibrary"),
-            desc: () => translate("PrivateLibraryOtherDescription"),
-        },
-        {
-            name: () => translate("ArcaneWards"),
-            desc: () => translate("ArcaneWardsOtherDescription"),
-        },
-        {
-            name: () => translate("DedicatedTransportation"),
-            desc: () => translate("DedicatedTransportationOtherDescription"),
-        }
-    ]
+        name: () => translate("PrivateApartments"),
+        desc: () => translate("PrivateApartmentsOtherDescription")
+    }, {
+        name: () => translate("HiddenExit"),
+        desc: () => translate("HiddenExitOtherDescription")
+    }, {
+        name: () => translate("Workspace"),
+        desc: () => translate("WorkspaceOtherDescription")
+    }, {
+        name: () => translate("RitualSpace"),
+        desc: () => translate("RitualSpaceOtherDescription")
+    }, {
+        name: () => translate("PrivateLibrary"),
+        desc: () => translate("PrivateLibraryOtherDescription")
+    }, {
+        name: () => translate("ArcaneWards"),
+        desc: () => translate("ArcaneWardsOtherDescription")
+    }, {
+        name: () => translate("DedicatedTransportation"),
+        desc: () => translate("DedicatedTransportationOtherDescription")
+    }]
 };
 
 const specialArmors = {
@@ -428,451 +384,449 @@ const specialArmors = {
     kiss: () => translate("KissSpecialArmorDescription"),
     kissWeakness: () => translate("KissIronWeaknessDescription"),
     curse: () => translate("CurseSpecialArmorDescription"),
-    curseHarm: () => translate("CurseHarmDescription"),
+    curseHarm: () => translate("CurseHarmDescription")
 };
 
 const specialFeatures = {
     corvetto: {
         name: () => translate("CoterieFeature_CorvettoName"),
-        desc: () => translate("CoterieFeature_CorvettoDescription"),
+        desc: () => translate("CoterieFeature_CorvettoDescription")
     },
     battalia: {
         name: () => translate("CoterieFeature_BattaliaName"),
-        desc: () => translate("CoterieFeature_BattaliaDescription"),
+        desc: () => translate("CoterieFeature_BattaliaDescription")
     },
     bastien: {
         name: () => translate("CoterieFeature_BastienName"),
-        desc: () => translate("CoterieFeature_BastienDescription"),
+        desc: () => translate("CoterieFeature_BastienDescription")
     },
     lovell: {
         name: () => translate("CoterieFeature_LovellName"),
-        desc: () => translate("CoterieFeature_LovellDescription"),
+        desc: () => translate("CoterieFeature_LovellDescription")
     },
     alMari: {
         name: () => translate("CoterieFeature_AlMariName"),
-        desc: () => translate("CoterieFeature_AlMariDescription"),
+        desc: () => translate("CoterieFeature_AlMariDescription")
     },
     elanda: {
         name: () => translate("CoterieFeature_ElandaName"),
-        desc: () => translate("CoterieFeature_ElandaDescription"),
-    },
+        desc: () => translate("CoterieFeature_ElandaDescription")
+    }
 };
 
 const playbookAbilities = {
     veteran: {
         name: () => translate("PlaybookAbility_VeteranName"),
-        desc: () => translate("PlaybookAbility_VeteranDescription"),
+        desc: () => translate("PlaybookAbility_VeteranDescription")
     },
     // Bravo
     houseGuard: {
         name: () => translate("PlaybookAbility_HouseGuardName"),
-        desc: () => translate("PlaybookAbility_HouseGuardDescription"),
+        desc: () => translate("PlaybookAbility_HouseGuardDescription")
     },
     bloodyButUnbowed: {
         name: () => translate("PlaybookAbility_BloodyButUnbowedName"),
-        desc: () => translate("PlaybookAbility_BloodyButUnbowedDescription"),
+        desc: () => translate("PlaybookAbility_BloodyButUnbowedDescription")
     },
     unstoppable: {
         name: () => translate("PlaybookAbility_UnstoppableName"),
-        desc: () => translate("PlaybookAbility_UnstoppableDescription"),
+        desc: () => translate("PlaybookAbility_UnstoppableDescription")
     },
     codeDuello: {
         name: () => translate("PlaybookAbility_CodeDuelloName"),
-        desc: () => translate("PlaybookAbility_CodeDuelloDescription"),
+        desc: () => translate("PlaybookAbility_CodeDuelloDescription")
     },
     honorGuard: {
         name: () => translate("PlaybookAbility_HonorGuardName"),
-        desc: () => translate("PlaybookAbility_HonorGuardDescription"),
+        desc: () => translate("PlaybookAbility_HonorGuardDescription")
     },
     uponANeedle: {
         name: () => translate("PlaybookAbility_UponANeedleName"),
-        desc: () => translate("PlaybookAbility_UponANeedleDescription"),
+        desc: () => translate("PlaybookAbility_UponANeedleDescription")
     },
     gapInTheArmor: {
         name: () => translate("PlaybookAbility_GapInTheArmorName"),
-        desc: () => translate("PlaybookAbility_GapInTheArmorDescription"),
+        desc: () => translate("PlaybookAbility_GapInTheArmorDescription")
     },
     // Hawk
     terrifying: {
         name: () => translate("PlaybookAbility_TerrifyingName"),
-        desc: () => translate("PlaybookAbility_TerrifyingDescription"),
+        desc: () => translate("PlaybookAbility_TerrifyingDescription")
     },
     predator: {
         name: () => translate("PlaybookAbility_PredatorName"),
-        desc: () => translate("PlaybookAbility_PredatorDescription"),
+        desc: () => translate("PlaybookAbility_PredatorDescription")
     },
     sharpshooter: {
         name: () => translate("PlaybookAbility_SharpshooterName"),
-        desc: () => translate("PlaybookAbility_SharpshooterDescription"),
+        desc: () => translate("PlaybookAbility_SharpshooterDescription")
     },
     triage: {
         name: () => translate("PlaybookAbility_TriageName"),
-        desc: () => translate("PlaybookAbility_TriageDescription"),
+        desc: () => translate("PlaybookAbility_TriageDescription")
     },
     callTheTarget: {
         name: () => translate("PlaybookAbility_CallTheTargetName"),
-        desc: () => translate("PlaybookAbility_CallTheTargetDescription"),
+        desc: () => translate("PlaybookAbility_CallTheTargetDescription")
     },
     baitedAndSet: {
         name: () => translate("PlaybookAbility_BaitedAndSetName"),
-        desc: () => translate("PlaybookAbility_BaitedAndSetDescription"),
+        desc: () => translate("PlaybookAbility_BaitedAndSetDescription")
     },
     leaveNoGround: {
         name: () => translate("PlaybookAbility_LeaveNoGroundName"),
-        desc: () => translate("PlaybookAbility_LeaveNoGroundDescription"),
+        desc: () => translate("PlaybookAbility_LeaveNoGroundDescription")
     },
     // Eye
     betterLuckyThanGood: {
         name: () => translate("PlaybookAbility_BetterLuckyThanGoodName"),
-        desc: () => translate("PlaybookAbility_BetterLuckyThanGoodDescription"),
+        desc: () => translate("PlaybookAbility_BetterLuckyThanGoodDescription")
     },
     likeWater: {
         name: () => translate("PlaybookAbility_LikeWaterName"),
-        desc: () => translate("PlaybookAbility_LikeWaterDescription"),
+        desc: () => translate("PlaybookAbility_LikeWaterDescription")
     },
     infiltrator: {
         name: () => translate("PlaybookAbility_InfiltratorName"),
-        desc: () => translate("PlaybookAbility_InfiltratorDescription"),
+        desc: () => translate("PlaybookAbility_InfiltratorDescription")
     },
     shadow: {
         name: () => translate("PlaybookAbility_ShadowName"),
-        desc: () => translate("PlaybookAbility_ShadowDescription"),
+        desc: () => translate("PlaybookAbility_ShadowDescription")
     },
     inMyShadow: {
         name: () => translate("PlaybookAbility_InMyShadowName"),
-        desc: () => translate("PlaybookAbility_InMyShadowDescription"),
+        desc: () => translate("PlaybookAbility_InMyShadowDescription")
     },
     saboteur: {
         name: () => translate("PlaybookAbility_SaboteurName"),
-        desc: () => translate("PlaybookAbility_SaboteurDescription"),
+        desc: () => translate("PlaybookAbility_SaboteurDescription")
     },
     artfulTresspass: {
         name: () => translate("PlaybookAbility_ArtfulTrespassName"),
-        desc: () => translate("PlaybookAbility_ArtfulTrespassDescription"),
+        desc: () => translate("PlaybookAbility_ArtfulTrespassDescription")
     },
     // Couth
     partyCrasher: {
         name: () => translate("PlaybookAbility_PartyCrasherName"),
-        desc: () => translate("PlaybookAbility_PartyCrasherDescription"),
+        desc: () => translate("PlaybookAbility_PartyCrasherDescription")
     },
     theLordsCharm: {
         name: () => translate("PlaybookAbility_TheLordsCharmName"),
-        desc: () => translate("PlaybookAbility_TheLordsCharmDescription"),
+        desc: () => translate("PlaybookAbility_TheLordsCharmDescription")
     },
     dontMakeMeCarryYou: {
         name: () => translate("PlaybookAbility_DontMakeMeCarryYouName"),
-        desc: () => translate("PlaybookAbility_DontMakeMeCarryYouDescription"),
+        desc: () => translate("PlaybookAbility_DontMakeMeCarryYouDescription")
     },
     betterToBeATigerThanAMan: {
         name: () => translate("PlaybookAbility_BetterToBeAtTigerThanAManName"),
-        desc: () => translate("PlaybookAbility_BetterToBeAtTigerThanAManDescription"),
+        desc: () => translate("PlaybookAbility_BetterToBeAtTigerThanAManDescription")
     },
     vengeful: {
         name: () => translate("PlaybookAbility_VengefulName"),
-        desc: () => translate("PlaybookAbility_VengefulDescription"),
+        desc: () => translate("PlaybookAbility_VengefulDescription")
     },
     livingTheDream: {
         name: () => translate("PlaybookAbility_LivingTheDreamName"),
-        desc: () => translate("PlaybookAbility_LivingTheDreamDescription"),
+        desc: () => translate("PlaybookAbility_LivingTheDreamDescription")
     },
     badReptuation: {
         name: () => translate("PlaybookAbility_BadReputationName"),
-        desc: () => translate("PlaybookAbility_BadReputationDescription"),
+        desc: () => translate("PlaybookAbility_BadReputationDescription")
     },
     // Knack
     invocation: {
         name: () => translate("PlaybookAbility_InvocationName"),
-        desc: () => translate("PlaybookAbility_InvocationDescription"),
+        desc: () => translate("PlaybookAbility_InvocationDescription")
     },
     rendTheWeave: {
         name: () => translate("PlaybookAbility_RendTheWeaveName"),
-        desc: () => translate("PlaybookAbility_RendTheWeaveDescription"),
+        desc: () => translate("PlaybookAbility_RendTheWeaveDescription")
     },
     theOldeTongue: {
         name: () => translate("PlaybookAbility_TheOldeTongueName"),
-        desc: () => translate("PlaybookAbility_TheOldeTongueDescription"),
+        desc: () => translate("PlaybookAbility_TheOldeTongueDescription")
     },
     openMind: {
         name: () => translate("PlaybookAbility_OpenMindName"),
-        desc: () => translate("PlaybookAbility_OpenMindDescription"),
+        desc: () => translate("PlaybookAbility_OpenMindDescription")
     },
     scrying: {
         name: () => translate("PlaybookAbility_ScryingName"),
-        desc: () => translate("PlaybookAbility_ScryingDescription"),
+        desc: () => translate("PlaybookAbility_ScryingDescription")
     },
     fascinate: {
         name: () => translate("PlaybookAbility_FascinateName"),
-        desc: () => translate("PlaybookAbility_FascinateDescription"),
+        desc: () => translate("PlaybookAbility_FascinateDescription")
     },
     pry: {
         name: () => translate("PlaybookAbility_PryName"),
-        desc: () => translate("PlaybookAbility_PryDescription"),
+        desc: () => translate("PlaybookAbility_PryDescription")
     },
     // key
     skeletonKey: {
         name: () => translate("PlaybookAbility_SkeletonKeyName"),
-        desc: () => translate("PlaybookAbility_SkeletonKeyDescription"),
+        desc: () => translate("PlaybookAbility_SkeletonKeyDescription")
     },
     expertise: {
         name: () => translate("PlaybookAbility_ExpertiseName"),
-        desc: () => translate("PlaybookAbility_ExpertiseDescription"),
+        desc: () => translate("PlaybookAbility_ExpertiseDescription")
     },
     iKnowThisTune: {
         name: () => translate("PlaybookAbility_IKnowThisTuneName"),
-        desc: () => translate("PlaybookAbility_IKnowThisTuneDescription"),
+        desc: () => translate("PlaybookAbility_IKnowThisTuneDescription")
     },
     foresight: {
         name: () => translate("PlaybookAbility_ForesightName"),
-        desc: () => translate("PlaybookAbility_ForesightDescription"),
+        desc: () => translate("PlaybookAbility_ForesightDescription")
     },
     underTheRug: {
         name: () => translate("PlaybookAbility_UnderTheRugName"),
-        desc: () => translate("PlaybookAbility_UnderTheRugDescription"),
+        desc: () => translate("PlaybookAbility_UnderTheRugDescription")
     },
     aGoodName: {
         name: () => translate("PlaybookAbility_AGoodNameName"),
-        desc: () => translate("PlaybookAbility_AGoodNameDescription"),
+        desc: () => translate("PlaybookAbility_AGoodNameDescription")
     },
     attentionToDetail: {
         name: () => translate("PlaybookAbility_AttentionToDetailName"),
-        desc: () => translate("PlaybookAbility_AttentionToDetailDescription"),
+        desc: () => translate("PlaybookAbility_AttentionToDetailDescription")
     },
-    // Kiss    
+    // Kiss
     bargainAndBalance: {
         name: () => translate("PlaybookAbility_BargainAndBalanceName"),
-        desc: () => translate("PlaybookAbility_BargainAndBalanceDescription"),
+        desc: () => translate("PlaybookAbility_BargainAndBalanceDescription")
     },
     likeCallsToLike: {
         name: () => translate("PlaybookAbility_LikeCallsToLikeName"),
-        desc: () => translate("PlaybookAbility_LikeCallsToLikeDescription"),
+        desc: () => translate("PlaybookAbility_LikeCallsToLikeDescription")
     },
     toxicLove: {
         name: () => translate("PlaybookAbility_ToxicLoveName"),
-        desc: () => translate("PlaybookAbility_ToxicLoveDescription"),
+        desc: () => translate("PlaybookAbility_ToxicLoveDescription")
     },
     glamour: {
         name: () => translate("PlaybookAbility_GlamourName"),
-        desc: () => translate("PlaybookAbility_GlamourDescription"),
+        desc: () => translate("PlaybookAbility_GlamourDescription")
     },
     naturalSummoning: {
         name: () => translate("PlaybookAbility_NaturalSummoningName"),
-        desc: () => translate("PlaybookAbility_NaturalSummoningDescription"),
+        desc: () => translate("PlaybookAbility_NaturalSummoningDescription")
     },
     lentSkin: {
         name: () => translate("PlaybookAbility_LentSkinName"),
-        desc: () => translate("PlaybookAbility_LentSkinDescription"),
+        desc: () => translate("PlaybookAbility_LentSkinDescription")
     },
     theFaerieReel: {
         name: () => translate("PlaybookAbility_TheFaerieReelName"),
-        desc: () => translate("PlaybookAbility_TheFaerieReelDescription"),
+        desc: () => translate("PlaybookAbility_TheFaerieReelDescription")
     },
     // Curse
     hellHoldsNoSurprises: {
         name: () => translate("PlaybookAbility_HellHoldsNoSurprisesName"),
-        desc: () => translate("PlaybookAbility_HellHoldsNoSurprisesDescription"),
+        desc: () => translate("PlaybookAbility_HellHoldsNoSurprisesDescription")
     },
     bleedingLove: {
         name: () => translate("PlaybookAbility_BleedingLoveName"),
-        desc: () => translate("PlaybookAbility_BleedingLoveDescription"),
+        desc: () => translate("PlaybookAbility_BleedingLoveDescription")
     },
     valorBeyondDeath: {
         name: () => translate("PlaybookAbility_ValorBeyondDeathName"),
-        desc: () => translate("PlaybookAbility_ValorBeyondDeathDescription"),
+        desc: () => translate("PlaybookAbility_ValorBeyondDeathDescription")
     },
     voidBlade: {
         name: () => translate("PlaybookAbility_VoidBladeName"),
-        desc: () => translate("PlaybookAbility_VoidBladeDescription"),
+        desc: () => translate("PlaybookAbility_VoidBladeDescription")
     },
     poisonersBlade: {
         name: () => translate("PlaybookAbility_PoisonersBladeName"),
-        desc: () => translate("PlaybookAbility_PoisonersBladeDescription"),
+        desc: () => translate("PlaybookAbility_PoisonersBladeDescription")
     },
     storyCollector: {
         name: () => translate("PlaybookAbility_StoryCollectorName"),
-        desc: () => translate("PlaybookAbility_StoryCollectorDescription"),
+        desc: () => translate("PlaybookAbility_StoryCollectorDescription")
     },
     immortalTolerance: {
         name: () => translate("PlaybookAbility_ImmortalToleranceName"),
-        desc: () => translate("PlaybookAbility_ImmortalToleranceDescription"),
-    },
+        desc: () => translate("PlaybookAbility_ImmortalToleranceDescription")
+    }
 };
 
 const coterieAbilities = {
     mysteriousWays: {
         name: () => translate("CoterieAbility_MysteriousWaysName"),
-        desc: () => translate("CoterieAbility_MysteriousWaysDescription"),
+        desc: () => translate("CoterieAbility_MysteriousWaysDescription")
     },
     outTime: {
         name: () => translate("CoterieAbility_OurTimeName"),
-        desc: () => translate("CoterieAbility_OurTimeDescription"),
+        desc: () => translate("CoterieAbility_OurTimeDescription")
     },
     silentFootfalls: {
         name: () => translate("CoterieAbility_SilentFootfallsName"),
-        desc: () => translate("CoterieAbility_SilentFootfallsDescription"),
+        desc: () => translate("CoterieAbility_SilentFootfallsDescription")
     },
     superstitious: {
         name: () => translate("CoterieAbility_SuperstitiousName"),
-        desc: () => translate("CoterieAbility_SuperstitiousDescription"),
+        desc: () => translate("CoterieAbility_SuperstitiousDescription")
     },
     byTheThroat: {
         name: () => translate("CoterieAbility_ByTheThroatName"),
-        desc: () => translate("CoterieAbility_ByTheThroatDescription"),
+        desc: () => translate("CoterieAbility_ByTheThroatDescription")
     },
     oursByRight: {
         name: () => translate("CoterieAbility_OursByRightName"),
-        desc: () => translate("CoterieAbility_OursByRightDescription"),
+        desc: () => translate("CoterieAbility_OursByRightDescription")
     },
     whoDoYouWorkFor: {
         name: () => translate("CoterieAbility_WhoDoYouWorkForName"),
-        desc: () => translate("CoterieAbility_WhoDoYouWorkForDescription"),
+        desc: () => translate("CoterieAbility_WhoDoYouWorkForDescription")
     },
-
 
     deterrence: {
         name: () => translate("CoterieAbility_DeterrenceName"),
-        desc: () => translate("CoterieAbility_DeterrenceDescription"),
+        desc: () => translate("CoterieAbility_DeterrenceDescription")
     },
     fortified: {
         name: () => translate("CoterieAbility_FortifiedName"),
-        desc: () => translate("CoterieAbility_FortifiedDescription"),
+        desc: () => translate("CoterieAbility_FortifiedDescription")
     },
     ironclad: {
         name: () => translate("CoterieAbility_IroncladName"),
-        desc: () => translate("CoterieAbility_IroncladDescription"),
+        desc: () => translate("CoterieAbility_IroncladDescription")
     },
     justCause: {
         name: () => translate("CoterieAbility_JustCauseName"),
-        desc: () => translate("CoterieAbility_JustCauseDescription"),
+        desc: () => translate("CoterieAbility_JustCauseDescription")
     },
     theOldGuard: {
         name: () => translate("CoterieAbility_TheOldGuardName"),
-        desc: () => translate("CoterieAbility_TheOldGuardDescription"),
+        desc: () => translate("CoterieAbility_TheOldGuardDescription")
     },
     chooseYourGround: {
         name: () => translate("CoterieAbility_ChooseYourGroundName"),
-        desc: () => translate("CoterieAbility_ChooseYourGroundDescription"),
+        desc: () => translate("CoterieAbility_ChooseYourGroundDescription")
     },
     uponOurHonor: {
         name: () => translate("CoterieAbility_UponOurHonorName"),
-        desc: () => translate("CoterieAbility_UponOurHonorDescription"),
+        desc: () => translate("CoterieAbility_UponOurHonorDescription")
     },
-
 
     careAndPatience: {
         name: () => translate("CoterieAbility_CareAndPatienceName"),
-        desc: () => translate("CoterieAbility_CareAndPatienceDescription"),
+        desc: () => translate("CoterieAbility_CareAndPatienceDescription")
     },
     mindful: {
         name: () => translate("CoterieAbility_MindfulName"),
-        desc: () => translate("CoterieAbility_MindfulDescription"),
+        desc: () => translate("CoterieAbility_MindfulDescription")
     },
     wellEarnedAcclaim: {
         name: () => translate("CoterieAbility_WellEarnedAcclaimName"),
-        desc: () => translate("CoterieAbility_WellEarnedAcclaimDescription"),
+        desc: () => translate("CoterieAbility_WellEarnedAcclaimDescription")
     },
     aMatterOfCharity: {
         name: () => translate("CoterieAbility_AMatterOfCharityName"),
-        desc: () => translate("CoterieAbility_AMatterOfCharityDescription"),
+        desc: () => translate("CoterieAbility_AMatterOfCharityDescription")
     },
     theWatersInWhichWeSwim: {
         name: () => translate("CoterieAbility_TheWatersInWhichWeSwimName"),
-        desc: () => translate("CoterieAbility_TheWatersInWhichWeSwimDescription"),
+        desc: () => translate("CoterieAbility_TheWatersInWhichWeSwimDescription")
     },
     strongerTogether: {
         name: () => translate("CoterieAbility_StrongerTogetherName"),
-        desc: () => translate("CoterieAbility_StrongerTogetherDescription"),
+        desc: () => translate("CoterieAbility_StrongerTogetherDescription")
     },
     notMeUsName: {
         name: () => translate("CoterieAbility_NotMeUsNameName"),
-        desc: () => translate("CoterieAbility_NotMeUsNameDescription"),
+        desc: () => translate("CoterieAbility_NotMeUsNameDescription")
     },
 
     illusoryDisguise: {
         name: () => translate("CoterieAbility_IllusoryDisguiseName"),
-        desc: () => translate("CoterieAbility_IllusoryDisguiseDescription"),
+        desc: () => translate("CoterieAbility_IllusoryDisguiseDescription")
     },
     itsNotWhoYouKnow: {
         name: () => translate("CoterieAbility_ItsNotWhoYouKnowName"),
-        desc: () => translate("CoterieAbility_ItsNotWhoYouKnowDescription"),
+        desc: () => translate("CoterieAbility_ItsNotWhoYouKnowDescription")
     },
     itsWhatYouKnow: {
         name: () => translate("CoterieAbility_ItsWhatYouKnowName"),
-        desc: () => translate("CoterieAbility_ItsWhatYouKnowDescription"),
+        desc: () => translate("CoterieAbility_ItsWhatYouKnowDescription")
     },
     warded: {
         name: () => translate("CoterieAbility_WardedName"),
-        desc: () => translate("CoterieAbility_WardedDescription"),
+        desc: () => translate("CoterieAbility_WardedDescription")
     },
     waltz: {
         name: () => translate("CoterieAbility_WaltzName"),
-        desc: () => translate("CoterieAbility_WaltzDescription"),
+        desc: () => translate("CoterieAbility_WaltzDescription")
     },
     magicalMeans: {
         name: () => translate("CoterieAbility_MagicalMeansName"),
-        desc: () => translate("CoterieAbility_MagicalMeansDescription"),
+        desc: () => translate("CoterieAbility_MagicalMeansDescription")
     },
     itsAlsoWhoYouKnow: {
         name: () => translate("CoterieAbility_ItsAlsoWhoYouKnowName"),
-        desc: () => translate("CoterieAbility_ItsAlsoWhoYouKnowDescription"),
+        desc: () => translate("CoterieAbility_ItsAlsoWhoYouKnowDescription")
     },
 
     deadly: {
         name: () => translate("CoterieAbility_DeadlyName"),
-        desc: () => translate("CoterieAbility_DeadlyDescription"),
+        desc: () => translate("CoterieAbility_DeadlyDescription")
     },
     able: {
         name: () => translate("CoterieAbility_AbleName"),
-        desc: () => translate("CoterieAbility_AbleDescription"),
+        desc: () => translate("CoterieAbility_AbleDescription")
     },
     likeAHammer: {
         name: () => translate("CoterieAbility_LikeAHammerName"),
-        desc: () => translate("CoterieAbility_LikeAHammerDescription"),
+        desc: () => translate("CoterieAbility_LikeAHammerDescription")
     },
     packTactics: {
         name: () => translate("CoterieAbility_PackTacticsName"),
-        desc: () => translate("CoterieAbility_PackTacticsDescription"),
+        desc: () => translate("CoterieAbility_PackTacticsDescription")
     },
     sneeringDisregard: {
         name: () => translate("CoterieAbility_SneeringDisregardName"),
-        desc: () => translate("CoterieAbility_SneeringDisregardDescription"),
+        desc: () => translate("CoterieAbility_SneeringDisregardDescription")
     },
     warDogs: {
         name: () => translate("CoterieAbility_WarDogsName"),
-        desc: () => translate("CoterieAbility_WarDogsDescription"),
+        desc: () => translate("CoterieAbility_WarDogsDescription")
     },
     strikeFear: {
         name: () => translate("CoterieAbility_StrikeFearName"),
-        desc: () => translate("CoterieAbility_StrikeFearDescription"),
+        desc: () => translate("CoterieAbility_StrikeFearDescription")
     },
 
     circumspect: {
         name: () => translate("CoterieAbility_CircumspectName"),
-        desc: () => translate("CoterieAbility_CircumspectDescription"),
+        desc: () => translate("CoterieAbility_CircumspectDescription")
     },
     wit: {
         name: () => translate("CoterieAbility_WitName"),
-        desc: () => translate("CoterieAbility_WitDescription"),
+        desc: () => translate("CoterieAbility_WitDescription")
     },
     merchantWarriors: {
         name: () => translate("CoterieAbility_MerchantWarriorsName"),
-        desc: () => translate("CoterieAbility_MerchantWarriorsDescription"),
+        desc: () => translate("CoterieAbility_MerchantWarriorsDescription")
     },
     counterfeiting: {
         name: () => translate("CoterieAbility_CounterfeitingName"),
-        desc: () => translate("CoterieAbility_CounterfeitingDescription"),
+        desc: () => translate("CoterieAbility_CounterfeitingDescription")
     },
     theWeirdStuff: {
         name: () => translate("CoterieAbility_TheWeirdStuffName"),
-        desc: () => translate("CoterieAbility_TheWeirdStuffDescription"),
+        desc: () => translate("CoterieAbility_TheWeirdStuffDescription")
     },
     highSociety: {
         name: () => translate("CoterieAbility_HighSocietyName"),
-        desc: () => translate("CoterieAbility_HighSocietyDescription"),
+        desc: () => translate("CoterieAbility_HighSocietyDescription")
     },
     patronage: {
         name: () => translate("CoterieAbility_PatronageName"),
-        desc: () => translate("CoterieAbility_PatronageDescription"),
-    },
+        desc: () => translate("CoterieAbility_PatronageDescription")
+    }
 };
 
 const itemStyles = {
@@ -884,96 +838,81 @@ const itemStyles = {
 
 const pcItems = {
     universal: [{
-            name: () => translate("LuckCharm"),
-            desc: () => translate("LuckCharmItemDescription"),
-            load: () => "1",
-            style: () => itemStyles.italics,
-        },
-        {
-            name: () => translate("FlintAndSteel"),
-            desc: () => translate("FlintAndSteelItemDescription"),
-            load: () => "1",
-            style: () => itemStyles.italics,
-        },
-        {
-            name: () => translate("Armor"),
-            desc: () => translate("ArmorItemDescription"),
-            load: () => "2",
-            style: () => itemStyles.normal,
-        },
-        {
-            name: () => translate("ABladeOrTwo"),
-            desc: () => translate("ABladeOrTwoItemDescription"),
-            load: () => "1",
-            style: () => itemStyles.normal,
-        },
-        {
-            name: () => translate("SingleShotPistol"),
-            desc: () => translate("SingleShotPistolItemDescription"),
-            load: () => "1",
-            style: () => itemStyles.normal,
-        },
-        {
-            name: () => translate("SecondSingleShotPistol"),
-            desc: () => translate("SecondSingleShotPistolItemDescription"),
-            load: () => "1",
-            style: () => itemStyles.normal,
-        },
-        {
-            name: () => translate("Lantern"),
-            desc: () => translate("LanternItemDescription"),
-            load: () => "1",
-            style: () => itemStyles.normal,
-        },
-        {
-            name: () => translate("Documents"),
-            desc: () => translate("DocumentsItemDescription"),
-            load: () => "1",
-            style: () => itemStyles.normal,
-        },
-        {
-            name: () => translate("LargeWeapon"),
-            desc: () => translate("LargeWeaponItemDescription"),
-            load: () => "2",
-            style: () => itemStyles.normal,
-        },
-        {
-            name: () => translate("ThrowingKnives"),
-            desc: () => translate("ThrowingKnivesItemDescription"),
-            load: () => "1",
-            style: () => itemStyles.normal,
-        },
-        {
-            name: () => translate("BuglaryGear"),
-            desc: () => translate("BuglaryGearItemDescription"),
-            load: () => "1",
-            style: () => itemStyles.normal,
-        },
-        {
-            name: () => translate("DemolitionTools"),
-            desc: () => translate("DemolitionToolsItemDescription"),
-            load: () => "2",
-            style: () => itemStyles.normal,
-        },
-        {
-            name: () => translate("ArcaneImplements"),
-            desc: () => translate("ArcaneImplementsItemDescription"),
-            load: () => "1",
-            style: () => itemStyles.normal,
-        },
-        {
-            name: () => translate("ClimbingGear"),
-            desc: () => translate("ClimbingGearItemDescription"),
-            load: () => "2",
-            style: () => itemStyles.normal,
-        },
-        {
-            name: () => translate("SubterfugeSupplies"),
-            desc: () => translate("SubterfugeSuppliesItemDescription"),
-            load: () => "1",
-            style: () => itemStyles.normal,
-        }
-    ],
+        name: () => translate("LuckCharm"),
+        desc: () => translate("LuckCharmItemDescription"),
+        load: () => "1",
+        style: () => itemStyles.italics
+    }, {
+        name: () => translate("FlintAndSteel"),
+        desc: () => translate("FlintAndSteelItemDescription"),
+        load: () => "1",
+        style: () => itemStyles.italics
+    }, {
+        name: () => translate("Armor"),
+        desc: () => translate("ArmorItemDescription"),
+        load: () => "2",
+        style: () => itemStyles.normal
+    }, {
+        name: () => translate("ABladeOrTwo"),
+        desc: () => translate("ABladeOrTwoItemDescription"),
+        load: () => "1",
+        style: () => itemStyles.normal
+    }, {
+        name: () => translate("SingleShotPistol"),
+        desc: () => translate("SingleShotPistolItemDescription"),
+        load: () => "1",
+        style: () => itemStyles.normal
+    }, {
+        name: () => translate("SecondSingleShotPistol"),
+        desc: () => translate("SecondSingleShotPistolItemDescription"),
+        load: () => "1",
+        style: () => itemStyles.normal
+    }, {
+        name: () => translate("Lantern"),
+        desc: () => translate("LanternItemDescription"),
+        load: () => "1",
+        style: () => itemStyles.normal
+    }, {
+        name: () => translate("Documents"),
+        desc: () => translate("DocumentsItemDescription"),
+        load: () => "1",
+        style: () => itemStyles.normal
+    }, {
+        name: () => translate("LargeWeapon"),
+        desc: () => translate("LargeWeaponItemDescription"),
+        load: () => "2",
+        style: () => itemStyles.normal
+    }, {
+        name: () => translate("ThrowingKnives"),
+        desc: () => translate("ThrowingKnivesItemDescription"),
+        load: () => "1",
+        style: () => itemStyles.normal
+    }, {
+        name: () => translate("BuglaryGear"),
+        desc: () => translate("BuglaryGearItemDescription"),
+        load: () => "1",
+        style: () => itemStyles.normal
+    }, {
+        name: () => translate("DemolitionTools"),
+        desc: () => translate("DemolitionToolsItemDescription"),
+        load: () => "2",
+        style: () => itemStyles.normal
+    }, {
+        name: () => translate("ArcaneImplements"),
+        desc: () => translate("ArcaneImplementsItemDescription"),
+        load: () => "1",
+        style: () => itemStyles.normal
+    }, {
+        name: () => translate("ClimbingGear"),
+        desc: () => translate("ClimbingGearItemDescription"),
+        load: () => "2",
+        style: () => itemStyles.normal
+    }, {
+        name: () => translate("SubterfugeSupplies"),
+        desc: () => translate("SubterfugeSuppliesItemDescription"),
+        load: () => "1",
+        style: () => itemStyles.normal
+    }]
 };
 
 const playbooks = {
@@ -990,54 +929,59 @@ const playbooks = {
             playbookAbilities.honorGuard,
             playbookAbilities.uponANeedle,
             playbookAbilities.gapInTheArmor,
-            playbookAbilities.veteran,
+            playbookAbilities.veteran
         ],
-        armorAbilities: [
-            specialArmors.bravo,
-        ],
+        armorAbilities: [specialArmors.bravo],
         items: [{
-                name: () => translate("AFineCourtlyBlade"),
-                desc: () => translate("AFineCourtlyBladeItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("AFineDreadBlade"),
-                desc: () => translate("AFineDreadBladeItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("ADuelistsGauntlet"),
-                desc: () => translate("ADuelistsGauntletItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("ABadgeOfHonor"),
-                desc: () => translate("ABadgeOfHonorItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.italics,
-            },
-            {
-                name: () => translate("ACourtlyFavor"),
-                desc: () => translate("ACourtlyFavorItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.italics,
-            },
-        ],
+            name: () => translate("AFineCourtlyBlade"),
+            desc: () => translate("AFineCourtlyBladeItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("AFineDreadBlade"),
+            desc: () => translate("AFineDreadBladeItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("ADuelistsGauntlet"),
+            desc: () => translate("ADuelistsGauntletItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("ABadgeOfHonor"),
+            desc: () => translate("ABadgeOfHonorItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.italics
+        }, {
+            name: () => translate("ACourtlyFavor"),
+            desc: () => translate("ACourtlyFavorItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.italics
+        }],
         permissions: [{
             name: () => translate("AFineWit"),
             desc: () => translate("AFineWitItemDescription"),
             load: () => "1",
-            style: () => itemStyles.italics,
-        }, ],
+            style: () => itemStyles.italics
+        }],
         actions: {
-            [lookup.actions.maneuver()]: "1",
-            [lookup.actions.skirmish()]: "2"
+            [
+                lookup
+                .actions
+                .maneuver()
+            ]: "1",
+            [
+                lookup
+                .actions
+                .skirmish()
+            ]: "2"
         },
         attributes: {
-            [lookup.actions.body()]: "2",
+            [
+                lookup
+                .actions
+                .body()
+            ]: "2"
         },
         bonds: [
             translate("BravoBond1"),
@@ -1045,36 +989,30 @@ const playbooks = {
             translate("BravoBond3"),
             translate("BravoBond4"),
             translate("BravoBond5"),
-            translate("BravoBond6"),
+            translate("BravoBond6")
         ],
         contacts: [{
-                name: () => translate("Maestra"),
-                desc: () => translate("AMasterAtArms"),
-            },
-            {
-                name: () => translate("Blair"),
-                desc: () => translate("AFawningNoble"),
-            },
-            {
-                name: () => translate("Vincenzo"),
-                desc: () => translate("AFormerPatron"),
-            },
-            {
-                name: () => translate("Feng"),
-                desc: () => translate("ABladeSmith"),
-            },
-            {
-                name: () => translate("Ari"),
-                desc: () => translate("AChildhoodRival"),
-            },
-            {
-                name: () => "?",
-                desc: () => translate("AMemberOfTheCoteriesHouse"),
-            },
-        ],
+            name: () => translate("Maestra"),
+            desc: () => translate("AMasterAtArms")
+        }, {
+            name: () => translate("Blair"),
+            desc: () => translate("AFawningNoble")
+        }, {
+            name: () => translate("Vincenzo"),
+            desc: () => translate("AFormerPatron")
+        }, {
+            name: () => translate("Feng"),
+            desc: () => translate("ABladeSmith")
+        }, {
+            name: () => translate("Ari"),
+            desc: () => translate("AChildhoodRival")
+        }, {
+            name: () => "?",
+            desc: () => translate("AMemberOfTheCoteriesHouse")
+        }],
         xp: {
             first: () => translate("BravoXPTrigger1"),
-            second: () => translate("BravoXPTrigger2"),
+            second: () => translate("BravoXPTrigger2")
         }
     },
     hawk: {
@@ -1090,55 +1028,64 @@ const playbooks = {
             playbookAbilities.callTheTarget,
             playbookAbilities.baitedAndSet,
             playbookAbilities.leaveNoGround,
-            playbookAbilities.veteran,
+            playbookAbilities.veteran
         ],
-        armorAbilities: [
-            specialArmors.hawk,
-        ],
+        armorAbilities: [specialArmors.hawk],
         items: [{
-                name: () => translate("AFineRangedWeapon"),
-                desc: () => translate("AFineRangedWeaponItemDescription"),
-                load: () => "2",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("AFineHeavyCloak"),
-                desc: () => translate("AFineHeavyCloakItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("AHandyRestraint"),
-                desc: () => translate("AHandyRestraintItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("AHuntingCompanion"),
-                desc: () => translate("AHuntingCompanionItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.italics,
-            },
-            {
-                name: () => translate("AFineSpyglass"),
-                desc: () => translate("AFineSpyglassItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.italics,
-            },
-        ],
+            name: () => translate("AFineRangedWeapon"),
+            desc: () => translate("AFineRangedWeaponItemDescription"),
+            load: () => "2",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("AFineHeavyCloak"),
+            desc: () => translate("AFineHeavyCloakItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("AHandyRestraint"),
+            desc: () => translate("AHandyRestraintItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("AHuntingCompanion"),
+            desc: () => translate("AHuntingCompanionItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.italics
+        }, {
+            name: () => translate("AFineSpyglass"),
+            desc: () => translate("AFineSpyglassItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.italics
+        }],
         permissions: [{
             name: () => translate("AFineIronNerve"),
             desc: () => translate("AFineIronNerveItemDescription"),
             load: () => "1",
-            style: () => itemStyles.italics,
-        }, ],
+            style: () => itemStyles.italics
+        }],
         actions: {
-            [lookup.actions.command()]: "1",
-            [lookup.actions.hunt()]: "2"
+            [
+                lookup
+                .actions
+                .command()
+            ]: "1",
+            [
+                lookup
+                .actions
+                .hunt()
+            ]: "2"
         },
         attributes: {
-            [lookup.actions.mind()]: "1",
-            [lookup.actions.spirit()]: "1",
+            [
+                lookup
+                .actions
+                .mind()
+            ]: "1",
+            [
+                lookup
+                .actions
+                .spirit()
+            ]: "1"
         },
         bonds: [
             translate("HawkBond1"),
@@ -1146,36 +1093,30 @@ const playbooks = {
             translate("HawkBond3"),
             translate("HawkBond4"),
             translate("HawkBond5"),
-            translate("HawkBond6"),
+            translate("HawkBond6")
         ],
         contacts: [{
-                name: () => translate("RedCrow"),
-                desc: () => translate("AHunter"),
-            },
-            {
-                name: () => translate("Ishana"),
-                desc: () => translate("AnInformant"),
-            },
-            {
-                name: () => translate("Farid,"),
-                desc: () => translate("ATavernOwner"),
-            },
-            {
-                name: () => translate("Lucius"),
-                desc: () => translate("AMemberOfTheWatch"),
-            },
-            {
-                name: () => translate("Sean"),
-                desc: () => translate("AGangBoss"),
-            },
-            {
-                name: () => "?",
-                desc: () => translate("AMemberOfTheCoteriesHouse"),
-            },
-        ],
+            name: () => translate("RedCrow"),
+            desc: () => translate("AHunter")
+        }, {
+            name: () => translate("Ishana"),
+            desc: () => translate("AnInformant")
+        }, {
+            name: () => translate("Farid,"),
+            desc: () => translate("ATavernOwner")
+        }, {
+            name: () => translate("Lucius"),
+            desc: () => translate("AMemberOfTheWatch")
+        }, {
+            name: () => translate("Sean"),
+            desc: () => translate("AGangBoss")
+        }, {
+            name: () => "?",
+            desc: () => translate("AMemberOfTheCoteriesHouse")
+        }],
         xp: {
             first: () => translate("HawkXPTrigger1"),
-            second: () => translate("HawkXPTrigger2"),
+            second: () => translate("HawkXPTrigger2")
         }
     },
     eye: {
@@ -1191,55 +1132,64 @@ const playbooks = {
             playbookAbilities.inMyShadow,
             playbookAbilities.saboteur,
             playbookAbilities.artfulTresspass,
-            playbookAbilities.veteran,
+            playbookAbilities.veteran
         ],
-        armorAbilities: [
-            specialArmors.eye,
-        ],
+        armorAbilities: [specialArmors.eye],
         items: [{
-                name: () => translate("AFineDisguise"),
-                desc: () => translate("AFineDisguiseItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("AFineSetofLockpicks"),
-                desc: () => translate("AFineSetofLockpicksItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("APolishedSteelMirror"),
-                desc: () => translate("APolishedSteelMirrorItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("AFineCoverIdentity"),
-                desc: () => translate("AFineCoverIdentityItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.italics,
-            },
-            {
-                name: () => translate("AVialOfSweetsleep"),
-                desc: () => translate("AVialOfSweetsleepItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.italics,
-            },
-        ],
+            name: () => translate("AFineDisguise"),
+            desc: () => translate("AFineDisguiseItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("AFineSetofLockpicks"),
+            desc: () => translate("AFineSetofLockpicksItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("APolishedSteelMirror"),
+            desc: () => translate("APolishedSteelMirrorItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("AFineCoverIdentity"),
+            desc: () => translate("AFineCoverIdentityItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.italics
+        }, {
+            name: () => translate("AVialOfSweetsleep"),
+            desc: () => translate("AVialOfSweetsleepItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.italics
+        }],
         permissions: [{
             name: () => translate("AFinePhotographicMemory"),
             desc: () => translate("AFinePhotographicMemoryItemDescription"),
             load: () => "1",
-            style: () => itemStyles.italics,
-        }, ],
+            style: () => itemStyles.italics
+        }],
         actions: {
-            [lookup.actions.survey()]: "1",
-            [lookup.actions.skulk()]: "2"
+            [
+                lookup
+                .actions
+                .survey()
+            ]: "1",
+            [
+                lookup
+                .actions
+                .skulk()
+            ]: "2"
         },
         attributes: {
-            [lookup.actions.mind()]: "1",
-            [lookup.actions.body()]: "1",
+            [
+                lookup
+                .actions
+                .mind()
+            ]: "1",
+            [
+                lookup
+                .actions
+                .body()
+            ]: "1"
         },
         bonds: [
             translate("EyeBond1"),
@@ -1247,36 +1197,30 @@ const playbooks = {
             translate("EyeBond3"),
             translate("EyeBond4"),
             translate("EyeBond5"),
-            translate("EyeBond6"),
+            translate("EyeBond6")
         ],
         contacts: [{
-                name: () => translate("Frankie"),
-                desc: () => translate("ALocksmith"),
-            },
-            {
-                name: () => translate("Armand"),
-                desc: () => translate("ABuskin"),
-            },
-            {
-                name: () => translate("Alaric"),
-                desc: () => translate("AMercenary"),
-            },
-            {
-                name: () => translate("Bianchi"),
-                desc: () => translate("AChamberServeant"),
-            },
-            {
-                name: () => translate("Campania"),
-                desc: () => translate("ACouncilSecretary"),
-            },
-            {
-                name: () => "?",
-                desc: () => translate("AMemberOfTheCoteriesHouse"),
-            },
-        ],
+            name: () => translate("Frankie"),
+            desc: () => translate("ALocksmith")
+        }, {
+            name: () => translate("Armand"),
+            desc: () => translate("ABuskin")
+        }, {
+            name: () => translate("Alaric"),
+            desc: () => translate("AMercenary")
+        }, {
+            name: () => translate("Bianchi"),
+            desc: () => translate("AChamberServeant")
+        }, {
+            name: () => translate("Campania"),
+            desc: () => translate("ACouncilSecretary")
+        }, {
+            name: () => "?",
+            desc: () => translate("AMemberOfTheCoteriesHouse")
+        }],
         xp: {
             first: () => translate("EyeXPTrigger1"),
-            second: () => translate("EyeXPTrigger2"),
+            second: () => translate("EyeXPTrigger2")
         }
     },
     couth: {
@@ -1292,55 +1236,64 @@ const playbooks = {
             playbookAbilities.vengeful,
             playbookAbilities.livingTheDream,
             playbookAbilities.badReptuation,
-            playbookAbilities.veteran,
+            playbookAbilities.veteran
         ],
-        armorAbilities: [
-            specialArmors.couth,
-        ],
+        armorAbilities: [specialArmors.couth],
         items: [{
-                name: () => translate("AFrighteningWeapon"),
-                desc: () => translate("AFrighteningWeaponItemDescription"),
-                load: () => "2",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("FineWreckingTools"),
-                desc: () => translate("FineWreckingToolsItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("SomethingDestructive"),
-                desc: () => translate("SomethingDestructiveItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("FineInebriants"),
-                desc: () => translate("FineInebriantsItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.italics,
-            },
-            {
-                name: () => translate("AFineBitOfBlackmail"),
-                desc: () => translate("AFineBitOfBlackmailItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.italics,
-            },
-        ],
+            name: () => translate("AFrighteningWeapon"),
+            desc: () => translate("AFrighteningWeaponItemDescription"),
+            load: () => "2",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("FineWreckingTools"),
+            desc: () => translate("FineWreckingToolsItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("SomethingDestructive"),
+            desc: () => translate("SomethingDestructiveItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("FineInebriants"),
+            desc: () => translate("FineInebriantsItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.italics
+        }, {
+            name: () => translate("AFineBitOfBlackmail"),
+            desc: () => translate("AFineBitOfBlackmailItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.italics
+        }],
         permissions: [{
             name: () => translate("ALuckyBreeak"),
             desc: () => translate("ALuckyBreeakItemDescription"),
             load: () => "1",
-            style: () => itemStyles.italics,
-        }, ],
+            style: () => itemStyles.italics
+        }],
         actions: {
-            [lookup.actions.wreck()]: "1",
-            [lookup.actions.consort()]: "2"
+            [
+                lookup
+                .actions
+                .wreck()
+            ]: "1",
+            [
+                lookup
+                .actions
+                .consort()
+            ]: "2"
         },
         attributes: {
-            [lookup.actions.mind()]: "1",
-            [lookup.actions.body()]: "1",
+            [
+                lookup
+                .actions
+                .mind()
+            ]: "1",
+            [
+                lookup
+                .actions
+                .body()
+            ]: "1"
         },
         bonds: [
             translate("CouthBond1"),
@@ -1348,36 +1301,30 @@ const playbooks = {
             translate("CouthBond3"),
             translate("CouthBond4"),
             translate("CouthBond5"),
-            translate("CouthBond6"),
+            translate("CouthBond6")
         ],
         contacts: [{
-                name: () => translate("Honor"),
-                desc: () => translate("AnOrphanageHeadmistress"),
-            },
-            {
-                name: () => translate("Wren"),
-                desc: () => translate("AJiltedLover"),
-            },
-            {
-                name: () => translate("Lucky"),
-                desc: () => translate("AViciousThug"),
-            },
-            {
-                name: () => translate("Meifeng"),
-                desc: () => translate("ATempleAcolyte"),
-            },
-            {
-                name: () => translate("Benecio"),
-                desc: () => translate("AGondoliere"),
-            },
-            {
-                name: () => "?",
-                desc: () => translate("AMemberOfTheCoteriesHouse"),
-            },
-        ],
+            name: () => translate("Honor"),
+            desc: () => translate("AnOrphanageHeadmistress")
+        }, {
+            name: () => translate("Wren"),
+            desc: () => translate("AJiltedLover")
+        }, {
+            name: () => translate("Lucky"),
+            desc: () => translate("AViciousThug")
+        }, {
+            name: () => translate("Meifeng"),
+            desc: () => translate("ATempleAcolyte")
+        }, {
+            name: () => translate("Benecio"),
+            desc: () => translate("AGondoliere")
+        }, {
+            name: () => "?",
+            desc: () => translate("AMemberOfTheCoteriesHouse")
+        }],
         xp: {
             first: () => translate("CouthXPTrigger1"),
-            second: () => translate("CouthXPTrigger2"),
+            second: () => translate("CouthXPTrigger2")
         }
     },
     knack: {
@@ -1393,55 +1340,64 @@ const playbooks = {
             playbookAbilities.scrying,
             playbookAbilities.fascinate,
             playbookAbilities.pry,
-            playbookAbilities.veteran,
+            playbookAbilities.veteran
         ],
-        armorAbilities: [
-            specialArmors.knack,
-        ],
+        armorAbilities: [specialArmors.knack],
         items: [{
-                name: () => translate("AFineArcaneFocus"),
-                desc: () => translate("AFineArcaneFocusItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("ImpressiveCostume"),
-                desc: () => translate("ImpressiveCostumeItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("RitualImplements"),
-                desc: () => translate("RitualImplementsItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("AFamiliarSpirit"),
-                desc: () => translate("AFamiliarSpiritItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.italics,
-            },
-            {
-                name: () => translate("TheLadysKiss"),
-                desc: () => translate("TheLadysKissItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.italics,
-            },
-        ],
+            name: () => translate("AFineArcaneFocus"),
+            desc: () => translate("AFineArcaneFocusItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("ImpressiveCostume"),
+            desc: () => translate("ImpressiveCostumeItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("RitualImplements"),
+            desc: () => translate("RitualImplementsItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("AFamiliarSpirit"),
+            desc: () => translate("AFamiliarSpiritItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.italics
+        }, {
+            name: () => translate("TheLadysKiss"),
+            desc: () => translate("TheLadysKissItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.italics
+        }],
         permissions: [{
             name: () => translate("AVulgarDisplayOfPower"),
             desc: () => translate("AVulgarDisplayOfPowerItemDescription"),
             load: () => "1",
-            style: () => itemStyles.italics,
-        }, ],
+            style: () => itemStyles.italics
+        }],
         actions: {
-            [lookup.actions.study()]: "1",
-            [lookup.actions.channel()]: "2"
+            [
+                lookup
+                .actions
+                .study()
+            ]: "1",
+            [
+                lookup
+                .actions
+                .channel()
+            ]: "2"
         },
         attributes: {
-            [lookup.actions.mind()]: "1",
-            [lookup.actions.spirit()]: "1",
+            [
+                lookup
+                .actions
+                .mind()
+            ]: "1",
+            [
+                lookup
+                .actions
+                .spirit()
+            ]: "1"
         },
         bonds: [
             translate("KnackBond1"),
@@ -1449,36 +1405,30 @@ const playbooks = {
             translate("KnackBond3"),
             translate("KnackBond4"),
             translate("KnackBond5"),
-            translate("KnackBond6"),
+            translate("KnackBond6")
         ],
         contacts: [{
-                name: () => translate("Moon"),
-                desc: () => translate("AnUnrequitedLove"),
-            },
-            {
-                name: () => translate("Owyn"),
-                desc: () => translate("AFormerTeacher"),
-            },
-            {
-                name: () => translate("Anaisha"),
-                desc: () => translate("AMercy"),
-            },
-            {
-                name: () => translate("Clemenza"),
-                desc: () => translate("AnArcaneDealer"),
-            },
-            {
-                name: () => translate("Farina"),
-                desc: () => translate("ADilettante"),
-            },
-            {
-                name: () => "?",
-                desc: () => translate("AMemberOfTheCoteriesHouse"),
-            },
-        ],
+            name: () => translate("Moon"),
+            desc: () => translate("AnUnrequitedLove")
+        }, {
+            name: () => translate("Owyn"),
+            desc: () => translate("AFormerTeacher")
+        }, {
+            name: () => translate("Anaisha"),
+            desc: () => translate("AMercy")
+        }, {
+            name: () => translate("Clemenza"),
+            desc: () => translate("AnArcaneDealer")
+        }, {
+            name: () => translate("Farina"),
+            desc: () => translate("ADilettante")
+        }, {
+            name: () => "?",
+            desc: () => translate("AMemberOfTheCoteriesHouse")
+        }],
         xp: {
             first: () => translate("KnackXPTrigger1"),
-            second: () => translate("KnackXPTrigger2"),
+            second: () => translate("KnackXPTrigger2")
         }
     },
     key: {
@@ -1494,55 +1444,64 @@ const playbooks = {
             playbookAbilities.underTheRug,
             playbookAbilities.aGoodName,
             playbookAbilities.attentionToDetail,
-            playbookAbilities.veteran,
+            playbookAbilities.veteran
         ],
-        armorAbilities: [
-            specialArmors.key,
-        ],
+        armorAbilities: [specialArmors.key],
         items: [{
-                name: () => translate("FineTinkeringTools"),
-                desc: () => translate("FineTinkeringToolsItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("AConcealableWeapon"),
-                desc: () => translate("AConcealableWeaponItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("FineCourtlyClothes"),
-                desc: () => translate("FineCourtlyClothesItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("AFineInvitation"),
-                desc: () => translate("AFineInvitationItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.italics,
-            },
-            {
-                name: () => translate("ASmallPriceyGift"),
-                desc: () => translate("ASmallPriceyGiftItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.italics,
-            },
-        ],
+            name: () => translate("FineTinkeringTools"),
+            desc: () => translate("FineTinkeringToolsItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("AConcealableWeapon"),
+            desc: () => translate("AConcealableWeaponItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("FineCourtlyClothes"),
+            desc: () => translate("FineCourtlyClothesItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("AFineInvitation"),
+            desc: () => translate("AFineInvitationItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.italics
+        }, {
+            name: () => translate("ASmallPriceyGift"),
+            desc: () => translate("ASmallPriceyGiftItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.italics
+        }],
         permissions: [{
             name: () => translate("ABelievableExcuse"),
             desc: () => translate("ABelievableExcuseItemDescription"),
             load: () => "1",
-            style: () => itemStyles.italics,
-        }, ],
+            style: () => itemStyles.italics
+        }],
         actions: {
-            [lookup.actions.tinker()]: "1",
-            [lookup.actions.sway()]: "2"
+            [
+                lookup
+                .actions
+                .tinker()
+            ]: "1",
+            [
+                lookup
+                .actions
+                .sway()
+            ]: "2"
         },
         attributes: {
-            [lookup.actions.mind()]: "1",
-            [lookup.actions.spirit()]: "1",
+            [
+                lookup
+                .actions
+                .mind()
+            ]: "1",
+            [
+                lookup
+                .actions
+                .spirit()
+            ]: "1"
         },
         bonds: [
             translate("KeyBond1"),
@@ -1550,36 +1509,30 @@ const playbooks = {
             translate("KeyBond3"),
             translate("KeyBond4"),
             translate("KeyBond5"),
-            translate("KeyBond6"),
+            translate("KeyBond6")
         ],
         contacts: [{
-                name: () => translate("Babette"),
-                desc: () => translate("ABanker"),
-            },
-            {
-                name: () => translate("Elijah"),
-                desc: () => translate("AMasterArchitect"),
-            },
-            {
-                name: () => translate("Jian"),
-                desc: () => translate("AMasterCraftsman"),
-            },
-            {
-                name: () => translate("Alisha"),
-                desc: () => translate("ADiplomat"),
-            },
-            {
-                name: () => translate("Genovese"),
-                desc: () => translate("AChildhoodFriend"),
-            },
-            {
-                name: () => "?",
-                desc: () => translate("AMemberOfTheCoteriesHouse"),
-            },
-        ],
+            name: () => translate("Babette"),
+            desc: () => translate("ABanker")
+        }, {
+            name: () => translate("Elijah"),
+            desc: () => translate("AMasterArchitect")
+        }, {
+            name: () => translate("Jian"),
+            desc: () => translate("AMasterCraftsman")
+        }, {
+            name: () => translate("Alisha"),
+            desc: () => translate("ADiplomat")
+        }, {
+            name: () => translate("Genovese"),
+            desc: () => translate("AChildhoodFriend")
+        }, {
+            name: () => "?",
+            desc: () => translate("AMemberOfTheCoteriesHouse")
+        }],
         xp: {
             first: () => translate("KeyXPTrigger1"),
-            second: () => translate("KeyXPTrigger2"),
+            second: () => translate("KeyXPTrigger2")
         }
     },
     kiss: {
@@ -1595,56 +1548,61 @@ const playbooks = {
             playbookAbilities.naturalSummoning,
             playbookAbilities.lentSkin,
             playbookAbilities.theFaerieReel,
-            playbookAbilities.veteran,
+            playbookAbilities.veteran
         ],
         armorAbilities: [
-            specialArmors.kissWeakness,
-            specialArmors.kiss,
+            specialArmors.kissWeakness, specialArmors.kiss
         ],
         items: [{
-                name: () => translate("ThePerfectEnsemble"),
-                desc: () => translate("ThePerfectEnsembleItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("ALengthOfFaerieRope"),
-                desc: () => translate("ALengthOfFaerieRopeItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("AMirrorThatReflectsTruth"),
-                desc: () => translate("AMirrorThatReflectsTruthItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("AFavorFromTheFaeCourt"),
-                desc: () => translate("AFavorFromTheFaeCourtItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-        ],
+            name: () => translate("ThePerfectEnsemble"),
+            desc: () => translate("ThePerfectEnsembleItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("ALengthOfFaerieRope"),
+            desc: () => translate("ALengthOfFaerieRopeItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("AMirrorThatReflectsTruth"),
+            desc: () => translate("AMirrorThatReflectsTruthItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("AFavorFromTheFaeCourt"),
+            desc: () => translate("AFavorFromTheFaeCourtItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }],
         permissions: [{
-                name: () => translate("AnInfectiousLaugh"),
-                desc: () => translate("AnInfectiousLaughItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.italics,
-            },
-            {
-                name: () => translate("OtherworldlyCharm"),
-                desc: () => translate("OtherworldlyCharmItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.italics,
-            },
-        ],
+            name: () => translate("AnInfectiousLaugh"),
+            desc: () => translate("AnInfectiousLaughItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.italics
+        }, {
+            name: () => translate("OtherworldlyCharm"),
+            desc: () => translate("OtherworldlyCharmItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.italics
+        }],
         actions: {
-            [lookup.actions.consort()]: "1",
-            [lookup.actions.channel()]: "2"
+            [
+                lookup
+                .actions
+                .consort()
+            ]: "1",
+            [
+                lookup
+                .actions
+                .channel()
+            ]: "2"
         },
         attributes: {
-            [lookup.actions.spirit()]: "2",
+            [
+                lookup
+                .actions
+                .spirit()
+            ]: "2"
         },
         bonds: [
             translate("KissBond1"),
@@ -1652,36 +1610,30 @@ const playbooks = {
             translate("KissBond3"),
             translate("KissBond4"),
             translate("KissBond5"),
-            translate("KissBond6"),
+            translate("KissBond6")
         ],
         contacts: [{
-                name: () => translate("Dimitrius"),
-                desc: () => translate("AnObsessedScholar"),
-            },
-            {
-                name: () => translate("Leonato"),
-                desc: () => translate("AnInventor"),
-            },
-            {
-                name: () => translate("Xie"),
-                desc: () => translate("AnOldFlame"),
-            },
-            {
-                name: () => translate("Blaze"),
-                desc: () => translate("AClothier"),
-            },
-            {
-                name: () => translate("Goya"),
-                desc: () => translate("ASprite"),
-            },
-            {
-                name: () => "?",
-                desc: () => translate("AMemberOfTheCoteriesHouse"),
-            },
-        ],
+            name: () => translate("Dimitrius"),
+            desc: () => translate("AnObsessedScholar")
+        }, {
+            name: () => translate("Leonato"),
+            desc: () => translate("AnInventor")
+        }, {
+            name: () => translate("Xie"),
+            desc: () => translate("AnOldFlame")
+        }, {
+            name: () => translate("Blaze"),
+            desc: () => translate("AClothier")
+        }, {
+            name: () => translate("Goya"),
+            desc: () => translate("ASprite")
+        }, {
+            name: () => "?",
+            desc: () => translate("AMemberOfTheCoteriesHouse")
+        }],
         xp: {
             first: () => translate("KissXPTrigger1"),
-            second: () => translate("KissXPTrigger2"),
+            second: () => translate("KissXPTrigger2")
         }
     },
     curse: {
@@ -1697,58 +1649,71 @@ const playbooks = {
             playbookAbilities.poisonersBlade,
             playbookAbilities.storyCollector,
             playbookAbilities.immortalTolerance,
-            playbookAbilities.veteran,
+            playbookAbilities.veteran
         ],
         armorAbilities: [
-            specialArmors.curse,
-            specialArmors.curseHarm,
+            specialArmors.curse, specialArmors.curseHarm
         ],
         items: [{
-                name: () => translate("AnAncientWeapon"),
-                desc: () => translate("AnAncientWeaponItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("ASymbolOfTheDreadEmpire"),
-                desc: () => translate("ASymbolOfTheDreadEmpireItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("ALanternThatCastsShadow"),
-                desc: () => translate("ALanternThatCastsShadowItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-            {
-                name: () => translate("ADoseOfWeepingBell"),
-                desc: () => translate("ADoseOfWeepingBellItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.normal,
-            },
-        ],
+            name: () => translate("AnAncientWeapon"),
+            desc: () => translate("AnAncientWeaponItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("ASymbolOfTheDreadEmpire"),
+            desc: () => translate("ASymbolOfTheDreadEmpireItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("ALanternThatCastsShadow"),
+            desc: () => translate("ALanternThatCastsShadowItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }, {
+            name: () => translate("ADoseOfWeepingBell"),
+            desc: () => translate("ADoseOfWeepingBellItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.normal
+        }],
         permissions: [{
-                name: () => translate("ABloodChillingGlare"),
-                desc: () => translate("ABloodChillingGlareItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.italics,
-            },
-            {
-                name: () => translate("APropheticDream"),
-                desc: () => translate("APropheticDreamItemDescription"),
-                load: () => "1",
-                style: () => itemStyles.italics,
-            },
-        ],
+            name: () => translate("ABloodChillingGlare"),
+            desc: () => translate("ABloodChillingGlareItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.italics
+        }, {
+            name: () => translate("APropheticDream"),
+            desc: () => translate("APropheticDreamItemDescription"),
+            load: () => "1",
+            style: () => itemStyles.italics
+        }],
         actions: {
-            [lookup.actions.hunt()]: "1",
-            [lookup.actions.skirmish()]: "1",
-            [lookup.actions.command()]: "1"
+            [
+                lookup
+                .actions
+                .hunt()
+            ]: "1",
+            [
+                lookup
+                .actions
+                .skirmish()
+            ]: "1",
+            [
+                lookup
+                .actions
+                .command()
+            ]: "1"
         },
         attributes: {
-            [lookup.actions.body()]: "2",
-            [lookup.actions.spirit()]: "1",
+            [
+                lookup
+                .actions
+                .body()
+            ]: "2",
+            [
+                lookup
+                .actions
+                .spirit()
+            ]: "1"
         },
         bonds: [
             translate("CurseBond1"),
@@ -1756,36 +1721,30 @@ const playbooks = {
             translate("CurseBond3"),
             translate("CurseBond4"),
             translate("CurseBond5"),
-            translate("CurseBond6"),
+            translate("CurseBond6")
         ],
         contacts: [{
-                name: () => translate("Goodman"),
-                desc: () => translate("AHistorian"),
-            },
-            {
-                name: () => translate("Lost"),
-                desc: () => translate("APoisonMaker"),
-            },
-            {
-                name: () => translate("Piero"),
-                desc: () => translate("AGhost"),
-            },
-            {
-                name: () => translate("Barlow"),
-                desc: () => translate("AHorseThief"),
-            },
-            {
-                name: () => translate("Amelia"),
-                desc: () => translate("ADiva"),
-            },
-            {
-                name: () => "?",
-                desc: () => translate("AMemberOfTheCoteriesHouse"),
-            },
-        ],
+            name: () => translate("Goodman"),
+            desc: () => translate("AHistorian")
+        }, {
+            name: () => translate("Lost"),
+            desc: () => translate("APoisonMaker")
+        }, {
+            name: () => translate("Piero"),
+            desc: () => translate("AGhost")
+        }, {
+            name: () => translate("Barlow"),
+            desc: () => translate("AHorseThief")
+        }, {
+            name: () => translate("Amelia"),
+            desc: () => translate("ADiva")
+        }, {
+            name: () => "?",
+            desc: () => translate("AMemberOfTheCoteriesHouse")
+        }],
         xp: {
             first: () => translate("KissXPTrigger1"),
-            second: () => translate("KissXPTrigger2"),
+            second: () => translate("KissXPTrigger2")
         }
     }
 };
@@ -1821,8 +1780,12 @@ const fillPlaybook = (pb) => {
     }
 
     // Add playbook XP triggers
-    newAttrs["pcxptriggers1"] = pb.xp.first();
-    newAttrs["pcxptriggers2"] = pb.xp.second();
+    newAttrs["pcxptriggers1"] = pb
+        .xp
+        .first();
+    newAttrs["pcxptriggers2"] = pb
+        .xp
+        .second();
 
     // Loop through and add all playbook Special Permissions
     for (let perm of pb.permissions) {
@@ -1855,7 +1818,9 @@ const fillPlaybook = (pb) => {
     }
 
     // Populate the Bonds
-    newAttrs["pcbonds"] = pb.bonds.join("\n");
+    newAttrs["pcbonds"] = pb
+        .bonds
+        .join("\n");
 
     setAttrs(newAttrs);
 };
@@ -1867,9 +1832,7 @@ const coteries = {
         subtitle: () => translate("HouseCorvettoWords"),
         strength: () => translate("Magic"),
         healer: () => translate("Grace"),
-        features: [
-            specialFeatures.corvetto,
-        ],
+        features: [specialFeatures.corvetto],
         abilities: [
             coterieAbilities.mysteriousWays,
             coterieAbilities.oursByRight,
@@ -1877,26 +1840,22 @@ const coteries = {
             coterieAbilities.superstitious,
             coterieAbilities.byTheThroat,
             coterieAbilities.oursByRight,
-            coterieAbilities.whoDoYouWorkFor,
+            coterieAbilities.whoDoYouWorkFor
         ],
         upgrades: [{
-                name: () => translate("MasterKeysUpgradeName"),
-                desc: () => translate("MasterKeysUpgradeDescription"),
-            },
-            {
-                name: () => translate("GoodHelpUpgradeName"),
-                desc: () => translate("GoodHelpUpgradeDescription"),
-            },
-            {
-                name: () => translate("TheDauntingParlorUpgradeName"),
-                desc: () => translate("TheDauntingParlorUpgradeDescription"),
-            },
-            {
-                name: () => translate("CleverTailorsUpgradeName"),
-                desc: () => translate("CleverTailorsUpgradeDescription"),
-            }
-        ],
-        xp: () => translate("CorvettoXPTrigger"),
+            name: () => translate("MasterKeysUpgradeName"),
+            desc: () => translate("MasterKeysUpgradeDescription")
+        }, {
+            name: () => translate("GoodHelpUpgradeName"),
+            desc: () => translate("GoodHelpUpgradeDescription")
+        }, {
+            name: () => translate("TheDauntingParlorUpgradeName"),
+            desc: () => translate("TheDauntingParlorUpgradeDescription")
+        }, {
+            name: () => translate("CleverTailorsUpgradeName"),
+            desc: () => translate("CleverTailorsUpgradeDescription")
+        }],
+        xp: () => translate("CorvettoXPTrigger")
     },
     battalia: {
         id: 2,
@@ -1904,9 +1863,7 @@ const coteries = {
         subtitle: () => translate("HouseBattaliaWords"),
         strength: () => translate("Force"),
         healer: () => translate("Physician"),
-        features: [
-            specialFeatures.battalia,
-        ],
+        features: [specialFeatures.battalia],
         abilities: [
             coterieAbilities.deterrence,
             coterieAbilities.fortified,
@@ -1914,26 +1871,22 @@ const coteries = {
             coterieAbilities.justCause,
             coterieAbilities.theOldGuard,
             coterieAbilities.chooseYourGround,
-            coterieAbilities.uponOurHonor,
+            coterieAbilities.uponOurHonor
         ],
         upgrades: [{
-                name: () => translate("VigilantUpgradeName"),
-                desc: () => translate("VigilantUpgradeDescription"),
-            },
-            {
-                name: () => translate("IncorruptibleUpgradeName"),
-                desc: () => translate("IncorruptibleUpgradeDescription"),
-            },
-            {
-                name: () => translate("ToTheLastManUpgradeName"),
-                desc: () => translate("ToTheLastManUpgradeDescription"),
-            },
-            {
-                name: () => translate("ThoroughbredsUpgradeName"),
-                desc: () => translate("ThoroughbredsUpgradeDescription"),
-            }
-        ],
-        xp: () => translate("BattaliaXPTrigger"),
+            name: () => translate("VigilantUpgradeName"),
+            desc: () => translate("VigilantUpgradeDescription")
+        }, {
+            name: () => translate("IncorruptibleUpgradeName"),
+            desc: () => translate("IncorruptibleUpgradeDescription")
+        }, {
+            name: () => translate("ToTheLastManUpgradeName"),
+            desc: () => translate("ToTheLastManUpgradeDescription")
+        }, {
+            name: () => translate("ThoroughbredsUpgradeName"),
+            desc: () => translate("ThoroughbredsUpgradeDescription")
+        }],
+        xp: () => translate("BattaliaXPTrigger")
     },
     bastien: {
         id: 3,
@@ -1941,9 +1894,7 @@ const coteries = {
         subtitle: () => translate("HouseBastienWords"),
         strength: () => translate("Transport"),
         healer: () => translate("Grace"),
-        features: [
-            specialFeatures.bastien,
-        ],
+        features: [specialFeatures.bastien],
         abilities: [
             coterieAbilities.careAndPatience,
             coterieAbilities.mindful,
@@ -1951,26 +1902,22 @@ const coteries = {
             coterieAbilities.aMatterOfCharity,
             coterieAbilities.theWatersInWhichWeSwim,
             coterieAbilities.strongerTogether,
-            coterieAbilities.notMeUsName,
+            coterieAbilities.notMeUsName
         ],
         upgrades: [{
-                name: () => translate("TheLadysBlessingUpgradeName"),
-                desc: () => translate("TheLadysBlessingUpgradeDescription"),
-            },
-            {
-                name: () => translate("ExtendedFamilyUpgradeName"),
-                desc: () => translate("ExtendedFamilyUpgradeDescription"),
-            },
-            {
-                name: () => translate("OpenHeartsToOpenEyesUpgradeName"),
-                desc: () => translate("OpenHeartsToOpenEyesUpgradeDescription"),
-            },
-            {
-                name: () => translate("TheLedgerUpgradeName"),
-                desc: () => translate("TheLedgerUpgradeDescription"),
-            }
-        ],
-        xp: () => translate("BastienXPTrigger"),
+            name: () => translate("TheLadysBlessingUpgradeName"),
+            desc: () => translate("TheLadysBlessingUpgradeDescription")
+        }, {
+            name: () => translate("ExtendedFamilyUpgradeName"),
+            desc: () => translate("ExtendedFamilyUpgradeDescription")
+        }, {
+            name: () => translate("OpenHeartsToOpenEyesUpgradeName"),
+            desc: () => translate("OpenHeartsToOpenEyesUpgradeDescription")
+        }, {
+            name: () => translate("TheLedgerUpgradeName"),
+            desc: () => translate("TheLedgerUpgradeDescription")
+        }],
+        xp: () => translate("BastienXPTrigger")
     },
     lovell: {
         id: 4,
@@ -1978,9 +1925,7 @@ const coteries = {
         subtitle: () => translate("HouseLovellWords"),
         strength: () => translate("Intelligence"),
         healer: () => translate("Grace"),
-        features: [
-            specialFeatures.lovell,
-        ],
+        features: [specialFeatures.lovell],
         abilities: [
             coterieAbilities.illusoryDisguise,
             coterieAbilities.itsNotWhoYouKnow,
@@ -1988,26 +1933,22 @@ const coteries = {
             coterieAbilities.warded,
             coterieAbilities.waltz,
             coterieAbilities.magicalMeans,
-            coterieAbilities.itsAlsoWhoYouKnow,
+            coterieAbilities.itsAlsoWhoYouKnow
         ],
         upgrades: [{
-                name: () => translate("QuestionableContactsUpgradeName"),
-                desc: () => translate("QuestionableContactsUpgradeDescription"),
-            },
-            {
-                name: () => translate("AnEyeForTalentUpgradeName"),
-                desc: () => translate("AnEyeForTalentUpgradeDescription"),
-            },
-            {
-                name: () => translate("SanctumSanctorumUpgradeName"),
-                desc: () => translate("SanctumSanctorumUpgradeDescription"),
-            },
-            {
-                name: () => translate("BagOfHoldingUpgradeName"),
-                desc: () => translate("BagOfHoldingUpgradeDescription"),
-            }
-        ],
-        xp: () => translate("LovellXPTrigger"),
+            name: () => translate("QuestionableContactsUpgradeName"),
+            desc: () => translate("QuestionableContactsUpgradeDescription")
+        }, {
+            name: () => translate("AnEyeForTalentUpgradeName"),
+            desc: () => translate("AnEyeForTalentUpgradeDescription")
+        }, {
+            name: () => translate("SanctumSanctorumUpgradeName"),
+            desc: () => translate("SanctumSanctorumUpgradeDescription")
+        }, {
+            name: () => translate("BagOfHoldingUpgradeName"),
+            desc: () => translate("BagOfHoldingUpgradeDescription")
+        }],
+        xp: () => translate("LovellXPTrigger")
     },
     alMari: {
         id: 5,
@@ -2015,9 +1956,7 @@ const coteries = {
         subtitle: () => translate("HouseAlMariWords"),
         strength: () => translate("Supply"),
         healer: () => translate("Physician"),
-        features: [
-            specialFeatures.alMari,
-        ],
+        features: [specialFeatures.alMari],
         abilities: [
             coterieAbilities.deadly,
             coterieAbilities.able,
@@ -2025,26 +1964,22 @@ const coteries = {
             coterieAbilities.packTactics,
             coterieAbilities.sneeringDisregard,
             coterieAbilities.warDogs,
-            coterieAbilities.strikeFear,
+            coterieAbilities.strikeFear
         ],
         upgrades: [{
-                name: () => translate("PreparedUpgradeName"),
-                desc: () => translate("PreparedUpgradeDescription"),
-            },
-            {
-                name: () => translate("SwordsWithoutNumberUpgradeName"),
-                desc: () => translate("SwordsWithoutNumberUpgradeDescription"),
-            },
-            {
-                name: () => translate("WellArmedUpgradeName"),
-                desc: () => translate("WellArmedUpgradeDescription"),
-            },
-            {
-                name: () => translate("InTheKnowUpgradeName"),
-                desc: () => translate("InTheKnowUpgradeDescription"),
-            }
-        ],
-        xp: () => translate("AlMariXPTrigger"),
+            name: () => translate("PreparedUpgradeName"),
+            desc: () => translate("PreparedUpgradeDescription")
+        }, {
+            name: () => translate("SwordsWithoutNumberUpgradeName"),
+            desc: () => translate("SwordsWithoutNumberUpgradeDescription")
+        }, {
+            name: () => translate("WellArmedUpgradeName"),
+            desc: () => translate("WellArmedUpgradeDescription")
+        }, {
+            name: () => translate("InTheKnowUpgradeName"),
+            desc: () => translate("InTheKnowUpgradeDescription")
+        }],
+        xp: () => translate("AlMariXPTrigger")
     },
     elanda: {
         id: 6,
@@ -2052,9 +1987,7 @@ const coteries = {
         subtitle: () => translate("HouseElandaWords"),
         strength: () => translate("Wealth"),
         healer: () => translate("Physician"),
-        features: [
-            specialFeatures.elanda,
-        ],
+        features: [specialFeatures.elanda],
         abilities: [
             coterieAbilities.circumspect,
             coterieAbilities.wit,
@@ -2062,27 +1995,23 @@ const coteries = {
             coterieAbilities.counterfeiting,
             coterieAbilities.theWeirdStuff,
             coterieAbilities.highSociety,
-            coterieAbilities.patronage,
+            coterieAbilities.patronage
         ],
         upgrades: [{
-                name: () => translate("IndustriousUpgradeName"),
-                desc: () => translate("IndustriousUpgradeDescription"),
-            },
-            {
-                name: () => translate("SlyContractsUpgradeName"),
-                desc: () => translate("SlyContractsUpgradeDescription"),
-            },
-            {
-                name: () => translate("FactorumFactotumUpgradeName"),
-                desc: () => translate("FactorumFactotumUpgradeDescription"),
-            },
-            {
-                name: () => translate("TheRightToolForTheJobUpgradeName"),
-                desc: () => translate("TheRightToolForTheJobUpgradeDescription"),
-            }
-        ],
-        xp: () => translate("ElandaXPTrigger"),
-    },
+            name: () => translate("IndustriousUpgradeName"),
+            desc: () => translate("IndustriousUpgradeDescription")
+        }, {
+            name: () => translate("SlyContractsUpgradeName"),
+            desc: () => translate("SlyContractsUpgradeDescription")
+        }, {
+            name: () => translate("FactorumFactotumUpgradeName"),
+            desc: () => translate("FactorumFactotumUpgradeDescription")
+        }, {
+            name: () => translate("TheRightToolForTheJobUpgradeName"),
+            desc: () => translate("TheRightToolForTheJobUpgradeDescription")
+        }],
+        xp: () => translate("ElandaXPTrigger")
+    }
 };
 
 const fillCoterie = (cot) => {
@@ -2254,19 +2183,62 @@ const fillFactions = () => {
 const setDefaultAttrs = (dict) => {
     let settings = Object.getOwnPropertyNames(dict);
     //console.log(`Setting sheet attributes: ${settings}`);
+
     for (const key of settings) {
-        //console.log(`\tKey: ${key}\n\tval: ${dict[key]()}`);
+
+        console.log(`\tKey: ${key}\n\tdict[key]: ${dict[key]()}`);
         if (key) {
             setAttrs({
                 [key]: dict[key]()
             });
+
+            if (key.startsWith("pcskillval") && !key.endsWith("formula")) {
+                recalculateFormula(key, dict[key]);
+            }
         }
     }
 };
 
 const debugPrint = (obj) => {
-    Object.keys(obj).forEach((prop) => {
-        console.log(`    ${prop}:${obj[prop]}`);
+    Object
+        .keys(obj)
+        .forEach((prop) => {
+            console.log(`    ${prop}:${obj[prop]}`);
+        });
+};
+
+const recalculateFormula = (key, newValue) => {
+    var results = [];
+    newValue = parseInt(newValue);
+    for (var i = 0; i <= 5; i++) {
+        var count = Math.max(0, newValue + i);
+        var dice = "";
+        if (count > 0) {
+            dice = `${i},dice=${Array(count)
+        .fill("[[d6]]")
+        .join("&amp;#44; ")}`;
+        } else {
+            dice = `${i},zerodice=[[d6]]&amp;#44; [[d6]]`;
+        }
+        results.push(dice);
+    }
+
+    for (var i = -1; i >= -3; i--) {
+        var count = Math.max(0, newValue + i);
+        var dice = "";
+        if (count > 0) {
+            dice = `${i},dice=${Array(count)
+        .fill("[[d6]]")
+        .join("&amp;#44; ")}`;
+        } else {
+            dice = `${i},zerodice=[[d6]]&amp;#44; [[d6]]`;
+        }
+        results.push(dice);
+    }
+
+    var newFormula = `{{?{@{bonusdice}|${results.join("|")}}}}`;
+    setAttrs({
+        [`${key}_formula`]: newFormula
     });
 };
 
@@ -2287,8 +2259,7 @@ const initialSetup = () => {
     // Faction sheet
     fillFactions();
 
-    // GM Turn sheet
-    // placeholder();
+    // GM Turn sheet placeholder();
 
     console.log("Initial sheet setup complete");
 };
@@ -2299,9 +2270,7 @@ on("sheet:opened", () => {
         var isSetup = values["SheetSetup"];
         if (!isSetup) {
             initialSetup();
-            setAttrs({
-                SheetSetup: "true"
-            });
+            setAttrs({ SheetSetup: "true" });
         }
     });
 });
@@ -2309,93 +2278,147 @@ on("sheet:opened", () => {
 // Event: When the playbook title is entered for the first time
 on("change:playbookName", (args) => {
     console.log("Playbook name change detected.");
-    getAttrs(["playbooktype", "playbookName"], (values) => {
+    getAttrs([
+        "playbooktype", "playbookName"
+    ], (values) => {
         let pbId = values["playbooktype"];
 
         if (lookup.playbookId[pbId] == "NotSet") {
             let playbook = null;
 
             switch (values["playbookName"].toString().toLowerCase().trim()) {
-                case lookup.playbookNames.bravo().toLowerCase():
+                case lookup
+                .playbookNames
+                .bravo()
+                .toLowerCase():
                     playbook = playbooks.bravo;
                     break;
-                case lookup.playbookNames.hawk().toLowerCase():
+                case lookup
+                .playbookNames
+                .hawk()
+                .toLowerCase():
                     playbook = playbooks.hawk;
                     break;
-                case lookup.playbookNames.eye().toLowerCase():
+                case lookup
+                .playbookNames
+                .eye()
+                .toLowerCase():
                     playbook = playbooks.eye;
                     break;
-                case lookup.playbookNames.couth().toLowerCase():
+                case lookup
+                .playbookNames
+                .couth()
+                .toLowerCase():
                     playbook = playbooks.couth;
                     break;
-                case lookup.playbookNames.knack().toLowerCase():
+                case lookup
+                .playbookNames
+                .knack()
+                .toLowerCase():
                     playbook = playbooks.knack;
                     break;
-                case lookup.playbookNames.key().toLowerCase():
+                case lookup
+                .playbookNames
+                .key()
+                .toLowerCase():
                     playbook = playbooks.key;
                     break;
-                case lookup.playbookNames.kiss().toLowerCase():
+                case lookup
+                .playbookNames
+                .kiss()
+                .toLowerCase():
                     playbook = playbooks.kiss;
                     break;
-                case lookup.playbookNames.curse().toLowerCase():
+                case lookup
+                .playbookNames
+                .curse()
+                .toLowerCase():
                     playbook = playbooks.curse;
                     break;
             }
             if (playbook) {
                 fillPlaybook(playbook);
                 setAttrs({
-                    ["playbooktype"]: playbook.id,
+                    ["playbooktype"]: playbook.id
                 });
             }
-        } else return;
+        } else
+            return;
     });
 });
 
 // Event: When the coterie title is entered for the first time
 on("change:housename", (args) => {
     console.log("Coterie name change detected.");
-    getAttrs(["coteriehouse", "housename"], (values) => {
+    getAttrs([
+        "coteriehouse", "housename"
+    ], (values) => {
         let cotId = values["coteriehouse"];
 
         if (lookup.coterieId[cotId] == "NotSet") {
             let coterie = null;
 
             switch (values["housename"].toString().toLowerCase().trim()) {
-                case lookup.coterieNames.corvetto().toLowerCase():
+                case lookup
+                .coterieNames
+                .corvetto()
+                .toLowerCase():
                     coterie = coteries.corvetto;
                     break;
-                case lookup.coterieNames.battalia().toLowerCase():
+                case lookup
+                .coterieNames
+                .battalia()
+                .toLowerCase():
                     coterie = coteries.battalia;
                     break;
-                case lookup.coterieNames.bastien().toLowerCase():
+                case lookup
+                .coterieNames
+                .bastien()
+                .toLowerCase():
                     coterie = coteries.bastien;
                     break;
-                case lookup.coterieNames.lovell().toLowerCase():
+                case lookup
+                .coterieNames
+                .lovell()
+                .toLowerCase():
                     coterie = coteries.lovell;
                     break;
-                case lookup.coterieNames.alMari().toLowerCase():
+                case lookup
+                .coterieNames
+                .alMari()
+                .toLowerCase():
                     coterie = coteries.alMari;
                     break;
-                case lookup.coterieNames.elanda().toLowerCase():
+                case lookup
+                .coterieNames
+                .elanda()
+                .toLowerCase():
                     coterie = coteries.elanda;
                     break;
             }
             if (coterie) {
                 fillCoterie(coterie);
                 setAttrs({
-                    ["coteriehouse"]: coterie.id,
+                    ["coteriehouse"]: coterie.id
                 });
             }
-        } else return;
+        } else
+            return;
     });
 });
 
-
-// Event: When an action rating is updated
+// Event: When an action stat is changed Event: When an action rating is updated
 var maxActions = 6;
 var actionName = "pcskillval";
 var attrName = "pcattrval";
-var attrs = [1, 2, 3, 4, 5, 6];
+var attrs = [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+];
 
 // pcattrval1
 attrs.forEach((attrNum) => {
@@ -2409,12 +2432,18 @@ attrs.forEach((attrNum) => {
     }
 
     on(actionChangedEvents.join(" "), (arg) => {
+        debugPrint(arg);
+        recalculateFormula(arg.triggerName, arg.newValue);
+
         getAttrs(actions, (values) => {
             var attrVal = 0;
-            Object.keys(values).forEach((val) => {
-                if (val && parseInt(values[val]) > 0) attrVal++;
-            });
-
+            Object
+                .keys(values)
+                .forEach((val) => {
+                    ``
+                    if (val && parseInt(values[val]) > 0)
+                        attrVal++;
+                });
             setAttrs({
                 [`${attrName}${attrNum}`]: attrVal
             });

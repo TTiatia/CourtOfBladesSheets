@@ -1,0 +1,21 @@
+---
+---
+<rolltemplate is:raw class="sheet-rolltemplate-cob-fortune">
+    <div class="upper">
+        <div class="name">{{name}} {{rolls}}</div>
+        <div class="stat">{{stat}}</div>
+    </div>
+    <img class="sword" src="https://raw.githubusercontent.com/TTiatia/CourtOfBladesSheets/main/Astro/public/.png"/>
+    <div class="lower">
+        <div class="dice">
+            {{^zerodice}}{{dice}}{{/zerodice}}
+            {{#zerodice}}
+                <div class="zerodice1">{{zerodice}}</div>
+                <div class="zerodice2" data-i18n="ZeroDiceDescription"></div>
+            {{/zerodice}}
+        </div>
+        {{#notes}}
+        <div class="notes"></div>
+        {{/notes}}
+    </div>
+</rolltemplate>
