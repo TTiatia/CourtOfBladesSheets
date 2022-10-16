@@ -10,7 +10,7 @@ const {
 function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
 ---
 
-<div class={`gw-1 text-left grid-stat-row tooltip-custom ${classes}`}>
+<div class={`gw-1 text-left grid-stat-row tooltip-custom ${classes || ""}`}>
     <div class="tracker tracked-red marg-right rela">
         <input type="radio" name={`attr_${skillValueAttr}`} value="0" class="shape-cross track-zero checked-hidden" checked={true} />
         {toArray(maxSkillCount).map((xpNum) => (

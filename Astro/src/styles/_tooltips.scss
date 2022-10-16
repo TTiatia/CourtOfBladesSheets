@@ -53,6 +53,6 @@
     .tooltip-custom:hover+.tooltip-custom-text,
     .tooltip-custom-text:hover {
         visibility: visible;
-        transition: visibility 0s linear 0.75s;
+        transition: visibility 0s linear 0.5s;
     }
 }

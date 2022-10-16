@@ -4,7 +4,7 @@ import RepeatingSection from "../Roll20/Roll20_RepeatingSection.astro";
 const {id, classes, repeatAttr, sizeAttr, progressAttr, descAttr} = Astro.props;
 ---
 
-<div id={id} class={`${classes}`}>
+<div class={`${classes || ""}`}>
     <RepeatingSection classes="repeating_clocks gw-1 flex-clocks" attr={repeatAttr}>
         <div class="clock-subcontainer grid gtw-2 gth-1">
             <input type="hidden" class="clock-size-selector-controller" value="0" name={`attr_${sizeAttr}`} />

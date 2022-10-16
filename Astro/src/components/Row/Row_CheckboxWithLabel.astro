@@ -2,7 +2,7 @@
 import FieldTooltip from "../Field/Field_ToolTip.astro";
 const {id, classes, nameAttr, valueAttr, tooltipAttr} = Astro.props;
 ---
-<div id={id} class={`flex-left tooltip-custom pad-left ${classes}`}>
+<div class={`flex-left tooltip-custom pad-left ${classes || ""}`}>
     <FieldTooltip attr={tooltipAttr} classes="flex-left" textClasses="pad-left pad-right pad-top min-h">
         <div class="row-cb-holder marg-right">
             <input type="checkbox" name={`attr_${valueAttr}`} class="shape-dot-med checked-red" />

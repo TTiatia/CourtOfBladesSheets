@@ -1,6 +1,5 @@
 ---
 import SheetXPBox from "../../components/Box/Box_SheetXP.astro";
-import BoxFortuneroll from "../../components/Box/Box_FortuneRoll.astro";
 import RepeatingSection from "../../components/Roll20/Roll20_RepeatingSection.astro";
 import UpgradeRow from "../../components/Row/Row_CheckboxWithLabel.astro";
 import NoteField from "../../components/Roll20/Roll20_NoteField.astro"
@@ -8,14 +7,13 @@ import BoxRetinues from "../../components/Box/Box_Retinues.astro";
 
 const {id, classes} = Astro.props;
 ---
-<div id={id} class={classes}>
+<div class={classes}>
     <SheetXPBox 
         title="Coterie xp" 
         titleTranslation="CoterieXP"
         attr="housexp" 
         boxCount={10}>
     </SheetXPBox>
-    <BoxFortuneroll></BoxFortuneroll>
     <div class="marg-top bordered">
         <div class="border-bottom skillname b upcase pad-left">&nbsp;<span data-i18n="UniqueUpgrades">Unique upgrades</span></div>
         <RepeatingSection classes="grid gtw-1 gaph-4 repblock"  attr="houseup1">

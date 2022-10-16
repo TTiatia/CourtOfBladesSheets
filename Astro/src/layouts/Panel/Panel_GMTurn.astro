@@ -8,7 +8,7 @@ import DynamicClocks from "../../components/Clocks/Clocks_DynamicContainer.astro
 const {id, classes, factionCount} = Astro.props;
 function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
 ---
-<div id={id} class={`grid gtw-1 max-width ${classes}`}>
+<div class={`grid gtw-1 max-width ${classes || ""}`}>
     <div class="flex-left">
         <LogoBox></LogoBox>
         <div class="titlebox-title logo-title offset-from-top" data-i18n="HousesOfTheEsultare">Houses of the Esultare</div>

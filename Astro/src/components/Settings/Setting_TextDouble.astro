@@ -13,7 +13,7 @@ var conditionalVisibility = visibility != null && visibility != undefined && vis
 
 ---
 
-<div id={id || ""} class={`flex-left${conditionalVisibility ? " visibility-" + visibility : ""}`}>
+<div class={`flex-left${conditionalVisibility ? " visibility-" + visibility : ""}`}>
     &nbsp;<label class="capitalise"><span data-i18n={titleTranslation || ""}></span>{title}:</label>
     <input type="text" name={`attr_${attr1}`} class="customsetting marg-left border-bottom" value={defaultOption || ""}/>
     <input type="text" name={`attr_${attr2}`} class="customsetting marg-left border-bottom" value={defaultOption || ""}/>

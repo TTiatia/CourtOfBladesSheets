@@ -1,59 +1,78 @@
 .sheet-rolltemplate-cob-fortune {
-    background-image: url("https://raw.githubusercontent.com/TTiatia/CourtOfBladesSheets/main/Astro/public/FortuneBlank.png");
-    background-color: white;
-    background-repeat: no-repeat;
-    background-size: contain;
+    text-align: center;
+    padding: 8px;
+    .sheet-lower {
+        padding: 8px 8px 0px 8px;
+    }
 }
 
 .sheet-rolltemplate-cob-action {
-    background-image: url("https://raw.githubusercontent.com/TTiatia/CourtOfBladesSheets/main/Astro/public/bg-web.png");
+    .sheet-lower {
+        padding: 24px 8px 8px 8px;
+    }
 }
 
+.sheet-rolltemplate-cob-resist,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode,
 .sheet-rolltemplate-cob-action,
-.sheet-rolltemplate-cob-fortune {
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode,
+.sheet-rolltemplate-cob-fortune,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode {
+    background-image: url("https://raw.githubusercontent.com/TTiatia/CourtOfBladesSheets/main/Astro/public/bg-web.png");
     height: max-content;
     font-family: 'EB Garamond', serif;
     color: black;
-    min-height: 205px;
-    max-height: 205px;
-    min-width: 243px;
     display: block;
+    border: double black 5px;
+    .sheet-zerodice3 {
+        text-transform: uppercase;
+        text-indent: 3px;
+    }
     .sheet-template-container {
-        height: 205px;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: max-content 1fr;
     }
     .sheet-name {
-        font-size: 18px;
-        text-transform: uppercase;
-        margin-bottom: 6px;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: normal;
+        text-transform: capitalize;
     }
     .sheet-stat {
         font-size: 26px;
-        padding-bottom: 6px;
+        line-height: normal;
         text-transform: uppercase;
-        font-weight: bold;
         vertical-align: bottom;
+        font-weight: bold;
+        text-shadow: 1px 1px grey;
     }
     .sheet-detail {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        margin-top: 16px;
         .sheet-effect,
         .sheet-position {
             display: grid;
             grid-template-rows: 1fr 1fr;
             grid-template-columns: auto;
-            font-weight: bold;
             div:first-child {
                 text-transform: uppercase;
                 font-size: 18px;
+                line-height: normal;
+                font-weight: bold;
             }
             div:last-child {
                 text-transform: capitalize;
+                line-height: normal;
                 font-size: 16px;
             }
         }
+    }
+    .sheet-mask {
+        max-height: 75px;
+        object-fit: contain;
+        margin-bottom: 8px;
     }
     .sheet-sword {
         -webkit-transform: scaleX(-1);
@@ -61,38 +80,69 @@
         display: block;
         position: absolute;
         right: 16px;
-        bottom: 52px;
         width: 300px;
         min-width: 300px;
-    }
-    .sheet-upper {
-        background-color: rgba(0, 0, 0, 0.2);
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        padding: 8px;
-        height: 50px;
-        border-bottom: 3px black solid;
-        &::after {
-            width: 200px;
-            height: 3px;
-            display: block;
-            background-color: black;
+        &.sheet-zero {
+            bottom: 71px;
+        }
+        &.sheet-nonzero {
+            bottom: 54px;
         }
     }
-    .sheet-lower {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: space-evenly;
-        padding: 24px 8px 8px 8px;
-        z-index: 10;
-        .inlinerollresult {
-            font-size: 26px;
-            font-family: 'EB Garamond', serif;
-            background: none;
-            border: none;
+    &.sheet-rolltemplate-cob-resist,
+    &.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode {
+        .sheet-upper {
+            padding: 8px 8px 0px 8px;
+        }
+        .sheet-lower {
+            margin-top: 16px;
+            padding-left: 8px;
+            padding-right: 8px;
+            .inlinerollresult {
+                font-size: 26px;
+                font-family: 'EB Garamond', serif;
+                background: none;
+                border: none;
+            }
+        }
+        .sheet-resist-desc {
+            padding: 8px;
+            margin-top: 16px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-top: 3px black solid;
+        }
+    }
+    &.sheet-rolltemplate-cob-action,
+    &.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode,
+    &.sheet-rolltemplate-cob-fortune,
+    &.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode {
+        .sheet-upper {
+            background-color: rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            padding: 8px;
+            border-bottom: 3px black solid;
+            &::after {
+                width: 200px;
+                height: 3px;
+                display: block;
+                background-color: black;
+            }
+        }
+        .sheet-lower {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+            z-index: 10;
+            .inlinerollresult {
+                font-size: 26px;
+                font-family: 'EB Garamond', serif;
+                background: none;
+                border: none;
+            }
         }
     }
 }

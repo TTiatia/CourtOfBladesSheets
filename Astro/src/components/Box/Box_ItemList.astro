@@ -14,7 +14,7 @@ const {
     styleAttr
 } = Astro.props;
 ---
-<div id={id} class={`grid gtw-1 gaph-3 marg-top ${classes}`}>
+<div class={`grid gtw-1 gaph-3 marg-top ${classes || ""}`}>
     {title != "" && <><div class="bg-med b upcase pad-left" data-i18n={titleTranslation || ""}>{title}</div></>}
     <RepeatingSection attr={repeatAttr} classes="item-list">
         <div>

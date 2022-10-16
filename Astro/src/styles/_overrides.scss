@@ -141,4 +141,8 @@
         display: inline;
         width: max-content;
     }
+    .grid-gmturn-row input[type=text],
+    .grid-gmturn-row button {
+        z-index: 5;
+    }
 }

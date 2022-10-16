@@ -2,7 +2,6 @@
 import HiddenSetting from "../components/Roll20/Roll20_HiddenSetting.astro";
 import PageController from "../components/Roll20/Roll20_PageController.astro";
 
-import Page from "../layouts/Page.astro";
 import PagePC from "../layouts/Page/Page_PC.astro";
 import PageGM from "../layouts/Page/Page_GMTurn.astro";
 import PageFactions from "../layouts/Page/Page_Factions.astro";
@@ -20,6 +19,7 @@ import RollTemplates from "./RollTemplates.astro";
         <input type="hidden" name="attr_notes_query" value="" />
         <input type="hidden" name="attr_position_query" value="" />
         <input type="hidden" name="attr_effect_query" value="" />
+        <input type="hidden" name="attr_fortune" value="" />
     </div>  
     <HiddenSetting id="page-selector" name="currentPage" defaultValue={0}></HiddenSetting>
     <PageController name="currentPage"></PageController>

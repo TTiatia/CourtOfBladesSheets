@@ -3,7 +3,7 @@ import Clocks_SingleContainer from "../Clocks/Clocks_SingleContainer.astro";
 
 const {id, classes, attr} = Astro.props;
 ---
-<div id={id} class={`gw-1 grid gtw-1 ${classes}`}>
+<div class={`gw-1 grid gtw-1 ${classes || ""}`}>
     <div class="b bg-black text-center upcase" data-i18n="Healing">Healing</div>
     <div class="pad-left i" data-i18n="ProjectClock">Project clock</div>
     <div class="gh-2 justify-center">

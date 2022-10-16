@@ -17,8 +17,8 @@ function parseOptions(list) {
     list.split(";").map((arg) => {
         var parts = arg.split("=");
         var option = {
-            value: parseInt(parts[0].trim()),
-            text: parts[1].toString().trim()
+            value: parts[0],
+            text: parts[1].toString()
         }
         if (parts[2]) { 
             option["translation"] = parts[2]; 
@@ -34,7 +34,7 @@ function parseOptions(list) {
 var optList = parseOptions(options);
 ---
 
-<div id={id || ""} class={`flex-left${conditionalVisibility ? " visibility-" + visibility : ""}`}>
+<div class={`flex-left${conditionalVisibility ? " visibility-" + visibility : ""}`}>
     <label class="capitalise">&nbsp;<span data-i18n={titleTranslation || ""}></span>&nbsp;{title}:</label>
     <select name={`attr_${attr}`} class="customsetting">
         {optList.map((opt) => (<><option value={opt.value} selected={defaultOption == opt.value} data-i18n={opt.translation || ""}>{opt.text}</option></>))}

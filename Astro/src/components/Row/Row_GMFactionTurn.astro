@@ -2,6 +2,8 @@
 import ClockDynamicContainer from "../Clocks/Clocks_DynamicContainer.astro";
 import FieldAutoExpandText from "../Field/Field_AutoExpandText.astro";
 const {factionNumber, nameAttr, strengthAttr, statAttr, notesAttr, clockPrefixAttr} = Astro.props;
+
+//hideGMTurnRolls
 ---
 <div class="grid-gmturn-row border-bottom marg-bottom">
     <div class="grid gth-2 gtw-1">
@@ -22,7 +24,11 @@ const {factionNumber, nameAttr, strengthAttr, statAttr, notesAttr, clockPrefixAt
                 <input type="radio" name={`attr_${statAttr}${factionNumber}1`} value="2" class="shape-dot" />
                 <input type="radio" name={`attr_${statAttr}${factionNumber}1`} value="3" class="shape-dot" />
             </div>
-            <div class="pad-left b capitalise" data-i18n="Reach">Reach</div>
+            
+            <input type="hidden" name={`attr_${statAttr}${factionNumber}3_formula`} value=""/>
+            <button type="roll" class="b capitalise button-action" data-i18n="Reach"
+                value={`@{hideGMTurnRolls} &{template:cob-action} {{action=1}} {{name=@{${nameAttr}${factionNumber}}}} {{statname=Reach}} {{house=1}} {{@{position_query}}} {{effect=@{effect_query}}} @{${statAttr}${factionNumber}1_formula}`}>
+            </button>
         </div>
         <div class="grid-stat-row">
             <div class="tracker tracked-red">
@@ -31,7 +37,11 @@ const {factionNumber, nameAttr, strengthAttr, statAttr, notesAttr, clockPrefixAt
                 <input type="radio" name={`attr_${statAttr}${factionNumber}2`} value="2" class="shape-dot" />
                 <input type="radio" name={`attr_${statAttr}${factionNumber}2`} value="3" class="shape-dot" />
             </div>
-            <div class="pad-left b capitalise" data-i18n="Grasp">Grasp</div>
+            
+            <input type="hidden" name={`attr_${statAttr}${factionNumber}3_formula`} value=""/>
+            <button type="roll" class="b capitalise button-action" data-i18n="Grasp"
+                value={`@{hideGMTurnRolls} &{template:cob-action} {{action=1}} {{name=@{${nameAttr}${factionNumber}}}} {{statname=Grasp}} {{house=1}} {{@{position_query}}} {{effect=@{effect_query}}} @{${statAttr}${factionNumber}2_formula}`}>
+            </button>
         </div>
         <div class="grid-stat-row">
             <div class="tracker tracked-red">
@@ -40,7 +50,11 @@ const {factionNumber, nameAttr, strengthAttr, statAttr, notesAttr, clockPrefixAt
                 <input type="radio" name={`attr_${statAttr}${factionNumber}3`} value="2" class="shape-dot" />
                 <input type="radio" name={`attr_${statAttr}${factionNumber}3`} value="3" class="shape-dot" />
             </div>
-            <div class="pad-left b capitalise" data-i18n="Sleight">Sleight</div>
+            
+            <input type="hidden" name={`attr_${statAttr}${factionNumber}3_formula`} value=""/>
+            <button type="roll" class="b capitalise button-action" data-i18n="Sleight"
+                value={`@{hideGMTurnRolls} &{template:cob-action} {{action=1}} {{name=@{${nameAttr}${factionNumber}}}} {{statname=Sleight}} {{house=1}} {{@{position_query}}} {{effect=@{effect_query}}} @{${statAttr}${factionNumber}3_formula}`}>
+            </button>
         </div>
     </div>
     <FieldAutoExpandText
