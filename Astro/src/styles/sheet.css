@@ -531,7 +531,7 @@
   vertical-align: middle;
   padding-left: 2px;
 }
-.charsheet .court-of-blades .page #paramour-name {
+.charsheet .court-of-blades .page .paramour-name {
   height: 16px;
   align-self: end;
   font-size: 14px;

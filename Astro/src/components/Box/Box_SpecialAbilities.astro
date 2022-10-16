@@ -13,7 +13,7 @@ const {
     hasName,
 } = Astro.props;
 ---
-<div id={id} class={`grid gtw-1 ${classes || ""}`}>
+<div class={`grid gtw-1 ${classes || ""}`}>
     <div class="heading bg-med pad-left border-top border-bottom upcase"  data-i18n={titleTranslation || ""}>{title}</div>
     <RepeatingSection attr={repeatAttr} classes="ability-list">
         { hasName == true &&

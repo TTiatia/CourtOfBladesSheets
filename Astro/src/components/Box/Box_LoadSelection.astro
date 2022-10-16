@@ -1,7 +1,7 @@
 ---
 const {id, classes, attrName} = Astro.props;
 ---
-<div id={id} class={`bg-med text-left flex-spaced pad-left pad-right pad-top ${classes || ""}`}>
+<div class={`bg-med text-left flex-spaced pad-left pad-right pad-top ${classes || ""}`}>
     <div class="b upcase flex-vert-center flex-center" data-i18n="Load">Load</div>
     <div class="flex-vert flex-vert-center flex-center">
         <input type="checkbox" name={`attr_${attrName}`} value="1" class="shape-diamond-med unchecked-light checked-red vert-middle" />

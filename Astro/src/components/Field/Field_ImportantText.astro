@@ -1,7 +1,7 @@
 ---
 const {id, classes, label, attr} = Astro.props;
 ---
-<div id={id} class={`flex-left ${classes || ""}`}>
+<div class={`flex-left ${classes || ""}`}>
     <div class="paramourname align-end text-right pad-right content upcase">{label}</div>
     <input type="text" name={`attr_${attr}`} class="pcdetail" />
 </div>

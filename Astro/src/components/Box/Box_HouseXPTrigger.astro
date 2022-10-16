@@ -4,7 +4,7 @@ import FieldAutoExpandText from "../Field/Field_AutoExpandText.astro";
 
 const {id, classes, attrPrefix, repeatAttr} = Astro.props;
 ---
-<div id={id} class={`grid gtw-3 xptriggers ${classes || ""}`}>
+<div class={`grid gtw-3 xptriggers ${classes || ""}`}>
     <div class="gw-3 heading pad-left bg-med border-top border-bottom upcase"  data-i18n="XPTriggers">XP Triggers</div>
     <div class="gw-3 text-center marg-bottom marg-top" data-i18n="HouseEndOfSessionXPText">At the end of each session, for each item below, mark 1 xp (on your House sheet), for a maximum of 4 xp.</div>
     <div class="flex-left gw-3 pad-left">

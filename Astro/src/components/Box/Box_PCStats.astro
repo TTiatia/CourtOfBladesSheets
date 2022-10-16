@@ -20,7 +20,7 @@ const {
 
 function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
 ---
-<div id={id} class={classes}>
+<div class={classes}>
     <VisibilityControl attr={`setting_attrcount`}></VisibilityControl>
     {toArray(categoryCount).map((catNum) => (
         <>
