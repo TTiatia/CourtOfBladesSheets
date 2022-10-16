@@ -1,7 +1,7 @@
 ---
 const {id, classes} = Astro.props;
 ---
-<div id={id} class={`grid gtw-3 ${classes}`}>
+<div id={id} class={`grid gtw-3 ${classes || ""}`}>
     <div class="gw-1 gh-2 border-right">
         <span class="b upcase" data-i18n="Teamwork">Teamwork</span>
         <ul>

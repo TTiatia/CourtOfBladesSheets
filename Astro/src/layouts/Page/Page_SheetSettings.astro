@@ -91,22 +91,25 @@ const maxCountString = "1=1;2=2;3=3;4=4;5=5;6=6"
                         titleTranslation="TraumaTypes"
                         defaultOption={1}
                         options="1=Scandals;2=Shatters"
-                        attr="scandaltype"
-                        count={maxCount}>
+                        attr="scandaltype">
+                    </SettingDropdown>
+                    <SettingDropdown
+                        titleTranslation="NumberOfPCStressBoxes"
+                        defaultOption={7}
+                        options="0=6;1=7;2=8;3=9;4=10;50=11;6=12"
+                        attr="pcstresssize">
                     </SettingDropdown>
                     <SettingDropdown
                         titleTranslation="Playbook"
                         defaultOption={0}
                         options="0=Not Set;1=The Bravo;2=The Hawk;3=The Eye;4=The Couth;5=The Knack;6=The Key;7=The Kiss;8=The Curse;99=Custom"
-                        attr="playbooktype"
-                        count={maxCount}>
+                        attr="playbooktype">
                     </SettingDropdown>
                     <SettingDropdown
                         titleTranslation="Coterie"
                         defaultOption={0}
                         options="0=Not Set;1=House Corvetto;3=House Battalia;4=HouseBastien;5=House Lovell;6=House Al-Mari;7=House Elanda;99=Custom"
-                        attr="coteriehouse"
-                        count={maxCount}>
+                        attr="coteriehouse">
                     </SettingDropdown>
                 </div>
             </div>
@@ -117,7 +120,7 @@ const maxCountString = "1=1;2=2;3=3;4=4;5=5;6=6"
                     <SettingDropdown
                         titleTranslation="ShowGMTurnRollsTo"
                         defaultOption={1}
-                        options="1=OnlyToGM;2=Everyone"
+                        options="/w gm =OnlyToGM; =Everyone"
                         attr="hideGMTurnRolls"
                         count={maxCount}>
                     </SettingDropdown>

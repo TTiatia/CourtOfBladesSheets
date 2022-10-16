@@ -1,6 +1,6 @@
 const metaData = {
     sheetVersion: "1.0",
-    lastUpdate: "2022-08-10"
+    lastUpdate: "2022-10-16"
 };
 
 // shorter alias
@@ -94,11 +94,14 @@ const lookup = {
 const pcDefaults = {
 
     // Sheet settings
+    version: () => metaData.sheetVersion,
     setting_attrcount: () => "3",
     setting_attrskillcount1: () => "4",
     setting_attrskillcount2: () => "4",
     setting_attrskillcount3: () => "4",
-    hideGMTurnRolls: () => "1",
+
+    pcname: () => "",
+    coteriename: () => "",
 
     // PC attributes & actions
     pcattrname1: () => translate("Body"),
@@ -152,11 +155,36 @@ const pcDefaults = {
     pcskilldesc34: () => translate("SwayActionDescription"),
     pcskillval34: () => "0",
 
+    factname1: () => "",
+    factname2: () => "",
+    factname3: () => "",
+    factname4: () => "",
+    factname5: () => "",
+    factstat11: () => "0",
+    factstat12: () => "0",
+    factstat13: () => "0",
+    factstat21: () => "0",
+    factstat22: () => "0",
+    factstat23: () => "0",
+    factstat31: () => "0",
+    factstat32: () => "0",
+    factstat33: () => "0",
+    factstat41: () => "0",
+    factstat42: () => "0",
+    factstat43: () => "0",
+    factstat51: () => "0",
+    factstat52: () => "0",
+    factstat53: () => "0",
+
     bonusdice: () => translate("BonusDice"),
     numberofdice: () => ` {{?{${translate("NumberOfDice")}|0,zerodice=[[d6]]&amp;#44; [[d6]]|1,dice=[[d6]]|2,dice=[[d6]]&amp;#44; [[d6]]|3,dice=[[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]|4,dice=[[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]|5,dice=[[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]|6,dice=[[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]&amp;#44; [[d6]]}}}`,
     notes_query: () => `?{${translate("Notes")}}`,
-    position_query: () => `?{${translate("Position")}|${translate("Risky")},position=${translate("Risky")}|${translate("Controlled")},position=${translate("Controlled")}|${translate("Desperate")},position=${translate("Desperate")}|${translate("FortuneRoll")},short=1}`,
-    effect_query: () => `?{${translate("Effect")}|${translate("Standard")}|${translate("Limited")}|${translate("Great")}|${translate("Extreme")}|${translate("Zero")}}`
+    position_query: () => `?{${translate("Position")}|${translate("Risky")},position=${translate("Risky")}|${translate("Controlled")},position=${translate("Controlled")}|${translate("Desperate")},position=${translate("Desperate")}|${translate("FortuneRoll")},position=${translate("Fortune")}}`,
+    effect_query: () => `?{${translate("Effect")}|${translate("Standard")}|${translate("Limited")}|${translate("Great")}|${translate("Extreme")}|${translate("Zero")}}`,
+    fortune: () => translate("Fortune"),
+
+    hideGMTurnRolls: () => "/w gm ",
+    pcstresssize: () => "2"
 };
 
 const factionDefaults = {
@@ -653,6 +681,13 @@ const playbookAbilities = {
     }
 };
 
+var playbookAbilityLookup = {};
+
+Object.keys(playbookAbilities).forEach(keyName => {
+    let ability = playbookAbilities[keyName];
+    playbookAbilityLookup[ability.name().trim().toLowerCase()] = ability.desc();
+});
+
 const coterieAbilities = {
     mysteriousWays: {
         name: () => translate("CoterieAbility_MysteriousWaysName"),
@@ -737,7 +772,7 @@ const coterieAbilities = {
         desc: () => translate("CoterieAbility_StrongerTogetherDescription")
     },
     notMeUsName: {
-        name: () => translate("CoterieAbility_NotMeUsNameName"),
+        name: () => translate("CoterieAbility_NotMeUsName"),
         desc: () => translate("CoterieAbility_NotMeUsNameDescription")
     },
 
@@ -828,6 +863,13 @@ const coterieAbilities = {
         desc: () => translate("CoterieAbility_PatronageDescription")
     }
 };
+
+var coterieAbilityLookup = {};
+
+Object.keys(coterieAbilities).forEach(keyName => {
+    let ability = coterieAbilities[keyName];
+    coterieAbilityLookup[ability.name().trim().toLowerCase()] = ability.desc();
+});
 
 const itemStyles = {
     normal: "n",
@@ -1768,6 +1810,7 @@ const fillPlaybook = (pb) => {
         let prefix = `repeating_armourability_${newId}_`;
         newAttrs[prefix + "armourAbilityDesc"] = arm();
         newAttrs[prefix + "armourAbilityActive"] = "1";
+        newAttrs[prefix + "armourAbilityActive_autofill"] = "0";
     }
 
     // Loop through and add all Special Abilities
@@ -1777,6 +1820,7 @@ const fillPlaybook = (pb) => {
         newAttrs[prefix + "playbookAbilityName"] = abi.name();
         newAttrs[prefix + "playbookAbilityDesc"] = abi.desc();
         newAttrs[prefix + "playbookAbilityActive"] = "false";
+        newAttrs[prefix + "playbookAbilityActive_autofill"] = "0";
     }
 
     // Add playbook XP triggers
@@ -2030,6 +2074,7 @@ const fillCoterie = (cot) => {
         let newId = generateRowID();
         let prefix = `repeating_housefeatures_${newId}_`;
         newAttrs[prefix + "housefeaturename"] = feat.name();
+        newAttrs[prefix + "housefeatureenabled_autofill"] = "0";
         newAttrs[prefix + "housefeaturedes"] = feat.desc();
         newAttrs[prefix + "housefeatureenabled"] = "1";
     }
@@ -2041,6 +2086,7 @@ const fillCoterie = (cot) => {
         newAttrs[prefix + "houseAbilityName"] = abi.name();
         newAttrs[prefix + "houseAbilityDesc"] = abi.desc();
         newAttrs[prefix + "houseAbilityActive"] = "false";
+        newAttrs[prefix + "houseAbilityActive_autofill"] = "0";
     }
 
     // Add playbook XP triggers
@@ -2182,7 +2228,6 @@ const fillFactions = () => {
 
 const setDefaultAttrs = (dict) => {
     let settings = Object.getOwnPropertyNames(dict);
-    //console.log(`Setting sheet attributes: ${settings}`);
 
     for (const key of settings) {
 
@@ -2192,8 +2237,7 @@ const setDefaultAttrs = (dict) => {
                 [key]: dict[key]()
             });
 
-            if ((key.startsWith("pcskillval") || key.startsWith("pcattrval")) && !key.endsWith("formula")) {
-                //console.log(`formula for ${key}`);
+            if ((key.startsWith("pcskillval") || key.startsWith("pcattrval") || key.startsWith("factstat")) && !key.endsWith("formula")) {
                 recalculateFormula(key, dict[key]);
             }
         }
@@ -2211,7 +2255,7 @@ const debugPrint = (obj) => {
 const recalculateFormula = (key, newValue) => {
     var results = [];
     newValue = parseInt(newValue);
-    for (var i = 0; i <= 5; i++) {
+    for (let i = 0; i <= 5; i++) {
         var count = Math.max(0, newValue + i);
         var dice = "";
         if (count > 0) {
@@ -2224,9 +2268,9 @@ const recalculateFormula = (key, newValue) => {
         results.push(dice);
     }
 
-    for (var i = -1; i >= -3; i--) {
-        var count = Math.max(0, newValue + i);
-        var dice = "";
+    for (let i = -1; i >= -3; i--) {
+        let count = Math.max(0, newValue + i);
+        let dice = "";
         if (count > 0) {
             dice = `${i},dice=${Array(count)
         .fill("[[d6]]")
@@ -2265,7 +2309,7 @@ const initialSetup = () => {
     console.log("Initial sheet setup complete");
 };
 
-// Event: When a new character is created
+// Event: When a character sheet is opened
 on("sheet:opened", () => {
     getAttrs(["SheetSetup"], function(values) {
         var isSetup = values["SheetSetup"];
@@ -2408,6 +2452,36 @@ on("change:housename", (args) => {
     });
 });
 
+// Event: on changing a playbook ability name, check if it can be auto-filled
+on("change:repeating_playbookability:playbookAbilityName", (arg) => {
+    getAttrs(["repeating_playbookability_playbookAbilityDesc", "repeating_playbookability_playbookAbilityActive_autofill"], (values) => {
+        if (values.repeating_playbookability_playbookAbilityActive_autofill == "1") {
+            let match = playbookAbilityLookup[arg.newValue.trim().toLowerCase()];
+            if (match != undefined) {
+                setAttrs({
+                    repeating_playbookability_playbookAbilityActive_autofill: "0",
+                    repeating_playbookability_playbookAbilityDesc: match
+                });
+            }
+        }
+    });
+});
+
+// Event: on changing a coterie ability name, check if it can be auto-filled
+on("change:repeating_houseability:houseAbilityName", (arg) => {
+    getAttrs(["repeating_houseability_houseAbilityDesc", "repeating_houseability_houseAbilityActive_autofill"], (values) => {
+        if (values.repeating_houseability_houseAbilityActive_autofill == "1") {
+            let match = coterieAbilityLookup[arg.newValue.trim().toLowerCase()];
+            if (match != undefined) {
+                setAttrs({
+                    repeating_houseability_houseAbilityActive_autofill: "0",
+                    repeating_houseability_houseAbilityDesc: match
+                });
+            }
+        }
+    });
+});
+
 // Event: When an action stat is changed Event: When an action rating is updated
 var maxActions = 6;
 var actionName = "pcskillval";
@@ -2421,19 +2495,17 @@ var attrs = [
     6
 ];
 
-// pcattrval1
 attrs.forEach((attrNum) => {
     let actions = [];
     let actionChangedEvents = [];
 
-    for (var ii = 0; ii <= maxActions; ii++) {
-        var act = `${actionName}${attrNum}${ii}`;
+    for (let ii = 0; ii <= maxActions; ii++) {
+        let act = `${actionName}${attrNum}${ii}`;
         actions.push(act);
         actionChangedEvents.push(`change:${act}`);
     }
 
     on(actionChangedEvents.join(" "), (arg) => {
-        debugPrint(arg);
         recalculateFormula(arg.triggerName, arg.newValue);
 
         getAttrs(actions, (values) => {
@@ -2441,14 +2513,33 @@ attrs.forEach((attrNum) => {
             Object
                 .keys(values)
                 .forEach((val) => {
-                    ``
                     if (val && parseInt(values[val]) > 0)
                         attrVal++;
                 });
             setAttrs({
                 [`${attrName}${attrNum}`]: attrVal
             });
+            recalculateFormula(`${attrName}${attrNum}`, attrVal);
         });
+    });
+});
+
+var factionStatName = "factstat";
+var factionSkills = 3;
+var factions = [1, 2, 3, 4, 5];
+
+factions.forEach((statnum) => {
+    let actions = [];
+    let actionChangedEvents = [];
+
+    for (let ii = 1; ii <= factionSkills; ii++) {
+        let act = `${factionStatName}${statnum}${ii}`;
+        actions.push(act);
+        actionChangedEvents.push(`change:${act}`);
+    }
+
+    on(actionChangedEvents.join(" "), (arg) => {
+        recalculateFormula(arg.triggerName, arg.newValue);
     });
 });
 

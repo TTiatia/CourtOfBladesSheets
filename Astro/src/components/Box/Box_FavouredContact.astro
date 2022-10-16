@@ -1,7 +1,7 @@
 ---
 const {id, classes, nameAttr, activeAttr} = Astro.props;
 ---
-    <div id={id} class={`grid-favoured-contact ${classes}`}>
+    <div id={id} class={`grid-favoured-contact ${classes || ""}`}>
         <div class="paramourname align-end text-bottom pad-right captialise" data-i18n="FavoredContact">Favoured Contact</div>
         <input type="text" name={`attr_${nameAttr}`} class="pcdetail" />
         <div class="flex-vert-center flex-center">

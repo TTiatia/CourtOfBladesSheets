@@ -138,6 +138,10 @@
   display: inline;
   width: max-content;
 }
+.charsheet .court-of-blades .page .grid-gmturn-row input[type=text],
+.charsheet .court-of-blades .page .grid-gmturn-row button {
+  z-index: 5;
+}
 
 /* ||
   Classes for using grids
@@ -958,12 +962,12 @@
 .charsheet .court-of-blades .tooltip-custom:hover + .tooltip-custom-text,
 .charsheet .court-of-blades .tooltip-custom-text:hover {
   visibility: visible;
-  transition: visibility 0s linear 0.75s;
+  transition: visibility 0s linear 0.5s;
 }
 
 .charsheet .court-of-blades {
   min-width: 1056px;
-  max-width: 1584px;
+  max-width: 1056px;
   width: fit-content;
 }
 .charsheet .court-of-blades [class^=panel-],
@@ -1980,6 +1984,35 @@
 .charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-6[class*=" flex-"] {
   display: flex;
 }
+.charsheet .court-of-blades .page .visibility-control[value="1"] ~ .visibility-1.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="2"] ~ .visibility-2.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-3.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-4.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-5.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-5.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="1"] ~ .visibility-gte-1.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="2"] ~ .visibility-gte-1.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="2"] ~ .visibility-gte-2.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-gte-1.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-gte-2.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="3"] ~ .visibility-gte-3.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-1.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-2.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-3.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="4"] ~ .visibility-gte-4.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-1.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-2.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-3.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-4.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="5"] ~ .visibility-gte-5.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-1.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-2.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-3.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-4.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-5.tracker-box,
+.charsheet .court-of-blades .page .visibility-control[value="6"] ~ .visibility-gte-6.tracker-box {
+  display: inline-block;
+}
 
 .charsheet .court-of-blades .page .auto-expand {
   position: relative;
@@ -2014,115 +2047,335 @@
 }
 
 .sheet-rolltemplate-cob-fortune {
-  background-image: url("https://raw.githubusercontent.com/TTiatia/CourtOfBladesSheets/main/Astro/public/FortuneBlank.png");
-  background-color: white;
-  background-repeat: no-repeat;
-  background-size: contain;
+  text-align: center;
+  padding: 8px;
+}
+.sheet-rolltemplate-cob-fortune .sheet-lower {
+  padding: 8px 8px 0px 8px;
 }
 
-.sheet-rolltemplate-cob-action {
-  background-image: url("https://raw.githubusercontent.com/TTiatia/CourtOfBladesSheets/main/Astro/public/bg-web.png");
+.sheet-rolltemplate-cob-action .sheet-lower {
+  padding: 24px 8px 8px 8px;
 }
 
+.sheet-rolltemplate-cob-resist,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode,
 .sheet-rolltemplate-cob-action,
-.sheet-rolltemplate-cob-fortune {
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode,
+.sheet-rolltemplate-cob-fortune,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode {
+  background-image: url("https://raw.githubusercontent.com/TTiatia/CourtOfBladesSheets/main/Astro/public/bg-web.png");
   height: max-content;
   font-family: "EB Garamond", serif;
   color: black;
-  min-height: 205px;
-  max-height: 205px;
-  min-width: 243px;
   display: block;
+  border: double black 5px;
 }
+.sheet-rolltemplate-cob-resist .sheet-zerodice3,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-zerodice3,
+.sheet-rolltemplate-cob-action .sheet-zerodice3,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-zerodice3,
+.sheet-rolltemplate-cob-fortune .sheet-zerodice3,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-zerodice3 {
+  text-transform: uppercase;
+  text-indent: 3px;
+}
+.sheet-rolltemplate-cob-resist .sheet-template-container,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-template-container,
 .sheet-rolltemplate-cob-action .sheet-template-container,
-.sheet-rolltemplate-cob-fortune .sheet-template-container {
-  height: 205px;
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-template-container,
+.sheet-rolltemplate-cob-fortune .sheet-template-container,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-template-container {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: max-content 1fr;
 }
+.sheet-rolltemplate-cob-resist .sheet-name,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-name,
 .sheet-rolltemplate-cob-action .sheet-name,
-.sheet-rolltemplate-cob-fortune .sheet-name {
-  font-size: 18px;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-.sheet-rolltemplate-cob-action .sheet-stat,
-.sheet-rolltemplate-cob-fortune .sheet-stat {
-  font-size: 26px;
-  padding-bottom: 6px;
-  text-transform: uppercase;
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-name,
+.sheet-rolltemplate-cob-fortune .sheet-name,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-name {
+  font-size: 14px;
   font-weight: bold;
-  vertical-align: bottom;
+  line-height: normal;
+  text-transform: capitalize;
 }
+.sheet-rolltemplate-cob-resist .sheet-stat,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-stat,
+.sheet-rolltemplate-cob-action .sheet-stat,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-stat,
+.sheet-rolltemplate-cob-fortune .sheet-stat,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-stat {
+  font-size: 26px;
+  line-height: normal;
+  text-transform: uppercase;
+  vertical-align: bottom;
+  font-weight: bold;
+  text-shadow: 1px 1px grey;
+}
+.sheet-rolltemplate-cob-resist .sheet-detail,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-detail,
 .sheet-rolltemplate-cob-action .sheet-detail,
-.sheet-rolltemplate-cob-fortune .sheet-detail {
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-detail,
+.sheet-rolltemplate-cob-fortune .sheet-detail,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-detail {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-top: 16px;
 }
+.sheet-rolltemplate-cob-resist .sheet-detail .sheet-effect,
+.sheet-rolltemplate-cob-resist .sheet-detail .sheet-position,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-detail .sheet-effect,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-detail .sheet-position,
 .sheet-rolltemplate-cob-action .sheet-detail .sheet-effect,
 .sheet-rolltemplate-cob-action .sheet-detail .sheet-position,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-detail .sheet-effect,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-detail .sheet-position,
 .sheet-rolltemplate-cob-fortune .sheet-detail .sheet-effect,
-.sheet-rolltemplate-cob-fortune .sheet-detail .sheet-position {
+.sheet-rolltemplate-cob-fortune .sheet-detail .sheet-position,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-detail .sheet-effect,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-detail .sheet-position {
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: auto;
-  font-weight: bold;
 }
+.sheet-rolltemplate-cob-resist .sheet-detail .sheet-effect div:first-child,
+.sheet-rolltemplate-cob-resist .sheet-detail .sheet-position div:first-child,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-detail .sheet-effect div:first-child,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-detail .sheet-position div:first-child,
 .sheet-rolltemplate-cob-action .sheet-detail .sheet-effect div:first-child,
 .sheet-rolltemplate-cob-action .sheet-detail .sheet-position div:first-child,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-detail .sheet-effect div:first-child,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-detail .sheet-position div:first-child,
 .sheet-rolltemplate-cob-fortune .sheet-detail .sheet-effect div:first-child,
-.sheet-rolltemplate-cob-fortune .sheet-detail .sheet-position div:first-child {
+.sheet-rolltemplate-cob-fortune .sheet-detail .sheet-position div:first-child,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-detail .sheet-effect div:first-child,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-detail .sheet-position div:first-child {
   text-transform: uppercase;
   font-size: 18px;
+  line-height: normal;
+  font-weight: bold;
 }
+.sheet-rolltemplate-cob-resist .sheet-detail .sheet-effect div:last-child,
+.sheet-rolltemplate-cob-resist .sheet-detail .sheet-position div:last-child,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-detail .sheet-effect div:last-child,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-detail .sheet-position div:last-child,
 .sheet-rolltemplate-cob-action .sheet-detail .sheet-effect div:last-child,
 .sheet-rolltemplate-cob-action .sheet-detail .sheet-position div:last-child,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-detail .sheet-effect div:last-child,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-detail .sheet-position div:last-child,
 .sheet-rolltemplate-cob-fortune .sheet-detail .sheet-effect div:last-child,
-.sheet-rolltemplate-cob-fortune .sheet-detail .sheet-position div:last-child {
+.sheet-rolltemplate-cob-fortune .sheet-detail .sheet-position div:last-child,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-detail .sheet-effect div:last-child,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-detail .sheet-position div:last-child {
   text-transform: capitalize;
+  line-height: normal;
   font-size: 16px;
 }
+.sheet-rolltemplate-cob-resist .sheet-mask,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-mask,
+.sheet-rolltemplate-cob-action .sheet-mask,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-mask,
+.sheet-rolltemplate-cob-fortune .sheet-mask,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-mask {
+  max-height: 75px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+.sheet-rolltemplate-cob-resist .sheet-sword,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-sword,
 .sheet-rolltemplate-cob-action .sheet-sword,
-.sheet-rolltemplate-cob-fortune .sheet-sword {
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-sword,
+.sheet-rolltemplate-cob-fortune .sheet-sword,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-sword {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
   display: block;
   position: absolute;
   right: 16px;
-  bottom: 52px;
   width: 300px;
   min-width: 300px;
 }
-.sheet-rolltemplate-cob-action .sheet-upper,
-.sheet-rolltemplate-cob-fortune .sheet-upper {
+.sheet-rolltemplate-cob-resist .sheet-sword.sheet-zero,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-sword.sheet-zero,
+.sheet-rolltemplate-cob-action .sheet-sword.sheet-zero,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-sword.sheet-zero,
+.sheet-rolltemplate-cob-fortune .sheet-sword.sheet-zero,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-sword.sheet-zero {
+  bottom: 71px;
+}
+.sheet-rolltemplate-cob-resist .sheet-sword.sheet-nonzero,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-sword.sheet-nonzero,
+.sheet-rolltemplate-cob-action .sheet-sword.sheet-nonzero,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-sword.sheet-nonzero,
+.sheet-rolltemplate-cob-fortune .sheet-sword.sheet-nonzero,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-sword.sheet-nonzero {
+  bottom: 54px;
+}
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-resist .sheet-upper, .sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-upper,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist .sheet-upper,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-upper,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-resist .sheet-upper,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-upper,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist .sheet-upper,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-upper,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-resist .sheet-upper,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-upper,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist .sheet-upper,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-upper {
+  padding: 8px 8px 0px 8px;
+}
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-resist .sheet-lower, .sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-lower,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist .sheet-lower,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-lower,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-resist .sheet-lower,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-lower,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist .sheet-lower,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-lower,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-resist .sheet-lower,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-lower,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist .sheet-lower,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-lower {
+  margin-top: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-resist .sheet-lower .inlinerollresult, .sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-resist .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-resist .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult {
+  font-size: 26px;
+  font-family: "EB Garamond", serif;
+  background: none;
+  border: none;
+}
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-resist .sheet-resist-desc, .sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-resist-desc,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist .sheet-resist-desc,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-resist-desc,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-resist .sheet-resist-desc,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-resist-desc,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist .sheet-resist-desc,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-resist-desc,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-resist .sheet-resist-desc,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-resist-desc,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist .sheet-resist-desc,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode .sheet-resist-desc {
+  padding: 8px;
+  margin-top: 16px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-top: 3px black solid;
+}
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-action .sheet-upper, .sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-upper, .sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-fortune .sheet-upper, .sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-upper,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action .sheet-upper,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-upper,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune .sheet-upper,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-upper,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-action .sheet-upper,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-upper,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-fortune .sheet-upper,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-upper,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action .sheet-upper,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-upper,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune .sheet-upper,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-upper,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-action .sheet-upper,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-upper,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-fortune .sheet-upper,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-upper,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action .sheet-upper,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-upper,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune .sheet-upper,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-upper {
   background-color: rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-between;
   padding: 8px;
-  height: 50px;
   border-bottom: 3px black solid;
 }
-.sheet-rolltemplate-cob-action .sheet-upper::after,
-.sheet-rolltemplate-cob-fortune .sheet-upper::after {
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-action .sheet-upper::after, .sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-upper::after, .sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-fortune .sheet-upper::after, .sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-upper::after,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action .sheet-upper::after,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-upper::after,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune .sheet-upper::after,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-upper::after,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-action .sheet-upper::after,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-upper::after,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-fortune .sheet-upper::after,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-upper::after,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action .sheet-upper::after,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-upper::after,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune .sheet-upper::after,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-upper::after,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-action .sheet-upper::after,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-upper::after,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-fortune .sheet-upper::after,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-upper::after,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action .sheet-upper::after,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-upper::after,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune .sheet-upper::after,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-upper::after {
   width: 200px;
   height: 3px;
   display: block;
   background-color: black;
 }
-.sheet-rolltemplate-cob-action .sheet-lower,
-.sheet-rolltemplate-cob-fortune .sheet-lower {
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-action .sheet-lower, .sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-lower, .sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-fortune .sheet-lower, .sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-lower,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action .sheet-lower,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-lower,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune .sheet-lower,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-lower,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-action .sheet-lower,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-lower,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-fortune .sheet-lower,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-lower,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action .sheet-lower,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-lower,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune .sheet-lower,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-lower,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-action .sheet-lower,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-lower,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-fortune .sheet-lower,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-lower,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action .sheet-lower,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-lower,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune .sheet-lower,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-lower {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-evenly;
-  padding: 24px 8px 8px 8px;
   z-index: 10;
 }
-.sheet-rolltemplate-cob-action .sheet-lower .inlinerollresult,
-.sheet-rolltemplate-cob-fortune .sheet-lower .inlinerollresult {
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-action .sheet-lower .inlinerollresult, .sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult, .sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-fortune .sheet-lower .inlinerollresult, .sheet-rolltemplate-cob-resist.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-resist.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-action .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-fortune .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-action .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-fortune .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-action.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune .sheet-lower .inlinerollresult,
+.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode.sheet-rolltemplate-cob-fortune.sheet-rolltemplate-darkmode .sheet-lower .inlinerollresult {
   font-size: 26px;
   font-family: "EB Garamond", serif;
   background: none;

@@ -6,7 +6,7 @@ const {
     classes
 } = Astro.props;
 ---
-<div id={id} class={`grid gtw-3 ${classes}`}>
+<div id={id} class={`grid gtw-3 ${classes || ""}`}>
     <input type="text" name="attr_coteriename" class="gw-3 border-bottom pcdetail" />
     <div class="gw-3 b text-left upcase" data-i18n="CoterieName">COTERIE NAME</div>
     <input type="text" name="attr_housestrengths" class="gw-2 border-bottom pcdetail marg-right" />

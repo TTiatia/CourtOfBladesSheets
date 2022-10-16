@@ -3,7 +3,7 @@ import RepeatingSection from "../Roll20/Roll20_RepeatingSection.astro";
 import FieldAutoExpandText from "../Field/Field_AutoExpandText.astro";
 const {id, classes, attrPrefix} = Astro.props;
 ---
-<div id={id} class={`grid gtw-3 xptriggers ${classes}`}>
+<div id={id} class={`grid gtw-3 xptriggers ${classes || ""}`}>
     <div class="gw-3 heading pad-left bg-med border-top border-bottom upcase" data-i18n="XPTriggers">XP Triggers</div>
     <div class="gw-3 i text-center" data-i18n="DesperateRollXPText">When you roll a desperate action, mark xp in that action's attribute.</div>
     <div class="gw-3 text-center marg-bottom marg-top" data-i18n="PCEndOfSessionXPText">At the end of each session, for each item below, mark 1 xp (in your playbook or an attribute), for a maximum of 4 xp.</div>

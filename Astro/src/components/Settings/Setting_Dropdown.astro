@@ -17,8 +17,8 @@ function parseOptions(list) {
     list.split(";").map((arg) => {
         var parts = arg.split("=");
         var option = {
-            value: parseInt(parts[0].trim()),
-            text: parts[1].toString().trim()
+            value: parts[0],
+            text: parts[1].toString()
         }
         if (parts[2]) { 
             option["translation"] = parts[2]; 

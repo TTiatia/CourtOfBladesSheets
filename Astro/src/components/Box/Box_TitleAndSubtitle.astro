@@ -4,7 +4,7 @@ import FieldAutoExpandText from "../Field/Field_AutoExpandText.astro";
 const {id, classes, titleAttr, subtitleAttr} = Astro.props;
 ---
 
-<div id={id} class={`grid gtw-1 ${classes}`}>
+<div id={id} class={`grid gtw-1 ${classes || ""}`}>
     <input type="text" name={`attr_${titleAttr}`} class="gh-2 titlebox-title" placeholder="Title"  data-i18n-placeholder="Title"/>
     <FieldAutoExpandText
         attr={subtitleAttr}

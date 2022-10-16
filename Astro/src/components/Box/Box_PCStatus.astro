@@ -1,7 +1,7 @@
 ---
 const {id, classes, attr} = Astro.props;
 ---
-<div id={id} class={`grid gth-5 gtw-11 ${classes}`}>
+<div id={id} class={`grid gth-5 gtw-11 ${classes || ""}`}>
     <div class="gw-11 bg-black b text-center upcase" data-i18n="Status">Status</div>
     <div class="gw-11 gh-4 tracker tracked-dark grid gtw-11 gth-4 gapw-2 gaph-2 pad-top">
         <input type="radio" value="0" name={`attr${attr}`} class="shape-cross track-zero checked-hidden" checked={true} />

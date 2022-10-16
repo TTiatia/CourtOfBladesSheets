@@ -4,7 +4,7 @@ import RepeatingSection from "../Roll20/Roll20_RepeatingSection.astro";
 const {id, classes, repAttr} = Astro.props;
 ---
 
-<div class={`grid gtw-1 contact-list ${classes}`}>
+<div class={`grid gtw-1 contact-list ${classes || ""}`}>
     <div class="bg-black b upcase text-center" data-i18n="Contacts">Contacts</div>
     <RepeatingSection attr={repAttr} id={id}>
         <div class="grid gtw-7 gaph-4 gapw-2">

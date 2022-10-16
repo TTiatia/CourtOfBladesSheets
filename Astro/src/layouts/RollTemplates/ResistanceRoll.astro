@@ -1,0 +1,28 @@
+---
+---
+<rolltemplate is:raw class="sheet-rolltemplate-cob-resist">
+    <div class="template-container">
+        <div class="upper">
+            <div class="name">{{name}} <span data-i18n="ResistsAConsequenceWith"></span></div>
+            <div class="stat">{{stat}}</div>
+        </div>
+        <div class="lower">
+            <div class="dice">
+                {{^zerodice}}
+                <div class="zerodice3">
+                    <span  data-i18n="Dice"></span>
+                </div>
+                <div>{{dice}}</div>
+                {{/zerodice}}
+                {{#zerodice}}
+                    <div class="zerodice3" data-i18n="ZeroDice"></div>
+                    <div class="zerodice1">{{zerodice}}</div>
+                    <div class="zerodice2" data-i18n="ZeroDiceDescription"></div>
+                {{/zerodice}}
+            </div>
+        </div>
+        <div class="resist-desc">
+            <span data-i18n="ResistanceRollExplanation"></span>
+        </div>
+    </div>
+</rolltemplate>

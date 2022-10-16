@@ -16,7 +16,7 @@ function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
         <input type="hidden" name={categoryValueAttr} value={0} />
         <input type="hidden" name={`${categoryValueAttr}_formula`} value="" />
         <div class="text-left pad-left align-center ">
-            <button type="roll" value={`&{template:cob-action} {{resist=1}} {{name=@{pcname}}} {{stat=@{${categoryNameAttr}}}} @{${categoryValueAttr}_formula}`}
+            <button type="roll" value={`&{template:cob-resist} {{resist=1}} {{name=@{pcname}}} {{stat=@{${categoryNameAttr}}}} @{${categoryValueAttr}_formula}`}
                 class="button-attr"><span class="vert-middle text-white" name={`attr_${categoryNameAttr}`} type="text"></span></button>
         </div>
         <div class="gw-8 tracker tracked-red">

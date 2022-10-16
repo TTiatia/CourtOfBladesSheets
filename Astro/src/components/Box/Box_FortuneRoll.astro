@@ -3,6 +3,6 @@ const {id, classes, nameAttr} = Astro.props;
 ---
 <div id={id || ""} class={`text-center ${classes || ""}`}>
     <button type="roll" class="bordered bg-white b upcase pad-left pad-top pad-right pad-bottom" data-i18n="RollFortune"
-    value={`&{template:cob-fortune} {{name=@{${nameAttr}}}} {{fortune=1}} @{numberofdice} {{notes=@{notes_query}}} {{stat^={Fortune}}}`}>
+        value={`&{template:cob-fortune} {{name=@{${nameAttr}}}} {{fortune=1}} {{stat=@{fortune}}} @{numberofdice}`}>
     </button>
 </div>

@@ -3,16 +3,22 @@
 <rolltemplate is:raw class="sheet-rolltemplate-cob-action">
     <div class="template-container">
         <div class="upper">
-            {{#action}}<div class="name">{{name}} rolls</div>{{/action}}
-            {{#resist}}<div class="name">{{name}} rolls to resist with</div>{{/resist}}
-            <div class="stat">{{stat}}</div>
+            <div class="name">{{#house}}<span data-i18n="House"></span> {{/house}}{{name}} <span data-i18n="Rolls"></span></div>
+            {{#statname}}<div class="stat" data-i18n="{{statname}}"></div>{{/statname}}
+            {{#stat}}<div class="stat">{{stat}}</div>{{/stat}}
         </div>
         <div class="lower">
             <div class="dice">
-                {{^zerodice}}{{dice}}{{/zerodice}}
+                {{^zerodice}}
+                <div class="zerodice3">
+                    <span  data-i18n="Dice"></span>
+                </div>
+                <div>{{dice}}</div>
+                {{/zerodice}}
                 {{#zerodice}}
+                    <div class="zerodice3" data-i18n="ZeroDice"></div>
                     <div class="zerodice1">{{zerodice}}</div>
-                    <div class="zerodice2" data-i18n="ZeroDiceDescription">[placeholder]</div>
+                    <div class="zerodice2" data-i18n="ZeroDiceDescription"></div>
                 {{/zerodice}}
             </div>
             {{#action}}
@@ -29,5 +35,6 @@
             {{/action}}
         </div>
     </div>
-    <img class="sword" src="https://raw.githubusercontent.com/TTiatia/CourtOfBladesSheets/main/Astro/public/Sword.png"/>
+    {{#zerodice}}<img class="sword zero" src="https://raw.githubusercontent.com/TTiatia/CourtOfBladesSheets/main/Astro/public/Sword.png"/>{{/zerodice}}
+    {{^zerodice}}<img class="sword nonzero" src="https://raw.githubusercontent.com/TTiatia/CourtOfBladesSheets/main/Astro/public/Sword.png"/>{{/zerodice}}
 </rolltemplate>

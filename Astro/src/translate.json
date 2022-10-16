@@ -687,7 +687,7 @@
     "PlaybookAbility_UponANeedleName": "Upon a needle",
     "PlaybookAbility_ValorBeyondDeathDescription": "When you max out your stress tracker or take level 4 harm, you are not immediately removed from the fight. You may stay and aid your coterie as long as they assist you, or until you push yourself to take one last action. You also gain +1 shatter box to fill before you must sleep.",
     "PlaybookAbility_ValorBeyondDeathName": "Valor beyond death",
-    "PlaybookAbility_VengefulDescription": "Gain an additional xp triggerL Did you get payback against someone who harmed you, your House, Coterie, or someone you care about? If your coterie helped you get payback, also mark coterie xp. In addition, you gain +1 effect when acting to harm someone who has personally wronged you.",
+    "PlaybookAbility_VengefulDescription": "Gain an additional xp trigger Did you get payback against someone who harmed you, your House, Coterie, or someone you care about? If your coterie helped you get payback, also mark coterie xp. In addition, you gain +1 effect when acting to harm someone who has personally wronged you.",
     "PlaybookAbility_VengefulName": "Vengeful",
     "PlaybookAbility_VeteranDescription": "Choose a special ability from another playbook.",
     "PlaybookAbility_VeteranName": "Veteran",
@@ -902,5 +902,12 @@
     "Zero": "Zero",
     "Effect": "Effect",
     "Position": "Position",
-    "FortuneRoll": "Fortune roll"
+    "FortuneRoll": "Fortune roll",
+    "RollsFortune": "Rolls fortune",
+    "ZeroDice": "Zero dice",
+    "Rolls": "Rolls",
+    "ResistsAConsequenceWith": "Resists a consequence with",
+    "ResistanceRollExplanation": "Suffer 6 stress minus the highest die result. When you roll a critical on resistance, clear 1 stress.",
+    "Dice": "Dice",
+    "NumberOfPCStressBoxes": "Number of PC stress boxes"
 }

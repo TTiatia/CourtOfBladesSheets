@@ -1,7 +1,7 @@
 ---
 const {id, classes, armourAttr, specAttr} = Astro.props;
 ---
-<div id={id} class={`grid gtw-2 b gaph-8 ${classes}`}>
+<div id={id} class={`grid gtw-2 b gaph-8 ${classes || ""}`}>
     <div class="bg-black text-center gw-2 marg-bottom upcase" data-i18n="ArmorUses">Armor uses</div>
     <div class="text-center upcase" data-i18n="Armor">Armor</div>
     <div><input type="checkbox" name={`attr_${armourAttr}`} class="shape-diamond-med checked-red" /></div>

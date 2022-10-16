@@ -13,7 +13,7 @@ const {
     hasName,
 } = Astro.props;
 ---
-<div id={id} class={`grid gtw-1 ${classes}`}>
+<div id={id} class={`grid gtw-1 ${classes || ""}`}>
     <div class="heading bg-med pad-left border-top border-bottom upcase"  data-i18n={titleTranslation || ""}>{title}</div>
     <RepeatingSection attr={repeatAttr} classes="ability-list">
         { hasName == true &&
@@ -24,6 +24,7 @@ const {
                 </div>
                 <input type="text" name={`attr_${nameAttr}`} class="ability-label mylabel align-start" placeholder="Ability name"  data-i18n-placeholder="AbilityName">
             </div>
+            <input type="hidden" name={`attr_${enabledAttr}_autofill`} value="1" />
             <FieldAutoExpandText
                 attr={descAttr}
                 classes="marg-bottom"
@@ -38,6 +39,7 @@ const {
                 <div class="row-cb-holder marg-right">
                     <input type="checkbox" class="shape-dot checked-red align-start" value={1} name={`attr_${enabledAttr}`}>
                 </div>
+                <input type="hidden" name={`attr_${enabledAttr}_autofill`} value="1" />
                 <FieldAutoExpandText
                     attr={descAttr}
                     classes="flex-grow"
