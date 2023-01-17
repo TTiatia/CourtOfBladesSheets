@@ -2,10 +2,10 @@
 const {id, classes} = Astro.props;
 ---
 
-<div class={`grid gtw-1 paramour-name ${classes || ""}`}>
+<div class={`grid gtw-1 ${classes || ""}`}>
     <div class="gw-1 grid-paramour marg-top gapw-6">
         <div class="paramourname gw-1 align-end text-right" data-i18n="Paramour">Paramour</div>
-        <input id="paramour-name" type="text" name="attr_pcparamour" class="gw-1" />
+        <input id="" type="text" name="attr_pcparamour" class="gw-1 paramour-name" />
         <div>
             <div class="gw-1 gh-1 b text-center upcase" data-i18n="Heat">Heat</div>
             <div id="pcpanel-heatbox" class="text-center tracker tracked-red">

@@ -34,7 +34,12 @@ function toArray(arg) { return Array.from(Array(arg), (x, i) => i + 1); }
             </>
         ))}
         <div class="marg-top grid-gmnotes">
-            <NoteField label="GM Notes" labelTranslation="GMNotes" attr="gmnotes"></NoteField>
+            <NoteField
+                attr="gmnotes"
+                label="GM Notes"
+                labelTranslation="GMNotes"
+                textclasses="factionnotes">
+            </NoteField>
             <div>
                 <div class="bordered round-borders-top bg-light upcase text-center b"  data-i18n="GMClocks">GM Clocks</div>
                 <DynamicClocks 

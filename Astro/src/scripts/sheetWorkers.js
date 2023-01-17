@@ -1,6 +1,6 @@
 const metaData = {
-    sheetVersion: "1.0",
-    lastUpdate: "2022-10-16"
+    sheetVersion: "1.0.3",
+    lastUpdate: "2023-01-17"
 };
 
 // shorter alias
@@ -2122,7 +2122,6 @@ const fillCoterieUniversalXP = () => {
 
     // Loop through and add default XP triggers
     for (let x of xpTriggers.coterie) {
-        console.log(`coterie xp: ${x}: ${x()}`);
         let newId = generateRowID();
         let prefix = `repeating_housexptrigger_${newId}_`;
         newAttrs[prefix + "housexpextra"] = x();
@@ -2230,8 +2229,6 @@ const setDefaultAttrs = (dict) => {
     let settings = Object.getOwnPropertyNames(dict);
 
     for (const key of settings) {
-
-        console.log(`\tKey: ${key}\n\tdict[key]: ${dict[key]()}`);
         if (key) {
             setAttrs({
                 [key]: dict[key]()
@@ -2245,6 +2242,7 @@ const setDefaultAttrs = (dict) => {
 };
 
 const debugPrint = (obj) => {
+    return;
     Object
         .keys(obj)
         .forEach((prop) => {
@@ -2288,8 +2286,6 @@ const recalculateFormula = (key, newValue) => {
 };
 
 const initialSetup = () => {
-    console.log("Starting initial sheet setup");
-
     // Default values for sheets
     setDefaultAttrs(pcDefaults);
 
@@ -2303,10 +2299,6 @@ const initialSetup = () => {
 
     // Faction sheet
     fillFactions();
-
-    // GM Turn sheet placeholder();
-
-    console.log("Initial sheet setup complete");
 };
 
 // Event: When a character sheet is opened
@@ -2322,7 +2314,6 @@ on("sheet:opened", () => {
 
 // Event: When the playbook title is entered for the first time
 on("change:playbookName", (args) => {
-    console.log("Playbook name change detected.");
     getAttrs([
         "playbooktype", "playbookName"
     ], (values) => {
@@ -2394,7 +2385,6 @@ on("change:playbookName", (args) => {
 
 // Event: When the coterie title is entered for the first time
 on("change:housename", (args) => {
-    console.log("Coterie name change detected.");
     getAttrs([
         "coteriehouse", "housename"
     ], (values) => {

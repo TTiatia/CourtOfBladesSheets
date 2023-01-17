@@ -2,7 +2,7 @@
 const {id, classes, noteAttr} = Astro.props;
 ---
 <div class={`notes bg-light round-borders borders ${classes || ""}`}>
-    <div class="b text-center border-bottom upcase">Notes</div>
+    <div class="b text-center border-bottom upcase" data-i18n="Notes"></div>
     <div>
         <textarea spellcheck={false} name={`attr_${noteAttr}`}></textarea>
     </div>

@@ -9,9 +9,9 @@ import PageCoterie from "../layouts/Page/Page_Coterie.astro";
 import PageSheetsettings from "../layouts/Page/Page_SheetSettings.astro";
 import SheetWorkers from "./SheetWorkers.astro";
 import RollTemplates from "./RollTemplates.astro";
+import SheetFooter from "../layouts/SheetFooter.astro";
 
 ---
-
 <div class="court-of-blades">
     <div is:raw class="hidden">
         <input type="hidden" name="attr_bonusdice" value="" />
@@ -45,6 +45,7 @@ import RollTemplates from "./RollTemplates.astro";
         classes=""
         pageNum={4}>
     </PageSheetsettings>
+    <SheetFooter></SheetFooter>
 </div>
 <RollTemplates></RollTemplates>
 <SheetWorkers></SheetWorkers>

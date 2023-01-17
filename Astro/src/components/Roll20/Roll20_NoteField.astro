@@ -8,7 +8,7 @@ const {
 } = Astro.props;
 import FieldAutoExpandText from "../Field/Field_AutoExpandText.astro";
 ---
-<div class={`grid gtw-1 round-borders bordered ${classes || ""}`}>
+<div class={`grid gtw-1 bg-white round-borders bordered ${classes || ""}`}>
     <div class="b text-center upcase round-borders-top border-bottom bg-light" data-i18n={labelTranslation}>{label}</div>
     <FieldAutoExpandText
         attr={attr}
