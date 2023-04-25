@@ -1,6 +1,6 @@
 ---
 import BonusDiceBox from "../../components/Box/Box_BonusDiceRules.astro";
-import BoxFortuneroll from "../../components/Box/Box_FortuneRoll.astro";
+import BoxFortuneIndulgeRoll from "../../components/Box/Box_FortuneIndulgeRoll.astro";
 import ItemListBox from "../../components/Box/Box_ItemList.astro";
 import LoadSelectionBox from "../../components/Box/Box_LoadSelection.astro";
 import PcStatBox from "../../components/Box/Box_PCStats.astro";
@@ -33,9 +33,9 @@ const { id, classes } = Astro.props;
         skillValueAttr="pcskillval"
         skillTooltipAttr="pcskilldesc">
     </PcStatBox>
-    <BoxFortuneroll
+    <BoxFortuneIndulgeRoll
         pcNameAttr="pcname">
-    </BoxFortuneroll>
+    </BoxFortuneIndulgeRoll>
     <BonusDiceBox 
         id="pcstatpanel-bonusdicebox" 
         classes="marg-top">
