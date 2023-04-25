@@ -1,8 +1,11 @@
 ---
-const {id, classes, nameAttr} = Astro.props;
+const {id, classes, pcNameAttr} = Astro.props;
 ---
-<div class={`text-center ${classes || ""}`}>
-    <button type="roll" class="bordered bg-white b upcase pad-left pad-top pad-right pad-bottom" data-i18n="RollFortune"
-        value={`&{template:cob-fortune} {{name=@{${nameAttr}}}} {{fortune=1}} {{stat=@{fortune}}} @{numberofdice}`}>
+<div class={`grid gtw-2 gth-1 text-center ${classes || ""}`}>
+    <button type="roll" class="bordered bg-white b upcase marg-left marg-top marg-right marg-bottom" data-i18n="Fortune"
+        value={`&{template:cob-fortune} {{name=@{${pcNameAttr}}}} {{fortune=1}} {{stat=@{fortune}}} @{numberofdice}`}>
+    </button>
+    <button type="roll" class="bordered bg-white b upcase marg-left marg-top marg-right marg-bottom" data-i18n="Indulge"
+        value={`&{template:cob-indulge} {{name=@{${pcNameAttr}}}} {{fortune=1}} {{stat=@{indulge}}} @{indulge_formula}`}>
     </button>
 </div>

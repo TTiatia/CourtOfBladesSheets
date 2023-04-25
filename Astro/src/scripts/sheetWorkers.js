@@ -1,6 +1,6 @@
 const metaData = {
-    sheetVersion: "1.0.3",
-    lastUpdate: "2023-01-17"
+    sheetVersion: "1.1.0",
+    lastUpdate: "2023-04-11"
 };
 
 // shorter alias
@@ -182,6 +182,9 @@ const pcDefaults = {
     position_query: () => `?{${translate("Position")}|${translate("Risky")},position=${translate("Risky")}|${translate("Controlled")},position=${translate("Controlled")}|${translate("Desperate")},position=${translate("Desperate")}|${translate("FortuneRoll")},position=${translate("Fortune")}}`,
     effect_query: () => `?{${translate("Effect")}|${translate("Standard")}|${translate("Limited")}|${translate("Great")}|${translate("Extreme")}|${translate("Zero")}}`,
     fortune: () => translate("Fortune"),
+    indulge: () => translate("Indulgence"),
+    indulge_val: () => "0",
+    indulge_formula: () => ``,
 
     hideGMTurnRolls: () => "/w gm ",
     pcstresssize: () => "2"
@@ -2234,15 +2237,16 @@ const setDefaultAttrs = (dict) => {
                 [key]: dict[key]()
             });
 
-            if ((key.startsWith("pcskillval") || key.startsWith("pcattrval") || key.startsWith("factstat")) && !key.endsWith("formula")) {
+            if ((key.startsWith("pcskillval") || key.startsWith("pcattrval") || key.startsWith("factstat")) && !key.endsWith("formula") && !key.startsWith("indulexp")) {
                 recalculateFormula(key, dict[key]);
             }
         }
     }
+    recalculateIndulgence();
 };
 
 const debugPrint = (obj) => {
-    return;
+    //return;
     Object
         .keys(obj)
         .forEach((prop) => {
@@ -2251,6 +2255,7 @@ const debugPrint = (obj) => {
 };
 
 const recalculateFormula = (key, newValue) => {
+    log(`Recalculating ${key}: ${newValue}`);
     var results = [];
     newValue = parseInt(newValue);
     for (let i = 0; i <= 5; i++) {
@@ -2258,8 +2263,8 @@ const recalculateFormula = (key, newValue) => {
         var dice = "";
         if (count > 0) {
             dice = `${i},dice=${Array(count)
-        .fill("[[d6]]")
-        .join("&amp;#44; ")}`;
+                                .fill("[[d6]]")
+                                .join("&amp;#44; ")}`;
         } else {
             dice = `${i},zerodice=[[d6]]&amp;#44; [[d6]]`;
         }
@@ -2285,6 +2290,18 @@ const recalculateFormula = (key, newValue) => {
     });
 };
 
+const recalculateIndulgence = () => {
+    getAttrs(["pcattrval1", "pcattrval2", "pcattrval3", "pcattrval4", "pcattrval5", "setting_attrcount"], function(values) {
+        var attrVals = [];
+        for (let i = 1; i <= parseInt(values["setting_attrcount"]); i++) {
+            attrVals.push(parseInt(values[`pcattrval${i}`]));
+        }
+        var newVal = Math.min(...attrVals);
+        setAttrs({indulge_val: newVal});
+        recalculateFormula("indulge", newVal);
+    });
+}
+
 const initialSetup = () => {
     // Default values for sheets
     setDefaultAttrs(pcDefaults);
@@ -2301,15 +2318,43 @@ const initialSetup = () => {
     fillFactions();
 };
 
+const updateVersion = (oldVersion) =>
+{
+    var numbers = oldVersion.split(".");
+    var oldMajorVersion = parseInt(numbers[0]);
+    var oldMinorVersion = parseInt(numbers[1]);
+    var oldRevision = parseInt(numbers[2]);
+
+    numbers = metaData.sheetVersion.split(".");
+    var newMajorVersion = parseInt(numbers[0]);
+    var newMinorVersion = parseInt(numbers[1]);
+    var newRevision = parseInt(numbers[2]);
+    
+    if (oldMajorVersion == "1" && oldMinorVersion < 1) {// 1.1.0
+        setAttrs({
+            indulge: translate("Indulgence"),
+            indulge_val: 0,
+            indulge_formula: ``,
+        });
+        recalculateIndulgence();
+    }
+
+    setAttrs({ version: metaData.sheetVersion });
+}
+
 // Event: When a character sheet is opened
 on("sheet:opened", () => {
-    getAttrs(["SheetSetup"], function(values) {
-        var isSetup = values["SheetSetup"];
-        if (!isSetup) {
-            initialSetup();
-            setAttrs({ SheetSetup: "true" });
+    getAttrs(["SheetSetup", "version"], function(values) {
+            var isSetup = values["SheetSetup"];
+            var version = values["version"];
+            if (!isSetup) {
+                initialSetup();
+                setAttrs({ SheetSetup: "true" });
+            } else if (version != metaData.sheetVersion) {
+                updateVersion(version);
+            }
         }
-    });
+    );
 });
 
 // Event: When the playbook title is entered for the first time
@@ -2510,6 +2555,7 @@ attrs.forEach((attrNum) => {
                 [`${attrName}${attrNum}`]: attrVal
             });
             recalculateFormula(`${attrName}${attrNum}`, attrVal);
+            recalculateIndulgence();
         });
     });
 });
